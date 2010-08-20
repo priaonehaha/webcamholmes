@@ -18,18 +18,13 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
-import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.view.Window;
 import android.widget.ImageView;
@@ -39,7 +34,7 @@ import android.widget.ImageView;
  *
  */
 public class LoadImageTask
-	extends AsyncTask<Void, Void, Void>
+	extends AsyncTask<Void, Bitmap, Void>
 {
 	//---------- Private fields
 	private ImageView mImageViewWhereShowBitmap;
@@ -98,11 +93,14 @@ public class LoadImageTask
 			//TODO
 			//checks for connection errors or other problems
 			
+			//start animation
+			publishProgress(null);
+			
 			//load bitmap
-			startWindowProgressAnimation();
 			Bitmap newBitmap = loadBitmapFromUrl(imagePath);
-			assignBitmap(newBitmap);
-			stopWindowProgressAnimation();
+			
+			//display results
+			publishProgress(newBitmap);
 
 			//no repetition needed
 			if (0 == waitInterval) break;
@@ -120,6 +118,21 @@ public class LoadImageTask
 		}
 		
 		return null;
+	}
+	
+	
+	@Override
+	protected void onProgressUpdate(Bitmap... values)
+	{
+		//different behavior for different situations
+		if (null == values) {
+			//start the progress animation
+			startWindowProgressAnimation();
+		} else {
+			//display the bitmap and stop the progress animation
+			assignBitmap(values[0]);
+			stopWindowProgressAnimation();
+		}
 	}
 
 

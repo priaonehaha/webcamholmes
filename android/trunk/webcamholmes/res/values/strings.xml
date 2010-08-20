@@ -16,6 +16,6 @@
 
 
 	<!-- ActMain -->
-    <string name="actwebcam_lblTitle">Displaying webcam %s</string>
+    <string name="actwebcam_lblTitle">WebcamHolmes - %s</string>
 
 </resources>

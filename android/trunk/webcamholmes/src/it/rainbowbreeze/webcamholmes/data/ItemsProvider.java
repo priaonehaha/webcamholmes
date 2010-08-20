@@ -61,7 +61,8 @@ public class ItemsProvider {
 	//---------- Public methods
 	public ItemWebcam getWebcamById(String webcamId) {
 		//TODO
-		ItemWebcam webcam = new ItemWebcam("1", "Test location", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg");
+		ItemWebcam webcam = new ItemWebcam("1", "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg");
+		//ItemWebcam webcam = new ItemWebcam("1", "Test location", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg");
 		webcam.setReloadInterval(5);
 		return webcam;
 	}
