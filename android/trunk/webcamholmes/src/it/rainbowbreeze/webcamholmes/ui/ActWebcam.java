@@ -19,6 +19,8 @@
 package it.rainbowbreeze.webcamholmes.ui;
 
 import it.rainbowbreeze.webcamholmes.R;
+import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ItemsProvider;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.logic.LoadImageTask;
@@ -135,10 +137,21 @@ public class ActWebcam
 	 */
 	private LoadImageTask startLoadWebcamImage(ItemWebcam webcam, Window window, ImageView imageView)
 	{
-		LoadImageTask task = new LoadImageTask(webcam, window, imageView);
-		task.execute();
+		IImageUrlProvider imageUrlProvider;
+		try {
+			imageUrlProvider = App.instance().getImageUrlProvider();
+			LoadImageTask task = new LoadImageTask(imageUrlProvider, webcam, window, imageView);
+			task.execute();
+	        return task;
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
         
-        return task;
 	}
 }
 
