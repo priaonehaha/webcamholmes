@@ -18,6 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.data;
 
+import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import android.test.AndroidTestCase;
 
 /**
@@ -25,10 +26,28 @@ import android.test.AndroidTestCase;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class ItemsProviderTest extends AndroidTestCase {
+public class ItemsDaoTest extends AndroidTestCase {
+
+	ItemsDao mDao;
 	
-	public void testWebcamLoad() {
+	@Override
+	protected void setUp() throws Exception {
+		mDao = new ItemsDao();
+	}
+	
+	public void testWebcamInsert() {
+		ItemWebcam webcam = new ItemWebcam(0, 0, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+
+		long webcamId = mDao.insertWebcam(webcam);
 		
+		ItemWebcam loadedWebcam = mDao.getWebcamById(webcamId);
+		assertEquals("Wrong id", webcamId, loadedWebcam.getId());
+		assertEquals("Wrong parentId", 0, loadedWebcam.getParentId());
+		assertEquals("Wrong name", "Paris - Tour Eiffel", loadedWebcam.getName());
+		assertEquals("Wrong url", "http://www.parislive.net/eiffelwebcam01.jpg", loadedWebcam.getImageUrl());
+		assertEquals("Wrong interval", 5, loadedWebcam.getReloadInterval());
+		
+		mDao.deleteWebcam(webcamId);
 	}
 	
 	public void testWebcamSave() {
