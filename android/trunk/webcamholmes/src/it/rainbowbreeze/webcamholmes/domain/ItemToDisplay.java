@@ -31,15 +31,50 @@ public abstract class ItemToDisplay
 
 
 
+	//---------- Constructor
+	public ItemToDisplay(long id) {
+		this(id, 0);
+	}
+
+	public ItemToDisplay(long id, long parentId) {
+		this(id, parentId, null);
+	}
+
+	public ItemToDisplay(long id, String name) {
+		this(id, 0, name);
+	}
+
+	public ItemToDisplay(long id, long parentId, String name) {
+		mId = id;
+		mParentId = parentId;
+		mName = name;
+	}
+
+
+
+
 	//---------- Public properties
 	/** The item has children **/
 	public abstract boolean hasChildren();
 
+	/** The Id of the item */
+	protected final long mId;
+	public long getId()
+	{ return mId; }
+
 	/** The name of the item */
-	public abstract String getName();
+	protected String mName;
+	public String getName()
+	{ return mName; }
+	public void setName(String newValue)
+	{ mName = newValue; }
 
 	/** The Id of the item */
-	public abstract String getId();
+	protected final long mParentId;
+	public long getParentId()
+	{ return mParentId; }
+
+
 
 
 	//---------- Public methods

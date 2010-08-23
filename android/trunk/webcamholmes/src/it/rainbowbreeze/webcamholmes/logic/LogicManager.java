@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
-import it.rainbowbreeze.webcamholmes.data.ItemsProvider;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import android.content.Context;
@@ -51,9 +50,9 @@ public class LogicManager {
 		
 		
 		List<ItemToDisplay> items = new ArrayList<ItemToDisplay>();
-		items.add(new ItemWebcam("0", "Webcam 1", ""));
-		items.add(new ItemWebcam("1", "Webcam 2", ""));
-		ItemsProvider.instance().setAllItemsList(items);
+		items.add(new ItemWebcam(1, 0, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5));
+		items.add(new ItemWebcam(2, 0, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0));
+		//ItemsDao.instance().setAllItemsList(items);
 
 		return res;
 	}

@@ -21,6 +21,7 @@ package it.rainbowbreeze.webcamholmes.common;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ImageUrlProvider;
+import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.logic.LogicManager;
 import it.rainbowbreeze.webcamholmes.ui.ActivityHelper;
 
@@ -43,6 +44,7 @@ public class App
 
 	//---------- Private fields
 	private ActivityHelper mActivityHelper;
+	private ItemsDao mItemsDao;
 
 	private Class<? extends ImageUrlProvider> mImageUrlProvider;
 
@@ -71,6 +73,7 @@ public class App
 		//create services and helper
 		mActivityHelper = new ActivityHelper(getApplicationContext());
 		mImageUrlProvider = ImageUrlProvider.class;
+		mItemsDao = new ItemsDao();
 		
 		//execute begin task
 		ResultOperation<Void> res = LogicManager.executeBeginTask(this);
@@ -103,6 +106,14 @@ public class App
 	 */
 	public ActivityHelper getActivityHelper()
 	{ return mActivityHelper; }
+	
+	/**
+	 * Factory method to obtain a {@link ItemsDao} object.
+	 * The object has a global app scope, so only one instance
+	 * of the class is created for the entire app lifecyce
+	 */
+	public ItemsDao getItemsDao()
+	{ return mItemsDao; }
 
 	
 	/**

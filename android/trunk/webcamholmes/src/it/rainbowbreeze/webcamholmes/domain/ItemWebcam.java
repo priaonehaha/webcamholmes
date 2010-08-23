@@ -27,13 +27,18 @@ public class ItemWebcam
 	extends ItemToDisplay
 {
 	//---------- Constructor
-	public ItemWebcam() {
-	}
 
-	public ItemWebcam(String id, String name, String imageUrl) {
-		mId = id;
-		mName = name;
+	public ItemWebcam(long id, long parentId, String name, String imageUrl, int reloadInterval) {
+		super(id, parentId, name);
 		mImageUrl = imageUrl;
+		mReloadInterval = reloadInterval;
+	}
+	
+	public ItemWebcam(long id, long parentId, String name, String imageUrl, int reloadInterval, boolean preferred) {
+		super(id, parentId, name);
+		mImageUrl = imageUrl;
+		mReloadInterval = reloadInterval;
+		mPreferred = preferred;
 	}
 	
 	
@@ -44,21 +49,8 @@ public class ItemWebcam
 	
 	//---------- Public properties
 	@Override
-	public boolean hasChildren() {
-		return false;
-	}
-
-	protected String mName;
-	@Override
-	public String getName()
-	{ return mName; }
-	public void setName(String newValue)
-	{ mName = newValue; }
-
-	protected String mId;
-	@Override
-	public String getId()
-	{ return mId; }
+	public boolean hasChildren()
+	{ return false; }
 
 	protected String mImageUrl;
 	public String getImageUrl()
@@ -71,6 +63,12 @@ public class ItemWebcam
 	{ return mReloadInterval; }
 	public void setReloadInterval(int newValue)
 	{ mReloadInterval = newValue; }
+
+	protected boolean mPreferred;
+	public boolean getPreferred()
+	{ return mPreferred; }
+	public void setPreferred(boolean newValue)
+	{ mPreferred = newValue; }
 
 
 	

@@ -21,7 +21,7 @@ package it.rainbowbreeze.webcamholmes.ui;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
-import it.rainbowbreeze.webcamholmes.data.ItemsProvider;
+import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.logic.LoadImageTask;
 import android.app.Activity;
@@ -125,8 +125,8 @@ public class ActWebcam
 		Bundle extras = intent.getExtras();
 		//checks if current editing is for a provider or a subservice
 		if(extras != null) {
-			String webcamId = extras.getString(ActivityHelper.INTENTKEY_WEBCAMID);
-			mWebcam = ItemsProvider.instance().getWebcamById(webcamId);
+			long webcamId = extras.getLong(ActivityHelper.INTENTKEY_WEBCAMID);
+			mWebcam = ItemsDao.instance().getWebcamById(webcamId);
 		} else {
 			mWebcam = null;
 		}

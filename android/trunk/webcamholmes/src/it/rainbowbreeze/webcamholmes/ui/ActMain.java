@@ -22,7 +22,7 @@ import java.util.List;
 
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
-import it.rainbowbreeze.webcamholmes.data.ItemsProvider;
+import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -60,7 +60,7 @@ public class ActMain
         setTitle(R.string.actmain_lblTitle);
         
         //setup the list of webcams to show
-        mItemsToDisplay = ItemsProvider.instance().getAllItemsList();
+        mItemsToDisplay = App.instance().getItemsDao().getChildrenOfParentItem(0);
         ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
         		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
         setListAdapter(mItemsListAdapter);

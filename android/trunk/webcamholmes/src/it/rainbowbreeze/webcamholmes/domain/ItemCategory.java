@@ -31,24 +31,20 @@ public class ItemCategory
 	
 	
 	
-	//---------- Public properties
-	public boolean hasChildren() {
-		return true;
+	//---------- Constructor
+	public ItemCategory(long id, long parentId, String name) {
+		super(id, parentId, name);
 	}
 
-	protected String mName;
-	@Override
-	public String getName()
-	{ return mName; }
-	public void setName(String newValue)
-	{ mName = newValue; }
 
-	protected String mId;
-	@Override
-	public String getId()
-	{ return mId; }
 
-	
+
+
+	//---------- Public properties
+	public boolean hasChildren()
+	{ return true; }
+
+
 	
 	
 	//---------- Events

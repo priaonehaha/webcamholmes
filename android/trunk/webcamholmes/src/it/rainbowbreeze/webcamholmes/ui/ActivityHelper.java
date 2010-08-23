@@ -95,10 +95,10 @@ public class ActivityHelper
 	 * 
 	 * @param callerActivity caller activity
 	 */
-	public void openShowWebcam(Activity callerActivity, String webcamId)
+	public void openShowWebcam(Activity callerActivity, long webcamId)
 	{
 		Map<String, String> extraData = new HashMap<String, String>();
-		extraData.put(INTENTKEY_WEBCAMID, webcamId);
+		extraData.put(INTENTKEY_WEBCAMID, String.valueOf(webcamId));
 		
 		openActivity(callerActivity, ActWebcam.class, extraData, true, REQUESTCODE_NONE);
 	}
