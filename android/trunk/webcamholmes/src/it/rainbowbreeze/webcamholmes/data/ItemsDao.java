@@ -66,7 +66,9 @@ public class ItemsDao
     
     
 	//---------- Constructor    
-
+    public ItemsDao(Context context) {
+    	mOpenHelper = new DatabaseHelper(context);
+	}
 	
 
     
@@ -93,7 +95,7 @@ public class ItemsDao
             db.execSQL("CREATE TABLE " + WebcamHolmes.Category.TABLE_NAME + " ("
                     + WebcamHolmes.Category._ID + " INTEGER PRIMARY KEY,"
                     + WebcamHolmes.Category.PARENT_CATEGORY_ID + " INTEGER,"
-                    + WebcamHolmes.Category.NAME + " TEXT,"
+                    + WebcamHolmes.Category.NAME + " TEXT"
                     + ");");
        }
 
@@ -114,16 +116,8 @@ public class ItemsDao
 
 
 	//---------- Public properties
-	
-	/** Singleton */
-	private static ItemsDao mInstance;
-	public static ItemsDao instance()
-	{
-		if (null == mInstance) mInstance = new ItemsDao();
-		return mInstance;
-	}
 
-	
+
 
     
 	//---------- Events
@@ -163,6 +157,7 @@ public class ItemsDao
 	/**
 	 * Add a new webcam to the database
 	 * @param webcam
+	 * @return the id of the new webcam
 	 */
 	public long insertWebcam(ItemWebcam webcam) {
 		
@@ -183,6 +178,7 @@ public class ItemsDao
 	/**
 	 * Add a new webcam to the database
 	 * @param webcam
+	 * @return the id of the new category
 	 */
 	public long insertCategory(ItemCategory category) {
 		
@@ -197,16 +193,39 @@ public class ItemsDao
         return categoryId;
 	}
 
-	
+
+	/**
+	 * Remove a webcam
+	 * @param webcamId the id of the webcam to delete
+	 * @return the deleted webcam (1 if success, 0 if no webcams were found)
+	 */
 	public int deleteWebcam(long webcamId) {
-		//TODO
-		return 0;
+		int count;
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        count = db.delete(
+        		WebcamHolmes.Webcam.TABLE_NAME,
+        		WebcamHolmes.Webcam._ID + "=" + webcamId,
+                null);
+		return count;
 	}
 
+	/**
+	 * Remove a category
+	 * @param categoryId the id of the category to delete
+	 * @return the deleted category (1 if success, 0 if no categories were found)
+	 */
 	public int deleteCategory(long categoryId) {
-		//TODO
-		return 0;
+		int count;
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        count = db.delete(
+        		WebcamHolmes.Category.TABLE_NAME,
+        		WebcamHolmes.Category._ID + "=" + categoryId,
+                null);
+		return count;
 	}
+
+
+
 	
 	//---------- Private methods
 	/**
@@ -275,53 +294,4 @@ public class ItemsDao
         return list;
 	}
 	
-	/**
-	 * Return the latest id used for the webcam table
-	 * @return
-	 */
-	private long getLatestWebcamId() {
-        SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-        Cursor cur = db.query(WebcamHolmes.Webcam.TABLE_NAME,
-        		new String[]{ WebcamHolmes.Webcam._ID },
-        		null,
-        		null,
-        		null,
-        		null,
-        		WebcamHolmes.Webcam._ID + "DESC");
-
-        long latestId = 0;
-        
-        if (cur.moveToFirst()) {
-        	latestId = cur.getLong(0);
-        }
-        cur.close();
-        cur = null;
-
-        return latestId;
-	}
-
-	/**
-	 * Return the latest id used for the category table
-	 * @return
-	 */
-	private long getLatestCategoryId() {
-        SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-        Cursor cur = db.query(WebcamHolmes.Webcam.TABLE_NAME,
-        		new String[]{ WebcamHolmes.Webcam._ID },
-        		null,
-        		null,
-        		null,
-        		null,
-        		WebcamHolmes.Category._ID + "DESC");
-
-        long latestId = 0;
-        
-        if (cur.moveToFirst()) {
-        	latestId = cur.getLong(0);
-        }
-        cur.close();
-        cur = null;
-
-        return latestId;
-	}
 }

@@ -126,7 +126,7 @@ public class ActWebcam
 		//checks if current editing is for a provider or a subservice
 		if(extras != null) {
 			long webcamId = extras.getLong(ActivityHelper.INTENTKEY_WEBCAMID);
-			mWebcam = ItemsDao.instance().getWebcamById(webcamId);
+			mWebcam = App.instance().getItemsDao().getWebcamById(webcamId);
 		} else {
 			mWebcam = null;
 		}

@@ -73,7 +73,7 @@ public class App
 		//create services and helper
 		mActivityHelper = new ActivityHelper(getApplicationContext());
 		mImageUrlProvider = ImageUrlProvider.class;
-		mItemsDao = new ItemsDao();
+		mItemsDao = new ItemsDao(getApplicationContext());
 		
 		//execute begin task
 		ResultOperation<Void> res = LogicManager.executeBeginTask(this);
