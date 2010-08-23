@@ -22,8 +22,7 @@ import it.rainbowbreeze.libs.log.LogFacility;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
-import it.rainbowbreeze.webcamholmes.domain.WebcamHolmes.Category;
-import it.rainbowbreeze.webcamholmes.domain.WebcamHolmes.Webcam;
+import it.rainbowbreeze.webcamholmes.domain.WebcamHolmes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,18 +48,18 @@ public class ItemsDao
      * Standard projection for the interesting columns of a webcam.
      */
     private static final String[] WEBCAM_FULL_PROJECTION = new String[] {
-        Webcam._ID, // 0
-        Webcam.PARENT_CATEGORY_ID, // 1
-        Webcam.NAME, // 2
-        Webcam.IMAGEURL, // 3
-        Webcam.RELOAD_INTERVAL, // 4
-        Webcam.PREFERRED, // 5
+    	WebcamHolmes.Webcam._ID, // 0
+    	WebcamHolmes.Webcam.PARENT_CATEGORY_ID, // 1
+    	WebcamHolmes.Webcam.NAME, // 2
+    	WebcamHolmes.Webcam.IMAGEURL, // 3
+    	WebcamHolmes.Webcam.RELOAD_INTERVAL, // 4
+    	WebcamHolmes.Webcam.PREFERRED, // 5
     };
 
     private static final String[] CATEGORY_FULL_PROJECTION = new String[] {
-        Category._ID, // 0
-        Category.PARENT_CATEGORY_ID, // 1
-        Category.NAME, // 2
+    	WebcamHolmes.Category._ID, // 0
+    	WebcamHolmes.Category.PARENT_CATEGORY_ID, // 1
+    	WebcamHolmes.Category.NAME, // 2
     };
 
     
@@ -83,18 +82,18 @@ public class ItemsDao
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE " + Webcam.TABLE_NAME + " ("
-                    + Webcam._ID + " INTEGER PRIMARY KEY,"
-                    + Webcam.PARENT_CATEGORY_ID + " INTEGER,"
-                    + Webcam.NAME + " TEXT,"
-                    + Webcam.IMAGEURL + " TEXT,"
-                    + Webcam.RELOAD_INTERVAL + " SMALL,"
-                    + Webcam.PREFERRED + " BOOLEAN"
+            db.execSQL("CREATE TABLE " + WebcamHolmes.Webcam.TABLE_NAME + " ("
+                    + WebcamHolmes.Webcam._ID + " INTEGER PRIMARY KEY,"
+                    + WebcamHolmes.Webcam.PARENT_CATEGORY_ID + " INTEGER,"
+                    + WebcamHolmes.Webcam.NAME + " TEXT,"
+                    + WebcamHolmes.Webcam.IMAGEURL + " TEXT,"
+                    + WebcamHolmes.Webcam.RELOAD_INTERVAL + " SMALL,"
+                    + WebcamHolmes.Webcam.PREFERRED + " BOOLEAN"
                     + ");");
-            db.execSQL("CREATE TABLE " + Category.TABLE_NAME + " ("
-                    + Category._ID + " INTEGER PRIMARY KEY,"
-                    + Category.PARENT_CATEGORY_ID + " INTEGER,"
-                    + Category.NAME + " TEXT,"
+            db.execSQL("CREATE TABLE " + WebcamHolmes.Category.TABLE_NAME + " ("
+                    + WebcamHolmes.Category._ID + " INTEGER PRIMARY KEY,"
+                    + WebcamHolmes.Category.PARENT_CATEGORY_ID + " INTEGER,"
+                    + WebcamHolmes.Category.NAME + " TEXT,"
                     + ");");
        }
 
@@ -102,8 +101,8 @@ public class ItemsDao
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             LogFacility.i("Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS " + Webcam.TABLE_NAME);
-            db.execSQL("DROP TABLE IF EXISTS " + Category.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + WebcamHolmes.Webcam.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + WebcamHolmes.Category.TABLE_NAME);
             onCreate(db);
         }
 
@@ -140,7 +139,7 @@ public class ItemsDao
 //		webcam.setReloadInterval(5);
 //		return webcam;
 		
-        List<ItemToDisplay> webcams = getWebcamsFromDatabase(Webcam._ID + "=" + webcamId);
+        List<ItemToDisplay> webcams = getWebcamsFromDatabase(WebcamHolmes.Webcam._ID + "=" + webcamId);
 
         //returns first webcam found. or null
         return webcams.size() > 0 ? (ItemWebcam) webcams.get(0) : null;
@@ -153,9 +152,9 @@ public class ItemsDao
 	 */
 	public List<ItemToDisplay> getChildrenOfParentItem(long parentItemId) {
 		//first get all the categories
-		List<ItemToDisplay> items = getCategoriesFromDatabase(Category.PARENT_CATEGORY_ID + "=" + parentItemId);
+		List<ItemToDisplay> items = getCategoriesFromDatabase(WebcamHolmes.Category.PARENT_CATEGORY_ID + "=" + parentItemId);
 		//then, add the webcams
-		items.addAll(getWebcamsFromDatabase(Webcam.PARENT_CATEGORY_ID + "=" + parentItemId));
+		items.addAll(getWebcamsFromDatabase(WebcamHolmes.Webcam.PARENT_CATEGORY_ID + "=" + parentItemId));
 
 		return items;
 	}
@@ -170,13 +169,13 @@ public class ItemsDao
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         
         ContentValues values = new ContentValues();
-        values.put(Webcam.PARENT_CATEGORY_ID, webcam.getParentId());
-        values.put(Webcam.NAME, webcam.getName());
-        values.put(Webcam.IMAGEURL, webcam.getImageUrl());
-        values.put(Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
-        values.put(Webcam.PREFERRED, webcam.getPreferred());
+        values.put(WebcamHolmes.Webcam.PARENT_CATEGORY_ID, webcam.getParentId());
+        values.put(WebcamHolmes.Webcam.NAME, webcam.getName());
+        values.put(WebcamHolmes.Webcam.IMAGEURL, webcam.getImageUrl());
+        values.put(WebcamHolmes.Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
+        values.put(WebcamHolmes.Webcam.PREFERRED, webcam.getPreferred());
 
-        long webcamId = db.insert(Webcam.TABLE_NAME, Webcam.NAME, values);
+        long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
 
         return webcamId;
 	}
@@ -190,10 +189,10 @@ public class ItemsDao
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         
         ContentValues values = new ContentValues();
-        values.put(Category.PARENT_CATEGORY_ID, category.getParentId());
-        values.put(Category.NAME, category.getName());
+        values.put(WebcamHolmes.Category.PARENT_CATEGORY_ID, category.getParentId());
+        values.put(WebcamHolmes.Category.NAME, category.getName());
 
-        long categoryId = db.insert(Category.TABLE_NAME, Category.NAME, values);
+        long categoryId = db.insert(WebcamHolmes.Category.TABLE_NAME, WebcamHolmes.Category.NAME, values);
 
         return categoryId;
 	}
@@ -219,13 +218,13 @@ public class ItemsDao
 		List<ItemToDisplay> list = new ArrayList<ItemToDisplay>();
 		
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-        Cursor cur = db.query(Webcam.TABLE_NAME,
+        Cursor cur = db.query(WebcamHolmes.Webcam.TABLE_NAME,
         		WEBCAM_FULL_PROJECTION,
         		where,
         		null,
         		null,
         		null,
-        		Webcam.DEFAULT_SORT_ORDER);
+        		WebcamHolmes.Webcam.DEFAULT_SORT_ORDER);
         
         if (cur.moveToFirst()) {
 	        do {
@@ -253,13 +252,13 @@ public class ItemsDao
 		List<ItemToDisplay> list = new ArrayList<ItemToDisplay>();
 		
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-        Cursor cur = db.query(Category.TABLE_NAME,
+        Cursor cur = db.query(WebcamHolmes.Category.TABLE_NAME,
         		CATEGORY_FULL_PROJECTION,
         		where,
         		null,
         		null,
         		null,
-        		Category.DEFAULT_SORT_ORDER);
+        		WebcamHolmes.Category.DEFAULT_SORT_ORDER);
         
         if (cur.moveToFirst()) {
 	        do {
@@ -282,13 +281,13 @@ public class ItemsDao
 	 */
 	private long getLatestWebcamId() {
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-        Cursor cur = db.query(Webcam.TABLE_NAME,
-        		new String[]{ Webcam._ID },
+        Cursor cur = db.query(WebcamHolmes.Webcam.TABLE_NAME,
+        		new String[]{ WebcamHolmes.Webcam._ID },
         		null,
         		null,
         		null,
         		null,
-        		Webcam._ID + "DESC");
+        		WebcamHolmes.Webcam._ID + "DESC");
 
         long latestId = 0;
         
@@ -307,13 +306,13 @@ public class ItemsDao
 	 */
 	private long getLatestCategoryId() {
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-        Cursor cur = db.query(Webcam.TABLE_NAME,
-        		new String[]{ Webcam._ID },
+        Cursor cur = db.query(WebcamHolmes.Webcam.TABLE_NAME,
+        		new String[]{ WebcamHolmes.Webcam._ID },
         		null,
         		null,
         		null,
         		null,
-        		Category._ID + "DESC");
+        		WebcamHolmes.Category._ID + "DESC");
 
         long latestId = 0;
         
