@@ -91,9 +91,13 @@ public class WebcamHolmes {
          * <P>Type: BOOLEAN</P>
          */
         public static final String PREFERRED = "preferred";
-
     
         /**
+         * Type of webcam. Manage how to load images
+         */
+        public static final String WEBCAM_TYPE = "webcamTypes";
+
+    	/**
          * The default sort order for this table
          */
         public static final String DEFAULT_SORT_ORDER = NAME;

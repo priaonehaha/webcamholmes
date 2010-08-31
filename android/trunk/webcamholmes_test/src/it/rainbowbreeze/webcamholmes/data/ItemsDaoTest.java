@@ -155,5 +155,10 @@ public class ItemsDaoTest extends AndroidTestCase {
         loadedWebcam2 = mDao.getWebcamById(webcamId2);
         assertNull("Webcam1 still exists", loadedWebcam1);
         assertNull("Webcam2 still exists", loadedWebcam2);
-    }    
+    }
+    
+    
+    public void testGetChildrenOfParentItem() {
+    	
+    }
 }

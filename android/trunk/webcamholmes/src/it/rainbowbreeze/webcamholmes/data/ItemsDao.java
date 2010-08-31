@@ -51,9 +51,10 @@ public class ItemsDao
     	WebcamHolmes.Webcam._ID, // 0
     	WebcamHolmes.Webcam.PARENT_CATEGORY_ID, // 1
     	WebcamHolmes.Webcam.NAME, // 2
-    	WebcamHolmes.Webcam.IMAGEURL, // 3
-    	WebcamHolmes.Webcam.RELOAD_INTERVAL, // 4
-    	WebcamHolmes.Webcam.PREFERRED, // 5
+    	WebcamHolmes.Webcam.WEBCAM_TYPE, // 3
+    	WebcamHolmes.Webcam.IMAGEURL, // 4
+    	WebcamHolmes.Webcam.RELOAD_INTERVAL, // 5
+    	WebcamHolmes.Webcam.PREFERRED, // 6
     };
 
     private static final String[] CATEGORY_FULL_PROJECTION = new String[] {
@@ -88,6 +89,7 @@ public class ItemsDao
                     + WebcamHolmes.Webcam._ID + " INTEGER PRIMARY KEY,"
                     + WebcamHolmes.Webcam.PARENT_CATEGORY_ID + " INTEGER,"
                     + WebcamHolmes.Webcam.NAME + " TEXT,"
+                    + WebcamHolmes.Webcam.WEBCAM_TYPE + " INTEGER,"
                     + WebcamHolmes.Webcam.IMAGEURL + " TEXT,"
                     + WebcamHolmes.Webcam.RELOAD_INTERVAL + " SMALL,"
                     + WebcamHolmes.Webcam.PREFERRED + " BOOLEAN"
@@ -250,8 +252,9 @@ public class ItemsDao
 	        	long id = cur.getLong(0);
 	        	long parentCategoryId = cur.getLong(1);
 	        	String name = cur.getString(2);
-	        	String imageUrl = cur.getString(3);
-	        	int reloadInterval = cur.getInt(4);
+	        	int webcamType = cur.getInt(3);
+	        	String imageUrl = cur.getString(4);
+	        	int reloadInterval = cur.getInt(5);
 	        	ItemWebcam webcam = new ItemWebcam(id, parentCategoryId, name, imageUrl, reloadInterval);
 	        	list.add(webcam);
 	        } while (cur.moveToNext());
