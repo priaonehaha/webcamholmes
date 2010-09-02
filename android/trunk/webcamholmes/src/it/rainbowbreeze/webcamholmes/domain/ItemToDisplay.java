@@ -58,7 +58,7 @@ public abstract class ItemToDisplay
 	public abstract boolean hasChildren();
 
 	/** The Id of the item */
-	protected final long mId;
+	protected long mId;
 	public long getId()
 	{ return mId; }
 
@@ -70,7 +70,7 @@ public abstract class ItemToDisplay
 	{ mName = newValue; }
 
 	/** The Id of the item */
-	protected final long mParentId;
+	protected long mParentId;
 	public long getParentId()
 	{ return mParentId; }
 

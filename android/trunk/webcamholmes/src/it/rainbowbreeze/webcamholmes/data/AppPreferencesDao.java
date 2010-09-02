@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of Webcam project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -16,49 +16,38 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
-package it.rainbowbreeze.webcamholmes.domain;
 
-/**
- * A category in the list
- * 
- * @author Alfredo "Rainbowbreeze" Morresi
- */
-public class ItemCategory
-	extends ItemToDisplay
+package it.rainbowbreeze.webcamholmes.data;
+
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
+import it.rainbowbreeze.webcamholmes.common.GlobalDef;
+
+public class AppPreferencesDao
+	extends BaseAppPreferencesDao
 {
+	//---------- Constructor
+
 	//---------- Private fields
 
-	
-	
-	
-	//---------- Constructor
-	public ItemCategory(long id, long parentId, String name) {
-		super(id, parentId, name);
-	}
-
-
-
-
-
 	//---------- Public properties
-	public void setId(long newValue)
-	{ mId = newValue; }
-	
-	public boolean hasChildren()
-	{ return true; }
 
-
-	
-	
 	//---------- Events
 
-	
-	
-	
 	//---------- Public methods
 
-	
-	
-	
 	//---------- Private methods
+	@Override
+	protected String getPreferencesKey() {
+		return GlobalDef.APP_PREFERENCES_KEY;
+	}
+
+	@Override
+	protected void backupProperties(Editor editorBackup) {
+	}
+
+	@Override
+	protected void restoreProperties(SharedPreferences settingsBackup) {
+	}
 }

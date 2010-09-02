@@ -16,49 +16,25 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
-package it.rainbowbreeze.webcamholmes.domain;
 
-/**
- * A category in the list
- * 
- * @author Alfredo "Rainbowbreeze" Morresi
- */
-public class ItemCategory
-	extends ItemToDisplay
-{
-	//---------- Private fields
+package it.rainbowbreeze.webcamholmes.common;
 
+public class GlobalDef {
+	/** keys for application preferences */
+	public final static String APP_PREFERENCES_KEY = "WebcamHolmesPrefs"; 
 	
-	
-	
-	//---------- Constructor
-	public ItemCategory(long id, long parentId, String name) {
-		super(id, parentId, name);
-	}
+	/** Application version, displayed to the user */
+	public final static String APP_VERSION_DESCRIPTION = "0.1b";
 
+	/** Application version, for internal use */
+	public final static String APP_VERSION = "00.01.00b";
 
+	/** address where send log */
+	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
+	
+	/** tag used in the log */
+	public final static String LOG_TAG = "WebcamHolmes";
 
-
-
-	//---------- Public properties
-	public void setId(long newValue)
-	{ mId = newValue; }
-	
-	public boolean hasChildren()
-	{ return true; }
-
-
-	
-	
-	//---------- Events
-
-	
-	
-	
-	//---------- Public methods
-
-	
-	
-	
-	//---------- Private methods
+	/** platform - dependent newline char */
+	public final static String LINE_SEPARATOR = System.getProperty("line.separator");	
 }

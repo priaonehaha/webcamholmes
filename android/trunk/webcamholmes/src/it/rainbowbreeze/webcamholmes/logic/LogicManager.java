@@ -18,12 +18,13 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
 
+import it.rainbowbreeze.libs.log.LogFacility;
+import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.common.GlobalDef;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
-import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
-import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
+import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import android.content.Context;
 
 /**
@@ -48,12 +49,15 @@ public class LogicManager {
 	{
 		ResultOperation<Void> res = new ResultOperation<Void>();
 		
+		LogFacility.v("ExecuteBeginTask");
 		
-		List<ItemToDisplay> items = new ArrayList<ItemToDisplay>();
-		items.add(new ItemWebcam(1, 0, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5));
-		items.add(new ItemWebcam(2, 0, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0));
-		//ItemsDao.instance().setAllItemsList(items);
-
+		//load configurations
+		App.instance().getAppPreferencesDao().load(context);
+		LogFacility.i("Preferences loaded");
+		
+		//checks for application upgrade
+		res = performAppVersionUpgrade(context);
+			
 		return res;
 	}
 
@@ -78,4 +82,53 @@ public class LogicManager {
 	
 	
 	//---------- Private methods
+	/**
+	 * Checks if some upgrade is needed between current version of the
+	 * application and the previous one
+	 * 
+	 *  @return true if all ok, otherwise false
+	 */
+	private static ResultOperation<Void> performAppVersionUpgrade(Context context)
+	{
+		AppPreferencesDao prefDao;
+		
+		prefDao = App.instance().getAppPreferencesDao();
+		if (isNewAppVersion()) {
+			LogFacility.i("Upgrading from " + prefDao.getAppVersion() + " to " + GlobalDef.APP_VERSION);
+			//perform upgrade
+			addItemsForVersion000100();
+			
+			//update expiration date
+    	    final Calendar c = Calendar.getInstance();
+    	    prefDao.setInstallationTime(c.getTimeInMillis());
+			
+			//update application version in the configuration
+    	    prefDao.setAppVersion(GlobalDef.APP_VERSION);
+			
+			//and save updates
+    	    prefDao.save();
+			
+			LogFacility.i("Upgrading complete");
+		}
+		
+		return new ResultOperation<Void>();
+	}
+	
+	
+	
+	private static ResultOperation<Void> addItemsForVersion000100() {
+		
+		return new ResultOperation<Void>();
+	}
+
+	/**
+	 * Check if the current application is new compared to the last time
+	 * the application run
+	 * 
+	 * @return
+	 */
+	public static boolean isNewAppVersion() {
+		String currentAppVersion = App.instance().getAppPreferencesDao().getAppVersion();
+		return GlobalDef.APP_VERSION.compareToIgnoreCase(currentAppVersion) > 0;
+	}
 }

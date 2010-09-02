@@ -48,6 +48,9 @@ public class ItemWebcam
 	
 	
 	//---------- Public properties
+	public void setId(long newValue)
+	{ mId = newValue; }
+	
 	@Override
 	public boolean hasChildren()
 	{ return false; }

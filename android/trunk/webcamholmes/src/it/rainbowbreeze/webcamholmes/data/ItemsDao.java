@@ -128,17 +128,28 @@ public class ItemsDao
 
 	
 	//---------- Public methods
-	public ItemWebcam getWebcamById(long webcamId) {
-//		//TODO
-//		ItemWebcam webcam = new ItemWebcam("1", "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg");
-//		//ItemWebcam webcam = new ItemWebcam("1", "Test location", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg");
-//		webcam.setReloadInterval(5);
-//		return webcam;
-		
+    /**
+     * Retrieves a webcam by its id
+     * @param webcamId
+     * @return webcam object or null
+     */
+    public ItemWebcam getWebcamById(long webcamId) {
         List<ItemToDisplay> webcams = getWebcamsFromDatabase(WebcamHolmes.Webcam._ID + "=" + webcamId);
 
-        //returns first webcam found. or null
+        //returns first webcam found or null
         return webcams.size() > 0 ? (ItemWebcam) webcams.get(0) : null;
+	}
+
+    /**
+     * Retrieves a category by its id
+     * @param categoryId
+     * @return category object or null
+     */
+	public ItemCategory getCategoryById(long categoryId) {
+        List<ItemToDisplay> categories = getCategoriesFromDatabase(WebcamHolmes.Category._ID + "=" + categoryId);
+
+        //returns first category found or null
+        return categories.size() > 0 ? (ItemCategory) categories.get(0) : null;
 	}
 
 	/**
@@ -173,6 +184,7 @@ public class ItemsDao
         values.put(WebcamHolmes.Webcam.PREFERRED, webcam.getPreferred());
 
         long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
+        webcam.setId(webcamId);
 
         return webcamId;
 	}
@@ -191,6 +203,7 @@ public class ItemsDao
         values.put(WebcamHolmes.Category.NAME, category.getName());
 
         long categoryId = db.insert(WebcamHolmes.Category.TABLE_NAME, WebcamHolmes.Category.NAME, values);
+        category.setId(categoryId);
 
         return categoryId;
 	}

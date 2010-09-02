@@ -18,7 +18,9 @@
  */
 package it.rainbowbreeze.webcamholmes.common;
 
+import it.rainbowbreeze.libs.log.LogFacility;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
+import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
@@ -45,6 +47,7 @@ public class App
 	//---------- Private fields
 	private ActivityHelper mActivityHelper;
 	private ItemsDao mItemsDao;
+	private AppPreferencesDao mAppPreferencesDao;
 
 	private Class<? extends ImageUrlProvider> mImageUrlProvider;
 
@@ -69,11 +72,16 @@ public class App
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
+		//set the log tag
+		LogFacility.init(GlobalDef.LOG_TAG);
+		LogFacility.i("App started");
 		
 		//create services and helper
 		mActivityHelper = new ActivityHelper(getApplicationContext());
 		mImageUrlProvider = ImageUrlProvider.class;
 		mItemsDao = new ItemsDao(getApplicationContext());
+		mAppPreferencesDao = new AppPreferencesDao();
 		
 		//execute begin task
 		ResultOperation<Void> res = LogicManager.executeBeginTask(this);
@@ -140,6 +148,9 @@ public class App
 	{
 		return mImageUrlProvider.newInstance();
 	}
+	
+	public AppPreferencesDao getAppPreferencesDao()
+	{ return mAppPreferencesDao; }
 	
     
     

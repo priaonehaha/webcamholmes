@@ -22,7 +22,6 @@ import java.util.List;
 
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
-import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -41,7 +40,11 @@ public class ActMain
 	extends ListActivity
 {
 	//---------- Private fields
+	private final static String PROP_KEY_CURRENT_PARENT_ITEM_ID = "CurrentParentItemId";
+	
 	private List<ItemToDisplay> mItemsToDisplay;
+	private long mCurrentParentItemId = 0;
+	
 
 
 
@@ -59,16 +62,20 @@ public class ActMain
         
         setTitle(R.string.actmain_lblTitle);
         
-        //setup the list of webcams to show
-        mItemsToDisplay = App.instance().getItemsDao().getChildrenOfParentItem(0);
-        ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
-        		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
-        setListAdapter(mItemsListAdapter);
-        
 		//register the context menu to defaul ListView of the view
 		//alternative method:
 		//http://www.anddev.org/creating_a_contextmenu_on_a_listview-t2438.html
 		registerForContextMenu(getListView());        
+    }
+    
+    @Override
+    protected void onStart() {
+    	super.onStart();
+        //setup the list of webcams and categories to show
+        mItemsToDisplay = App.instance().getItemsDao().getChildrenOfParentItem(mCurrentParentItemId);
+        ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
+        		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
+        setListAdapter(mItemsListAdapter);
     }
 
 
@@ -78,6 +85,19 @@ public class ActMain
 		
 		App.instance().getActivityHelper().openShowWebcam(this, item.getId());
 	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putLong(PROP_KEY_CURRENT_PARENT_ITEM_ID, mCurrentParentItemId);
+	}
+	
+	@Override
+	protected void onRestoreInstanceState(Bundle state) {
+		mCurrentParentItemId = state.getLong(PROP_KEY_CURRENT_PARENT_ITEM_ID);
+		super.onRestoreInstanceState(state);
+	}
+	
 
 	//---------- Public methods
 	
