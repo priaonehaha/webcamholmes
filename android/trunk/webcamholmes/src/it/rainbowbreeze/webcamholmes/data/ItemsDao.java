@@ -42,7 +42,7 @@ public class ItemsDao
 {
 	//---------- Private fields
     private static final String DATABASE_NAME = "webcamholmes.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     /**
      * Standard projection for the interesting columns of a webcam.
@@ -237,6 +237,33 @@ public class ItemsDao
         		WebcamHolmes.Category._ID + "=" + categoryId,
                 null);
 		return count;
+	}
+	
+
+	/**
+	 * Completely clean the database (used in tests)
+	 */
+	public int clearDatabaseComplete() {
+		int count;
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+		//delete all webcams
+		count = db.delete(
+        		WebcamHolmes.Webcam.TABLE_NAME,
+        		null,
+                null);
+		//delete all categories
+        count += db.delete(
+        		WebcamHolmes.Category.TABLE_NAME,
+        		null,
+                null);
+        return count;
+	}
+	
+	/**
+	 * Clean the database, but preserve user data (ie new webcam and categories)
+	 */
+	public void clearDatabasePreservingUserData() {
+		
 	}
 
 
