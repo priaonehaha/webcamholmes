@@ -350,5 +350,21 @@ public class ItemsDao
 
         return list;
 	}
+
+	/**
+	 * Returns the father id of the father category of the item
+	 * @param itemId
+	 * @return
+	 */
+	public long getParentIdOfCategory(long categoryId) {
+		if (0 == categoryId) return 0;
+
+		long parentId = 0;
+		ItemCategory category = getCategoryById(categoryId);
+		if (null != category) {
+			parentId = category.getParentId();
+		}
+		return parentId;
+	}
 	
 }

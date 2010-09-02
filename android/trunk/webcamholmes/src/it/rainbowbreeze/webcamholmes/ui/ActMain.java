@@ -25,6 +25,7 @@ import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -43,7 +44,7 @@ public class ActMain
 	private final static String PROP_KEY_CURRENT_PARENT_ITEM_ID = "CurrentParentItemId";
 	
 	private List<ItemToDisplay> mItemsToDisplay;
-	private long mCurrentParentItemId = 0;
+	private long mCurrentCategoryId = 0;
 
 
 
@@ -70,7 +71,7 @@ public class ActMain
     @Override
     protected void onStart() {
     	super.onStart();
-    	loadNewLevel(mCurrentParentItemId);
+    	loadNewLevel(mCurrentCategoryId);
     }
 
 
@@ -90,29 +91,75 @@ public class ActMain
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putLong(PROP_KEY_CURRENT_PARENT_ITEM_ID, mCurrentParentItemId);
+		outState.putLong(PROP_KEY_CURRENT_PARENT_ITEM_ID, mCurrentCategoryId);
 	}
 	
 	@Override
 	protected void onRestoreInstanceState(Bundle state) {
-		mCurrentParentItemId = state.getLong(PROP_KEY_CURRENT_PARENT_ITEM_ID);
+		mCurrentCategoryId = state.getLong(PROP_KEY_CURRENT_PARENT_ITEM_ID);
 		super.onRestoreInstanceState(state);
 	}
 	
 
+	/**
+	 * Intercept when the user press the Back button and create an event tracking
+	 * of the event
+	 * @param keyCode
+	 * @param event
+	 * @return
+	 */
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+	/**
+	 * Intercept when the user release the Back button, call the method for
+	 * saving data and close the activity
+	 * @param keyCode
+	 * @param event
+	 * @return
+	 */
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            backOnCategory();
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }	
+
+    
+    
+    
 	//---------- Public methods
 	
 
 	
 	
 	//---------- Private methods
-	private void loadNewLevel(long fatherId) {
+	private void loadNewLevel(long parentId) {
         //setup the list of webcams and categories to show
-		mCurrentParentItemId = fatherId;
-        mItemsToDisplay = App.i().getItemsDao().getChildrenOfParentItem(mCurrentParentItemId);
+		mCurrentCategoryId = parentId;
+        mItemsToDisplay = App.i().getItemsDao().getChildrenOfParentItem(mCurrentCategoryId);
         ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
         		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
         setListAdapter(mItemsListAdapter);
     }
 	
+    /**
+	 * Navigate one category  back or close the application if the category is the first
+	 */
+	private void backOnCategory() {
+		if (0 == mCurrentCategoryId) {
+			finish();
+			return;
+		}
+		
+		//find previous category
+		long parentId = App.i().getItemsDao().getParentIdOfCategory(mCurrentCategoryId);
+		loadNewLevel(parentId);
+	}
+
 }

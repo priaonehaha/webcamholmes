@@ -67,7 +67,10 @@ public class LogicManager extends BaseLogicManager {
 		super.executeBeginTask(context);
 		
 		//TODO remove when tests finish
-		createWebcam010000();
+		if (null == mItemsDao.getWebcamById(1)) {
+			//test deleted all webcams
+			createWebcam010000();
+		}
 		
 		return new ResultOperation<Void>();
 	}

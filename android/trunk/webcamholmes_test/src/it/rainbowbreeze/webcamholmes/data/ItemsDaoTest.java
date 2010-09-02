@@ -192,6 +192,36 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertNotNull("List of items retrieved cannot be null", items);
         assertNotNull("List of items retrieved cannot be null", items);
         assertEquals("Wrong number of items retrieved", 2, items.size());
+    }
+    
+    
+    public void testGetFatherOfCategory() {
+    	ItemWebcam webcam;
+        ItemCategory category;
+
+        category = ItemCategory.Factory.getSystemCategory(0, "Testcategory 1");
+        long categoryId1 = mDao.insertCategory(category);
+        category = ItemCategory.Factory.getSystemCategory(0, "Testcategory 1");
+        long categoryId2 = mDao.insertCategory(category);
+        category = ItemCategory.Factory.getSystemCategory(categoryId1, "Testcategory 1.1");
+        long categoryId11 = mDao.insertCategory(category);
+        category = ItemCategory.Factory.getSystemCategory(categoryId11, "Testcategory 1.2");
+        long categoryId12 = mDao.insertCategory(category);
         
+        webcam = ItemWebcam.Factory.getSystemWebcam(0, "Webcam 3", "http://localhost.edu/20050216_02.jpg", 30);
+        mDao.insertWebcam(webcam);
+        webcam = ItemWebcam.Factory.getSystemWebcam(categoryId1, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        mDao.insertWebcam(webcam);
+        webcam = ItemWebcam.Factory.getSystemWebcam(categoryId11, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
+        mDao.insertWebcam(webcam);
+        webcam = ItemWebcam.Factory.getSystemWebcam(categoryId12, "Webcam 3", "http://localhost.edu/20050216_02.jpg", 30);
+        mDao.insertWebcam(webcam);
+    	
+        assertEquals(0, mDao.getParentIdOfCategory(0));
+        assertEquals(0, mDao.getParentIdOfCategory(categoryId1));
+        assertEquals(categoryId1, mDao.getParentIdOfCategory(categoryId11));
+        assertEquals(categoryId11, mDao.getParentIdOfCategory(categoryId12));
+        assertEquals(categoryId11, mDao.getParentIdOfCategory(categoryId12));
+        assertEquals(0, mDao.getParentIdOfCategory(categoryId2));
     }
 }
