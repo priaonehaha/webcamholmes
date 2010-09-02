@@ -1,2 +1,4 @@
 TODO
+
+-parametro nella webcam e nella categoria che mi indica che e' personalizzata e non di sistema, cosi' posso conservarla tra un reset del db e l'altro
 -add webcam type to db and tests
