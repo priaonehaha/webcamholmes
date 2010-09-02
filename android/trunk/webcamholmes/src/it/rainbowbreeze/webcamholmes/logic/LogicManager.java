@@ -18,61 +18,68 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
-import java.util.Calendar;
-
-import it.rainbowbreeze.libs.log.LogFacility;
-import it.rainbowbreeze.webcamholmes.common.App;
-import it.rainbowbreeze.webcamholmes.common.GlobalDef;
+import it.rainbowbreeze.libs.common.BaseResultOperation;
+import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
+import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.logic.BaseLogicManager;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
-import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
+import it.rainbowbreeze.webcamholmes.data.ItemsDao;
+import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
+import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import android.content.Context;
+
+import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
  */
-public class LogicManager {
-	//---------- Constructor
+public class LogicManager extends BaseLogicManager {
 
-	
-	
-	
 	//---------- Private fields
+	private ItemsDao mItemsDao;
+	
+	
 
+	//---------- Constructor
+	/**
+	 * @param logFacility
+	 * @param globalDefs
+	 * @param appPreferencesDao
+	 */
+	public LogicManager(
+			BaseLogFacility logFacility,
+			BaseAppPreferencesDao appPreferencesDao,
+			String currentAppVersion,
+			ItemsDao itemsDao)
+	{
+		super(logFacility, appPreferencesDao, currentAppVersion);
+		mItemsDao = checkNotNull(itemsDao);
+	}
 	
 	
 	
 	//---------- Public properties
-	/**
-	 * Initializes data, execute begin operation
+	/* (non-Javadoc)
+	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeBeginTask(android.content.Context)
 	 */
-	public static ResultOperation<Void> executeBeginTask(Context context)
-	{
-		ResultOperation<Void> res = new ResultOperation<Void>();
+	@Override
+	public BaseResultOperation<Void> executeBeginTask(Context context) {
+		super.executeBeginTask(context);
 		
-		LogFacility.v("ExecuteBeginTask");
+		//TODO remove when tests finish
+		createWebcam010000();
 		
-		//load configurations
-		App.instance().getAppPreferencesDao().load(context);
-		LogFacility.i("Preferences loaded");
-		
-		//checks for application upgrade
-		res = performAppVersionUpgrade(context);
-			
-		return res;
+		return new ResultOperation<Void>();
 	}
 
-	/**
-	 * Executes final operation, just before the app close
-	 * @param context
-	 * @return
+
+	/* (non-Javadoc)
+	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeEndTast(android.content.Context)
 	 */
-	public static ResultOperation<Void> executeEndTast(Context context)
-	{
-		ResultOperation<Void> res = new ResultOperation<Void>();
-
-		return res;
+	@Override
+	public BaseResultOperation<Void> executeEndTast(Context context) {
+		return super.executeEndTast(context);
 	}
-
 	
 	
 	
@@ -82,53 +89,42 @@ public class LogicManager {
 	
 	
 	//---------- Private methods
-	/**
-	 * Checks if some upgrade is needed between current version of the
-	 * application and the previous one
-	 * 
-	 *  @return true if all ok, otherwise false
+	/* (non-Javadoc)
+	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeUpgradeTasks(java.lang.String)
 	 */
-	private static ResultOperation<Void> performAppVersionUpgrade(Context context)
-	{
-		AppPreferencesDao prefDao;
+	@Override
+	protected BaseResultOperation<Void> executeUpgradeTasks(String startingAppVersion) {
+		BaseResultOperation<Void> res =super.executeUpgradeTasks(startingAppVersion);
+		if (res.hasErrors()) return res;
 		
-		prefDao = App.instance().getAppPreferencesDao();
-		if (isNewAppVersion()) {
-			LogFacility.i("Upgrading from " + prefDao.getAppVersion() + " to " + GlobalDef.APP_VERSION);
-			//perform upgrade
-			addItemsForVersion000100();
-			
-			//update expiration date
-    	    final Calendar c = Calendar.getInstance();
-    	    prefDao.setInstallationTime(c.getTimeInMillis());
-			
-			//update application version in the configuration
-    	    prefDao.setAppVersion(GlobalDef.APP_VERSION);
-			
-			//and save updates
-    	    prefDao.save();
-			
-			LogFacility.i("Upgrading complete");
-		}
+		createWebcam010000();
 		
-		return new ResultOperation<Void>();
+		return res;
 	}
 	
-	
-	
-	private static ResultOperation<Void> addItemsForVersion000100() {
-		
-		return new ResultOperation<Void>();
-	}
 
 	/**
-	 * Check if the current application is new compared to the last time
-	 * the application run
-	 * 
-	 * @return
+	 * Creates webcam for version 01.00.00 of the app
 	 */
-	public static boolean isNewAppVersion() {
-		String currentAppVersion = App.instance().getAppPreferencesDao().getAppVersion();
-		return GlobalDef.APP_VERSION.compareToIgnoreCase(currentAppVersion) > 0;
+	private void createWebcam010000() {
+		ItemCategory category;
+		long categoryId;
+
+		mBaseLogFacility.v("Adding new webcam for version 1.0");
+		//add new item to the list
+		
+		category = ItemCategory.Factory.getSystemCategory(0, "Traffic - Australia");
+		categoryId = mItemsDao.insertCategory(category);
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Sidney - Anzac Bridge", "http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/anzacbr.jpg", 20));
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Sidney - William St.", "http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/williamst.jpg", 20));
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Sidney - Harbour Bridge", "http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/harbourbridge.jpg", 20));
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Sidney - Anzac Bridge", "http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/georgest.jpg", 20));
+		
+		category = ItemCategory.Factory.getSystemCategory(0, "Traffic - Italy");
+		categoryId = mItemsDao.insertCategory(category);
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "A4 Torino-Trieste uscita Bergamo", "http://get.edidomus.it/vp/cam1/image.jpg", 5));
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "A14 Trezzo sull'Adda", "http://get.edidomus.it/vp/cam23/image.jpg", 5));
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Milano - Tang Est Rubattino", "http://get.edidomus.it/vp/cam4/image.jpg", 5));
+		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Milano - Tang Est Mecenate", "http://get.edidomus.it/vp/cam6/image.jpg", 5));
 	}
 }

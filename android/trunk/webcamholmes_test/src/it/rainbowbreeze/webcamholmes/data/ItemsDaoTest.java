@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -45,7 +45,7 @@ public class ItemsDaoTest extends AndroidTestCase {
         ItemWebcam loadedWebcam;
 
         //insert first webcam
-        webcam = new ItemWebcam(0, 43, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        webcam = ItemWebcam.Factory.getSystemWebcam(43, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
         long webcamId1 = mDao.insertWebcam(webcam);
         
         loadedWebcam = mDao.getWebcamById(webcamId1);
@@ -56,7 +56,7 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertEquals("Wrong interval", 5, loadedWebcam.getReloadInterval());
         
         //insert second webcam
-        webcam = new ItemWebcam(0, 52, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
+        webcam = ItemWebcam.Factory.getSystemWebcam(52, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
         long webcamId2 = mDao.insertWebcam(webcam);
         
         loadedWebcam = mDao.getWebcamById(webcamId2);
@@ -72,7 +72,7 @@ public class ItemsDaoTest extends AndroidTestCase {
 
         //insert first webcam
         long expectedId = 2354;
-        webcam = new ItemWebcam(expectedId, 43, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        webcam = ItemWebcam.Factory.getSystemWebcam(expectedId, 43, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
         long webcamId = mDao.insertWebcam(webcam);
         
 //        assertEquals("Ids are different", expectedId, webcamId);
@@ -85,9 +85,9 @@ public class ItemsDaoTest extends AndroidTestCase {
         ItemWebcam loadedWebcam2;
     	
         //insert webcams
-        webcam = new ItemWebcam(0, 0, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        webcam = ItemWebcam.Factory.getSystemWebcam(0, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
         long webcamId1 = mDao.insertWebcam(webcam);
-        webcam = new ItemWebcam(0, 0, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
+        webcam = ItemWebcam.Factory.getSystemWebcam(0, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
         long webcamId2 = mDao.insertWebcam(webcam);
         
         //check if webcams could be retrieved
@@ -114,7 +114,7 @@ public class ItemsDaoTest extends AndroidTestCase {
         ItemCategory loadedCategory;
 
         //insert first category
-        category = new ItemCategory(0, 100, "Testcategory 1");
+        category = ItemCategory.Factory.getSystemCategory(100, "Testcategory 1");
         long categoryId1 = mDao.insertCategory(category);
         
         loadedCategory = mDao.getCategoryById(categoryId1);
@@ -123,7 +123,7 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertEquals("Wrong name", "Testcategory 1", loadedCategory.getName());
         
         //insert second category
-        category = new ItemCategory(0, 123, "Testcategory 2");
+        category = ItemCategory.Factory.getSystemCategory(123, "Testcategory 2");
         long categoryId2 = mDao.insertCategory(category);
         
         loadedCategory = mDao.getCategoryById(categoryId2);
@@ -138,9 +138,9 @@ public class ItemsDaoTest extends AndroidTestCase {
         ItemCategory loadedCategory2;
     	
         //insert categories
-        category = new ItemCategory(0, 126, "Category Paris");
+        category = ItemCategory.Factory.getSystemCategory(126, "Category Paris");
         long categoryId1 = mDao.insertCategory(category);
-        category = new ItemCategory(0, 53, "Category London");
+        category = ItemCategory.Factory.getSystemCategory(53, "Category London");
         long categoryId2 = mDao.insertCategory(category);
         
         //check if categories could be retrieved
@@ -168,15 +168,15 @@ public class ItemsDaoTest extends AndroidTestCase {
         ItemCategory category;
         List<ItemToDisplay> items;
         
-        webcam = new ItemWebcam(0, 54, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        webcam = ItemWebcam.Factory.getSystemWebcam(54, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
         long webcamId1 = mDao.insertWebcam(webcam);
-        webcam = new ItemWebcam(0, 54, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
+        webcam = ItemWebcam.Factory.getSystemWebcam(54, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
         long webcamId2 = mDao.insertWebcam(webcam);
-        webcam = new ItemWebcam(0, 123, "Webcam 3", "http://localhost.edu/20050216_02.jpg", 30);
+        webcam = ItemWebcam.Factory.getSystemWebcam(123, "Webcam 3", "http://localhost.edu/20050216_02.jpg", 30);
         long webcamId3 = mDao.insertWebcam(webcam);
-        category = new ItemCategory(0, 54, "Testcategory 1");
+        category = ItemCategory.Factory.getSystemCategory(54, "Testcategory 1");
         long categoryId1 = mDao.insertCategory(category);
-        category = new ItemCategory(0, 123, "Testcategory 1");
+        category = ItemCategory.Factory.getSystemCategory(123, "Testcategory 1");
         long categoryId2 = mDao.insertCategory(category);
         
         items = mDao.getChildrenOfParentItem(2);

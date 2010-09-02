@@ -19,9 +19,10 @@
 
 package it.rainbowbreeze.webcamholmes.ui;
 
-import it.rainbowbreeze.libs.log.LogFacility;
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.ui.BaseActivityHelper;
 import it.rainbowbreeze.webcamholmes.R;
+import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import java.util.HashMap;
@@ -39,20 +40,23 @@ import android.text.TextUtils;
 public class ActivityHelper
 	extends BaseActivityHelper
 {
-	//---------- Constructors
-	public ActivityHelper(Context context) {
-		super(context);
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	
-	
 	//---------- Private fields
 
 
 
 
+	//---------- Constructors
+	/**
+	 * @param logFacility
+	 * @param context
+	 */
+	public ActivityHelper(BaseLogFacility logFacility, Context context) {
+		super(logFacility, context);
+	}
+
+	
+	
+	
 	//---------- Public properties
 	public final static String INTENTKEY_SENDLOGREPORT = "SendLogReport";
 	public final static String INTENTKEY_WEBCAMID = "WebcamId";
@@ -128,7 +132,7 @@ public class ActivityHelper
 		} else {
 			if (!TextUtils.isEmpty(result.getResult())){
 				//shows the output of the command
-				LogFacility.i(result.getResult());
+				App.i().getLogFacility().i(result.getResult());
 				showInfo(context, result.getResult());
 			}
 		}		

@@ -94,10 +94,17 @@ public class WebcamHolmes {
     
         /**
          * Type of webcam. Manage how to load images
+         * <P>Type: INT</P>
          */
-        public static final String WEBCAM_TYPE = "webcamTypes";
+        public static final String TYPE = "webcamTypes";
 
-    	/**
+        /**
+         * If the webcam was created by user or by the system
+         * <P>Type: BOOLEAN</P>
+         */
+        public static final String CREATED_BY_USER = "userCreated";
+
+        /**
          * The default sort order for this table
          */
         public static final String DEFAULT_SORT_ORDER = NAME;
@@ -143,6 +150,12 @@ public class WebcamHolmes {
          * <P>Type: TEXT</P>
          */
         public static final String NAME = "name";
+
+        /**
+         * If the category was created by user or by the system
+         * <P>Type: BOOLEAN</P>
+         */
+        public static final String CREATED_BY_USER = "userCreated";
 
         /**
          * The default sort order for this table

@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -18,7 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.common;
 
-import it.rainbowbreeze.libs.log.LogFacility;
+import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
@@ -48,6 +48,8 @@ public class App
 	private ActivityHelper mActivityHelper;
 	private ItemsDao mItemsDao;
 	private AppPreferencesDao mAppPreferencesDao;
+	private LogicManager mLogicManager;
+	private LogFacility mLogFacility;
 
 	private Class<? extends ImageUrlProvider> mImageUrlProvider;
 
@@ -57,7 +59,7 @@ public class App
 	//---------- Public properties
 	//singleton
     private static App mInstance;
-    public static App instance()
+    public static App i()
     { return mInstance; }
 
 	/** the application was correctly initialized */
@@ -74,17 +76,18 @@ public class App
 		super.onCreate();
 
 		//set the log tag
-		LogFacility.init(GlobalDef.LOG_TAG);
-		LogFacility.i("App started");
+		mLogFacility = new LogFacility(GlobalDefs.LOG_TAG);
+		mLogFacility.i("App started");
 		
-		//create services and helper
-		mActivityHelper = new ActivityHelper(getApplicationContext());
+		//create services and helper respecting IoC dependencies
 		mImageUrlProvider = ImageUrlProvider.class;
 		mItemsDao = new ItemsDao(getApplicationContext());
-		mAppPreferencesDao = new AppPreferencesDao();
+		mActivityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
+		mAppPreferencesDao = new AppPreferencesDao(getApplicationContext(), GlobalDefs.APP_PREFERENCES_KEY);
+		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, GlobalDefs.APP_PREFERENCES_KEY, mItemsDao);
 		
 		//execute begin task
-		ResultOperation<Void> res = LogicManager.executeBeginTask(this);
+		BaseResultOperation<Void> res = mLogicManager.executeBeginTask(this);
 		if (res.hasErrors()) {
 			mIsCorrectlyInitialized = false;
 			mActivityHelper.reportError(this, res.getException(), res.getReturnCode());
@@ -96,7 +99,7 @@ public class App
 	@Override
 	public void onTerminate() {
 		//execute end tasks
-		ResultOperation<Void> res = LogicManager.executeEndTast(this);
+		ResultOperation<Void> res = (ResultOperation<Void>) mLogicManager.executeEndTast(this);
 		if (res.hasErrors()) {
 			mActivityHelper.reportError(this, res.getException(), res.getReturnCode());
 		}
@@ -108,17 +111,13 @@ public class App
 	//---------- Public methods
 
 	/**
-	 * Factory method to obtain a {@link ActivityHelper} object.
-	 * The object has a global app scope, so only one instance
-	 * of the class is created for the entire app lifecyce
+	 * Factory method to obtain a singleton instance of {@link ActivityHelper} object.
 	 */
 	public ActivityHelper getActivityHelper()
 	{ return mActivityHelper; }
 	
 	/**
-	 * Factory method to obtain a {@link ItemsDao} object.
-	 * The object has a global app scope, so only one instance
-	 * of the class is created for the entire app lifecyce
+	 * Factory method to obtain a singleton instance of {@link ItemsDao} object.
 	 */
 	public ItemsDao getItemsDao()
 	{ return mItemsDao; }
@@ -149,9 +148,23 @@ public class App
 		return mImageUrlProvider.newInstance();
 	}
 	
+	/**
+	 * Factory method to obtain a singleton instance of {@link AppPreferencesDao} object.
+	 */
 	public AppPreferencesDao getAppPreferencesDao()
 	{ return mAppPreferencesDao; }
 	
+	/**
+	 * Factory method to obtain a singleton instance of {@link LogicManager} object.
+	 */
+	public LogicManager getLogicManager()
+	{ return mLogicManager; }
+	
+	/**
+	 * Factory method to obtain a singleton instance of {@link LogFacility} object.
+	 */
+	public LogFacility getLogFacility()
+	{ return mLogFacility; }
     
     
     

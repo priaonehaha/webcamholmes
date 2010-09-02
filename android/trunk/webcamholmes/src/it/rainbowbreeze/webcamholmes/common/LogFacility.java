@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -17,24 +17,36 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * 
+ */
 package it.rainbowbreeze.webcamholmes.common;
 
-public class GlobalDef {
-	/** keys for application preferences */
-	public final static String APP_PREFERENCES_KEY = "WebcamHolmesPrefs"; 
-	
-	/** Application version, displayed to the user */
-	public final static String APP_VERSION_DESCRIPTION = "0.1b";
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 
-	/** Application version, for internal use */
-	public final static String APP_VERSION = "00.01.00b";
+/**
+ * @author Alfredo "Rainbowbreeze" Morresi
+ *
+ */
+public class LogFacility extends BaseLogFacility {
 
-	/** address where send log */
-	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
-	
-	/** tag used in the log */
-	public final static String LOG_TAG = "WebcamHolmes";
+	//---------- Private fields
 
-	/** platform - dependent newline char */
-	public final static String LINE_SEPARATOR = System.getProperty("line.separator");	
+
+
+	//---------- Constructor
+	/**
+	 * @param tag
+	 */
+	public LogFacility(String tag) {
+		super(tag);
+	}
+
+	//---------- Public properties
+
+	//---------- Events
+
+	//---------- Public methods
+
+	//---------- Private methods
 }

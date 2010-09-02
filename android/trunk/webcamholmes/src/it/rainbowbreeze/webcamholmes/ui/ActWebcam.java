@@ -21,7 +21,6 @@ package it.rainbowbreeze.webcamholmes.ui;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
-import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.logic.LoadImageTask;
 import android.app.Activity;
@@ -125,8 +124,8 @@ public class ActWebcam
 		Bundle extras = intent.getExtras();
 		//checks if current editing is for a provider or a subservice
 		if(extras != null) {
-			long webcamId = extras.getLong(ActivityHelper.INTENTKEY_WEBCAMID);
-			mWebcam = App.instance().getItemsDao().getWebcamById(webcamId);
+			long webcamId = Long.parseLong(extras.getString(ActivityHelper.INTENTKEY_WEBCAMID));
+			mWebcam = App.i().getItemsDao().getWebcamById(webcamId);
 		} else {
 			mWebcam = null;
 		}
@@ -139,7 +138,7 @@ public class ActWebcam
 	{
 		IImageUrlProvider imageUrlProvider;
 		try {
-			imageUrlProvider = App.instance().getImageUrlProvider();
+			imageUrlProvider = App.i().getImageUrlProvider();
 			LoadImageTask task = new LoadImageTask(imageUrlProvider, webcam, window, imageView);
 			task.execute();
 	        return task;

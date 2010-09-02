@@ -18,7 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.data;
 
-import it.rainbowbreeze.libs.log.LogFacility;
+import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
@@ -42,7 +42,7 @@ public class ItemsDao
 {
 	//---------- Private fields
     private static final String DATABASE_NAME = "webcamholmes.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     /**
      * Standard projection for the interesting columns of a webcam.
@@ -51,16 +51,18 @@ public class ItemsDao
     	WebcamHolmes.Webcam._ID, // 0
     	WebcamHolmes.Webcam.PARENT_CATEGORY_ID, // 1
     	WebcamHolmes.Webcam.NAME, // 2
-    	WebcamHolmes.Webcam.WEBCAM_TYPE, // 3
+    	WebcamHolmes.Webcam.TYPE, // 3
     	WebcamHolmes.Webcam.IMAGEURL, // 4
     	WebcamHolmes.Webcam.RELOAD_INTERVAL, // 5
     	WebcamHolmes.Webcam.PREFERRED, // 6
+    	WebcamHolmes.Webcam.CREATED_BY_USER, // 7
     };
 
     private static final String[] CATEGORY_FULL_PROJECTION = new String[] {
     	WebcamHolmes.Category._ID, // 0
     	WebcamHolmes.Category.PARENT_CATEGORY_ID, // 1
     	WebcamHolmes.Category.NAME, // 2
+    	WebcamHolmes.Category.CREATED_BY_USER, // 3
     };
 
     
@@ -89,21 +91,23 @@ public class ItemsDao
                     + WebcamHolmes.Webcam._ID + " INTEGER PRIMARY KEY,"
                     + WebcamHolmes.Webcam.PARENT_CATEGORY_ID + " INTEGER,"
                     + WebcamHolmes.Webcam.NAME + " TEXT,"
-                    + WebcamHolmes.Webcam.WEBCAM_TYPE + " INTEGER,"
+                    + WebcamHolmes.Webcam.TYPE + " INTEGER,"
                     + WebcamHolmes.Webcam.IMAGEURL + " TEXT,"
                     + WebcamHolmes.Webcam.RELOAD_INTERVAL + " SMALL,"
-                    + WebcamHolmes.Webcam.PREFERRED + " BOOLEAN"
+                    + WebcamHolmes.Webcam.PREFERRED + " BOOLEAN,"
+                    + WebcamHolmes.Webcam.CREATED_BY_USER + " BOOLEAN"
                     + ");");
             db.execSQL("CREATE TABLE " + WebcamHolmes.Category.TABLE_NAME + " ("
                     + WebcamHolmes.Category._ID + " INTEGER PRIMARY KEY,"
                     + WebcamHolmes.Category.PARENT_CATEGORY_ID + " INTEGER,"
-                    + WebcamHolmes.Category.NAME + " TEXT"
+                    + WebcamHolmes.Category.NAME + " TEXT,"
+                    + WebcamHolmes.Category.CREATED_BY_USER + " BOOLEAN"
                     + ");");
        }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            LogFacility.i("Upgrading database from version " + oldVersion + " to "
+            App.i().getLogFacility().i("Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
             db.execSQL("DROP TABLE IF EXISTS " + WebcamHolmes.Webcam.TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + WebcamHolmes.Category.TABLE_NAME);
@@ -179,9 +183,11 @@ public class ItemsDao
         ContentValues values = new ContentValues();
         values.put(WebcamHolmes.Webcam.PARENT_CATEGORY_ID, webcam.getParentId());
         values.put(WebcamHolmes.Webcam.NAME, webcam.getName());
+        values.put(WebcamHolmes.Webcam.TYPE, webcam.getType());
         values.put(WebcamHolmes.Webcam.IMAGEURL, webcam.getImageUrl());
         values.put(WebcamHolmes.Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
         values.put(WebcamHolmes.Webcam.PREFERRED, webcam.getPreferred());
+        values.put(WebcamHolmes.Webcam.CREATED_BY_USER, webcam.isUserCreated());
 
         long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
         webcam.setId(webcamId);
@@ -201,6 +207,7 @@ public class ItemsDao
         ContentValues values = new ContentValues();
         values.put(WebcamHolmes.Category.PARENT_CATEGORY_ID, category.getParentId());
         values.put(WebcamHolmes.Category.NAME, category.getName());
+        values.put(WebcamHolmes.Category.CREATED_BY_USER, category.isUserCreated());
 
         long categoryId = db.insert(WebcamHolmes.Category.TABLE_NAME, WebcamHolmes.Category.NAME, values);
         category.setId(categoryId);
@@ -292,10 +299,16 @@ public class ItemsDao
 	        	long id = cur.getLong(0);
 	        	long parentCategoryId = cur.getLong(1);
 	        	String name = cur.getString(2);
-	        	int webcamType = cur.getInt(3);
+	        	int type = cur.getInt(3);
 	        	String imageUrl = cur.getString(4);
 	        	int reloadInterval = cur.getInt(5);
-	        	ItemWebcam webcam = new ItemWebcam(id, parentCategoryId, name, imageUrl, reloadInterval);
+	        	boolean preferred = Boolean.getBoolean(cur.getString(6));
+	        	boolean userCreated = Boolean.getBoolean(cur.getString(7));
+	        	ItemWebcam webcam = new ItemWebcam(
+	        			id, parentCategoryId,
+	        			name, type,
+	        			imageUrl, reloadInterval,
+	        			preferred, userCreated);
 	        	list.add(webcam);
 	        } while (cur.moveToNext());
         }
@@ -327,7 +340,8 @@ public class ItemsDao
 	        	long id = cur.getLong(0);
 	        	long parentCategoryId = cur.getLong(1);
 	        	String name = cur.getString(2);
-	        	ItemCategory category = new ItemCategory(id, parentCategoryId, name);
+	        	boolean userCreated = Boolean.getBoolean(cur.getString(3));
+	        	ItemCategory category = new ItemCategory(id, parentCategoryId, name, userCreated);
 	        	list.add(category);
 	        } while (cur.moveToNext());
         }

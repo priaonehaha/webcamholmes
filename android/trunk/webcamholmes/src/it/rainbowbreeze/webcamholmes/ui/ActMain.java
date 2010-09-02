@@ -44,7 +44,6 @@ public class ActMain
 	
 	private List<ItemToDisplay> mItemsToDisplay;
 	private long mCurrentParentItemId = 0;
-	
 
 
 
@@ -71,11 +70,7 @@ public class ActMain
     @Override
     protected void onStart() {
     	super.onStart();
-        //setup the list of webcams and categories to show
-        mItemsToDisplay = App.instance().getItemsDao().getChildrenOfParentItem(mCurrentParentItemId);
-        ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
-        		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
-        setListAdapter(mItemsListAdapter);
+    	loadNewLevel(mCurrentParentItemId);
     }
 
 
@@ -83,7 +78,13 @@ public class ActMain
 	protected void onListItemClick(ListView listView, View view, int position, long id) {
 		ItemToDisplay item = mItemsToDisplay.get(position);
 		
-		App.instance().getActivityHelper().openShowWebcam(this, item.getId());
+		if (item.hasChildren()) {
+			//it's a category
+			loadNewLevel(item.getId());
+		} else {
+			//it's a webcam
+			App.i().getActivityHelper().openShowWebcam(this, item.getId());
+		}
 	}
 	
 	@Override
@@ -105,5 +106,13 @@ public class ActMain
 	
 	
 	//---------- Private methods
+	private void loadNewLevel(long fatherId) {
+        //setup the list of webcams and categories to show
+		mCurrentParentItemId = fatherId;
+        mItemsToDisplay = App.i().getItemsDao().getChildrenOfParentItem(mCurrentParentItemId);
+        ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
+        		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
+        setListAdapter(mItemsListAdapter);
+    }
 	
 }

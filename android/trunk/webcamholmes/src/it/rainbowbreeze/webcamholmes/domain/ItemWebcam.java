@@ -26,25 +26,20 @@ package it.rainbowbreeze.webcamholmes.domain;
 public class ItemWebcam
 	extends ItemToDisplay
 {
-	//---------- Constructor
-
-	public ItemWebcam(long id, long parentId, String name, String imageUrl, int reloadInterval) {
-		super(id, parentId, name);
-		mImageUrl = imageUrl;
-		mReloadInterval = reloadInterval;
-	}
-	
-	public ItemWebcam(long id, long parentId, String name, String imageUrl, int reloadInterval, boolean preferred) {
-		super(id, parentId, name);
-		mImageUrl = imageUrl;
-		mReloadInterval = reloadInterval;
-		mPreferred = preferred;
-	}
-	
-	
 	//---------- Private fields
 
 	
+	
+	
+	//---------- Constructor
+	public ItemWebcam(long id, long parentId, String name, int webcamType, String imageUrl, int reloadInterval, boolean preferred, boolean userCreated) {
+		super(id, parentId, name);
+		mWebcamType = webcamType;
+		mImageUrl = imageUrl;
+		mReloadInterval = reloadInterval;
+		mPreferred = preferred;
+		mUserCreated = userCreated;
+	}
 	
 	
 	//---------- Public properties
@@ -55,28 +50,59 @@ public class ItemWebcam
 	public boolean hasChildren()
 	{ return false; }
 
-	protected String mImageUrl;
+	protected final int mWebcamType;
+	public int getType()
+	{ return mWebcamType; }
+
+	protected final String mImageUrl;
 	public String getImageUrl()
 	{ return mImageUrl; }
-	public void setImageUrl(String newValue)
-	{ mImageUrl = newValue; }
 
-	protected int mReloadInterval;
+	protected final int mReloadInterval;
 	public int getReloadInterval()
 	{ return mReloadInterval; }
-	public void setReloadInterval(int newValue)
-	{ mReloadInterval = newValue; }
-
+	
 	protected boolean mPreferred;
 	public boolean getPreferred()
 	{ return mPreferred; }
 	public void setPreferred(boolean newValue)
 	{ mPreferred = newValue; }
 
+	protected final boolean mUserCreated;
+	public boolean isUserCreated()
+	{ return mUserCreated; }
+	
 
-	
-	
+
+
 	//---------- Public methods
+	/** Factory class for creating webcams */
+	public static class Factory {
+		/**
+		 * Create a system webcam
+		 * @param parentId
+		 * @param name
+		 * @param imageUrl
+		 * @param reloadInterval
+		 * @return
+		 */
+		public static ItemWebcam getSystemWebcam(long parentId, String name, String imageUrl, int reloadInterval) {
+			return getSystemWebcam(0, parentId, name, imageUrl, reloadInterval);
+		}
+
+		/**
+		 * Create a system webcam
+		 * @param id
+		 * @param parentId
+		 * @param name
+		 * @param imageUrl
+		 * @param reloadInterval
+		 * @return
+		 */
+		public static ItemWebcam getSystemWebcam(long id, long parentId, String name, String imageUrl, int reloadInterval) {
+			return new ItemWebcam(id, parentId, name, 0, imageUrl, reloadInterval, false, false);
+		}
+	}
 
 	
 	

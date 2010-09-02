@@ -19,29 +19,42 @@
 
 package it.rainbowbreeze.webcamholmes.data;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
-import it.rainbowbreeze.webcamholmes.common.GlobalDef;
 
 public class AppPreferencesDao
 	extends BaseAppPreferencesDao
 {
-	//---------- Constructor
-
 	//---------- Private fields
 
+
+
+
+	//---------- Constructor
+	/**
+	 * @param context
+	 * @param preferenceKey
+	 */
+	public AppPreferencesDao(Context context, String preferenceKey) {
+		super(context, preferenceKey);
+	}
+
+	
+	
+	
 	//---------- Public properties
 
-	//---------- Events
-
+	
+	
+	
 	//---------- Public methods
 
+	
+	
+	
 	//---------- Private methods
-	@Override
-	protected String getPreferencesKey() {
-		return GlobalDef.APP_PREFERENCES_KEY;
-	}
 
 	@Override
 	protected void backupProperties(Editor editorBackup) {

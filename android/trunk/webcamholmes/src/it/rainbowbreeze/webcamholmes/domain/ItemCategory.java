@@ -32,8 +32,9 @@ public class ItemCategory
 	
 	
 	//---------- Constructor
-	public ItemCategory(long id, long parentId, String name) {
+	public ItemCategory(long id, long parentId, String name, boolean userCreated) {
 		super(id, parentId, name);
+		mUserCreated = userCreated;
 	}
 
 
@@ -47,15 +48,36 @@ public class ItemCategory
 	public boolean hasChildren()
 	{ return true; }
 
+	protected final boolean mUserCreated;
+	public boolean isUserCreated()
+	{ return mUserCreated; }
 
-	
-	
-	//---------- Events
-
-	
 	
 	
 	//---------- Public methods
+	/** Factory class for creating categories */
+	public static class Factory {
+		/**
+		 * Create a system category
+		 * @param parentId
+		 * @param name
+		 * @return
+		 */
+		public static ItemCategory getSystemCategory(long parentId, String name) {
+			return getSystemCategory(0, parentId, name);
+		}
+
+		/**
+		 * Create a system category
+		 * @param id
+		 * @param parentId
+		 * @param name
+		 * @return
+		 */
+		public static ItemCategory getSystemCategory(long id, long parentId, String name) {
+			return new ItemCategory(id, parentId, name, false);
+		}
+	}
 
 	
 	
