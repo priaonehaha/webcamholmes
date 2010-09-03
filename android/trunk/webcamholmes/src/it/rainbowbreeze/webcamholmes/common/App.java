@@ -21,6 +21,7 @@ package it.rainbowbreeze.webcamholmes.common;
 import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.logic.BaseCrashReporter;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
@@ -77,6 +78,10 @@ public class App
 	public void onCreate() {
 		super.onCreate();
 
+		//initialize (and automatically register) crash reporter
+		BaseCrashReporter crashReport = new BaseCrashReporter(getApplicationContext());
+		ServiceLocator.put(crashReport);
+		
 		//set the log tag
 		mLogFacility = new BaseLogFacility(GlobalDefs.LOG_TAG);
 		ServiceLocator.put(mLogFacility);

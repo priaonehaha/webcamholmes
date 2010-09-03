@@ -21,6 +21,7 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.ui.BaseActivityHelper;
+import it.rainbowbreeze.webcamholmes.common.GlobalDefs;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import java.util.Map;
@@ -68,17 +69,22 @@ public class ActivityHelper
 
 	//---------- Public methods
 	
-//	/**
-//	 * Open Settings activity
-//	 * 
-//	 * @param callerActivity caller activity
-//	 */
-//	public void openSettingsMain(Activity callerActivity)
-//	{
-//		App.i().getLogFacility().v("Launching activity Settings");
-//		openActivity(callerActivity, ActSettings.class, null, false, REQUESTCODE_NONE);
-//	}
-//	
+	/**
+	 * Open Settings activity
+	 * 
+	 * @param callerActivity caller activity
+	 */
+	public void openSettingsMain(Activity callerActivity, boolean mustSendLogReport)
+	{
+		openSettingsMain(
+				callerActivity,
+				mustSendLogReport,
+				GlobalDefs.APP_NAME,
+				GlobalDefs.APP_VERSION_DESCRIPTION,
+				GlobalDefs.EMAIL_FOR_LOG,
+				GlobalDefs.LOG_TAG);
+	}
+	
 	/**
 	 * Open Webcam activity
 	 * 

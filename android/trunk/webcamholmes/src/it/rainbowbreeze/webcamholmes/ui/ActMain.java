@@ -22,10 +22,14 @@ import java.util.List;
 
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.logic.BaseCrashReporter;
+import it.rainbowbreeze.libs.logic.SendStatisticsTask;
 import it.rainbowbreeze.webcamholmes.R;
+import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.GlobalDefs;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -50,6 +54,9 @@ public class ActMain
 	//---------- Private fields
 	private final static String PROP_KEY_CURRENT_PARENT_ITEM_ID = "CurrentParentItemId";
 	
+	private static final int DIALOG_SEND_CRASH_REPORTS = 10;
+	private static final int DIALOG_STARTUP_INFOBOX = 11;
+
 	private List<ItemToDisplay> mItemsToDisplay;
 	private long mCurrentCategoryId = 0;
 	private BaseLogFacility mLogFacility;
@@ -58,6 +65,7 @@ public class ActMain
 
 	private final static int OPTIONMENU_SETTINGS = 2;
 	private final static int OPTIONMENU_ABOUT = 3;
+
 
 
 
@@ -70,19 +78,52 @@ public class ActMain
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actmain);
-        
-        setTitle(R.string.actmain_lblTitle);
-        
+
+    	//checks for app was correctly initialized
+    	if (!App.i().isCorrectlyInitialized()) {
+    		//application is expired
+            setContentView(R.layout.actinitializationerror);
+            setTitle(String.format(
+            		getString(R.string.actinitialization_title), GlobalDefs.APP_NAME));
+    		return;
+    	}
+    	
         mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
         mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
         mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
         
+        setContentView(R.layout.actmain);
+        setTitle(R.string.actmain_lblTitle);
+        
 		//register the context menu to defaul ListView of the view
 		//alternative method:
 		//http://www.anddev.org/creating_a_contextmenu_on_a_listview-t2438.html
-		registerForContextMenu(getListView());        
+		registerForContextMenu(getListView());
+		
+    	//executed when the application first runs
+        if (null == savedInstanceState) {
+    		mLogFacility.i("App started: " + GlobalDefs.APP_NAME);
+        	//send statistics data first time the app runs
+//	        SendStatisticsTask statsTask = new SendStatisticsTask(mLogFacility, );
+//	        Thread t = new Thread(statsTask);
+//	        t.start();
+
+//	        //load values of view from previous application execution
+//        	restoreLastRunViewValues();
+//
+//        	//show info dialog, if needed
+//        	if (App.i().isStartupInfoboxRequired())
+//        		showDialog(DIALOG_STARTUP_INFOBOX);
+//        	
+        	//checks for previous crash reports
+    		BaseCrashReporter crashReporter = checkNotNull(ServiceLocator.get(BaseCrashReporter.class), "CrashReporter");
+        	if (crashReporter.isCrashReportPresent(this)) {
+        		showDialog(DIALOG_SEND_CRASH_REPORTS);
+        	}
+        }
     }
+    
+    
     
     @Override
     protected void onStart() {
@@ -152,6 +193,9 @@ public class ActMain
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+    	//errors on initialization
+    	if (!App.i().isCorrectlyInitialized()) return true;
+
 		menu.add(0, OPTIONMENU_SETTINGS, 1, R.string.actmain_mnuSettings)
 			.setIcon(android.R.drawable.ic_menu_preferences);
     	menu.add(0, OPTIONMENU_ABOUT, 2, R.string.actmain_mnuAbout)
@@ -166,7 +210,7 @@ public class ActMain
     public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case OPTIONMENU_SETTINGS:
-			mActivityHelper.openSettingsMain(this, false, GlobalDefs.APP_NAME, GlobalDefs.APP_VERSION_DESCRIPTION, GlobalDefs.EMAIL_FOR_LOG, GlobalDefs.LOG_TAG);
+			mActivityHelper.openSettingsMain(this, false);
 			break;
 			
 		case OPTIONMENU_ABOUT:
@@ -177,6 +221,38 @@ public class ActMain
 			return super.onOptionsItemSelected(item);
 		}
 		return true;
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreateDialog(int)
+     */
+    @Override
+    protected Dialog onCreateDialog(int id) {
+    	Dialog retDialog = null;
+    	
+    	switch (id) {
+    	case DIALOG_STARTUP_INFOBOX:
+    		retDialog = mActivityHelper.createInformativeDialog(this,
+    				this.getString(R.string.actsendsms_msg_infobox_title),
+    				this.getString(R.string.actabout_lblDescription) + "\n\n" + this.getString(R.string.actabout_msgChangeslog),
+    				this.getString(R.string.common_btnOk));
+    		break;
+    	
+    	case DIALOG_SEND_CRASH_REPORTS:
+    		retDialog = mActivityHelper.createSendCrashReportRequestDialog(
+    				ServiceLocator.get(BaseCrashReporter.class),
+    				this,
+    				GlobalDefs.APP_NAME,
+    				GlobalDefs.APP_VERSION,
+    				GlobalDefs.EMAIL_FOR_LOG,
+    				GlobalDefs.LOG_TAG);
+    		break;
+    		
+		default:
+			retDialog = super.onCreateDialog(id);
+    	}
+    	
+    	return retDialog;
     }
 
     
