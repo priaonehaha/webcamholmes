@@ -25,11 +25,11 @@ import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 
 /**
@@ -77,23 +77,10 @@ public class ActivityHelper
 //	 */
 //	public void openSettingsMain(Activity callerActivity)
 //	{
-//		openSettingsMain(callerActivity, false);
+//		App.i().getLogFacility().v("Launching activity Settings");
+//		openActivity(callerActivity, ActSettings.class, null, false, REQUESTCODE_NONE);
 //	}
 //	
-//	/**
-//	 * Open Settings activity and call error report
-//	 * 
-//	 * @param callerActivity caller activity
-//	 */
-//	public void openSettingsMain(Activity callerActivity, boolean callErrorReport)
-//	{
-//		Map<String, String> extraData = new HashMap<String, String>();
-//		if (callErrorReport) {
-//			extraData.put(INTENTKEY_SENDLOGREPORT, "true");
-//		}
-//		openActivity(callerActivity, ActSettingsMain.class, extraData, true, REQUESTCODE_SETTINGS);
-//	}
-	
 	/**
 	 * Open Webcam activity
 	 * 
@@ -101,22 +88,13 @@ public class ActivityHelper
 	 */
 	public void openShowWebcam(Activity callerActivity, long webcamId)
 	{
-		Map<String, String> extraData = new HashMap<String, String>();
-		extraData.put(INTENTKEY_WEBCAMID, String.valueOf(webcamId));
+		Bundle extras = new Bundle();
+		extras.putString(INTENTKEY_WEBCAMID, String.valueOf(webcamId));
 		
-		openActivity(callerActivity, ActWebcam.class, extraData, true, REQUESTCODE_NONE);
+		openActivity(callerActivity, ActWebcam.class, extras, true, REQUESTCODE_NONE);
 	}
-//	
-//
-//	/**
-//	 * Open about activity
-//	 */
-//	public void openAbout(Activity callerActivity)
-//	{
-//		LogFacility.i("Launching activity About");
-//		openActivity(callerActivity, ActAbout.class, null, false, REQUESTCODE_NONE);
-//	}
 	
+
 	/**
 	 * Process in a standard way the result of SmsService extended command
 	 * execution
@@ -144,9 +122,9 @@ public class ActivityHelper
 	//---------- Protected methods
 	protected Map<Integer, String> loadMessagesStrings(Context context) {
 		Map<Integer, String> messages = super.loadMessagesStrings(context);
-		messages.put(MSG_INDEX_EMPTY_REPLY, context.getString(R.string.common_msg_noReplyFromProvider));
-		messages.put(MSG_INDEX_ERROR_LOAD_PROVIDER_DATA, context.getString(R.string.common_msg_cannotLoadProviderData));
-		messages.put(MSG_INDEX_ERROR_SAVE_PROVIDER_DATA, context.getString(R.string.common_msg_cannotSaveProviderData));
+//		messages.put(MSG_INDEX_EMPTY_REPLY, context.getString(R.string.common_msg_noReplyFromProvider));
+//		messages.put(MSG_INDEX_ERROR_LOAD_PROVIDER_DATA, context.getString(R.string.common_msg_cannotLoadProviderData));
+//		messages.put(MSG_INDEX_ERROR_SAVE_PROVIDER_DATA, context.getString(R.string.common_msg_cannotSaveProviderData));
 		return messages;
 	}
 

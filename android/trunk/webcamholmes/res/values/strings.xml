@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Common -->
-    <string name="common_appname">WebcamHolmes</string>
-    <string name="common_msg_noReplyFromProvider">No reply from provider. Retry again, maybe the provider has problem or is down...</string>
-    <string name="common_msg_cannotSaveProviderData">Cannot save provider data:\n%s\n\nPlease, report this error to the developer.</string>
-    <string name="common_msg_cannotLoadProviderData">Cannot load provider data:\n%s\n\nPlease, report this error to the developer.</string>
+    <string name="common_appName">WebcamHolmes</string>
 
 
 
 
 	<!-- ActMain -->
     <string name="actmain_lblTitle">WebcamHolmes - Select webcam to see</string>
+    <string name="actmain_mnuAbout">About</string>
+    <string name="actmain_mnuSettings">Settings</string>
 
 
 

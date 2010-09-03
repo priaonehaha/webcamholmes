@@ -39,6 +39,11 @@ public interface GlobalDefs extends BaseGlobalDefs {
 
 	/** address where send log */
 	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
+	
+	/** Application name */
+	public final static String APP_NAME = "WebcamHolmes";
+	
+	public final static String APP_NAME_FOR_UPDATE = "WebcamHolmes-Android";
 
 	public final static String LOG_TAG = "WebcamHolmes";
 }

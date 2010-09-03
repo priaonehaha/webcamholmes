@@ -8,13 +8,13 @@
 <!--	android:installLocation="auto"-->
 
 	<application
-		android:icon="@drawable/icon"
-		android:label="@string/common_appname"
+		android:icon="@drawable/app_logo"
+		android:label="@string/common_appName"
     	android:name="it.rainbowbreeze.webcamholmes.common.App"
 	>
         <activity
         	android:name=".ui.ActMain"
-			android:label="@string/common_appname"
+			android:label="@string/common_appName"
 		>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,12 @@
         
         <activity
         	android:name=".ui.ActWebcam"
-			android:label="@string/common_appname"
+			android:label="@string/common_appName"
+		/>
+
+        <activity
+        	android:name="it.rainbowbreeze.libs.ui.ActAbout"
+			android:label="@string/common_appName"
 		/>
 
 		<!-- The application's publisher ID assigned by AdMob -->

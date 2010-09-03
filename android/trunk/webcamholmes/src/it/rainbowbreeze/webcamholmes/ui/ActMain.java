@@ -20,12 +20,16 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import java.util.List;
 
+import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.common.GlobalDefs;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -46,6 +50,8 @@ public class ActMain
 	private List<ItemToDisplay> mItemsToDisplay;
 	private long mCurrentCategoryId = 0;
 
+	private final static int OPTIONMENU_SETTINGS = 2;
+	private final static int OPTIONMENU_ABOUT = 3;
 
 
 
@@ -128,7 +134,40 @@ public class ActMain
             return true;
         }
         return super.onKeyUp(keyCode, event);
-    }	
+    }
+
+    
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, OPTIONMENU_SETTINGS, 1, R.string.actmain_mnuSettings)
+			.setIcon(android.R.drawable.ic_menu_preferences);
+    	menu.add(0, OPTIONMENU_ABOUT, 2, R.string.actmain_mnuAbout)
+    		.setIcon(android.R.drawable.ic_menu_info_details);
+		return true;
+    }
+    
+    /* (non-Javadoc)
+     * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case OPTIONMENU_SETTINGS:
+//			ServiceLocator.getService(ActivityHelper.class).openSettingsMain(this);
+			break;
+			
+		case OPTIONMENU_ABOUT:
+			ServiceLocator.getService(ActivityHelper.class).openAbout(this, GlobalDefs.APP_NAME, GlobalDefs.APP_VERSION_DESCRIPTION, GlobalDefs.EMAIL_FOR_LOG);
+			break;
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		return true;
+    }
 
     
     

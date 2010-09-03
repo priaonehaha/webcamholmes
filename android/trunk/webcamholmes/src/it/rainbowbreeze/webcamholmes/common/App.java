@@ -19,6 +19,7 @@
 package it.rainbowbreeze.webcamholmes.common;
 
 import it.rainbowbreeze.libs.common.BaseResultOperation;
+import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
@@ -83,6 +84,7 @@ public class App
 		mImageUrlProvider = ImageUrlProvider.class;
 		mItemsDao = new ItemsDao(getApplicationContext());
 		mActivityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
+		ServiceLocator.putService(mActivityHelper);
 		mAppPreferencesDao = new AppPreferencesDao(getApplicationContext(), GlobalDefs.APP_PREFERENCES_KEY);
 		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, GlobalDefs.APP_PREFERENCES_KEY, mItemsDao);
 		
