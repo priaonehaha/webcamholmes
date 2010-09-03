@@ -18,9 +18,12 @@
  */
 package it.rainbowbreeze.webcamholmes.ui;
 
+import static it.rainbowbreeze.libs.common.ContractHelper.checkNotNull;
+import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
+import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.logic.LoadImageTask;
 import android.app.Activity;
@@ -52,6 +55,8 @@ public class ActWebcam
 	private LoadImageTask mLoadWebcamTask;
 	private boolean mReloadPaused;
 
+	private ItemsDao mItemsDao;
+
 	
 	
 	//---------- Public properties
@@ -64,6 +69,8 @@ public class ActWebcam
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+        mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
+		
         getDataFromIntent(getIntent());
 
         if (null != mWebcam) {
@@ -125,7 +132,7 @@ public class ActWebcam
 		//checks if current editing is for a provider or a subservice
 		if(extras != null) {
 			long webcamId = Long.parseLong(extras.getString(ActivityHelper.INTENTKEY_WEBCAMID));
-			mWebcam = App.i().getItemsDao().getWebcamById(webcamId);
+			mWebcam = mItemsDao.getWebcamById(webcamId);
 		} else {
 			mWebcam = null;
 		}

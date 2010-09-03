@@ -20,6 +20,7 @@ package it.rainbowbreeze.webcamholmes.common;
 
 import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
@@ -50,7 +51,7 @@ public class App
 	private ItemsDao mItemsDao;
 	private AppPreferencesDao mAppPreferencesDao;
 	private LogicManager mLogicManager;
-	private LogFacility mLogFacility;
+	private BaseLogFacility mLogFacility;
 
 	private Class<? extends ImageUrlProvider> mImageUrlProvider;
 
@@ -77,16 +78,19 @@ public class App
 		super.onCreate();
 
 		//set the log tag
-		mLogFacility = new LogFacility(GlobalDefs.LOG_TAG);
+		mLogFacility = new BaseLogFacility(GlobalDefs.LOG_TAG);
+		ServiceLocator.put(mLogFacility);
 		mLogFacility.i("App started");
 		
 		//create services and helper respecting IoC dependencies
 		mImageUrlProvider = ImageUrlProvider.class;
-		mItemsDao = new ItemsDao(getApplicationContext());
+		mItemsDao = new ItemsDao(getApplicationContext(), mLogFacility);
+		ServiceLocator.put(mItemsDao);
 		mActivityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
-		ServiceLocator.putService(mActivityHelper);
+		ServiceLocator.put(mActivityHelper);
 		mAppPreferencesDao = new AppPreferencesDao(getApplicationContext(), GlobalDefs.APP_PREFERENCES_KEY);
-		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, GlobalDefs.APP_PREFERENCES_KEY, mItemsDao);
+		ServiceLocator.put(mAppPreferencesDao);
+		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, GlobalDefs.APP_VERSION, mItemsDao);
 		
 		//execute begin task
 		BaseResultOperation<Void> res = mLogicManager.executeBeginTask(this);
@@ -111,18 +115,6 @@ public class App
     
     
 	//---------- Public methods
-
-	/**
-	 * Factory method to obtain a singleton instance of {@link ActivityHelper} object.
-	 */
-	public ActivityHelper getActivityHelper()
-	{ return mActivityHelper; }
-	
-	/**
-	 * Factory method to obtain a singleton instance of {@link ItemsDao} object.
-	 */
-	public ItemsDao getItemsDao()
-	{ return mItemsDao; }
 
 	
 	/**
@@ -149,24 +141,7 @@ public class App
 	{
 		return mImageUrlProvider.newInstance();
 	}
-	
-	/**
-	 * Factory method to obtain a singleton instance of {@link AppPreferencesDao} object.
-	 */
-	public AppPreferencesDao getAppPreferencesDao()
-	{ return mAppPreferencesDao; }
-	
-	/**
-	 * Factory method to obtain a singleton instance of {@link LogicManager} object.
-	 */
-	public LogicManager getLogicManager()
-	{ return mLogicManager; }
-	
-	/**
-	 * Factory method to obtain a singleton instance of {@link LogFacility} object.
-	 */
-	public LogFacility getLogFacility()
-	{ return mLogFacility; }
+
     
     
     

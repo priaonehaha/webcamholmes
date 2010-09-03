@@ -1,3 +1,4 @@
 TODO
 
 -test per i nuovi parametri della webcam e della categoria
+-solve the link between imageDao and App in ActWebcam class

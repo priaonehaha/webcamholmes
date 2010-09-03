@@ -18,7 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.data;
 
-import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
@@ -33,6 +33,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static it.rainbowbreeze.libs.common.ContractHelper.*;
+
 /**
  * Provider for categories and webcams
  * 
@@ -43,6 +45,7 @@ public class ItemsDao
 	//---------- Private fields
     private static final String DATABASE_NAME = "webcamholmes.db";
     private static final int DATABASE_VERSION = 3;
+    private final BaseLogFacility mLogFacility;
 
     /**
      * Standard projection for the interesting columns of a webcam.
@@ -69,8 +72,9 @@ public class ItemsDao
     
     
 	//---------- Constructor    
-    public ItemsDao(Context context) {
-    	mOpenHelper = new DatabaseHelper(context);
+    public ItemsDao(Context context, BaseLogFacility logFacility) {
+    	mLogFacility = checkNotNull(logFacility, "Log Facility");
+    	mOpenHelper = new DatabaseHelper(context, mLogFacility);
 	}
 	
 
@@ -80,9 +84,11 @@ public class ItemsDao
      * This class helps open, create, and upgrade the database file.
      */
     private static class DatabaseHelper extends SQLiteOpenHelper {
+        private final BaseLogFacility mLogFacility;
 
-        DatabaseHelper(Context context) {
+        DatabaseHelper(Context context, BaseLogFacility logFacility) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
+            mLogFacility = logFacility;
         }
 
         @Override
@@ -107,7 +113,7 @@ public class ItemsDao
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            App.i().getLogFacility().i("Upgrading database from version " + oldVersion + " to "
+            mLogFacility.i("Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
             db.execSQL("DROP TABLE IF EXISTS " + WebcamHolmes.Webcam.TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + WebcamHolmes.Category.TABLE_NAME);

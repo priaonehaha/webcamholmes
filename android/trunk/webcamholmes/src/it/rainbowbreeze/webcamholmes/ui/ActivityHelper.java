@@ -21,8 +21,6 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.ui.BaseActivityHelper;
-import it.rainbowbreeze.webcamholmes.R;
-import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import java.util.Map;
@@ -110,7 +108,7 @@ public class ActivityHelper
 		} else {
 			if (!TextUtils.isEmpty(result.getResult())){
 				//shows the output of the command
-				App.i().getLogFacility().i(result.getResult());
+				mBaseLogFacility.i(result.getResult());
 				showInfo(context, result.getResult());
 			}
 		}		

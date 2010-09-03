@@ -21,9 +21,10 @@ package it.rainbowbreeze.webcamholmes.ui;
 import java.util.List;
 
 import it.rainbowbreeze.libs.common.ServiceLocator;
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.webcamholmes.R;
-import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.GlobalDefs;
+import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
 /**
  * Application main activity, display a list
@@ -49,6 +52,9 @@ public class ActMain
 	
 	private List<ItemToDisplay> mItemsToDisplay;
 	private long mCurrentCategoryId = 0;
+	private BaseLogFacility mLogFacility;
+	private ActivityHelper mActivityHelper;
+	private ItemsDao mItemsDao;
 
 	private final static int OPTIONMENU_SETTINGS = 2;
 	private final static int OPTIONMENU_ABOUT = 3;
@@ -67,6 +73,10 @@ public class ActMain
         setContentView(R.layout.actmain);
         
         setTitle(R.string.actmain_lblTitle);
+        
+        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
+        mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
+        mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
         
 		//register the context menu to defaul ListView of the view
 		//alternative method:
@@ -90,7 +100,7 @@ public class ActMain
 			loadNewLevel(item.getId());
 		} else {
 			//it's a webcam
-			App.i().getActivityHelper().openShowWebcam(this, item.getId());
+			mActivityHelper.openShowWebcam(this, item.getId());
 		}
 	}
 	
@@ -156,11 +166,11 @@ public class ActMain
     public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case OPTIONMENU_SETTINGS:
-//			ServiceLocator.getService(ActivityHelper.class).openSettingsMain(this);
+			mActivityHelper.openSettingsMain(this, false, GlobalDefs.APP_NAME, GlobalDefs.APP_VERSION_DESCRIPTION, GlobalDefs.EMAIL_FOR_LOG, GlobalDefs.LOG_TAG);
 			break;
 			
 		case OPTIONMENU_ABOUT:
-			ServiceLocator.getService(ActivityHelper.class).openAbout(this, GlobalDefs.APP_NAME, GlobalDefs.APP_VERSION_DESCRIPTION, GlobalDefs.EMAIL_FOR_LOG);
+			mActivityHelper.openAbout(this, GlobalDefs.APP_NAME, GlobalDefs.APP_VERSION_DESCRIPTION, GlobalDefs.EMAIL_FOR_LOG);
 			break;
 
 		default:
@@ -181,7 +191,7 @@ public class ActMain
 	private void loadNewLevel(long parentId) {
         //setup the list of webcams and categories to show
 		mCurrentCategoryId = parentId;
-        mItemsToDisplay = App.i().getItemsDao().getChildrenOfParentItem(mCurrentCategoryId);
+        mItemsToDisplay = mItemsDao.getChildrenOfParentItem(mCurrentCategoryId);
         ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
         		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
         setListAdapter(mItemsListAdapter);
@@ -197,7 +207,7 @@ public class ActMain
 		}
 		
 		//find previous category
-		long parentId = App.i().getItemsDao().getParentIdOfCategory(mCurrentCategoryId);
+		long parentId = mItemsDao.getParentIdOfCategory(mCurrentCategoryId);
 		loadNewLevel(parentId);
 	}
 

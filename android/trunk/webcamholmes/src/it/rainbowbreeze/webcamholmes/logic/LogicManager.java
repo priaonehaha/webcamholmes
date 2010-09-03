@@ -43,8 +43,9 @@ public class LogicManager extends BaseLogicManager {
 	//---------- Constructor
 	/**
 	 * @param logFacility
-	 * @param globalDefs
 	 * @param appPreferencesDao
+	 * @param currentAppVersion
+	 * @param itemsDao
 	 */
 	public LogicManager(
 			BaseLogFacility logFacility,

@@ -20,6 +20,7 @@ package it.rainbowbreeze.webcamholmes.data;
 
 import java.util.List;
 
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
@@ -32,11 +33,12 @@ import android.test.AndroidTestCase;
  */
 public class ItemsDaoTest extends AndroidTestCase {
 
-    ItemsDao mDao;
+    private ItemsDao mDao;
+	private BaseLogFacility logFacility = new BaseLogFacility("WEBCAMHOLMES_TEST");
     
     @Override
     protected void setUp() throws Exception {
-        mDao = new ItemsDao(getContext());
+        mDao = new ItemsDao(getContext(), logFacility);
         mDao.clearDatabaseComplete();
     }
     
