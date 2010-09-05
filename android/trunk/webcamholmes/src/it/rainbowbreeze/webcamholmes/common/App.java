@@ -18,6 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.common;
 
+import it.rainbowbreeze.libs.common.AppGlobalBag;
 import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
@@ -37,7 +38,7 @@ import android.app.Application;
  *
  */
 public class App
-	extends Application
+	extends Application implements AppGlobalBag
 {
 	//---------- Constructor
 	public App()
@@ -64,14 +65,43 @@ public class App
     private static App mInstance;
     public static App i()
     { return mInstance; }
+    
+	/** keys for application preferences */
+	public final static String APP_PREFERENCES_KEY = "WebcamHolmesPrefs";
+
+	/** Application name */
+	public final static String APP_DISPLAY_NAME = "WebcamHolmes";
+
+	/** Application version displayed to the user (about activity etc) */
+	public final static String APP_DISPLAY_VERSION = "0.1b";
+
+	/** Application name used during the ping of update site */
+	public final static String APP_INTERNAL_NAME = "WebcamHolmes-Android";
+    
+	/** Application version for internal use (update, crash report etc) */
+	public final static String APP_INTERNAL_VERSION = "00.01.00b";
+
+	/** address where send log */
+	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
+	
+
+	public final static String LOG_TAG = "WebcamHolmes";
+
 
 	/** the application was correctly initialized */
     private boolean mIsCorrectlyInitialized;
 	public boolean isCorrectlyInitialized()
 	{ return mIsCorrectlyInitialized; }
 
+	/** First run after an update of the application */
+	protected boolean mFirstRunAfterUpdate;
+	public void setFirstRunAfterUpdate(boolean newValue)
+	{ mFirstRunAfterUpdate = newValue; }
+	public boolean isFirstRunAfterUpdate()
+	{ return mFirstRunAfterUpdate; }
 
-	
+
+
     
 	//---------- Events
 	@Override
@@ -83,7 +113,7 @@ public class App
 		ServiceLocator.put(crashReport);
 		
 		//set the log tag
-		mLogFacility = new BaseLogFacility(GlobalDefs.LOG_TAG);
+		mLogFacility = new BaseLogFacility(LOG_TAG);
 		ServiceLocator.put(mLogFacility);
 		mLogFacility.i("App started");
 		
@@ -93,9 +123,9 @@ public class App
 		ServiceLocator.put(mItemsDao);
 		mActivityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
 		ServiceLocator.put(mActivityHelper);
-		mAppPreferencesDao = new AppPreferencesDao(getApplicationContext(), GlobalDefs.APP_PREFERENCES_KEY);
+		mAppPreferencesDao = new AppPreferencesDao(getApplicationContext(), APP_PREFERENCES_KEY);
 		ServiceLocator.put(mAppPreferencesDao);
-		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, GlobalDefs.APP_VERSION, mItemsDao);
+		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, this, APP_INTERNAL_VERSION, mItemsDao);
 		
 		//execute begin task
 		BaseResultOperation<Void> res = mLogicManager.executeBeginTask(this);
@@ -146,9 +176,9 @@ public class App
 	{
 		return mImageUrlProvider.newInstance();
 	}
+    
+    
 
-    
-    
-    
+
 	//---------- Private methods
 }

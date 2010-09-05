@@ -26,7 +26,6 @@ import it.rainbowbreeze.libs.logic.BaseCrashReporter;
 import it.rainbowbreeze.libs.logic.SendStatisticsTask;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
-import it.rainbowbreeze.webcamholmes.common.GlobalDefs;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.Dialog;
@@ -84,7 +83,7 @@ public class ActMain
     		//application is expired
             setContentView(R.layout.actinitializationerror);
             setTitle(String.format(
-            		getString(R.string.actinitialization_title), GlobalDefs.APP_NAME));
+            		getString(R.string.actinitialization_title), App.APP_DISPLAY_NAME));
     		return;
     	}
     	
@@ -102,7 +101,7 @@ public class ActMain
 		
     	//executed when the application first runs
         if (null == savedInstanceState) {
-    		mLogFacility.i("App started: " + GlobalDefs.APP_NAME);
+    		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
         	//send statistics data first time the app runs
 //	        SendStatisticsTask statsTask = new SendStatisticsTask(mLogFacility, );
 //	        Thread t = new Thread(statsTask);
@@ -111,10 +110,10 @@ public class ActMain
 //	        //load values of view from previous application execution
 //        	restoreLastRunViewValues();
 //
-//        	//show info dialog, if needed
-//        	if (App.i().isStartupInfoboxRequired())
-//        		showDialog(DIALOG_STARTUP_INFOBOX);
-//        	
+        	//show info dialog, if needed
+        	if (App.i().isFirstRunAfterUpdate())
+        		showDialog(DIALOG_STARTUP_INFOBOX);
+        	
         	//checks for previous crash reports
     		BaseCrashReporter crashReporter = checkNotNull(ServiceLocator.get(BaseCrashReporter.class), "CrashReporter");
         	if (crashReporter.isCrashReportPresent(this)) {
@@ -122,7 +121,6 @@ public class ActMain
         	}
         }
     }
-    
     
     
     @Override
@@ -214,7 +212,7 @@ public class ActMain
 			break;
 			
 		case OPTIONMENU_ABOUT:
-			mActivityHelper.openAbout(this, GlobalDefs.APP_NAME, GlobalDefs.APP_VERSION_DESCRIPTION, GlobalDefs.EMAIL_FOR_LOG);
+			mActivityHelper.openAbout(this, App.APP_DISPLAY_NAME, App.APP_DISPLAY_VERSION, App.EMAIL_FOR_LOG);
 			break;
 
 		default:
@@ -232,20 +230,17 @@ public class ActMain
     	
     	switch (id) {
     	case DIALOG_STARTUP_INFOBOX:
-    		retDialog = mActivityHelper.createInformativeDialog(this,
-    				this.getString(R.string.actsendsms_msg_infobox_title),
-    				this.getString(R.string.actabout_lblDescription) + "\n\n" + this.getString(R.string.actabout_msgChangeslog),
-    				this.getString(R.string.common_btnOk));
+    		retDialog = mActivityHelper.createStartupInformativeDialog(this);
     		break;
     	
     	case DIALOG_SEND_CRASH_REPORTS:
     		retDialog = mActivityHelper.createSendCrashReportRequestDialog(
     				ServiceLocator.get(BaseCrashReporter.class),
     				this,
-    				GlobalDefs.APP_NAME,
-    				GlobalDefs.APP_VERSION,
-    				GlobalDefs.EMAIL_FOR_LOG,
-    				GlobalDefs.LOG_TAG);
+    				App.APP_DISPLAY_NAME,
+    				App.APP_INTERNAL_VERSION,
+    				App.EMAIL_FOR_LOG,
+    				App.LOG_TAG);
     		break;
     		
 		default:

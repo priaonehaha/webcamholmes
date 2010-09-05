@@ -18,6 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
+import it.rainbowbreeze.libs.common.AppGlobalBag;
 import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
@@ -50,10 +51,11 @@ public class LogicManager extends BaseLogicManager {
 	public LogicManager(
 			BaseLogFacility logFacility,
 			BaseAppPreferencesDao appPreferencesDao,
+			AppGlobalBag globalBag,
 			String currentAppVersion,
 			ItemsDao itemsDao)
 	{
-		super(logFacility, appPreferencesDao, currentAppVersion);
+		super(logFacility, appPreferencesDao, globalBag, currentAppVersion);
 		mItemsDao = checkNotNull(itemsDao);
 	}
 	

@@ -21,7 +21,7 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.ui.BaseActivityHelper;
-import it.rainbowbreeze.webcamholmes.common.GlobalDefs;
+import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import java.util.Map;
@@ -79,10 +79,10 @@ public class ActivityHelper
 		openSettingsMain(
 				callerActivity,
 				mustSendLogReport,
-				GlobalDefs.APP_NAME,
-				GlobalDefs.APP_VERSION_DESCRIPTION,
-				GlobalDefs.EMAIL_FOR_LOG,
-				GlobalDefs.LOG_TAG);
+				App.APP_DISPLAY_NAME,
+				App.APP_INTERNAL_VERSION,
+				App.EMAIL_FOR_LOG,
+				App.LOG_TAG);
 	}
 	
 	/**
