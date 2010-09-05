@@ -28,6 +28,7 @@ public class AppPreferencesDao
 	extends BaseAppPreferencesDao
 {
 	//---------- Private fields
+	protected static final String PROP_LATEST_CATEGORY = "latestCategory";
 
 
 
@@ -45,6 +46,10 @@ public class AppPreferencesDao
 	
 	
 	//---------- Public properties
+	public long getLatestCategory()
+	{ return mSettings.getLong(PROP_LATEST_CATEGORY, 0); }
+    public void setLatestCategory(long newValue)
+    { mEditor.putLong(PROP_LATEST_CATEGORY, newValue); }
 
 	
 	

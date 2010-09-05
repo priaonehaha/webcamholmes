@@ -84,9 +84,13 @@ public class App
 	/** address where send log */
 	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
 	
-
+	/** Tag to use in the log */
 	public final static String LOG_TAG = "WebcamHolmes";
 
+	/** url where send statistics about application */
+	public final static String STATISTICS_WEBSERVER_URL = "http://www.rainbowbreeze.it/devel/getlatestversion.php";
+	
+	
 
 	/** the application was correctly initialized */
     private boolean mIsCorrectlyInitialized;

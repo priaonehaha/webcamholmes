@@ -59,9 +59,16 @@ public class LoadImageTask
 	 * @param webcam
 	 * @param windowToUpdate
 	 * @param imageToUpdate
+	 * @param noConnectionImageResId The Resource Id of the image to use when no connection
+	 * is present or an error during the retrieve of the image happens 
 	 * 
 	 */
-	public LoadImageTask(IImageUrlProvider imageProvider, ItemWebcam webcam, Window windowToUpdate, ImageView imageToUpdate) {
+	public LoadImageTask(
+			IImageUrlProvider imageProvider,
+			ItemWebcam webcam,
+			Window windowToUpdate,
+			ImageView imageToUpdate)
+	{
 		mImageUrlProvider = imageProvider;
 		mWindowWhereUpdateProgress = windowToUpdate;
 		mImageViewWhereShowBitmap = imageToUpdate;
@@ -73,6 +80,9 @@ public class LoadImageTask
 
 
 	//---------- Public methods
+	public void pauseReload() {
+		mInterruptReload = true;
+	}
 
 
 

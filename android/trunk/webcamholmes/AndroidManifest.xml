@@ -8,7 +8,7 @@
 <!--	android:installLocation="auto"-->
 
 	<application
-		android:icon="@drawable/app_logo"
+		android:icon="@drawable/ic_launcher_webcamholmes"
 		android:label="@string/common_appName"
     	android:name="it.rainbowbreeze.webcamholmes.common.App"
 	>
@@ -50,6 +50,8 @@
     
 	<!-- Internet access -->
 	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- Checks for connectivity -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<!-- AdMob SDK permissions -->
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 

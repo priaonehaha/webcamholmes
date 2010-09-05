@@ -153,7 +153,7 @@ public class ActivityHelper
 						getMessage(MSG_INDEX_ERROR_SAVE_PROVIDER_DATA), exceptionMessage);
 				break;
 			default:
-				super.getErrorDescription(returnCode, exception);
+				userMessage = super.getErrorDescription(returnCode, exception);
 				break;
 					
 		}

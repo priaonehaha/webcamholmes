@@ -6,10 +6,15 @@ public class ResultOperation<T>
 	extends BaseResultOperation<T>
 {
 	//---------- Constructor
+	public ResultOperation()
+	{ super(); }
+	
+	public ResultOperation(Exception ex, int errorReturnCode)
+	{ super(ex, errorReturnCode); }
+	
+	
 
-	
-	
-	
+
 	//---------- Private fields
 
 	

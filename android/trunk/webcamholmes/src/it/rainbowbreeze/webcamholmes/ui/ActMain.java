@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -18,6 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.ui;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.rainbowbreeze.libs.common.ServiceLocator;
@@ -26,17 +27,23 @@ import it.rainbowbreeze.libs.logic.BaseCrashReporter;
 import it.rainbowbreeze.libs.logic.SendStatisticsTask;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
@@ -51,16 +58,16 @@ public class ActMain
 	extends ListActivity
 {
 	//---------- Private fields
-	private final static String PROP_KEY_CURRENT_PARENT_ITEM_ID = "CurrentParentItemId";
-	
 	private static final int DIALOG_SEND_CRASH_REPORTS = 10;
 	private static final int DIALOG_STARTUP_INFOBOX = 11;
 
-	private List<ItemToDisplay> mItemsToDisplay;
 	private long mCurrentCategoryId = 0;
 	private BaseLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
+	private AppPreferencesDao mAppPreferencesDao;
 	private ItemsDao mItemsDao;
+	private ItemToDisplayAdapter mItemsAdapter;
+	private List<ItemToDisplay> mItemsToDisplay;
 
 	private final static int OPTIONMENU_SETTINGS = 2;
 	private final static int OPTIONMENU_ABOUT = 3;
@@ -90,9 +97,14 @@ public class ActMain
         mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
         mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
         mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+        mAppPreferencesDao = checkNotNull(ServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
         
         setContentView(R.layout.actmain);
         setTitle(R.string.actmain_lblTitle);
+        
+        mItemsToDisplay = new ArrayList<ItemToDisplay>();
+        this.mItemsAdapter = new ItemToDisplayAdapter(this, R.layout.lstitemtodisplay, mItemsToDisplay);
+        setListAdapter(this.mItemsAdapter);        
         
 		//register the context menu to defaul ListView of the view
 		//alternative method:
@@ -103,13 +115,20 @@ public class ActMain
         if (null == savedInstanceState) {
     		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
         	//send statistics data first time the app runs
-//	        SendStatisticsTask statsTask = new SendStatisticsTask(mLogFacility, );
-//	        Thread t = new Thread(statsTask);
-//	        t.start();
+	        SendStatisticsTask statsTask = new SendStatisticsTask(
+	        		mLogFacility,
+	        		mActivityHelper,
+	        		this,
+	        		App.STATISTICS_WEBSERVER_URL,
+	        		App.APP_INTERNAL_NAME,
+	        		App.APP_DISPLAY_VERSION,
+	        		String.valueOf(mAppPreferencesDao.getUniqueId()));
+	        Thread t = new Thread(statsTask);
+	        t.start();
 
-//	        //load values of view from previous application execution
-//        	restoreLastRunViewValues();
-//
+	        //load values of view from previous application execution
+        	restoreLastRunViewValues();
+        	
         	//show info dialog, if needed
         	if (App.i().isFirstRunAfterUpdate())
         		showDialog(DIALOG_STARTUP_INFOBOX);
@@ -122,10 +141,10 @@ public class ActMain
         }
     }
     
-    
-    @Override
-    protected void onStart() {
-    	super.onStart();
+
+	@Override
+    protected void onResume() {
+    	super.onResume();
     	loadNewLevel(mCurrentCategoryId);
     }
 
@@ -142,17 +161,12 @@ public class ActMain
 			mActivityHelper.openShowWebcam(this, item.getId());
 		}
 	}
-	
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		outState.putLong(PROP_KEY_CURRENT_PARENT_ITEM_ID, mCurrentCategoryId);
-	}
+
 	
 	@Override
 	protected void onRestoreInstanceState(Bundle state) {
-		mCurrentCategoryId = state.getLong(PROP_KEY_CURRENT_PARENT_ITEM_ID);
 		super.onRestoreInstanceState(state);
+		restoreLastRunViewValues();
 	}
 	
 
@@ -261,12 +275,23 @@ public class ActMain
 	//---------- Private methods
 	private void loadNewLevel(long parentId) {
         //setup the list of webcams and categories to show
+//		mCurrentCategoryId = parentId;
+//        mItemsToDisplay = mItemsDao.getChildrenOfParentItem(mCurrentCategoryId);
+//        ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
+//        		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
+//        setListAdapter(mItemsListAdapter);
+
 		mCurrentCategoryId = parentId;
-        mItemsToDisplay = mItemsDao.getChildrenOfParentItem(mCurrentCategoryId);
-        ArrayAdapter<ItemToDisplay> mItemsListAdapter = new ArrayAdapter<ItemToDisplay>(
-        		this, android.R.layout.simple_list_item_1, mItemsToDisplay);
-        setListAdapter(mItemsListAdapter);
-    }
+		mItemsToDisplay.clear();
+		mItemsAdapter.notifyDataSetChanged();
+		mItemsToDisplay.addAll(mItemsDao.getChildrenOfParentItem(mCurrentCategoryId));
+		mItemsAdapter.notifyDataSetChanged();
+		
+		//save current category
+		mAppPreferencesDao.setLatestCategory(mCurrentCategoryId);
+		mAppPreferencesDao.save();
+		
+	}
 	
     /**
 	 * Navigate one category  back or close the application if the category is the first
@@ -281,5 +306,54 @@ public class ActMain
 		long parentId = mItemsDao.getParentIdOfCategory(mCurrentCategoryId);
 		loadNewLevel(parentId);
 	}
+	
+    
+    /**
+	 * 
+	 */
+	private void restoreLastRunViewValues() {
+		mCurrentCategoryId = mAppPreferencesDao.getLatestCategory();
+	}
 
+	
+	/**
+	 * Custom Adapter for webcam and category list
+	 * @author rainbowbreeze
+	 *
+	 */
+	private class ItemToDisplayAdapter extends ArrayAdapter<ItemToDisplay> {
+
+        private List<ItemToDisplay> mItems;
+
+        public ItemToDisplayAdapter(Context context, int textViewResourceId, List<ItemToDisplay> items) {
+                super(context, textViewResourceId, items);
+                this.mItems = items;
+        }
+        
+        /* (non-Javadoc)
+         * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
+         */
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+                View v = convertView;
+                if (v == null) {
+                    LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    v = vi.inflate(R.layout.lstitemtodisplay, null);
+                }
+                ItemToDisplay itemToDisplay = mItems.get(position);
+                if (itemToDisplay != null) {
+                	//set description of item
+                    TextView txtItemName = (TextView) v.findViewById(R.id.lstitemtodisplay_txtItemName);
+                    if (txtItemName != null) {
+                          txtItemName.setText(itemToDisplay.getName());
+                	}
+            		//show/hide category elements
+                    TextView txtCategory = (TextView) v.findViewById(R.id.lstitemtodisplay_txtCategory);
+                    if (txtCategory != null) txtCategory.setVisibility(itemToDisplay.hasChildren() ? View.VISIBLE : View.GONE);
+                    ImageView imgView = (ImageView) v.findViewById(R.id.lstitemtodisplay_itemIcon);
+                    if (imgView != null) imgView.setVisibility(itemToDisplay.hasChildren() ? View.VISIBLE : View.GONE);
+                }
+                return v;
+        }
+	}
 }
