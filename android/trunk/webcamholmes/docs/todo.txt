@@ -4,8 +4,15 @@ TODO
 -solve the link between imageDao and App in ActWebcam class
 -weakreference in load webcam task: 
   http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html
- -
+-fullscreen view of the webcam con scrolling
+-reset salvataggio categoria padre se non esiste piu'
+
+
 
 Keyword
 CCTV webcam
 Ip webcam
+
+webcams.travel
+
+http://www.webcams.travel/developers/

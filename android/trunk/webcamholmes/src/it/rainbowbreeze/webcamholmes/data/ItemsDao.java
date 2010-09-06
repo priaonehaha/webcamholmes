@@ -44,7 +44,7 @@ public class ItemsDao
 {
 	//---------- Private fields
     private static final String DATABASE_NAME = "webcamholmes.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private final BaseLogFacility mLogFacility;
 
     /**
