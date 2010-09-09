@@ -63,7 +63,7 @@ public class ItemWebcam
 	{ return mReloadInterval; }
 	
 	protected boolean mPreferred;
-	public boolean getPreferred()
+	public boolean isPreferred()
 	{ return mPreferred; }
 	public void setPreferred(boolean newValue)
 	{ mPreferred = newValue; }
@@ -72,6 +72,11 @@ public class ItemWebcam
 	public boolean isUserCreated()
 	{ return mUserCreated; }
 	
+	protected long mParentAliasId;
+	public long getParentAliasId()
+	{ return mParentAliasId; }
+	public void setParentAliasId(long newValue)
+	{ mParentAliasId = newValue; }
 
 
 
@@ -87,20 +92,19 @@ public class ItemWebcam
 		 * @return
 		 */
 		public static ItemWebcam getSystemWebcam(long parentId, String name, String imageUrl, int reloadInterval) {
-			return getSystemWebcam(0, parentId, name, imageUrl, reloadInterval);
+			return new ItemWebcam(0, parentId, name, 0, imageUrl, reloadInterval, false, false);
 		}
 
 		/**
-		 * Create a system webcam
-		 * @param id
+		 * Create a user webcam
 		 * @param parentId
 		 * @param name
 		 * @param imageUrl
 		 * @param reloadInterval
 		 * @return
 		 */
-		public static ItemWebcam getSystemWebcam(long id, long parentId, String name, String imageUrl, int reloadInterval) {
-			return new ItemWebcam(id, parentId, name, 0, imageUrl, reloadInterval, false, false);
+		public static ItemWebcam getUserWebcam(long parentId, String name, String imageUrl, int reloadInterval) {
+			return new ItemWebcam(0, parentId, name, 0, imageUrl, reloadInterval, false, true);
 		}
 	}
 

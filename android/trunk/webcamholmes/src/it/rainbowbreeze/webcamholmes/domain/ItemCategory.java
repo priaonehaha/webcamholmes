@@ -32,8 +32,9 @@ public class ItemCategory
 	
 	
 	//---------- Constructor
-	public ItemCategory(long id, long parentId, String name, boolean userCreated) {
+	public ItemCategory(long id, long aliasId, long parentId, String name, boolean userCreated) {
 		super(id, parentId, name);
+		mAliasId = aliasId;
 		mUserCreated = userCreated;
 	}
 
@@ -52,6 +53,11 @@ public class ItemCategory
 	public boolean isUserCreated()
 	{ return mUserCreated; }
 
+	protected final long mAliasId;
+	public long getAliasId()
+	{ return mAliasId; }
+
+	
 	
 	
 	//---------- Public methods
@@ -69,17 +75,39 @@ public class ItemCategory
 
 		/**
 		 * Create a system category
-		 * @param id
+		 * @param aliasId
 		 * @param parentId
 		 * @param name
 		 * @return
 		 */
-		public static ItemCategory getSystemCategory(long id, long parentId, String name) {
-			return new ItemCategory(id, parentId, name, false);
+		public static ItemCategory getSystemCategory(long aliasId, long parentId, String name) {
+			return new ItemCategory(0, aliasId, parentId, name, false);
+		}
+		
+		/**
+		 * Create a user category
+		 * @param parentId
+		 * @param name
+		 * @return
+		 */
+		public static ItemCategory getUserCategory(long parentId, String name) {
+			return getUserCategory(0, parentId, name);
+		}
+
+		/**
+		 * Create a user category
+		 * @param id
+		 * @param aliasId
+		 * @param name
+		 * @return
+		 */
+		public static ItemCategory getUserCategory(long aliasId, long parentId, String name) {
+			return new ItemCategory(0, aliasId, parentId, name, true);
 		}
 	}
 
-	
+
+
 	
 	
 	//---------- Private methods

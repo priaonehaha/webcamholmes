@@ -6,6 +6,7 @@ TODO
   http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html
 -fullscreen view of the webcam con scrolling
 -reset salvataggio categoria padre se non esiste piu'
+-aggiungere i campi tipo login e pwd sulla webcam per futuri utilizzi, vedere i programmi che gia' ne hanno
 
 
 

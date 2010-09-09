@@ -63,9 +63,10 @@ public class ItemsDao
 
     private static final String[] CATEGORY_FULL_PROJECTION = new String[] {
     	WebcamHolmes.Category._ID, // 0
-    	WebcamHolmes.Category.PARENT_CATEGORY_ID, // 1
-    	WebcamHolmes.Category.NAME, // 2
-    	WebcamHolmes.Category.CREATED_BY_USER, // 3
+    	WebcamHolmes.Category.ALIAS_ID, // 1
+    	WebcamHolmes.Category.PARENT_CATEGORY_ID, // 2
+    	WebcamHolmes.Category.NAME, // 3
+    	WebcamHolmes.Category.CREATED_BY_USER, // 4
     };
 
     
@@ -94,19 +95,20 @@ public class ItemsDao
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE " + WebcamHolmes.Webcam.TABLE_NAME + " ("
-                    + WebcamHolmes.Webcam._ID + " INTEGER PRIMARY KEY,"
-                    + WebcamHolmes.Webcam.PARENT_CATEGORY_ID + " INTEGER,"
-                    + WebcamHolmes.Webcam.NAME + " TEXT,"
-                    + WebcamHolmes.Webcam.TYPE + " INTEGER,"
+                    + WebcamHolmes.Webcam._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + WebcamHolmes.Webcam.PARENT_CATEGORY_ID + " INTEGER NOT NULL,"
+                    + WebcamHolmes.Webcam.NAME + " TEXT NOT NULL,"
+                    + WebcamHolmes.Webcam.TYPE + " INTEGER NOT NULL,"
                     + WebcamHolmes.Webcam.IMAGEURL + " TEXT,"
                     + WebcamHolmes.Webcam.RELOAD_INTERVAL + " SMALL,"
                     + WebcamHolmes.Webcam.PREFERRED + " BOOLEAN,"
                     + WebcamHolmes.Webcam.CREATED_BY_USER + " BOOLEAN"
                     + ");");
             db.execSQL("CREATE TABLE " + WebcamHolmes.Category.TABLE_NAME + " ("
-                    + WebcamHolmes.Category._ID + " INTEGER PRIMARY KEY,"
-                    + WebcamHolmes.Category.PARENT_CATEGORY_ID + " INTEGER,"
-                    + WebcamHolmes.Category.NAME + " TEXT,"
+                    + WebcamHolmes.Category._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + WebcamHolmes.Category.ALIAS_ID + " INTEGER NOT NULL,"
+                    + WebcamHolmes.Category.PARENT_CATEGORY_ID + " INTEGER NOT NULL,"
+                    + WebcamHolmes.Category.NAME + " TEXT NOT NULL,"
                     + WebcamHolmes.Category.CREATED_BY_USER + " BOOLEAN"
                     + ");");
        }
@@ -132,11 +134,6 @@ public class ItemsDao
 
 
     
-	//---------- Events
-
-
-
-	
 	//---------- Public methods
     /**
      * Retrieves a webcam by its id
@@ -161,6 +158,15 @@ public class ItemsDao
         //returns first category found or null
         return categories.size() > 0 ? (ItemCategory) categories.get(0) : null;
 	}
+
+	public ItemCategory getCategoryByAliasId(long aliasId) {
+        List<ItemToDisplay> categories = getCategoriesFromDatabase(WebcamHolmes.Category.ALIAS_ID + "=" + aliasId);
+
+        //returns first category found or null
+        return categories.size() > 0 ? (ItemCategory) categories.get(0) : null;
+		
+	}
+	
 
 	/**
 	 * Returns all the children items of a category
@@ -192,7 +198,7 @@ public class ItemsDao
         values.put(WebcamHolmes.Webcam.TYPE, webcam.getType());
         values.put(WebcamHolmes.Webcam.IMAGEURL, webcam.getImageUrl());
         values.put(WebcamHolmes.Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
-        values.put(WebcamHolmes.Webcam.PREFERRED, webcam.getPreferred());
+        values.put(WebcamHolmes.Webcam.PREFERRED, webcam.isPreferred());
         values.put(WebcamHolmes.Webcam.CREATED_BY_USER, webcam.isUserCreated());
 
         long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
@@ -211,6 +217,7 @@ public class ItemsDao
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         
         ContentValues values = new ContentValues();
+        values.put(WebcamHolmes.Category.ALIAS_ID, category.getAliasId());
         values.put(WebcamHolmes.Category.PARENT_CATEGORY_ID, category.getParentId());
         values.put(WebcamHolmes.Category.NAME, category.getName());
         values.put(WebcamHolmes.Category.CREATED_BY_USER, category.isUserCreated());
@@ -252,7 +259,25 @@ public class ItemsDao
 		return count;
 	}
 	
+	/**
+	 * Set the preferred status of a webcam
+	 * @param webcamId
+	 * @param preferred
+	 */
+	public int setWebcamPreferredStatus(long webcamId, boolean preferred) {
+		int count;
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(WebcamHolmes.Webcam.PREFERRED, preferred);
+		count = db.update(
+				WebcamHolmes.Webcam.TABLE_NAME,
+				values,
+        		WebcamHolmes.Webcam._ID + "=" + webcamId,
+				null);
+		return count;
+	}
 
+		
 	/**
 	 * Completely clean the database (used in tests)
 	 */
@@ -276,6 +301,14 @@ public class ItemsDao
 	 * Clean the database, but preserve user data (ie new webcam and categories)
 	 */
 	public void clearDatabasePreservingUserData() {
+		
+	}
+	
+	
+	/**
+	 * Return true if database is empty and initialization is needed
+	 */
+	public void isDatabaseEmpty() {
 		
 	}
 
@@ -309,7 +342,7 @@ public class ItemsDao
 	        	String imageUrl = cur.getString(4);
 	        	int reloadInterval = cur.getInt(5);
 	        	boolean preferred = Boolean.getBoolean(cur.getString(6));
-	        	boolean userCreated = Boolean.getBoolean(cur.getString(7));
+	        	boolean userCreated = cur.getInt(7) == 1;
 	        	ItemWebcam webcam = new ItemWebcam(
 	        			id, parentCategoryId,
 	        			name, type,
@@ -344,10 +377,11 @@ public class ItemsDao
         if (cur.moveToFirst()) {
 	        do {
 	        	long id = cur.getLong(0);
-	        	long parentCategoryId = cur.getLong(1);
-	        	String name = cur.getString(2);
-	        	boolean userCreated = Boolean.getBoolean(cur.getString(3));
-	        	ItemCategory category = new ItemCategory(id, parentCategoryId, name, userCreated);
+	        	long aliasId = cur.getLong(1);
+	        	long parentCategoryId = cur.getLong(2);
+	        	String name = cur.getString(3);
+	        	boolean userCreated = cur.getInt(4) == 1;
+	        	ItemCategory category = new ItemCategory(id, aliasId, parentCategoryId, name, userCreated);
 	        	list.add(category);
 	        } while (cur.moveToNext());
         }

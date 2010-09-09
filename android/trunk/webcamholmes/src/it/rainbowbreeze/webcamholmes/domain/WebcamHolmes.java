@@ -130,7 +130,7 @@ public class WebcamHolmes {
 //        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.google.note";
 //
 //        /**
-//         * The MIME type of a {@link #CONTENT_URI} sub-directory of a single note.
+//         * The MIME type of a {@link #CONTENT_URI} sub-directory of a single category.
 //         */
 //        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.google.note";
 
@@ -138,6 +138,12 @@ public class WebcamHolmes {
          * The table name
          */
         public static final String TABLE_NAME = "Category";
+
+        /**
+         * The alias for the category, used during import phase
+         * <P>Type: INT</P>
+         */
+        public static final String ALIAS_ID = "aliasId";
 
         /**
          * The id of the category at which the category belongs
