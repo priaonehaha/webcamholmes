@@ -18,13 +18,16 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
+import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.view.Window;
 import android.widget.ImageView;
@@ -37,11 +40,12 @@ public class LoadImageTask
 	extends AsyncTask<Void, Bitmap, Void>
 {
 	//---------- Private fields
-	private ImageView mImageViewWhereShowBitmap;
-	private Window mWindowWhereUpdateProgress;
+	private WeakReference<ImageView> mImageViewWhereShowBitmap;
+	private WeakReference<Window> mWindowWhereUpdateProgress;
 	private ItemWebcam mWebcam;
 	private boolean mInterruptReload;
 	private IImageUrlProvider mImageUrlProvider;
+	private final Bitmap mFailBitmap;
 
 	
 	
@@ -59,7 +63,7 @@ public class LoadImageTask
 	 * @param webcam
 	 * @param windowToUpdate
 	 * @param imageToUpdate
-	 * @param noConnectionImageResId The Resource Id of the image to use when no connection
+	 * @param failBitmap The Bitmap to show when no connection or other issues happened
 	 * is present or an error during the retrieve of the image happens 
 	 * 
 	 */
@@ -67,13 +71,15 @@ public class LoadImageTask
 			IImageUrlProvider imageProvider,
 			ItemWebcam webcam,
 			Window windowToUpdate,
-			ImageView imageToUpdate)
+			ImageView imageToUpdate,
+			Bitmap failBitmap)
 	{
 		mImageUrlProvider = imageProvider;
-		mWindowWhereUpdateProgress = windowToUpdate;
-		mImageViewWhereShowBitmap = imageToUpdate;
+		mWindowWhereUpdateProgress = new WeakReference<Window>(windowToUpdate);
+		mImageViewWhereShowBitmap = new WeakReference<ImageView>(imageToUpdate);
 		mWebcam = webcam;
 		mInterruptReload = false;
+		mFailBitmap = failBitmap;
 	}
 
 
@@ -162,9 +168,9 @@ public class LoadImageTask
 	private void startWindowProgressAnimation() {
 		if (null != mWindowWhereUpdateProgress) {
 			//progress image near the window title
-			mWindowWhereUpdateProgress.setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
+			mWindowWhereUpdateProgress.get().setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
 	                Window.PROGRESS_INDETERMINATE_ON);
-			mWindowWhereUpdateProgress.setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
+			mWindowWhereUpdateProgress.get().setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
 	                Window.PROGRESS_VISIBILITY_ON);
 		}
 	}	
@@ -176,9 +182,9 @@ public class LoadImageTask
 		//stop window progress animation
 		if (null != mWindowWhereUpdateProgress) {
 			//progress image near the window title
-			mWindowWhereUpdateProgress.setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
+			mWindowWhereUpdateProgress.get().setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
 	                Window.PROGRESS_INDETERMINATE_OFF);
-			mWindowWhereUpdateProgress.setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
+			mWindowWhereUpdateProgress.get().setFeatureInt(Window.FEATURE_INDETERMINATE_PROGRESS,
 	                Window.PROGRESS_VISIBILITY_OFF);
 		}
 	}
@@ -201,7 +207,7 @@ public class LoadImageTask
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return mFailBitmap;
 	}
 
 	/**
@@ -213,7 +219,7 @@ public class LoadImageTask
 	private void assignBitmap(Bitmap newBitmap) {
 		//assign the bitmap to the view
 		if (null != mImageViewWhereShowBitmap && null != newBitmap) {
-				mImageViewWhereShowBitmap.setImageBitmap(newBitmap);
+				mImageViewWhereShowBitmap.get().setImageBitmap(newBitmap);
 		} else {
 			//set default bitmap
 			//TODO

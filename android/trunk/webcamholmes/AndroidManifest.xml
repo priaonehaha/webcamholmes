@@ -2,8 +2,9 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="it.rainbowbreeze.webcamholmes" 
-	android:versionName="1.0"
+	android:versionName="0.5b"
 	android:versionCode="1"
+    android:installLocation="auto"
 >
 <!--	android:installLocation="auto"-->
 
@@ -28,7 +29,7 @@
 		/>
 
         <activity
-        	android:name="it.rainbowbreeze.libs.ui.AboutActivity"
+        	android:name="it.rainbowbreeze.libs.ui.BaseAboutActivity"
 			android:label="@string/common_appName"
 		/>
 

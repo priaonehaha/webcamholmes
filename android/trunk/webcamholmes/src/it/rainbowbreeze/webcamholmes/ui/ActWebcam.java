@@ -220,7 +220,8 @@ public class ActWebcam
 			IImageUrlProvider imageUrlProvider;
 			try {
 				imageUrlProvider = App.i().getImageUrlProvider();
-				LoadImageTask task = new LoadImageTask(imageUrlProvider, mWebcam, getWindow(), mImgWebcam);
+				LoadImageTask task = new LoadImageTask(
+						imageUrlProvider, mWebcam, getWindow(), mImgWebcam, App.i().getFailWebcamBitmap());
 				task.execute();
 				mLoadWebcamTask = task;
 				mReloadPaused = false;

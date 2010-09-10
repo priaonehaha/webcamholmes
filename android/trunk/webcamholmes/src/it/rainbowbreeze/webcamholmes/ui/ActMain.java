@@ -30,9 +30,11 @@ import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -60,6 +62,7 @@ public class ActMain
 	//---------- Private fields
 	private static final int DIALOG_SEND_CRASH_REPORTS = 10;
 	private static final int DIALOG_STARTUP_INFOBOX = 11;
+	private static final int DIALOG_ADD_NEW_ITEM = 12;
 
 	private long mCurrentCategoryId = 0;
 	private BaseLogFacility mLogFacility;
@@ -257,13 +260,18 @@ public class ActMain
     				App.LOG_TAG);
     		break;
     		
+    	case DIALOG_ADD_NEW_ITEM:
+    		retDialog = createAddItemDialog();
+    		break;
+    		
 		default:
 			retDialog = super.onCreateDialog(id);
     	}
     	
     	return retDialog;
     }
-
+    
+    
     
     
     
@@ -356,4 +364,59 @@ public class ActMain
                 return v;
         }
 	}
+
+	
+	/**
+	 * Create a dialog for adding new webcam or category
+	 * @return
+	 */
+	private Dialog createAddItemDialog()
+	{
+		//create the email selections
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getText(R.string.actmain_dlgAddTitle));
+		final CharSequence[] items = {
+				getText(R.string.actmain_dlgAddCategory),
+				getText(R.string.actmain_dlgAddWebcam)
+				};
+		//the dialog items will be set in the onPrepareDialog method
+		builder.setItems(items, new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int item) {
+		    	switch (item) {
+		    	//category
+				case 0:
+					addCategory();
+					break;
+				//webcam
+				case 1:
+					addWebcam();
+					break;
+				}
+		    }
+
+		});
+		AlertDialog alert = builder.create();
+		
+		return alert;
+	}
+
+
+	/**
+	 * 
+	 */
+	private void addCategory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * Call the activity for adding a new webcam
+	 */
+	protected void addWebcam() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

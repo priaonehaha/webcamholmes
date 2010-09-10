@@ -23,6 +23,7 @@ import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.logic.BaseCrashReporter;
+import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
@@ -32,6 +33,8 @@ import it.rainbowbreeze.webcamholmes.logic.LogicManager;
 import it.rainbowbreeze.webcamholmes.ui.ActivityHelper;
 
 import android.app.Application;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
@@ -73,13 +76,13 @@ public class App
 	public final static String APP_DISPLAY_NAME = "WebcamHolmes";
 
 	/** Application version displayed to the user (about activity etc) */
-	public final static String APP_DISPLAY_VERSION = "0.1b";
+	public final static String APP_DISPLAY_VERSION = "0.5b";
 
 	/** Application name used during the ping of update site */
 	public final static String APP_INTERNAL_NAME = "WebcamHolmes-Android";
     
 	/** Application version for internal use (update, crash report etc) */
-	public final static String APP_INTERNAL_VERSION = "00.01.00b";
+	public final static String APP_INTERNAL_VERSION = "00.05.00b";
 
 	/** address where send log */
 	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
@@ -180,6 +183,18 @@ public class App
 	{
 		return mImageUrlProvider.newInstance();
 	}
+	
+	/**
+	 * The error bitmap to display when webcam image isn't available
+	 * @return
+	 */
+	protected Bitmap mFailBitmap;
+	public Bitmap getFailWebcamBitmap() {
+		if (null == mFailBitmap)
+			mFailBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.no_connection);
+		return mFailBitmap;
+	}
+	
     
     
 

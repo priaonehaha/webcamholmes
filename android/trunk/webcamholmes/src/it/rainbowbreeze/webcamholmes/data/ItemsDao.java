@@ -30,7 +30,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.R.integer;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -421,7 +420,25 @@ public class ItemsDao
 	 * Return true if database is empty and initialization is needed
 	 */
 	public boolean isDatabaseEmpty() {
-		return true;
+		boolean categoriesExist;
+		boolean webcamsExist;
+		Cursor cur;
+		
+        SQLiteDatabase db = mOpenHelper.getReadableDatabase();
+        cur = db.query(WebcamHolmes.Webcam.TABLE_NAME,
+        		new String[]{WebcamHolmes.Webcam._ID},
+        		null, null, null, null, null);
+        webcamsExist = cur.moveToFirst();
+        cur.close();
+        
+        cur = db.query(WebcamHolmes.Category.TABLE_NAME,
+        		new String[]{WebcamHolmes.Category._ID},
+        		null, null, null, null, null);
+        categoriesExist = cur.moveToFirst();
+        cur.close();
+        db.close();
+        
+        return !(webcamsExist || categoriesExist);
 	}
 	
 	

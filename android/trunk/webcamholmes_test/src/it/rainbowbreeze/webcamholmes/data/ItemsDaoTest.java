@@ -27,6 +27,7 @@ import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 /**
  * 
@@ -332,6 +333,22 @@ public class ItemsDaoTest extends AndroidTestCase {
     }
     
     
+    public void testIsDatabaseEmpty() {
+    	assertTrue("Database not empty", mDao.isDatabaseEmpty());
+    	
+    	//insert a webcam
+        ItemWebcam webcam = ItemWebcam.Factory.getSystemWebcam(0, "Webcam 3", "http://localhost.edu/20050216_02.jpg", 30);
+        mDao.insertWebcam(webcam);
+    	assertFalse("Database is empty", mDao.isDatabaseEmpty());
+    	
+    	mDao.clearDatabaseComplete();
+    	assertTrue("Database not empty", mDao.isDatabaseEmpty());
+        ItemCategory category = ItemCategory.Factory.getSystemCategory(0, "Testcategory 1");
+        mDao.insertCategory(category);
+    	assertFalse("Database is empty", mDao.isDatabaseEmpty());
+    }
+    
+    
     public void testImportFromResource() {
         List<ItemToDisplay> items;
         
@@ -341,6 +358,8 @@ public class ItemsDaoTest extends AndroidTestCase {
     	
     	//check for root children
         items = mDao.getChildrenOfParentItem(0);
+        for (ItemToDisplay item:items)
+        	Log.e("WEBCAMTEST", item.getName());
         assertNotNull("List of items retrieved cannot be null", items);
         assertEquals("Wrong number of items retrieved", 3, items.size());
         
@@ -366,5 +385,26 @@ public class ItemsDaoTest extends AndroidTestCase {
         		assertEquals("Wrong webcam name", "Traffic Element 1", item.getName());
         	}
         }
+    }
+    
+    
+    public void testClearDatabaseComplete() {
+		long categoryId = mDao.insertCategory(ItemCategory.Factory.getSystemCategory(0, "Italy places"));
+		assertNotSame("Cannot create category", 0, categoryId);
+		ItemCategory category = mDao.getCategoryById(categoryId);
+		assertNotNull("Cannot retrieve category", category);
+		
+		long webcamId1 = mDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "(AN) Riviera del Conero", "http://www.damablu.it/video.jpg", 10));
+		assertNotSame("Cannot create webcam", 0, webcamId1);
+		long webcamId2 = mDao.insertWebcam(ItemWebcam.Factory.getUserWebcam(categoryId, "(AO) Aosta - Arco d'Augusto", "http://www.regione.vda.it/Bollettino_neve/Images/ao2.jpg", 60));
+		assertNotSame("Cannot create webcam", 0, webcamId2);
+		long webcamId3 = mDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "(AO) Valtournenche - piste da sci", "http://www.regione.vda.it/Bollettino_neve/Images/valtour.jpg", 60));
+		assertNotSame("Cannot create webcam", 0, webcamId3);
+		
+		mDao.clearDatabaseComplete();
+		assertNull("Category still exists", mDao.getCategoryById(categoryId));
+		assertNull("Webcam 1 still exists", mDao.getWebcamById(webcamId1));
+		assertNull("Webcam 2 still exists", mDao.getWebcamById(webcamId2));
+		assertNull("Webcam 3 still exists", mDao.getWebcamById(webcamId3));
     }
 }
