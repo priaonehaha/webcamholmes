@@ -72,12 +72,7 @@ public class ItemWebcam
 	protected final boolean mUserCreated;
 	public boolean isUserCreated()
 	{ return mUserCreated; }
-	
-	protected long mParentAliasId;
-	public long getParentAliasId()
-	{ return mParentAliasId; }
-	public void setParentAliasId(long newValue)
-	{ mParentAliasId = newValue; }
+
 
 
 

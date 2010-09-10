@@ -19,14 +19,18 @@
 package it.rainbowbreeze.webcamholmes.data;
 
 import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.domain.WebcamHolmes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import android.R.integer;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -223,12 +227,12 @@ public class ItemsDao
         values.put(WebcamHolmes.Category.CREATED_BY_USER, category.isUserCreated());
 
         long categoryId = db.insert(WebcamHolmes.Category.TABLE_NAME, WebcamHolmes.Category.NAME, values);
+        db.close();
         category.setId(categoryId);
 
         return categoryId;
 	}
-
-
+	
 	/**
 	 * Remove a webcam
 	 * @param webcamId the id of the webcam to delete
@@ -241,6 +245,7 @@ public class ItemsDao
         		WebcamHolmes.Webcam.TABLE_NAME,
         		WebcamHolmes.Webcam._ID + "=" + webcamId,
                 null);
+        db.close();
 		return count;
 	}
 
@@ -256,6 +261,7 @@ public class ItemsDao
         		WebcamHolmes.Category.TABLE_NAME,
         		WebcamHolmes.Category._ID + "=" + categoryId,
                 null);
+        db.close();
 		return count;
 	}
 	
@@ -265,17 +271,35 @@ public class ItemsDao
 	 * @param preferred
 	 */
 	public int setWebcamPreferredStatus(long webcamId, boolean preferred) {
-		int count;
-		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put(WebcamHolmes.Webcam.PREFERRED, preferred);
-		count = db.update(
-				WebcamHolmes.Webcam.TABLE_NAME,
-				values,
-        		WebcamHolmes.Webcam._ID + "=" + webcamId,
-				null);
-		return count;
+		return updateWebcamFields(webcamId, values);
 	}
+
+	/**
+	 * Set the parent id of a category
+	 * @param categoryId
+	 * @param newParentId
+	 * @return
+	 */
+	public int setCategoryParentId(long categoryId, long newParentId) {
+		ContentValues values = new ContentValues();
+		values.put(WebcamHolmes.Category.PARENT_CATEGORY_ID, newParentId);
+		return updateCategoryFields(categoryId, values);
+	}
+
+	/**
+	 * Set the parend id of a webcam
+	 * @param webcamId
+	 * @param newParentId
+	 * @return
+	 */
+	public int setWebcamParentId(long webcamId, long newParentId) {
+		ContentValues values = new ContentValues();
+		values.put(WebcamHolmes.Webcam.PARENT_CATEGORY_ID, newParentId);
+		return updateWebcamFields(webcamId, values);
+	}
+
 
 		
 	/**
@@ -294,7 +318,95 @@ public class ItemsDao
         		WebcamHolmes.Category.TABLE_NAME,
         		null,
                 null);
+        db.close();
         return count;
+	}
+	
+	
+	/**
+	 * Import webcam and categories from a xml resource file
+	 * 
+	 * @param context
+	 * @param resourceId
+	 * @return
+	 */
+	public ResultOperation<Integer> importFromResource(
+			Context context, int resourceId){
+		int totalAddedItems = 0;
+		long addedKey;
+		int processedItem;
+
+		//obtains the list of elements from file
+		ItemsXmlParser parser = new ItemsXmlParser();
+		ResultOperation<List<ItemToDisplay>> resImport = parser.parseResource(context, resourceId);
+
+		//errors
+		if (resImport.hasErrors()) {
+			return new ResultOperation<Integer>(resImport.getException(), resImport.getReturnCode());
+		}
+		
+		//nothing to import
+		List<ItemToDisplay> elements = resImport.getResult();
+		if (null == elements || 0 == elements.size()) {
+			return new ResultOperation<Integer>(0);
+		}
+		
+		//first round, add all categories
+		for (ItemToDisplay item : elements) {
+			if (item instanceof ItemCategory) {
+				addedKey = insertCategory((ItemCategory)item);
+				//after the insert, the id is updated
+				if (0 == addedKey) {
+					//TODO ohoh, problems :(
+				}
+				totalAddedItems++;
+			}
+		}
+		
+		//second round, now that categories was added,
+		//for each item, recalculate the true parentId
+		Map<Long, Long> parentIdsCache = new HashMap<Long, Long>();
+		for(ItemToDisplay item : elements) {
+			long parentAliasId = item.getParentAliasId();
+			if (0 != parentAliasId) {
+				//check if the alias is in the cache
+				if(!parentIdsCache.containsKey(parentAliasId)) {
+					//find the category that matches the alias
+					ItemCategory parentCategory = getCategoryByAliasId(parentAliasId);
+					//and put it in the cache
+					if (null != parentCategory)
+						parentIdsCache.put(parentAliasId, parentCategory.getId());
+					else
+						//no alias found, point to root category
+						parentIdsCache.put(parentAliasId, 0l);
+				}
+				item.setParentId(parentIdsCache.get(parentAliasId));
+			}
+		}
+		
+		//update parentId of categories
+		for (ItemToDisplay item : elements) {
+			if (item instanceof ItemCategory) {
+				processedItem = setCategoryParentId(item.getId(), item.getParentId());
+				//after the insert, the id is updated
+				if (0 == processedItem) {
+					//TODO ohoh, problems :(
+				}
+			}
+		}
+		
+		//add webcams (with right parendId set)
+		for (ItemToDisplay item : elements) {
+			if (item instanceof ItemWebcam) {
+				addedKey = insertWebcam((ItemWebcam)item);
+				if (0 == addedKey) {
+					//TODO ohoh, problems :(
+				}
+				totalAddedItems++;
+			}
+		}
+		
+		return new ResultOperation<Integer>(totalAddedItems);
 	}
 	
 	/**
@@ -311,6 +423,8 @@ public class ItemsDao
 	public boolean isDatabaseEmpty() {
 		return true;
 	}
+	
+	
 
 
 
@@ -352,6 +466,7 @@ public class ItemsDao
 	        } while (cur.moveToNext());
         }
         cur.close();
+        db.close();
         cur = null;
 
         return list;
@@ -386,6 +501,7 @@ public class ItemsDao
 	        } while (cur.moveToNext());
         }
         cur.close();
+        db.close();
         cur = null;
 
         return list;
@@ -405,6 +521,43 @@ public class ItemsDao
 			parentId = category.getParentId();
 		}
 		return parentId;
+	}
+
+	
+	/**
+	 * Changes values in a category item
+	 * @param categoryId id of the category
+	 * @param valuesToUpdate values to change
+	 * @return number of items updated (generally 1)
+	 */
+	private int updateCategoryFields(long categoryId, ContentValues valuesToUpdate) {
+		int count;
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+		count = db.update(
+				WebcamHolmes.Category.TABLE_NAME,
+				valuesToUpdate,
+        		WebcamHolmes.Category._ID + "=" + categoryId,
+				null);
+		db.close();
+		return count;
+	}
+	
+	/**
+	 * Changes values in a webcam item
+	 * @param categoryId id of the category
+	 * @param valuesToUpdate values to change
+	 * @return number of items updated (generally 1)
+	 */
+	private int updateWebcamFields(long webcamId, ContentValues valuesToUpdate) {
+		int count;
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+		count = db.update(
+				WebcamHolmes.Webcam.TABLE_NAME,
+				valuesToUpdate,
+        		WebcamHolmes.Webcam._ID + "=" + webcamId,
+				null);
+		db.close();
+		return count;
 	}
 	
 }

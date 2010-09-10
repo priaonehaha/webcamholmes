@@ -73,7 +73,15 @@ public abstract class ItemToDisplay
 	protected long mParentId;
 	public long getParentId()
 	{ return mParentId; }
+	public void setParentId(long newValue)
+	{ mParentId = newValue; }
 
+	
+	protected long mParentAliasId;
+	public long getParentAliasId()
+	{ return mParentAliasId; }
+	public void setParentAliasId(long newValue)
+	{ mParentAliasId = newValue; }
 
 
 

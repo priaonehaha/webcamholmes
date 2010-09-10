@@ -67,6 +67,11 @@ public class ItemsXmlParser {
 
 
 	//---------- Constructor
+	/**
+	 * This class cannot be used outside of ItemsDao
+	 */
+	protected ItemsXmlParser()
+	{ }
 
 
 

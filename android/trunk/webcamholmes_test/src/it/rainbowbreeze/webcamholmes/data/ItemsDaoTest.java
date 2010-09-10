@@ -21,6 +21,8 @@ package it.rainbowbreeze.webcamholmes.data;
 import java.util.List;
 
 import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.webcamholmes.R;
+import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
@@ -256,8 +258,50 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertFalse("Wrong preferred status", webcam.isPreferred());
     }
     
+    public void testSetWebcamParendId() {
+    	ItemWebcam webcam;
+    	int res;
+    	
+    	//non existing item
+    	res = mDao.setWebcamParentId(329382, 221);
+    	assertEquals("Wrong item processed", 0, res);
+    	
+        webcam = ItemWebcam.Factory.getSystemWebcam(54, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        long webcamId = mDao.insertWebcam(webcam);
+    	
+        webcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong parendId", 54, webcam.getParentId());
+
+        //change the parent
+        res = mDao.setWebcamParentId(webcamId, 192);
+    	assertEquals("Wrong item processed", 1, res);
+        webcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong parendId", 192, webcam.getParentId());
+    }
     
-    public void testGetFatherOfCategory() {
+    public void testSetCategoryParendId() {
+    	ItemCategory category;
+    	int res;
+    	
+    	//non existing item
+    	res = mDao.setCategoryParentId(329382, 221);
+    	assertEquals("Wrong item processed", 0, res);
+    	
+        category = ItemCategory.Factory.getUserCategory(192, "Traffic main road");
+        long categoryId = mDao.insertCategory(category);
+    	
+        category = mDao.getCategoryById(categoryId);
+        assertEquals("Wrong parendId", 192, category.getParentId());
+
+        //change the parent
+        res = mDao.setCategoryParentId(categoryId, 291);
+    	assertEquals("Wrong item processed", 1, res);
+        category = mDao.getCategoryById(categoryId);
+        assertEquals("Wrong parendId", 291, category.getParentId());
+    }
+    
+    
+    public void testGetParendIdOfCategory() {
     	ItemWebcam webcam;
         ItemCategory category;
 
@@ -285,5 +329,42 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertEquals(categoryId11, mDao.getParentIdOfCategory(categoryId12));
         assertEquals(categoryId11, mDao.getParentIdOfCategory(categoryId12));
         assertEquals(0, mDao.getParentIdOfCategory(categoryId2));
+    }
+    
+    
+    public void testImportFromResource() {
+        List<ItemToDisplay> items;
+        
+    	ResultOperation<Integer> res = mDao.importFromResource(getContext(), R.xml.testimportdata1);
+    	assertFalse("Errors during import", res.hasErrors());
+    	assertTrue("No elements added", res.getResult() > 0);
+    	
+    	//check for root children
+        items = mDao.getChildrenOfParentItem(0);
+        assertNotNull("List of items retrieved cannot be null", items);
+        assertEquals("Wrong number of items retrieved", 3, items.size());
+        
+        //checks elements and their values
+        long categoryId = 0;
+        for (ItemToDisplay item : items) {
+        	if (item instanceof ItemCategory) {
+        		categoryId = item.getId();
+        		assertEquals("Wrong category name", "Traffic", item.getName());
+        	}
+        }
+        
+    	//check for children of first category
+        items = mDao.getChildrenOfParentItem(categoryId);
+        assertNotNull("List of items retrieved cannot be null", items);
+        assertEquals("Wrong number of items retrieved", 2, items.size());
+    	
+        //checks elements and their values
+        for (ItemToDisplay item : items) {
+        	if (item instanceof ItemCategory) {
+        		assertEquals("Wrong category name", "Major road", item.getName());
+        	} else if (item instanceof ItemWebcam) {
+        		assertEquals("Wrong webcam name", "Traffic Element 1", item.getName());
+        	}
+        }
     }
 }

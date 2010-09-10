@@ -57,12 +57,6 @@ public class ItemCategory
 	public long getAliasId()
 	{ return mAliasId; }
 
-	protected long mParentAliasId;
-	public long getParentAliasId()
-	{ return mParentAliasId; }
-	public void setParentAliasId(long newValue)
-	{ mParentAliasId = newValue; }
-
 	
 	
 	
