@@ -220,11 +220,16 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertNotNull("List of items retrieved cannot be null", items);
         assertNotNull("List of items retrieved cannot be null", items);
         assertEquals("Wrong number of items retrieved", 3, items.size());
+        assertEquals("Wrong item id", categoryId1, items.get(0).getId());
+        assertEquals("Wrong item id", webcamId1, items.get(1).getId());
+        assertEquals("Wrong item id", webcamId2, items.get(2).getId());
 
         items = mDao.getChildrenOfParentItem(123);
         assertNotNull("List of items retrieved cannot be null", items);
         assertNotNull("List of items retrieved cannot be null", items);
         assertEquals("Wrong number of items retrieved", 2, items.size());
+        assertEquals("Wrong item id", categoryId2, items.get(0).getId());
+        assertEquals("Wrong item id", webcamId3, items.get(1).getId());
     }
     
     public void testSetWebcamPreferredStatus() {

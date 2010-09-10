@@ -308,8 +308,8 @@ public class ItemsDao
 	/**
 	 * Return true if database is empty and initialization is needed
 	 */
-	public void isDatabaseEmpty() {
-		
+	public boolean isDatabaseEmpty() {
+		return true;
 	}
 
 
@@ -341,7 +341,7 @@ public class ItemsDao
 	        	int type = cur.getInt(3);
 	        	String imageUrl = cur.getString(4);
 	        	int reloadInterval = cur.getInt(5);
-	        	boolean preferred = Boolean.getBoolean(cur.getString(6));
+	        	boolean preferred = cur.getInt(6) == 1;
 	        	boolean userCreated = cur.getInt(7) == 1;
 	        	ItemWebcam webcam = new ItemWebcam(
 	        			id, parentCategoryId,

@@ -102,8 +102,8 @@ public class ItemCategory
 
 		/**
 		 * Create a user category
-		 * @param id
 		 * @param aliasId
+		 * @param parentId
 		 * @param name
 		 * @return
 		 */

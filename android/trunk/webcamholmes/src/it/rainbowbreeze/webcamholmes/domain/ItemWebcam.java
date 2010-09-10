@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
+
 package it.rainbowbreeze.webcamholmes.domain;
 
 /**
@@ -92,7 +93,7 @@ public class ItemWebcam
 		 * @return
 		 */
 		public static ItemWebcam getSystemWebcam(long parentId, String name, String imageUrl, int reloadInterval) {
-			return new ItemWebcam(0, parentId, name, 0, imageUrl, reloadInterval, false, false);
+			return new ItemWebcam(0, parentId, name, 1, imageUrl, reloadInterval, false, false);
 		}
 
 		/**
@@ -104,7 +105,7 @@ public class ItemWebcam
 		 * @return
 		 */
 		public static ItemWebcam getUserWebcam(long parentId, String name, String imageUrl, int reloadInterval) {
-			return new ItemWebcam(0, parentId, name, 0, imageUrl, reloadInterval, false, true);
+			return new ItemWebcam(0, parentId, name, 1, imageUrl, reloadInterval, false, true);
 		}
 	}
 
