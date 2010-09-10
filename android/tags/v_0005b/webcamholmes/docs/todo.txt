@@ -1,0 +1,16 @@
+TODO
+
+-solve the link between imageDao and App in ActWebcam class
+-fullscreen view of the webcam con scrolling
+-reset salvataggio categoria padre se non esiste piu'
+-aggiungere i campi tipo login e pwd sulla webcam per futuri utilizzi, vedere i programmi che gia' ne hanno
+-progress dialog per la creazione di nuove webcam all'avvio
+
+
+Keyword
+CCTV webcam
+Ip webcam
+
+webcams.travel
+
+http://www.webcams.travel/developers/

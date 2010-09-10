@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="it.rainbowbreeze.webcamholmes" 
+	android:versionName="0.5b"
+	android:versionCode="1"
+    android:installLocation="auto"
+>
+<!--	android:installLocation="auto"-->
+
+	<application
+		android:icon="@drawable/ic_launcher_webcamholmes"
+		android:label="@string/common_appName"
+    	android:name="it.rainbowbreeze.webcamholmes.common.App"
+	>
+        <activity
+        	android:name=".ui.ActMain"
+			android:label="@string/common_appName"
+		>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+        	android:name=".ui.ActWebcam"
+			android:label="@string/common_appName"
+		/>
+
+        <activity
+        	android:name="it.rainbowbreeze.libs.ui.BaseAboutActivity"
+			android:label="@string/common_appName"
+		/>
+
+        <activity
+            android:name="it.rainbowbreeze.libs.ui.BaseSettingsMainActivity"
+            android:label="@string/common_appName"
+        />
+
+		<!-- The application's publisher ID assigned by AdMob -->
+		<meta-data android:value="a14c589701dde59" android:name="ADMOB_PUBLISHER_ID" />
+
+    </application>
+    
+	<!-- API support: min 1.6, target 2.0 -->
+    <uses-sdk
+    	android:minSdkVersion="4"
+    	android:targetSdkVersion="5"
+	/>     
+    
+	<!-- Internet access -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- Checks for connectivity -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!-- AdMob SDK permissions -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+</manifest> 
