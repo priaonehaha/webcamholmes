@@ -12,7 +12,8 @@ public class ResultOperation<T>
 	public ResultOperation(Exception ex, int errorReturnCode)
 	{ super(ex, errorReturnCode); }
 	
-	
+	public ResultOperation(T value)
+	{ super(value); }	
 
 
 	//---------- Private fields
@@ -21,9 +22,7 @@ public class ResultOperation<T>
 	
 	
 	//---------- Public properties
-	public final static int RETURNCODE_ERROR_SAVE_PROVIDER_DATA = 500;
-	public final static int RETURNCODE_ERROR_LOAD_PROVIDER_DATA = 501;
-	public static final int RETURNCODE_ERROR_EMPTY_REPLY = 502;
+	public final static int RETURNCODE_ERROR_IMPORT_FROM_RESOURCE = 500;
 
 	
 	

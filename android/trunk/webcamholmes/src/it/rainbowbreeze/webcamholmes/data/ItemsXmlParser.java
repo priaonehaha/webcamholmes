@@ -22,11 +22,14 @@
  */
 package it.rainbowbreeze.webcamholmes.data;
 
+import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
+import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
-import it.rainbowbreeze.webcamholmes.domain.WebcamHolmes.Category;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -34,6 +37,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.content.res.Resources.NotFoundException;
 
 /**
  * Parse XML file with webcam and categories
@@ -42,13 +46,22 @@ import android.content.res.XmlResourceParser;
  */
 public class ItemsXmlParser {
 	//---------- Private fields
+	private final static String XMLNODE_ITEMS = "Items";
+
 	private final static String XMLNODE_CATEGORY = "Category";
-	private final static String XMLNODE_CATEGORY_ID = "Id";
-	private final static String XMLNODE_CATEGORY_PARENT_CATEGORY_ID = "ParentCategoryId";
+	private final static String XMLNODE_CATEGORY_ALIAS_ID = "AliasId";
+	private final static String XMLNODE_CATEGORY_PARENT_ALIAS_ID = "ParentAliasId";
 	private final static String XMLNODE_CATEGORY_NAME = "Name";
 	private final static String XMLNODE_CATEGORY_CREATED_BY_USER = "UserCreated";
 
 	private final static String XMLNODE_WEBCAM = "Webcam";
+	private final static String XMLNODE_WEBCAM_PARENT_ALIAS_ID = "ParentAliasId";
+	private final static String XMLNODE_WEBCAM_NAME = "Name";
+	private final static String XMLNODE_WEBCAM_WEBCAM_TYPE = "Type";
+	private final static String XMLNODE_WEBCAM_RELOAD_INTERVAL = "ReloadInterval";
+	private final static String XMLNODE_WEBCAM_IMAGE_URL = "ImageUrl";
+	private final static String XMLNODE_WEBCAM_PREFFERED = "Preferred";
+	private final static String XMLNODE_WEBCAM_CREATED_BY_USER = "UserCreated";
 
 
 
@@ -59,60 +72,148 @@ public class ItemsXmlParser {
 
 
 	//---------- Public properties
-	public void parseResource(Context context, int resourceId) {
-		ItemCategory category;
-		ItemWebcam webcam;
 
-		StringBuffer stringBuffer = new StringBuffer();
-		Resources res = context.getResources();
-		XmlResourceParser parser = res.getXml(resourceId);
+
+
+
+	//---------- Public methods
+	
+	/**
+	 * Parse an xml resource file and returns a list with the items contained
+	 * 
+	 * @param context
+	 * @param resourceId Resource Id of the xml file to import
+	 */
+	public ResultOperation<List<ItemToDisplay>> parseResource(Context context, int resourceId) {
+		ItemCategory category;
+		long cat_aliasId = 0;
+		long cat_parentAliasId = 0;
+		String cat_name = null;
+		boolean cat_isCreatedByUser = false;
+
+		ItemWebcam webcam;
+		long web_parentAliasId = 0;
+		int web_webcatType = 0;
+		String web_name = null;
+		String web_imageUrl = null;
+		int web_reloadInterval = 0;
+		boolean web_isPreferred = false;
+		boolean web_isCreatedByUser = false;
+		
+		boolean processingCategory = false;
+		boolean processingWebcam = false;
+
+		List<ItemToDisplay> elements = null;
+		
+		XmlResourceParser parser;
+		try {
+			Resources res = context.getResources();
+			parser = res.getXml(resourceId);
+		} catch (NotFoundException e) {
+			return new ResultOperation<List<ItemToDisplay>>(e, ResultOperation.RETURNCODE_ERROR_IMPORT_FROM_RESOURCE);
+		}
+		
 		try {
 			parser.next();
 			int eventType = parser.getEventType();
 			
 			while (eventType != XmlPullParser.END_DOCUMENT) {
-				String name = null;
+				String tagName = null;
 				switch (eventType) {
 				case XmlPullParser.START_DOCUMENT:
+					elements = new ArrayList<ItemToDisplay>();
 					break;
 					
 				case XmlPullParser.START_TAG:
-					name = parser.getName();
+					tagName = parser.getName();
+	
+					if (tagName.equalsIgnoreCase(XMLNODE_ITEMS)) {
+						
+					} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY)) {
+						//reset data
+						cat_aliasId = 0;
+						cat_parentAliasId = 0;
+						cat_name = "";
+						cat_isCreatedByUser = false;
+						processingCategory = true;
+						
+					} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
+						//reset data
+						web_parentAliasId = 0;
+						web_webcatType = 1;
+						web_name = "";
+						web_imageUrl = "";
+						web_reloadInterval = 0;
+						web_isPreferred = false;
+						web_isCreatedByUser = false;
+						processingWebcam = true;
+					}
+
+					if (processingCategory) {
+						//category tags
+						if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_ALIAS_ID)) {
+							cat_aliasId = Long.valueOf(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_PARENT_ALIAS_ID)) {
+							cat_parentAliasId = Long.valueOf(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_NAME)) {
+							cat_name = parser.nextText();
+						} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_CREATED_BY_USER)) {
+							cat_isCreatedByUser = Boolean.parseBoolean(parser.nextText());
+						}
+					}
 					
-//					if (name.equalsIgnoreCase(XMLNODE_CATEGORY)) {
-//					} else if (name.equalsIgnoreCase(XMLNODE_PARAMETERVALUE)) {
-//						provider.setParameterValue(parametersIndex, parser.nextText());
-//					} else if (name.equalsIgnoreCase(XMLNODE_PARAMETERFORMAT)) {
-//						provider.setParameterFormat(parametersIndex, Integer.valueOf(parser.nextText()));
-//					}
+					if (processingWebcam) {
+						//webcam tags
+						if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_PARENT_ALIAS_ID)) {
+							web_parentAliasId = Long.valueOf(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_NAME)) {
+							web_name = parser.nextText();
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_WEBCAM_TYPE)) {
+							web_webcatType = Integer.valueOf(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_IMAGE_URL)) {
+							web_imageUrl = parser.nextText();
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_RELOAD_INTERVAL)) {
+							web_reloadInterval = Integer.valueOf(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_PREFFERED)) {
+							web_isPreferred = Boolean.parseBoolean(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_CREATED_BY_USER)) {
+							web_isCreatedByUser = Boolean.parseBoolean(parser.nextText());
+						}
+					}
 					break;
-					
+
 				case XmlPullParser.END_TAG:
+					tagName = parser.getName();
+					if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY)) {
+						//create new category with gathered data
+						category = new ItemCategory(0, cat_aliasId, 0, cat_name, cat_isCreatedByUser);
+						category.setParentAliasId(cat_parentAliasId);
+						elements.add(category);
+						processingCategory = false;
+					}
+
+					if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
+						//create new category with gathered data
+						webcam = new ItemWebcam(0, 0, web_name, web_webcatType, web_imageUrl, web_reloadInterval, web_isPreferred, web_isCreatedByUser);
+						webcam.setParentAliasId(web_parentAliasId);
+						elements.add(webcam);
+						processingWebcam = false;
+					}
+					
 					break;
-				
 				}
 				
 				eventType = parser.next();
 			}
 			
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return new ResultOperation<List<ItemToDisplay>>(e, ResultOperation.RETURNCODE_ERROR_IMPORT_FROM_RESOURCE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return new ResultOperation<List<ItemToDisplay>>(e, ResultOperation.RETURNCODE_ERROR_IMPORT_FROM_RESOURCE);
 		}
+		
+		return new ResultOperation<List<ItemToDisplay>>(elements);
 	}
-
-
-
-
-	//---------- Events
-
-
-
-
-	//---------- Public methods
 	
 
 	//---------- Private methods

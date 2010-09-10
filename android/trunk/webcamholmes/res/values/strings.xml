@@ -20,6 +20,7 @@
 <resources>
     <!-- Common -->
     <string name="common_appName">WebcamHolmes</string>
+    <string name="common_msg_errorImportingFromResource">Error importing categories and webcams from resource.\nPlease advice the developer about this problem.</string>
 
 
 

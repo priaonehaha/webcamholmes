@@ -21,6 +21,7 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.ui.BaseActivityHelper;
+import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
@@ -60,9 +61,7 @@ public class ActivityHelper
 	public final static String INTENTKEY_SENDLOGREPORT = "SendLogReport";
 	public final static String INTENTKEY_WEBCAMID = "WebcamId";
 	
-	private static final int MSG_INDEX_EMPTY_REPLY = 10;
-	private static final int MSG_INDEX_ERROR_LOAD_PROVIDER_DATA = 11;
-	private static final int MSG_INDEX_ERROR_SAVE_PROVIDER_DATA = 12;
+	private static final int MSG_INDEX_ERROR_IMPORT_FROM_RESOURCE = 10;
 
 	
 	
@@ -126,9 +125,7 @@ public class ActivityHelper
 	//---------- Protected methods
 	protected Map<Integer, String> loadMessagesStrings(Context context) {
 		Map<Integer, String> messages = super.loadMessagesStrings(context);
-//		messages.put(MSG_INDEX_EMPTY_REPLY, context.getString(R.string.common_msg_noReplyFromProvider));
-//		messages.put(MSG_INDEX_ERROR_LOAD_PROVIDER_DATA, context.getString(R.string.common_msg_cannotLoadProviderData));
-//		messages.put(MSG_INDEX_ERROR_SAVE_PROVIDER_DATA, context.getString(R.string.common_msg_cannotSaveProviderData));
+		messages.put(MSG_INDEX_ERROR_IMPORT_FROM_RESOURCE, context.getString(R.string.common_msg_errorImportingFromResource));
 		return messages;
 	}
 
@@ -138,20 +135,12 @@ public class ActivityHelper
 		String userMessage = null;
 		String exceptionMessage = null != exception ?  exception.getMessage() : getMessage(MSG_INDEX_NO_ERROR_MESSAGE);
 
-		//TODO
 		switch (returnCode) {
-			case ResultOperation.RETURNCODE_ERROR_EMPTY_REPLY:
+			case ResultOperation.RETURNCODE_ERROR_IMPORT_FROM_RESOURCE:
 				userMessage = String.format(
-						getMessage(MSG_INDEX_EMPTY_REPLY), exceptionMessage);
-				break;
-			case ResultOperation.RETURNCODE_ERROR_LOAD_PROVIDER_DATA:
-				userMessage = String.format(
-						getMessage(MSG_INDEX_ERROR_LOAD_PROVIDER_DATA), exceptionMessage);
-				break;
-			case ResultOperation.RETURNCODE_ERROR_SAVE_PROVIDER_DATA:
-				userMessage = String.format(
-						getMessage(MSG_INDEX_ERROR_SAVE_PROVIDER_DATA), exceptionMessage);
-				break;
+					getMessage(MSG_INDEX_ERROR_IMPORT_FROM_RESOURCE), exceptionMessage);
+			break;
+
 			default:
 				userMessage = super.getErrorDescription(returnCode, exception);
 				break;
