@@ -23,8 +23,8 @@ import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.logic.BaseCrashReporter;
+import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
 import it.rainbowbreeze.webcamholmes.R;
-import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ImageUrlProvider;
@@ -52,9 +52,6 @@ public class App
 	}
 
 	//---------- Private fields
-	private ActivityHelper mActivityHelper;
-	private ItemsDao mItemsDao;
-	private AppPreferencesDao mAppPreferencesDao;
 	private LogicManager mLogicManager;
 	private BaseLogFacility mLogFacility;
 
@@ -93,6 +90,7 @@ public class App
 	/** url where send statistics about application */
 	public final static String STATISTICS_WEBSERVER_URL = "http://www.rainbowbreeze.it/devel/getlatestversion.php";
 	
+	public final static String WEBCAM_IMAGE_DUMP_FILE = "webcamDump.png";
 	
 
 	/** the application was correctly initialized */
@@ -125,20 +123,25 @@ public class App
 		mLogFacility.i("App started");
 		
 		//create services and helper respecting IoC dependencies
+		ItemsDao itemsDao = new ItemsDao(getApplicationContext(), mLogFacility);
+		ServiceLocator.put(itemsDao);
+		ActivityHelper activityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
+		ServiceLocator.put(activityHelper);
+		AppPreferencesDao appPreferencesDao = new AppPreferencesDao(getApplicationContext(), APP_PREFERENCES_KEY);
+		ServiceLocator.put(appPreferencesDao);
+		BaseImageMediaHelper imageMediaHelper = new BaseImageMediaHelper(mLogFacility);
+		ServiceLocator.put(imageMediaHelper);
+		
 		mImageUrlProvider = ImageUrlProvider.class;
-		mItemsDao = new ItemsDao(getApplicationContext(), mLogFacility);
-		ServiceLocator.put(mItemsDao);
-		mActivityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
-		ServiceLocator.put(mActivityHelper);
-		mAppPreferencesDao = new AppPreferencesDao(getApplicationContext(), APP_PREFERENCES_KEY);
-		ServiceLocator.put(mAppPreferencesDao);
-		mLogicManager = new LogicManager(mLogFacility, mAppPreferencesDao, this, APP_INTERNAL_VERSION, mItemsDao);
+		
+		mLogicManager = new LogicManager(mLogFacility, appPreferencesDao, this, APP_INTERNAL_VERSION, itemsDao);
+
 		
 		//execute begin task
 		BaseResultOperation<Void> res = mLogicManager.executeBeginTask(this);
 		if (res.hasErrors()) {
 			mIsCorrectlyInitialized = false;
-			mActivityHelper.reportError(this, res.getException(), res.getReturnCode());
+			activityHelper.reportError(this, res.getException(), res.getReturnCode());
 		} else {
 			mIsCorrectlyInitialized = true;
 		}
@@ -147,9 +150,9 @@ public class App
 	@Override
 	public void onTerminate() {
 		//execute end tasks
-		ResultOperation<Void> res = (ResultOperation<Void>) mLogicManager.executeEndTast(this);
+		BaseResultOperation<Void> res = mLogicManager.executeEndTast(this);
 		if (res.hasErrors()) {
-			mActivityHelper.reportError(this, res.getException(), res.getReturnCode());
+			ServiceLocator.get(ActivityHelper.class).reportError(this, res.getException(), res.getReturnCode());
 		}
 		super.onTerminate();
 	}

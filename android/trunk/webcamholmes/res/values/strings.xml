@@ -49,5 +49,12 @@
     <string name="actwebcam_mnuReload">Force reload</string>
     <string name="actwebcam_mnuStartReload">Restart autoreload</string>
     <string name="actwebcam_mnuStopReload">Pause autoreload</string>
+    <string name="actwebcam_msgDumpWebcamImage">Preparing fullscreen...</string>
+
+
+
+
+    <!-- ActImageFullScreen -->
+    <string name="actimagefullscreen_msgLoadImage">Loading image...</string>
 
 </resources>

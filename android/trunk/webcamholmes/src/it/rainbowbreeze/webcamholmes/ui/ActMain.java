@@ -162,6 +162,7 @@ public class ActMain
 		} else {
 			//it's a webcam
 			mActivityHelper.openShowWebcam(this, item.getId());
+//			mActivityHelper.openFullscreenImageActivity(this, App.WEBCAM_IMAGE_DUMP_FILE);
 		}
 	}
 

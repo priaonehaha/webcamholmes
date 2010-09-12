@@ -20,6 +20,7 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
@@ -28,14 +29,21 @@ import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.logic.GlobalHelper;
 import it.rainbowbreeze.webcamholmes.logic.LoadImageTask;
+import it.rainbowbreeze.webcamholmes.logic.SaveWebcamImageThread;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.*;
@@ -55,6 +63,8 @@ public class ActWebcam
 	private final static int OPTIONMENU_PAUSE_RELOAD = 11;
 	private final static int OPTIONMENU_START_RELOAD = 12;
 
+	private final static int DIALOG_DUMP_WEBCAM_IMAGE = 10;
+
 	private final static String BUNDLEKEY_USERRELOADPAUSED = "UserReloadPaused";
 
 	private BaseLogFacility mLogFacility;
@@ -62,10 +72,11 @@ public class ActWebcam
 	private ItemWebcam mWebcam;
 	private ImageView mImgWebcam;
 	private LoadImageTask mLoadWebcamTask;
+	private BaseImageMediaHelper mImageMediaHelper;
 	private boolean mReloadPaused;
 	private boolean mUserReloadPaused;
-
 	private ItemsDao mItemsDao;
+	private SaveWebcamImageThread mSaveWebcamImageThread;
 
 	
 	
@@ -82,7 +93,8 @@ public class ActWebcam
         mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
         mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
         mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
-		
+        mImageMediaHelper = checkNotNull(ServiceLocator.get(BaseImageMediaHelper.class), "ImageMediaHelper");
+        
         getDataFromIntent(getIntent());
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
@@ -90,18 +102,48 @@ public class ActWebcam
         setTitle(String.format(getString(R.string.actwebcam_lblTitle), mWebcam.getName()));
         
         mImgWebcam = (ImageView) findViewById(R.id.actwebcam_imgWebcam);
+        mImgWebcam.setOnClickListener(mWebcamImageOnClickListener);
         
         if (null == savedInstanceState) {
         	//first start of the activity
 	        mReloadPaused = false;
 	        mUserReloadPaused = false;
-        } else {
-        	//activity destroyed and re-createad
-        	Drawable drawable = (Drawable) getLastNonConfigurationInstance();
-        	if (null != drawable) mImgWebcam.setImageDrawable(drawable);
         }
 	}
+	
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onStart()
+	 */
+	@Override
+	protected void onStart() {
+		super.onStart();
 
+		//retrieve bitmap
+		Object[] objects = (Object[]) getLastNonConfigurationInstance();
+		//nothing saved, probably first run of the activity
+		if (null == objects) return;
+
+		Drawable drawable = (Drawable) objects[0];
+    	if (null != drawable) mImgWebcam.setImageDrawable(drawable);
+    	//retrieve backgroud thread object
+		mSaveWebcamImageThread = (SaveWebcamImageThread) objects[1];
+		if (null != mSaveWebcamImageThread) {
+			mSaveWebcamImageThread.registerCallerHandler(mActivityHandler);
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onStop()
+	 */
+	@Override
+	protected void onStop() {
+		if (null != mSaveWebcamImageThread) {
+			mSaveWebcamImageThread.unregisterCallerHandler();
+		}
+		super.onStop();
+	}
+	
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onSaveInstanceState(android.os.Bundle)
 	 */
@@ -123,7 +165,7 @@ public class ActWebcam
 	 */
 	@Override
 	public Object onRetainNonConfigurationInstance() {
-		return mImgWebcam.getDrawable();
+		return new Object[]{mImgWebcam.getDrawable(), mSaveWebcamImageThread};
 	}
 
 	@Override
@@ -186,7 +228,65 @@ public class ActWebcam
 		}
 		return true;
 	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreateDialog(int)
+	 */
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		Dialog retDialog;
+		
+		switch(id) {
+		case(DIALOG_DUMP_WEBCAM_IMAGE):
+			retDialog = mActivityHelper.createProgressDialog(this, R.string.actwebcam_msgDumpWebcamImage);
+			break;
+		default:
+			retDialog = super.onCreateDialog(id);
+			break;
+		}
+		
+		return retDialog;
+	}
+	
+	
+	private OnClickListener mWebcamImageOnClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			//show a progress dialog
+			showDialog(DIALOG_DUMP_WEBCAM_IMAGE);
+			
+			BitmapDrawable bitmap = (BitmapDrawable) mImgWebcam.getDrawable();
+			mSaveWebcamImageThread = new SaveWebcamImageThread(
+					mLogFacility,
+					mImageMediaHelper,
+					ActWebcam.this, mActivityHandler, bitmap.getBitmap(), App.WEBCAM_IMAGE_DUMP_FILE);
+			mSaveWebcamImageThread.run();
+		}
+	};
 
+	/**
+	 * Hander to call when a message is sent or a captcha code is inserted
+	 */
+	private Handler mActivityHandler = new Handler() {
+		public void handleMessage(Message msg)
+		{
+			mLogFacility.i("Returned to ActWebcam from external thread with message " + msg.what);
+			//check if the message is for this handler
+			if (msg.what != SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE)
+				return;
+			
+			ResultOperation<String> res;
+			switch (msg.what) {
+			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE:
+				//pass data to method
+				res = (ResultOperation<String>) mSaveWebcamImageThread.getResult();
+				mSaveWebcamImageThread = null;
+				dumpWebcamImageComplete(res);
+				break;
+			}
+		}
+
+	};
 
 
 	//---------- Public methods
@@ -249,6 +349,21 @@ public class ActWebcam
         }
         mReloadPaused = true;
 	}
-	
+
+	/**
+	 * Called when dump of webcam image is completed
+	 * @param result
+	 */
+	private void dumpWebcamImageComplete(ResultOperation<String> result) {
+		if (result.hasErrors()) {
+			mActivityHelper.reportError(this, result.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
+		} else {
+			//remove the dialog
+			removeDialog(DIALOG_DUMP_WEBCAM_IMAGE);
+			//open fullscreen activity
+			mActivityHelper.openFullscreenImageActivity(ActWebcam.this, App.WEBCAM_IMAGE_DUMP_FILE);
+		}
+	};
+
 }
 

@@ -97,6 +97,16 @@ public class ActivityHelper
 		openActivity(callerActivity, ActWebcam.class, extras, true, REQUESTCODE_NONE);
 	}
 	
+	/**
+	 * Opens the ImageFullscreen browser activity
+	 * 
+	 * @param callerActivity
+	 * @param imageFile 
+	 */
+	public void openFullscreenImageActivity(Activity callerActivity, String imageFile){
+		openActivity(callerActivity, ActImageFullscreen.class, null, false, REQUESTCODE_NONE);
+	}
+	
 
 	/**
 	 * Process in a standard way the result of SmsService extended command

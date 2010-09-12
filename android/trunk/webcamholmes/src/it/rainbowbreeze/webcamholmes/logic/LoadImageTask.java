@@ -18,7 +18,6 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
-import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 
@@ -27,7 +26,6 @@ import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.view.Window;
 import android.widget.ImageView;

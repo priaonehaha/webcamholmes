@@ -5,7 +5,12 @@ TODO
 -reset salvataggio categoria padre se non esiste piu'
 -aggiungere i campi tipo login e pwd sulla webcam per futuri utilizzi, vedere i programmi che gia' ne hanno
 -progress dialog per la creazione di nuove webcam all'avvio
-
+-invio per email dell'immagine della webcam
+-fullscreen con immagine massimizzata per lo schermo
+-non spegnere il dispositivo quando si guarda la webcam (nelle opzioni)
+-posto nella schermata della webcam per loghi e altre cose (2 orientamenti)
+-show/hide controls di zoom in fullscreen
+-bottone fullscreen della webcam
 
 Keyword
 CCTV webcam
