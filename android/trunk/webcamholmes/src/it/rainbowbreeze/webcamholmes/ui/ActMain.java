@@ -64,6 +64,9 @@ public class ActMain
 	private static final int DIALOG_STARTUP_INFOBOX = 11;
 	private static final int DIALOG_ADD_NEW_ITEM = 12;
 
+	private final static int OPTIONMENU_SETTINGS = 2;
+	private final static int OPTIONMENU_ABOUT = 3;
+
 	private long mCurrentCategoryId = 0;
 	private BaseLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
@@ -71,10 +74,7 @@ public class ActMain
 	private ItemsDao mItemsDao;
 	private ItemToDisplayAdapter mItemsAdapter;
 	private List<ItemToDisplay> mItemsToDisplay;
-
-	private final static int OPTIONMENU_SETTINGS = 2;
-	private final static int OPTIONMENU_ABOUT = 3;
-
+	
 
 
 
@@ -116,7 +116,6 @@ public class ActMain
 		
     	//executed when the application first runs
         if (null == savedInstanceState) {
-    		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
         	//send statistics data first time the app runs
 	        SendStatisticsTask statsTask = new SendStatisticsTask(
 	        		mLogFacility,
@@ -128,23 +127,23 @@ public class ActMain
 	        		String.valueOf(mAppPreferencesDao.getUniqueId()));
 	        Thread t = new Thread(statsTask);
 	        t.start();
-
+	        
 	        //load values of view from previous application execution
-        	restoreLastRunViewValues();
-        	
-        	//show info dialog, if needed
-        	if (App.i().isFirstRunAfterUpdate())
-        		showDialog(DIALOG_STARTUP_INFOBOX);
-        	
-        	//checks for previous crash reports
-    		BaseCrashReporter crashReporter = checkNotNull(ServiceLocator.get(BaseCrashReporter.class), "CrashReporter");
-        	if (crashReporter.isCrashReportPresent(this)) {
-        		showDialog(DIALOG_SEND_CRASH_REPORTS);
-        	}
-        }
+	    	restoreLastRunViewValues();
+	    	
+	    	//show info dialog, if needed
+	    	if (App.i().isFirstRunAfterUpdate())
+	    		showDialog(DIALOG_STARTUP_INFOBOX);
+	    	
+	    	//checks for previous crash reports
+			BaseCrashReporter crashReporter = checkNotNull(ServiceLocator.get(BaseCrashReporter.class), "CrashReporter");
+	    	if (crashReporter.isCrashReportPresent(this)) {
+	    		showDialog(DIALOG_SEND_CRASH_REPORTS);
+	    	}
+    	}
     }
     
-
+    
 	@Override
     protected void onResume() {
     	super.onResume();
@@ -197,7 +196,7 @@ public class ActMain
 	 */
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK ) {
-            backOnCategory();
+        	backOnCategory();
             return true;
         }
         return super.onKeyUp(keyCode, event);
@@ -265,6 +264,7 @@ public class ActMain
     		retDialog = createAddItemDialog();
     		break;
     		
+    		
 		default:
 			retDialog = super.onCreateDialog(id);
     	}
@@ -302,7 +302,9 @@ public class ActMain
 		
 	}
 	
-    /**
+
+
+	/**
 	 * Navigate one category  back or close the application if the category is the first
 	 */
 	private void backOnCategory() {

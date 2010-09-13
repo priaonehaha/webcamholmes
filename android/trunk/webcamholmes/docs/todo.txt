@@ -1,16 +1,19 @@
 TODO
 
 -solve the link between imageDao and App in ActWebcam class
--fullscreen view of the webcam con scrolling
 -reset salvataggio categoria padre se non esiste piu'
 -aggiungere i campi tipo login e pwd sulla webcam per futuri utilizzi, vedere i programmi che gia' ne hanno
 -progress dialog per la creazione di nuove webcam all'avvio
 -invio per email dell'immagine della webcam
--fullscreen con immagine massimizzata per lo schermo
 -non spegnere il dispositivo quando si guarda la webcam (nelle opzioni)
 -posto nella schermata della webcam per loghi e altre cose (2 orientamenti)
--show/hide controls di zoom in fullscreen
--bottone fullscreen della webcam
+-togliere il runOnUiThread del fullscreen oppure gestirlo in modo diverso
+-controllare gestione del dialog nei settings
+-cambiare stringa su dialog per preparare i log
+ retDialog = mBaseActivityHelper.createAndShowProgressDialog(this, R.string.common_msg_executingCommand);
+-cercare registerCallerHandler(null) e sostituirlo con unregister
+
+
 
 Keyword
 CCTV webcam

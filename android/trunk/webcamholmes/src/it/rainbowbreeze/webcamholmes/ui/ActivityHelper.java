@@ -41,6 +41,7 @@ public class ActivityHelper
 	extends BaseActivityHelper
 {
 	//---------- Private fields
+	public final static int REQUESTCODE_MAINACTIVITY = 10;
 
 
 
@@ -67,6 +68,11 @@ public class ActivityHelper
 	
 
 	//---------- Public methods
+	
+	public void openMain(Activity callerActivity, Bundle extras){
+		openActivity(callerActivity, ActMain.class, extras, true, REQUESTCODE_MAINACTIVITY);
+	}
+	
 	
 	/**
 	 * Open Settings activity

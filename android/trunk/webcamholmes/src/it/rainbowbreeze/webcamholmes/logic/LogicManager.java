@@ -100,10 +100,9 @@ public class LogicManager extends BaseLogicManager {
 	 */
 	@Override
 	protected BaseResultOperation<Void> executeUpgradeTasks(String startingAppVersion) {
-		BaseResultOperation<Void> res =super.executeUpgradeTasks(startingAppVersion);
-		if (res.hasErrors()) return res;
 		
 		createWebcam010000();
+		BaseResultOperation<Void> res = new BaseResultOperation<Void>();
 		
 		return res;
 	}

@@ -36,6 +36,8 @@ import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import static it.rainbowbreeze.libs.common.ContractHelper.*;
+
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
  *
@@ -52,7 +54,6 @@ public class App
 	}
 
 	//---------- Private fields
-	private LogicManager mLogicManager;
 	private BaseLogFacility mLogFacility;
 
 	private Class<? extends ImageUrlProvider> mImageUrlProvider;
@@ -73,7 +74,7 @@ public class App
 	public final static String APP_DISPLAY_NAME = "WebcamHolmes";
 
 	/** Application version displayed to the user (about activity etc) */
-	public final static String APP_DISPLAY_VERSION = "0.5b";
+	public final static String APP_DISPLAY_VERSION = "0.6b";
 
 	/** Application name used during the ping of update site */
 	public final static String APP_INTERNAL_NAME = "WebcamHolmes-Android";
@@ -97,6 +98,8 @@ public class App
     private boolean mIsCorrectlyInitialized;
 	public boolean isCorrectlyInitialized()
 	{ return mIsCorrectlyInitialized; }
+	public void setCorrectlyInitialized(boolean newValue)
+	{ mIsCorrectlyInitialized = newValue; }
 
 	/** First run after an update of the application */
 	protected boolean mFirstRunAfterUpdate;
@@ -131,26 +134,18 @@ public class App
 		ServiceLocator.put(appPreferencesDao);
 		BaseImageMediaHelper imageMediaHelper = new BaseImageMediaHelper(mLogFacility);
 		ServiceLocator.put(imageMediaHelper);
+		LogicManager logicManager = new LogicManager(mLogFacility, appPreferencesDao, this, APP_INTERNAL_VERSION, itemsDao);
+		ServiceLocator.put(logicManager);
 		
 		mImageUrlProvider = ImageUrlProvider.class;
-		
-		mLogicManager = new LogicManager(mLogFacility, appPreferencesDao, this, APP_INTERNAL_VERSION, itemsDao);
 
-		
-		//execute begin task
-		BaseResultOperation<Void> res = mLogicManager.executeBeginTask(this);
-		if (res.hasErrors()) {
-			mIsCorrectlyInitialized = false;
-			activityHelper.reportError(this, res.getException(), res.getReturnCode());
-		} else {
-			mIsCorrectlyInitialized = true;
-		}
 	}
 
 	@Override
 	public void onTerminate() {
+		LogicManager logicManager = checkNotNull(ServiceLocator.get(LogicManager.class), "LogicManager");
 		//execute end tasks
-		BaseResultOperation<Void> res = mLogicManager.executeEndTast(this);
+		BaseResultOperation<Void> res = logicManager.executeEndTast(this);
 		if (res.hasErrors()) {
 			ServiceLocator.get(ActivityHelper.class).reportError(this, res.getException(), res.getReturnCode());
 		}

@@ -26,11 +26,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.Handler;
-import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.logic.BaseBackgroundThread;
 import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
-import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
@@ -40,7 +38,7 @@ import static it.rainbowbreeze.libs.common.ContractHelper.*;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class SaveWebcamImageThread extends BaseBackgroundThread {
+public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 
 	//---------- Private fields
 	private final BaseLogFacility mLogFacility;
@@ -87,9 +85,8 @@ public class SaveWebcamImageThread extends BaseBackgroundThread {
 		//save the image
 		mLogFacility.v("Dump bitmap to file " + mDumpFileName);
 //		BitmapDrawable bitmap = (BitmapDrawable) mImgWebcam.getDrawable();
-		mMediaHelper.saveImage(getContext(), mBitmapToDump, mDumpFileName, CompressFormat.PNG, 9);
+		mResultOperation = mMediaHelper.saveImage(getContext(), mBitmapToDump, mDumpFileName, CompressFormat.PNG, 9);
 		
-		mResultOperation = new ResultOperation<String>();
 		//and call the caller activity handler when the execution is terminated
 		callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE);
 	}

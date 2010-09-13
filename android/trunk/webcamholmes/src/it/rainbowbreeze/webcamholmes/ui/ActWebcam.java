@@ -18,6 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.ui;
 
+import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
@@ -62,6 +63,9 @@ public class ActWebcam
 	private final static int OPTIONMENU_FORCE_RELOAD = 10;
 	private final static int OPTIONMENU_PAUSE_RELOAD = 11;
 	private final static int OPTIONMENU_START_RELOAD = 12;
+	private final static int OPTIONMENU_FULLSCREEN = 13;
+	private final static int OPTIONMENU_SHARE = 14;
+	private final static int OPTIONMENU_REPORT_BROKEN = 15;
 
 	private final static int DIALOG_DUMP_WEBCAM_IMAGE = 10;
 
@@ -191,7 +195,11 @@ public class ActWebcam
 			.setIcon(android.R.drawable.ic_menu_close_clear_cancel);
 		menu.add(0, OPTIONMENU_START_RELOAD, 3, R.string.actwebcam_mnuStartReload)
 			.setIcon(R.drawable.ic_menu_play_clip);
-	return true;
+		menu.add(0, OPTIONMENU_FULLSCREEN, 4, R.string.actwebcam_mnuFullscreen)
+			.setIcon(android.R.drawable.ic_menu_gallery);
+//		menu.add(0, OPTIONMENU_SHARE, 5, R.string.actwebcam_mnuShare)
+//			.setIcon(android.R.drawable.ic_menu_view);
+		return true;
 	}
 	
 	/* (non-Javadoc)
@@ -223,6 +231,14 @@ public class ActWebcam
 			startWebcamLoadTask();
 			break;
 
+		case OPTIONMENU_FULLSCREEN:
+			showWebcamFullscreen();
+			break;
+
+		case OPTIONMENU_SHARE:
+			showWebcamFullscreen();
+			break;
+
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -252,15 +268,7 @@ public class ActWebcam
 	private OnClickListener mWebcamImageOnClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			//show a progress dialog
-			showDialog(DIALOG_DUMP_WEBCAM_IMAGE);
-			
-			BitmapDrawable bitmap = (BitmapDrawable) mImgWebcam.getDrawable();
-			mSaveWebcamImageThread = new SaveWebcamImageThread(
-					mLogFacility,
-					mImageMediaHelper,
-					ActWebcam.this, mActivityHandler, bitmap.getBitmap(), App.WEBCAM_IMAGE_DUMP_FILE);
-			mSaveWebcamImageThread.run();
+			showWebcamFullscreen();
 		}
 	};
 
@@ -275,11 +283,11 @@ public class ActWebcam
 			if (msg.what != SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE)
 				return;
 			
-			ResultOperation<String> res;
+			BaseResultOperation<String> res;
 			switch (msg.what) {
 			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE:
 				//pass data to method
-				res = (ResultOperation<String>) mSaveWebcamImageThread.getResult();
+				res = mSaveWebcamImageThread.getResult();
 				mSaveWebcamImageThread = null;
 				dumpWebcamImageComplete(res);
 				break;
@@ -350,13 +358,29 @@ public class ActWebcam
         mReloadPaused = true;
 	}
 
+
+	/**
+	 * Show the webcam in fullscreen image browser
+	 */
+	private void showWebcamFullscreen() {
+		//show a progress dialog
+		showDialog(DIALOG_DUMP_WEBCAM_IMAGE);
+		
+		BitmapDrawable bitmap = (BitmapDrawable) mImgWebcam.getDrawable();
+		mSaveWebcamImageThread = new SaveWebcamImageThread(
+				mLogFacility,
+				mImageMediaHelper,
+				ActWebcam.this, mActivityHandler, bitmap.getBitmap(), App.WEBCAM_IMAGE_DUMP_FILE);
+		mSaveWebcamImageThread.run();
+	}
+	
 	/**
 	 * Called when dump of webcam image is completed
-	 * @param result
+	 * @param res
 	 */
-	private void dumpWebcamImageComplete(ResultOperation<String> result) {
-		if (result.hasErrors()) {
-			mActivityHelper.reportError(this, result.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
+	private void dumpWebcamImageComplete(BaseResultOperation<String> res) {
+		if (res.hasErrors()) {
+			mActivityHelper.reportError(this, res.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
 		} else {
 			//remove the dialog
 			removeDialog(DIALOG_DUMP_WEBCAM_IMAGE);

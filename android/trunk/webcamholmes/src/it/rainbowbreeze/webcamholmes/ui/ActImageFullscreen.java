@@ -36,11 +36,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ZoomControls;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.*;
@@ -56,10 +57,12 @@ public class ActImageFullscreen extends Activity {
 	//---------- Private fields
 	private ZoomableImageView mImage;
 	private ActivityHelper mActivityHelper;
+	private ZoomControls mZoomControls;
 	
 	private final static float ZOOM_INCREMENT = 0.1f;
 	private static final int DIALOG_PROGRESS = 10;
-	
+	private static final int OPTIONMENU_SHOWHIDE_ZOOM = 10;
+	private static final int OPTIONMENU_SHARE = 11;
 	
 
 	//---------- Public properties
@@ -84,9 +87,9 @@ public class ActImageFullscreen extends Activity {
         
         mImage = (ZoomableImageView) findViewById(R.id.actimagefullscreen_imgMain);
         mImage.setBackgroundColor(Color.BLACK);
-        ZoomControls zoomControls = (ZoomControls) findViewById(R.id.actimagefullscreen_zoomcontrols);
-        zoomControls.setOnZoomInClickListener(mOnZoomInClickListener);
-        zoomControls.setOnZoomOutClickListener(mOnZoomOutClickListener);
+        mZoomControls = (ZoomControls) findViewById(R.id.actimagefullscreen_zoomcontrols);
+        mZoomControls.setOnZoomInClickListener(mOnZoomInClickListener);
+        mZoomControls.setOnZoomOutClickListener(mOnZoomOutClickListener);
         
         assignImageToView();
 	}
@@ -125,6 +128,40 @@ public class ActImageFullscreen extends Activity {
 	protected void onResume() {
 		super.onResume();
 		mImage.onResume(getResources());
+	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, OPTIONMENU_SHOWHIDE_ZOOM, 0, R.string.actimagefullscreen_mnuShowHideZoom)
+			.setIcon(android.R.drawable.ic_menu_view);
+//		menu.add(0, OPTIONMENU_SHARE, 1, R.string.actwebcam_mnuShare)
+//			.setIcon(android.R.drawable.ic_menu_view);
+		
+		return true;
+	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+		case OPTIONMENU_SHOWHIDE_ZOOM:
+			if (View.VISIBLE == mZoomControls.getVisibility()) {
+				mZoomControls.setVisibility(View.GONE);
+			} else {
+				mZoomControls.setVisibility(View.VISIBLE);
+			}
+			break;
+			
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		
+		return true;
 	}
 	
 	private OnClickListener mOnZoomInClickListener = new OnClickListener() {
