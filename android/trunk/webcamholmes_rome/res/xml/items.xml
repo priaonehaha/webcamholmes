@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+
+<Webcam>
+    <Name>Saint Peter's square</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.vaticanstate.va/images/webcam/conciliazione.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Dome of Saint Peter's</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.vaticanstate.va/images/webcam/radiovaticana.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Tomb of Pope John Paul II</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.vaticanstate.va/images/webcam/sepolcroGP2.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Saint Peter's Basilica</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.vaticanstate.va/images/webcam/bracciocarlo.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Castel Gandolfo</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.vaticanstate.va/images/webcam/castello.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Vatican Governorate</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.vaticanstate.va/images/webcam/governatorato.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Via Veneto from The Westin Excelsior</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.westinexcelsiorromeview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>The Square Colosseum from the Sheraton</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.sheratonromeview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Rome's Panorama</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.ramsat.191.it/public_html/roma_italy_resize_zoom_e1200.jpg</ImageUrl>
+    <SiteUrl>http://www.ramsat.it/webcam.htm#TAGROMA</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Rome's Skyline from Hotel Eden</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.hoteledenview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl>http://www.hoteledenview.com/</SiteUrl>
+</Webcam>
+
+
+
+
+</Items>

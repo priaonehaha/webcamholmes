@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_appName">Webcams Rome</string>
+
+    <string name="actabout_lblDescription">View real-time image from Rome webcams: panoramas, skylines and important places. More will be added in the future!</string>
+    <string name="actabout_lblDescription2">Suggest new webcams? Use the menu to send me an email with webcam address.\n\nCredits for icon to TpdkDesign.net and to Luke Hutchison for image multi-touch controller</string>
+    <string name="actabout_msgChangeslog">v1.0:\n -First release</string>
+</resources>
