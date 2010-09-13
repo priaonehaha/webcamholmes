@@ -71,19 +71,19 @@ public class App
 	public final static String APP_PREFERENCES_KEY = "WebcamHolmesPrefs";
 
 	/** Application name */
-	public final static String APP_DISPLAY_NAME = "WebcamHolmes";
+	public static String APP_DISPLAY_NAME = "WebcamHolmes";
 
 	/** Application version displayed to the user (about activity etc) */
-	public final static String APP_DISPLAY_VERSION = "0.6b";
+	public final static String APP_DISPLAY_VERSION = "1.0";
 
 	/** Application name used during the ping of update site */
 	public final static String APP_INTERNAL_NAME = "WebcamHolmes-Android";
     
 	/** Application version for internal use (update, crash report etc) */
-	public final static String APP_INTERNAL_VERSION = "00.05.00b";
+	public final static String APP_INTERNAL_VERSION = "01.00.00";
 
 	/** address where send log */
-	public final static String EMAIL_FOR_LOG = "devel@rainbowbreeze.it";
+	public final static String EMAIL_FOR_LOG = "webcamholmes@gmail.com";
 	
 	/** Tag to use in the log */
 	public final static String LOG_TAG = "WebcamHolmes";
@@ -123,7 +123,12 @@ public class App
 		//set the log tag
 		mLogFacility = new BaseLogFacility(LOG_TAG);
 		ServiceLocator.put(mLogFacility);
-		mLogFacility.i("App started");
+		
+		//calculate application name
+		APP_DISPLAY_NAME = getString(R.string.common_appName);
+
+		//log the begin of the application
+		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
 		
 		//create services and helper respecting IoC dependencies
 		ItemsDao itemsDao = new ItemsDao(getApplicationContext(), mLogFacility);
@@ -139,8 +144,6 @@ public class App
 		
 		mImageUrlProvider = ImageUrlProvider.class;
 
-		//log the begin of the application
-		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
 	}
 
 	@Override
