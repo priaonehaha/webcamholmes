@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+ Copyright (C) 2010 Alfredo Morresi
+ This file is part of WebcamHolmes project.
+   
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 3 of the License, or (at your option) any later
+ version.
+   
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ details.
+ 
+ You should have received a copy of the GNU General Public License along with
+ this program; If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<resources>
+    <!-- Common -->
+    <string name="common_appName">WebcamHolmes</string>
+    <string name="common_msg_errorImportingFromResource">Error importing categories and webcams from resource.\nPlease advice the developer about this problem.</string>
+
+
+
+
+	<!-- ActMain -->
+    <string name="actmain_lblTitle">WebcamHolmes - Select webcam</string>
+    <string name="actmain_mnuAdd">Add</string>
+    <string name="actmain_mnuAbout">About</string>
+    <string name="actmain_mnuSettings">Settings</string>
+    <string name="actmain_dlgAddTitle">What add?</string>
+    <string name="actmain_dlgAddWebcam">Webcam</string>
+    <string name="actmain_dlgAddCategory">Category</string>
+    
+    
+
+    
+    <!-- ActAbout -->
+    <string name="actabout_lblDescription">View IP webcams, IP-CCTV cameras from your mobile. Lot of preloaded cameras available, and more will be added in the future!</string>
+    <string name="actabout_lblDescription2">Suggest new webcams? Use the menu to send me an email with webcam address.\n\nCredits for icon to TpdkDesign.net and to Luke Hutchison for image multi-touch controller</string>
+    <string name="actabout_msgChangeslog">v0.6b:\n -Fullscreen webcam view v0.5b:\n -First release</string>
+
+
+
+
+	<!-- ActWebcam -->
+    <string name="actwebcam_lblTitle">WebcamHolmes - %s</string>
+    <string name="actwebcam_mnuReload">Force reload</string>
+    <string name="actwebcam_mnuStartReload">Restart autoreload</string>
+    <string name="actwebcam_mnuStopReload">Pause autoreload</string>
+    <string name="actwebcam_mnuFullscreen">Fullscreen</string>
+    <string name="actwebcam_mnuShare">Share</string>
+    <string name="actwebcam_mnuReportBroken">Report broken</string>
+    <string name="actwebcam_msgDumpWebcamImage">Preparing fullscreen...</string>
+
+
+
+
+    <!-- ActImageFullScreen -->
+    <string name="actimagefullscreen_msgLoadImage">Loading image...</string>
+    <string name="actimagefullscreen_mnuShowHideZoom">Show/Hide zoom control</string>
+    <string name="actimagefullscreen_mnuShare">Share</string>
+    
+    
+    
+    
+    <!-- BaseSplashscreenActivity -->
+    <string name="actsplashscreen_msgExecutingBeginTasks">Checking webcams and initializing application...</string>
+
+</resources>
