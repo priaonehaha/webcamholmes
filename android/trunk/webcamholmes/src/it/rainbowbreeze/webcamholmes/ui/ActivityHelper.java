@@ -41,7 +41,6 @@ public class ActivityHelper
 	extends BaseActivityHelper
 {
 	//---------- Private fields
-	public final static int REQUESTCODE_MAINACTIVITY = 10;
 
 
 

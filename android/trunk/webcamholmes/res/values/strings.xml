@@ -25,13 +25,6 @@
 
 
 
-    <!-- ActMain -->
-    <string name="actsplashscreen_lblTitle">%s is loading</string>
-    <string name="actsplashscreen_msgExecutingBeginTasks">Initializing app...</string>
-
-
-
-
 	<!-- ActMain -->
     <string name="actmain_lblTitle">WebcamHolmes - Select webcam</string>
     <string name="actmain_mnuAdd">Add</string>
@@ -69,5 +62,11 @@
     <string name="actimagefullscreen_msgLoadImage">Loading image...</string>
     <string name="actimagefullscreen_mnuShowHideZoom">Show/Hide zoom control</string>
     <string name="actimagefullscreen_mnuShare">Share</string>
+    
+    
+    
+    
+    <!-- BaseSplashscreenActivity -->
+    <string name="actsplashscreen_msgExecutingBeginTasks">Checking webcams and initializing application...</string>
 
 </resources>

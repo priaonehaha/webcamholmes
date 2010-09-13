@@ -11,7 +11,6 @@ TODO
 -controllare gestione del dialog nei settings
 -cambiare stringa su dialog per preparare i log
  retDialog = mBaseActivityHelper.createAndShowProgressDialog(this, R.string.common_msg_executingCommand);
--cercare registerCallerHandler(null) e sostituirlo con unregister
 
 
 
@@ -22,3 +21,7 @@ Ip webcam
 webcams.travel
 
 http://www.webcams.travel/developers/
+
+
+per creare nuovo tag
+ svn copy https://webcamholmes.googlecode.com/svn/android/trunk https://webcamholmes.googlecode.com/svn/android/tags/v_0006b -m "Creating a v_0006b release" --username alfredo.morresi

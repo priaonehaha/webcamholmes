@@ -139,6 +139,8 @@ public class App
 		
 		mImageUrlProvider = ImageUrlProvider.class;
 
+		//log the begin of the application
+		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
 	}
 
 	@Override
@@ -149,6 +151,9 @@ public class App
 		if (res.hasErrors()) {
 			ServiceLocator.get(ActivityHelper.class).reportError(this, res.getException(), res.getReturnCode());
 		}
+		
+		//log the end of the application
+		mLogFacility.i("App ending: " + App.APP_INTERNAL_NAME);
 		super.onTerminate();
 	}
     

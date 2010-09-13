@@ -23,35 +23,25 @@
 package it.rainbowbreeze.webcamholmes.ui;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.checkNotNull;
+import android.content.Intent;
+import android.os.Bundle;
 import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.logic.LogicManagerExecuteBeginTasksThread;
-import it.rainbowbreeze.webcamholmes.R;
+import it.rainbowbreeze.libs.ui.BaseSplashScreenActivity;
 import it.rainbowbreeze.webcamholmes.common.App;
-import it.rainbowbreeze.webcamholmes.logic.LogicManager;
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+
 
 /**
- * Spashscreen activity, simply execute application begin tasks
  * 
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class ActSplashScreen extends Activity {
-	
+public class ActSplashScreen extends BaseSplashScreenActivity {
+
 	//---------- Private fields
-	private final static int DIALOG_EXECUTING_BEGIN_TASKS = 10;
-	
-	private LogicManagerExecuteBeginTasksThread mExecuteBeginTaskThread;
-	private BaseLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
-	private boolean mFirstStart;
+	protected BaseLogFacility mLogFacility;
 
 	
 	
@@ -63,161 +53,48 @@ public class ActSplashScreen extends Activity {
 	
 	//---------- Events
 	/* (non-Javadoc)
-	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#onCreate(android.os.Bundle)
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
         mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        LogicManager logicManager = checkNotNull(ServiceLocator.get(LogicManager.class), "LogicManager");
+        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
 		
-		setContentView(R.layout.actsplashscreen);
-        setTitle(String.format(getString(R.string.actsplashscreen_lblTitle), App.APP_DISPLAY_NAME));
+	}
+	
+    
 
-        mFirstStart = null == savedInstanceState;
-    	//executed when the application first runs
-        if (null == savedInstanceState) {
-    		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
-	        
-    		showDialog(DIALOG_EXECUTING_BEGIN_TASKS);
-	        //execute begin tasks and other initialization
-			//preparing the background thread for executing service command
-			mExecuteBeginTaskThread = new LogicManagerExecuteBeginTasksThread(
-					this.getApplicationContext(),
-					mActSplashScreenHandler,
-					logicManager);
-			mExecuteBeginTaskThread.start();
-			
-			//at the end, execute method completeBeginTasks()
-        }
-        
+
+	//---------- Public methods
+
+	
+	
+	
+	//---------- Private methods
+
+
+	/* (non-Javadoc)
+	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#beginTaskFailed(it.rainbowbreeze.libs.common.BaseResultOperation)
+	 */
+	protected void beginTaskFailed(BaseResultOperation<Void> result) {
+		App.i().setCorrectlyInitialized(false);
+		//some errors
+		mBaseActivityHelper.reportError(this, result);
 	}
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onStart()
-     */
-    @Override
-    protected void onStart() {
-		super.onStart();
-		if (!mFirstStart) {
-			mExecuteBeginTaskThread = (LogicManagerExecuteBeginTasksThread) getLastNonConfigurationInstance();
-			if (null != mExecuteBeginTaskThread) {
-				//register new handler
-				mExecuteBeginTaskThread.registerCallerHandler(mActSplashScreenHandler);
-			}
-		}
-    }
-    
-    /* (non-Javadoc)
-     * @see android.app.Activity#onStop()
-     */
-    @Override
-    protected void onStop() {
-		if (null != mExecuteBeginTaskThread) {
-			//unregister handler from background thread
-			mExecuteBeginTaskThread.unregisterCallerHandler();
-		}
-		super.onStop();
-    }
-    
-    /* (non-Javadoc)
-     * @see android.app.Activity#onRetainNonConfigurationInstance()
-     */
-    @Override
-    public Object onRetainNonConfigurationInstance() {
-    	//save eventually open thread
-    	return mExecuteBeginTaskThread;
-    }    
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreateDialog(int)
-     */
-    @Override
-    protected Dialog onCreateDialog(int id) {
-    	Dialog retDialog = null;
-    	
-    	switch (id) {
-    	case DIALOG_EXECUTING_BEGIN_TASKS:
-    		retDialog = mActivityHelper.createProgressDialog(this, R.string.actsplashscreen_msgExecutingBeginTasks);
-    		break;
-    		
-		default:
-			retDialog = super.onCreateDialog(id);
-    	}
-    	
-    	return retDialog;
-    }
-   
-    /* (non-Javadoc)
-     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    	if (ActivityHelper.REQUESTCODE_MAINACTIVITY == requestCode) {
-    		//end the app when the main activity returns
-    		finish();
-    	} else {
-    		super.onActivityResult(requestCode, resultCode, data);
-    	}
-    }
-    
-    /* (non-Javadoc)
-     * @see android.app.Activity#onDestroy()
-     */
-    @Override
-    protected void onDestroy() {
-    	if (isFinishing()) {
-    		mLogFacility.v("App ending: " + App.APP_INTERNAL_NAME);
-    	}
-    	super.onDestroy();
-    }
-    
-    
-	/**
-	 * Hander to call when the execute command menu option ended
+	/* (non-Javadoc)
+	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#beginTasksCompleted(it.rainbowbreeze.libs.common.BaseResultOperation)
 	 */
-	private Handler mActSplashScreenHandler = new Handler() {
-		public void handleMessage(Message msg)
-		{
-			//check if the message is for this handler
-			if (msg.what != LogicManagerExecuteBeginTasksThread.WHAT_EXECUTE_BEGIN_TASK)
-				return;
-			
-			//dismisses progress dialog
-			dismissDialog(DIALOG_EXECUTING_BEGIN_TASKS);
-			BaseResultOperation<Void> res = mExecuteBeginTaskThread.getResult();
-			if (res.hasErrors()) {
-				App.i().setCorrectlyInitialized(false);
-				//some errors
-				mActivityHelper.reportError(ActSplashScreen.this, res);
-			} else {
-				App.i().setCorrectlyInitialized(true);
-				callMainApplicationActivity();
-			}
-			//free the thread
-			mExecuteBeginTaskThread = null;
-		};
-	};
-    
-    
-	
-	//---------- Public methods
-	
-	
-	
+	protected void beginTasksCompleted(BaseResultOperation<Void> result) {
+		App.i().setCorrectlyInitialized(true);
 
-	//---------- Private methods
-    /**
-	 * 
-	 */
-	protected void callMainApplicationActivity() {
+		//and call main activity
 		Intent i = getIntent();
-		
 		Bundle extras = null != i ? i.getExtras() : null;
 		mActivityHelper.openMain(this, extras);
-	}	
-	
-	
+	}
 }
