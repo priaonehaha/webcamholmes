@@ -103,7 +103,7 @@ public class ActMain
         mAppPreferencesDao = checkNotNull(ServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
         
         setContentView(R.layout.actmain);
-        setTitle(R.string.actmain_lblTitle);
+        setTitle(String.format(getString(R.string.actmain_lblTitle), App.APP_DISPLAY_NAME));
         
         mItemsToDisplay = new ArrayList<ItemToDisplay>();
         this.mItemsAdapter = new ItemToDisplayAdapter(this, R.layout.lstitemtodisplay, mItemsToDisplay);
@@ -123,7 +123,7 @@ public class ActMain
 	        		this,
 	        		App.STATISTICS_WEBSERVER_URL,
 	        		App.APP_INTERNAL_NAME,
-	        		App.APP_DISPLAY_VERSION,
+	        		App.APP_INTERNAL_VERSION,
 	        		String.valueOf(mAppPreferencesDao.getUniqueId()));
 	        Thread t = new Thread(statsTask);
 	        t.start();

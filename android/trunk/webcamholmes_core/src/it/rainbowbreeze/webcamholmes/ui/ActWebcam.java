@@ -103,7 +103,7 @@ public class ActWebcam
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     	setContentView(R.layout.actwebcam);
-        setTitle(String.format(getString(R.string.actwebcam_lblTitle), mWebcam.getName()));
+        setTitle(String.format(getString(R.string.actwebcam_lblTitle), App.APP_DISPLAY_NAME, mWebcam.getName()));
         
         mImgWebcam = (ImageView) findViewById(R.id.actwebcam_imgWebcam);
         mImgWebcam.setOnClickListener(mWebcamImageOnClickListener);

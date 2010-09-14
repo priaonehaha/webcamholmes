@@ -81,6 +81,30 @@
     <ImageUrl>http://cam.hoteledenview.com/view_live1.jpg</ImageUrl>
     <SiteUrl>http://www.hoteledenview.com/</SiteUrl>
 </Webcam>
+<Webcam>
+    <Name>Saint Peter and skyline</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>900</ReloadInterval>
+    <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+    <SiteUrl>http://www.mycampage.com/barcellocam</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 1</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9000/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487444321</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 2</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x60&#x26;dummy=1284487534421</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
 
 
 

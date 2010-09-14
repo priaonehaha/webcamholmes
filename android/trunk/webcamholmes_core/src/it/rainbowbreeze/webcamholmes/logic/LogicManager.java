@@ -71,7 +71,7 @@ public class LogicManager extends BaseLogicManager {
 		//TODO remove when tests finish
 		if (mItemsDao.isDatabaseEmpty()) {
 			//test deleted all webcams
-			createWebcam010000(context);
+			createSystemWebcam(context);
 		}
 		
 		return new ResultOperation<Void>();
@@ -100,7 +100,7 @@ public class LogicManager extends BaseLogicManager {
 	@Override
 	protected BaseResultOperation<Void> executeUpgradeTasks(Context context, String startingAppVersion) {
 		
-		BaseResultOperation<Void> res = createWebcam010000(context);
+		BaseResultOperation<Void> res = createSystemWebcam(context);
 		return res;
 	}
 	
@@ -108,13 +108,16 @@ public class LogicManager extends BaseLogicManager {
 	/**
 	 * Creates webcam for version 01.00.00 of the app
 	 */
-	private BaseResultOperation<Void> createWebcam010000(Context context) {
+	private BaseResultOperation<Void> createSystemWebcam(Context context) {
 //		ItemCategory category;
 //		long categoryId;
 
-		mBaseLogFacility.v("Adding new webcam for version 1.0");
-		//add new item to the list
+		mBaseLogFacility.v("Deleting old system webcams");
+		mItemsDao.clearDatabaseComplete();
+
+		mBaseLogFacility.v("Adding new system webcams");
 		
+		//add new item to the list
 		ResultOperation<Integer> res = mItemsDao.importFromResource(context, R.xml.items);
 		
 		if (res.hasErrors()) {

@@ -80,7 +80,7 @@ public class App
 	public final static String APP_INTERNAL_NAME = "WebcamHolmes-Android";
     
 	/** Application version for internal use (update, crash report etc) */
-	public final static String APP_INTERNAL_VERSION = "01.00.00";
+	public final static String APP_INTERNAL_VERSION = "01.00.01";
 
 	/** address where send log */
 	public final static String EMAIL_FOR_LOG = "webcamholmes@gmail.com";

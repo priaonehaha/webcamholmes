@@ -26,7 +26,7 @@
 
 
 	<!-- ActMain -->
-    <string name="actmain_lblTitle">WebcamHolmes - Select webcam</string>
+    <string name="actmain_lblTitle">%s - Select webcam</string>
     <string name="actmain_mnuAdd">Add</string>
     <string name="actmain_mnuAbout">About</string>
     <string name="actmain_mnuSettings">Settings</string>
@@ -46,7 +46,7 @@
 
 
 	<!-- ActWebcam -->
-    <string name="actwebcam_lblTitle">WebcamHolmes - %s</string>
+    <string name="actwebcam_lblTitle">%s - %s</string>
     <string name="actwebcam_mnuReload">Force reload</string>
     <string name="actwebcam_mnuStartReload">Restart autoreload</string>
     <string name="actwebcam_mnuStopReload">Pause autoreload</string>
