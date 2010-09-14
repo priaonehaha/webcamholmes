@@ -89,6 +89,7 @@
     <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
     <SiteUrl>http://www.mycampage.com/barcellocam</SiteUrl>
 </Webcam>
+<!-- 
 <Webcam>
     <Name>Largo Argentina 1</Name>
     <ParentAliasId>0</ParentAliasId>
@@ -105,8 +106,6 @@
     <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x60&#x26;dummy=1284487534421</ImageUrl>
     <SiteUrl>http://www.largoargentina.com/</SiteUrl>
 </Webcam>
-
-
-
+ -->
 
 </Items>
