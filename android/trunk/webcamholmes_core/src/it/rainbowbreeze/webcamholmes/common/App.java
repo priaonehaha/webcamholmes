@@ -74,13 +74,13 @@ public class App
 	public static String APP_DISPLAY_NAME = "WebcamHolmes";
 
 	/** Application version displayed to the user (about activity etc) */
-	public final static String APP_DISPLAY_VERSION = "1.0";
+	public final static String APP_DISPLAY_VERSION = "1.1";
 
 	/** Application name used during the ping of update site */
 	public final static String APP_INTERNAL_NAME = "WebcamHolmes-Android";
     
 	/** Application version for internal use (update, crash report etc) */
-	public final static String APP_INTERNAL_VERSION = "01.00.01";
+	public final static String APP_INTERNAL_VERSION = "01.01.00";
 
 	/** address where send log */
 	public final static String EMAIL_FOR_LOG = "webcamholmes@gmail.com";

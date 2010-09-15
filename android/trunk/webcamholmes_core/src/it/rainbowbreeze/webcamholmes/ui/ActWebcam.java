@@ -34,7 +34,6 @@ import it.rainbowbreeze.webcamholmes.logic.SaveWebcamImageThread;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -266,7 +265,6 @@ public class ActWebcam
 	
 	
 	private OnClickListener mWebcamImageOnClickListener = new OnClickListener() {
-		@Override
 		public void onClick(View v) {
 			showWebcamFullscreen();
 		}
@@ -286,10 +284,13 @@ public class ActWebcam
 			BaseResultOperation<String> res;
 			switch (msg.what) {
 			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE:
-				//pass data to method
-				res = mSaveWebcamImageThread.getResult();
-				mSaveWebcamImageThread = null;
-				dumpWebcamImageComplete(res);
+				//may happens that the thread is null (rotation and a call to handler in the same moment?)
+				if (null != mSaveWebcamImageThread) {
+					//pass data to method
+					res = mSaveWebcamImageThread.getResult();
+					mSaveWebcamImageThread = null;
+					dumpWebcamImageComplete(res);
+				}
 				break;
 			}
 		}
@@ -366,11 +367,10 @@ public class ActWebcam
 		//show a progress dialog
 		showDialog(DIALOG_DUMP_WEBCAM_IMAGE);
 		
-		BitmapDrawable bitmap = (BitmapDrawable) mImgWebcam.getDrawable();
 		mSaveWebcamImageThread = new SaveWebcamImageThread(
 				mLogFacility,
 				mImageMediaHelper,
-				ActWebcam.this, mActivityHandler, bitmap.getBitmap(), App.WEBCAM_IMAGE_DUMP_FILE);
+				ActWebcam.this, mActivityHandler, mImgWebcam, App.WEBCAM_IMAGE_DUMP_FILE);
 		mSaveWebcamImageThread.run();
 	}
 	

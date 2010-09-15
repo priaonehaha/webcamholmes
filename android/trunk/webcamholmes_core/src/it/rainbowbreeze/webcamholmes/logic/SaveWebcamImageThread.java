@@ -22,13 +22,19 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
+import java.lang.ref.WeakReference;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
+import android.widget.ImageView;
+import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.logic.BaseBackgroundThread;
 import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
+import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
@@ -43,7 +49,8 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 	//---------- Private fields
 	private final BaseLogFacility mLogFacility;
 	private final BaseImageMediaHelper mMediaHelper;
-	private final Bitmap mBitmapToDump;
+	private WeakReference<Bitmap> mBitmapToDump;
+	private WeakReference<ImageView> mImageViewWithBitmapToDump;
 	private final String mDumpFileName;
 	
 	
@@ -64,9 +71,27 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 		mLogFacility = checkNotNull(logFacility, "BaseLogFacility");
 		mMediaHelper = checkNotNull(imageMediaHelper, "BaseImageMediaHelper");
 		mDumpFileName = checkNotNullOrEmpty(fileName, "Dump file name");
-		mBitmapToDump = checkNotNull(bitmapToSave, "Bitmap");
+		mBitmapToDump = new WeakReference<Bitmap>(checkNotNull(bitmapToSave, "Bitmap"));
 	}
 
+	/**
+	 * 
+	 */
+	public SaveWebcamImageThread(
+			BaseLogFacility logFacility,
+			BaseImageMediaHelper imageMediaHelper,
+			Context context,
+			Handler handler,
+			ImageView imageViewWithBitmapToSave,
+			String fileName)
+	{
+		super(context, handler);
+		mLogFacility = checkNotNull(logFacility, "BaseLogFacility");
+		mMediaHelper = checkNotNull(imageMediaHelper, "BaseImageMediaHelper");
+		mDumpFileName = checkNotNullOrEmpty(fileName, "Dump file name");
+		mImageViewWithBitmapToDump = new WeakReference<ImageView>(checkNotNull(imageViewWithBitmapToSave, "ImageView with Bitmap"));
+		mBitmapToDump = null;
+	}
 	
 	
 	
@@ -82,11 +107,25 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 	 */
 	@Override
 	public void run() {
-		//save the image
-		mLogFacility.v("Dump bitmap to file " + mDumpFileName);
-//		BitmapDrawable bitmap = (BitmapDrawable) mImgWebcam.getDrawable();
-		mResultOperation = mMediaHelper.saveImage(getContext(), mBitmapToDump, mDumpFileName, CompressFormat.PNG, 9);
+		Bitmap bitmap = null;
+
+		//extract bitmap
+		if (null == mBitmapToDump && null != mImageViewWithBitmapToDump.get()) {
+			BitmapDrawable drawableBitmap = (BitmapDrawable) mImageViewWithBitmapToDump.get().getDrawable();
+			if (null != drawableBitmap)
+				bitmap = drawableBitmap.getBitmap();
+		} else if (null != mBitmapToDump) {
+			bitmap = mBitmapToDump.get();
+		}
 		
+		if (null == bitmap) {
+			mLogFacility.v("Cannot obtain a bitmap from the ImageView");
+			mResultOperation = new BaseResultOperation<String>(ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE, "Cannot obtain a bitmap from the ImageView");
+		} else {
+			//save the image
+			mLogFacility.v("Dump bitmap to file " + mDumpFileName);
+			mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.PNG, 9);
+		}
 		//and call the caller activity handler when the execution is terminated
 		callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE);
 	}

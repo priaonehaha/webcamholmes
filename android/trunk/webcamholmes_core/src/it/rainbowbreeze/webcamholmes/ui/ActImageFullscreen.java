@@ -165,14 +165,12 @@ public class ActImageFullscreen extends Activity {
 	}
 	
 	private OnClickListener mOnZoomInClickListener = new OnClickListener() {
-		@Override
 		public void onClick(View v) {
 			mImage.incrementScale(ZOOM_INCREMENT);
 		}
 	};
 
 	private OnClickListener mOnZoomOutClickListener = new OnClickListener() {
-		@Override
 		public void onClick(View v) {
 			mImage.incrementScale(-ZOOM_INCREMENT);
 		}
@@ -196,7 +194,6 @@ public class ActImageFullscreen extends Activity {
 		
 		//and launch the thread that load the image
 		runOnUiThread(new Runnable() {
-			@Override
 			public void run() {
 				FileInputStream fis = null;
 				try {
