@@ -42,7 +42,7 @@ public class LoadImageTask
 	private WeakReference<Window> mWindowWhereUpdateProgress;
 	private ItemWebcam mWebcam;
 	private boolean mInterruptReload;
-	private IImageUrlProvider mImageUrlProvider;
+	private final IImageUrlProvider mImageUrlProvider;
 	private final Bitmap mFailBitmap;
 
 	

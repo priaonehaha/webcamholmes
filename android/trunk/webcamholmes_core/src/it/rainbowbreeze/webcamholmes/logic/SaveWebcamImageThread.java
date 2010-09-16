@@ -52,6 +52,7 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 	private WeakReference<Bitmap> mBitmapToDump;
 	private WeakReference<ImageView> mImageViewWithBitmapToDump;
 	private final String mDumpFileName;
+	private final int mActionToPerformAtTheEnd;
 	
 	
 	//---------- Constructor
@@ -65,12 +66,11 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 			Context context,
 			Handler handler,
 			Bitmap bitmapToSave,
-			String fileName)
+			String fileName,
+			int actionToPerformAtTheEnd)
 	{
-		super(context, handler);
-		mLogFacility = checkNotNull(logFacility, "BaseLogFacility");
-		mMediaHelper = checkNotNull(imageMediaHelper, "BaseImageMediaHelper");
-		mDumpFileName = checkNotNullOrEmpty(fileName, "Dump file name");
+		this(logFacility, imageMediaHelper, context, handler, fileName, actionToPerformAtTheEnd);
+		mImageViewWithBitmapToDump = null;
 		mBitmapToDump = new WeakReference<Bitmap>(checkNotNull(bitmapToSave, "Bitmap"));
 	}
 
@@ -83,20 +83,36 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 			Context context,
 			Handler handler,
 			ImageView imageViewWithBitmapToSave,
-			String fileName)
+			String fileName,
+			int actionToPerformAtTheEnd)
 	{
+		this(logFacility, imageMediaHelper, context, handler, fileName, actionToPerformAtTheEnd);
+		mImageViewWithBitmapToDump = new WeakReference<ImageView>(checkNotNull(imageViewWithBitmapToSave, "ImageView with Bitmap"));
+		mBitmapToDump = null;
+	}
+	
+	protected SaveWebcamImageThread(
+			BaseLogFacility logFacility,
+			BaseImageMediaHelper imageMediaHelper,
+			Context context,
+			Handler handler,
+			String fileName,
+			int actionToPerformAtTheEnd) {
 		super(context, handler);
 		mLogFacility = checkNotNull(logFacility, "BaseLogFacility");
 		mMediaHelper = checkNotNull(imageMediaHelper, "BaseImageMediaHelper");
 		mDumpFileName = checkNotNullOrEmpty(fileName, "Dump file name");
-		mImageViewWithBitmapToDump = new WeakReference<ImageView>(checkNotNull(imageViewWithBitmapToSave, "ImageView with Bitmap"));
-		mBitmapToDump = null;
+		mActionToPerformAtTheEnd = actionToPerformAtTheEnd;	
 	}
 	
 	
 	
 	//---------- Public properties
-	public final static int WHAT_DUMP_WEBCAM_IMAGE = 1000;
+	public final static int WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN = 1000;
+	public final static int WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE = 1001;
+
+	public final static int AT_THE_END_SHARE = 10;
+	public final static int AT_THE_END_FULLSCREEN = 11;
 
 	
 	
@@ -123,11 +139,20 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 			mResultOperation = new BaseResultOperation<String>(ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE, "Cannot obtain a bitmap from the ImageView");
 		} else {
 			//save the image
-			mLogFacility.v("Dump bitmap to file " + mDumpFileName);
-			mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.PNG, 9);
+			if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd) {
+				mLogFacility.v("Dump bitmap to PNG file " + mDumpFileName);
+				mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.PNG, 9);
+			} else {
+				mLogFacility.v("Dump bitmap to JPG file " + mDumpFileName);
+				mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.JPEG, 85);
+			}
 		}
+		
 		//and call the caller activity handler when the execution is terminated
-		callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE);
+		if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd)
+			callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN);
+		else 
+			callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE);
 	}
 
 	

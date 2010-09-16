@@ -40,7 +40,7 @@
     <!-- ActAbout -->
     <string name="actabout_lblDescription">View IP webcams, IP-CCTV cameras from your mobile. Lot of preloaded cameras available, and more will be added in the future!</string>
     <string name="actabout_lblDescription2">Suggest new webcams? Use the menu to send me an email with webcam address.\n\nCredits for icon to TpdkDesign.net and to Luke Hutchison for image multi-touch controller</string>
-    <string name="actabout_msgChangeslog">v0.6b:\n -Fullscreen webcam view v0.5b:\n -First release</string>
+    <string name="actabout_msgChangeslog">v1.1:\nShare webcam image\n\nv0.6b:\nFullscreen webcam view\n\nv0.5b:\nFirst release</string>
 
 
 
@@ -53,7 +53,10 @@
     <string name="actwebcam_mnuFullscreen">Fullscreen</string>
     <string name="actwebcam_mnuShare">Share</string>
     <string name="actwebcam_mnuReportBroken">Report broken</string>
-    <string name="actwebcam_msgDumpWebcamImage">Preparing fullscreen...</string>
+    <string name="actwebcam_msgPrepareForFullscreen">Preparing for fullscreen...</string>
+    <string name="actwebcam_msgPrepareForSharing">Preparing for share...</string>
+    <string name="actwebcam_msgShareSubject">Webcam screenshot</string>
+    <string name="actwebcam_msgShareBody">Hi , \nI wanna share with you this image</string>
 
 
 

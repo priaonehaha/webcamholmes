@@ -64,9 +64,9 @@ public class ActWebcam
 	private final static int OPTIONMENU_START_RELOAD = 12;
 	private final static int OPTIONMENU_FULLSCREEN = 13;
 	private final static int OPTIONMENU_SHARE = 14;
-	private final static int OPTIONMENU_REPORT_BROKEN = 15;
 
-	private final static int DIALOG_DUMP_WEBCAM_IMAGE = 10;
+	private final static int DIALOG_PREPARE_FOR_FULLSCREEN = 10;
+	private final static int DIALOG_PREPARE_FOR_SHARING = 11;
 
 	private final static String BUNDLEKEY_USERRELOADPAUSED = "UserReloadPaused";
 
@@ -196,8 +196,8 @@ public class ActWebcam
 			.setIcon(R.drawable.ic_menu_play_clip);
 		menu.add(0, OPTIONMENU_FULLSCREEN, 4, R.string.actwebcam_mnuFullscreen)
 			.setIcon(android.R.drawable.ic_menu_gallery);
-//		menu.add(0, OPTIONMENU_SHARE, 5, R.string.actwebcam_mnuShare)
-//			.setIcon(android.R.drawable.ic_menu_view);
+		menu.add(0, OPTIONMENU_SHARE, 5, R.string.actwebcam_mnuShare)
+			.setIcon(android.R.drawable.ic_menu_view);
 		return true;
 	}
 	
@@ -235,7 +235,7 @@ public class ActWebcam
 			break;
 
 		case OPTIONMENU_SHARE:
-			showWebcamFullscreen();
+			shareWebcamImage();
 			break;
 
 		default:
@@ -252,8 +252,11 @@ public class ActWebcam
 		Dialog retDialog;
 		
 		switch(id) {
-		case(DIALOG_DUMP_WEBCAM_IMAGE):
-			retDialog = mActivityHelper.createProgressDialog(this, R.string.actwebcam_msgDumpWebcamImage);
+		case(DIALOG_PREPARE_FOR_FULLSCREEN):
+			retDialog = mActivityHelper.createProgressDialog(this, R.string.actwebcam_msgPrepareForFullscreen);
+			break;
+		case(DIALOG_PREPARE_FOR_SHARING):
+			retDialog = mActivityHelper.createProgressDialog(this, R.string.actwebcam_msgPrepareForSharing);
 			break;
 		default:
 			retDialog = super.onCreateDialog(id);
@@ -278,18 +281,29 @@ public class ActWebcam
 		{
 			mLogFacility.i("Returned to ActWebcam from external thread with message " + msg.what);
 			//check if the message is for this handler
-			if (msg.what != SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE)
+			if (msg.what != SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN
+				&& msg.what != SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE)
 				return;
 			
 			BaseResultOperation<String> res;
 			switch (msg.what) {
-			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE:
+			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN:
 				//may happens that the thread is null (rotation and a call to handler in the same moment?)
 				if (null != mSaveWebcamImageThread) {
-					//pass data to method
+					//get result from method
 					res = mSaveWebcamImageThread.getResult();
 					mSaveWebcamImageThread = null;
-					dumpWebcamImageComplete(res);
+					prepareForFullscreenComplete(res);
+				}
+				break;
+				
+			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE:
+				//may happens that the thread is null (rotation and a call to handler in the same moment?)
+				if (null != mSaveWebcamImageThread) {
+					//get result from method
+					res = mSaveWebcamImageThread.getResult();
+					mSaveWebcamImageThread = null;
+					prepareForSharingComplete(res);
 				}
 				break;
 			}
@@ -365,27 +379,68 @@ public class ActWebcam
 	 */
 	private void showWebcamFullscreen() {
 		//show a progress dialog
-		showDialog(DIALOG_DUMP_WEBCAM_IMAGE);
+		showDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
 		
 		mSaveWebcamImageThread = new SaveWebcamImageThread(
 				mLogFacility,
 				mImageMediaHelper,
-				ActWebcam.this, mActivityHandler, mImgWebcam, App.WEBCAM_IMAGE_DUMP_FILE);
+				ActWebcam.this,
+				mActivityHandler,
+				mImgWebcam,
+				App.WEBCAM_IMAGE_DUMP_FILE,
+				SaveWebcamImageThread.AT_THE_END_FULLSCREEN);
 		mSaveWebcamImageThread.run();
 	}
 	
+	private void shareWebcamImage() {
+		//show a progress dialog
+		showDialog(DIALOG_PREPARE_FOR_SHARING);
+		
+		mSaveWebcamImageThread = new SaveWebcamImageThread(
+				mLogFacility,
+				mImageMediaHelper,
+				ActWebcam.this,
+				mActivityHandler,
+				mImgWebcam,
+				App.WEBCAM_IMAGE_DUMP_FILE,
+				SaveWebcamImageThread.AT_THE_END_SHARE);
+		mSaveWebcamImageThread.run();
+	}
+
+
 	/**
 	 * Called when dump of webcam image is completed
 	 * @param res
 	 */
-	private void dumpWebcamImageComplete(BaseResultOperation<String> res) {
+	private void prepareForFullscreenComplete(BaseResultOperation<String> res) {
 		if (res.hasErrors()) {
 			mActivityHelper.reportError(this, res.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
 		} else {
 			//remove the dialog
-			removeDialog(DIALOG_DUMP_WEBCAM_IMAGE);
+			removeDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
 			//open fullscreen activity
-			mActivityHelper.openFullscreenImageActivity(ActWebcam.this, App.WEBCAM_IMAGE_DUMP_FILE);
+			mActivityHelper.openFullscreenImageActivity(this, App.WEBCAM_IMAGE_DUMP_FILE);
+		}
+	};
+
+	/**
+	 * Called when dump of webcam image is completed
+	 * @param res
+	 */
+	private void prepareForSharingComplete(BaseResultOperation<String> res) {
+		if (res.hasErrors()) {
+			mActivityHelper.reportError(this, res.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
+		} else {
+			//remove the dialog
+			removeDialog(DIALOG_PREPARE_FOR_SHARING);
+			//in the result there is the file path
+			String fileFullPath = res.getResult();
+			//launch share intent
+			mActivityHelper.sendEmail(this,
+					"", 
+					getString(R.string.actwebcam_msgShareSubject),
+					getString(R.string.actwebcam_msgShareBody),
+					fileFullPath);
 		}
 	};
 
