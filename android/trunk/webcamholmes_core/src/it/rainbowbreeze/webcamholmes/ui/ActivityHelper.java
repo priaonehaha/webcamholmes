@@ -72,6 +72,16 @@ public class ActivityHelper
 		openActivity(callerActivity, ActMain.class, extras, true, REQUESTCODE_MAINACTIVITY);
 	}
 	
+
+	@Override
+	public void openAbout(
+			Activity callerActivity,
+			String appName,
+			String appVersion,
+			String contactEmail) {
+		openAbout(callerActivity, ActAbout.class, appName, appVersion, contactEmail);
+	}
+	
 	
 	/**
 	 * Open Settings activity
@@ -132,6 +142,16 @@ public class ActivityHelper
 				showInfo(context, result.getResult());
 			}
 		}		
+	}
+
+	
+	/**
+	 * Open the market searching for more WebcamHolmes family application
+	 * @param callerActivity
+	 */
+	public void launchAndroidMarketForMoreWebcams(Activity callerActivity) {
+		launchAndroidMarket(callerActivity,
+				"pname:it.rainbowbreeze.webcamholmes");
 	}
 
 

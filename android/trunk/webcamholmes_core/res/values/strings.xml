@@ -30,6 +30,7 @@
     <string name="actmain_mnuAdd">Add</string>
     <string name="actmain_mnuAbout">About</string>
     <string name="actmain_mnuSettings">Settings</string>
+    <string name="actmain_mnuMoreWebcams">More webcams</string>
     <string name="actmain_dlgAddTitle">What add?</string>
     <string name="actmain_dlgAddWebcam">Webcam</string>
     <string name="actmain_dlgAddCategory">Category</string>

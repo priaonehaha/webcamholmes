@@ -63,9 +63,11 @@ public class ActMain
 	private static final int DIALOG_SEND_CRASH_REPORTS = 10;
 	private static final int DIALOG_STARTUP_INFOBOX = 11;
 	private static final int DIALOG_ADD_NEW_ITEM = 12;
+	
 
 	private final static int OPTIONMENU_SETTINGS = 2;
 	private final static int OPTIONMENU_ABOUT = 3;
+	private static final int OPTIONMENU_DISCOVER_NEW_WEBCAM = 4;
 
 	private long mCurrentCategoryId = 0;
 	private BaseLogFacility mLogFacility;
@@ -215,6 +217,8 @@ public class ActMain
 			.setIcon(android.R.drawable.ic_menu_preferences);
     	menu.add(0, OPTIONMENU_ABOUT, 2, R.string.actmain_mnuAbout)
     		.setIcon(android.R.drawable.ic_menu_info_details);
+    	menu.add(0, OPTIONMENU_DISCOVER_NEW_WEBCAM, 3, R.string.actmain_mnuMoreWebcams)
+    		.setIcon(android.R.drawable.ic_menu_mapmode);
 		return true;
     }
     
@@ -230,6 +234,10 @@ public class ActMain
 			
 		case OPTIONMENU_ABOUT:
 			mActivityHelper.openAbout(this, App.APP_DISPLAY_NAME, App.APP_DISPLAY_VERSION, App.EMAIL_FOR_LOG);
+			break;
+			
+		case OPTIONMENU_DISCOVER_NEW_WEBCAM:
+			mActivityHelper.launchAndroidMarketForMoreWebcams(this);
 			break;
 
 		default:

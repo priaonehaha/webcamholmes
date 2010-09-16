@@ -17,9 +17,6 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * 
- */
 package it.rainbowbreeze.webcamholmes.ui;
 
 import java.io.FileInputStream;

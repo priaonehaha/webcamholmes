@@ -197,7 +197,7 @@ public class ActWebcam
 		menu.add(0, OPTIONMENU_FULLSCREEN, 4, R.string.actwebcam_mnuFullscreen)
 			.setIcon(android.R.drawable.ic_menu_gallery);
 		menu.add(0, OPTIONMENU_SHARE, 5, R.string.actwebcam_mnuShare)
-			.setIcon(android.R.drawable.ic_menu_view);
+			.setIcon(android.R.drawable.ic_menu_share);
 		return true;
 	}
 	
@@ -402,9 +402,24 @@ public class ActWebcam
 				ActWebcam.this,
 				mActivityHandler,
 				mImgWebcam,
-				App.WEBCAM_IMAGE_DUMP_FILE,
+				parseWebcamName(mWebcam.getName()),
 				SaveWebcamImageThread.AT_THE_END_SHARE);
 		mSaveWebcamImageThread.run();
+	}
+
+
+	/*
+	 * Parse the webcam name and obtain a file name
+	 * used in the share function
+	 * 
+	 */
+	private String parseWebcamName(String webcamName) {
+		String finalName = webcamName
+			.replace(" ", "_")
+			.replace("'", "_")
+			+ ".jpg";
+		
+		return finalName;
 	}
 
 
