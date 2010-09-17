@@ -25,6 +25,7 @@ import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.logic.BaseLogicManager;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
+import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import android.content.Context;
 
@@ -37,6 +38,7 @@ public class LogicManager extends BaseLogicManager {
 
 	//---------- Private fields
 	private ItemsDao mItemsDao;
+	private AppPreferencesDao mAppPreferencesDao;
 	
 	
 
@@ -49,13 +51,14 @@ public class LogicManager extends BaseLogicManager {
 	 */
 	public LogicManager(
 			BaseLogFacility logFacility,
-			BaseAppPreferencesDao appPreferencesDao,
+			AppPreferencesDao appPreferencesDao,
 			AppGlobalBag globalBag,
 			String currentAppVersion,
 			ItemsDao itemsDao)
 	{
 		super(logFacility, appPreferencesDao, globalBag, currentAppVersion);
 		mItemsDao = checkNotNull(itemsDao);
+		mAppPreferencesDao = appPreferencesDao;
 	}
 	
 	
@@ -84,6 +87,11 @@ public class LogicManager extends BaseLogicManager {
 	@Override
 	public BaseResultOperation<Void> executeEndTast(Context context) {
 		return super.executeEndTast(context);
+		
+		//remove temp resources
+		String[] resourceToRemove = mAppPreferencesDao.getResourcesToRemove();
+		
+		
 	}
 	
 	

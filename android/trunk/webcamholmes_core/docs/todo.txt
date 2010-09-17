@@ -11,6 +11,7 @@ TODO
 -controllare gestione del dialog nei settings
 -cambiare stringa su dialog per preparare i log
  retDialog = mBaseActivityHelper.createAndShowProgressDialog(this, R.string.common_msg_executingCommand);
+-test per addresources nell'AppPreferenceDao
 
 
 

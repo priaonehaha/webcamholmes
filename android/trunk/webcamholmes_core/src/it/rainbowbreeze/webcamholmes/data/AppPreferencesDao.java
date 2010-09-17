@@ -22,14 +22,17 @@ package it.rainbowbreeze.webcamholmes.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.text.TextUtils;
 import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
+import it.rainbowbreeze.libs.helper.RainbowStringHelper;
 
 public class AppPreferencesDao
 	extends BaseAppPreferencesDao
 {
 	//---------- Private fields
 	protected static final String PROP_LATEST_CATEGORY = "latestCategory";
-
+	protected static final String PROP_RESOURCE_TO_REMOVE = "resourceToRemove";
+	protected static final String RESOURCES_SEPARATOR = "#@#@##@";
 
 
 
@@ -51,7 +54,57 @@ public class AppPreferencesDao
     public void setLatestCategory(long newValue)
     { mEditor.putLong(PROP_LATEST_CATEGORY, newValue); }
 
-	
+	public String[] getResourcesToRemove(){
+		String allResources = mSettings.getString(PROP_RESOURCE_TO_REMOVE, "");
+		
+		if (TextUtils.isEmpty(allResources))
+			return new String[]{};
+		else
+			return allResources.split(RESOURCES_SEPARATOR);
+		
+	}
+    public void setResourcesToRemove(String[] newValue){
+    	mEditor.putString(PROP_RESOURCE_TO_REMOVE, RainbowStringHelper.join(newValue, RESOURCES_SEPARATOR));
+	}
+    public boolean addResourceToRemove(String newValue){
+    	if (TextUtils.isEmpty(newValue)) return false;
+    	
+    	String[] resources = getResourcesToRemove();
+    	boolean exists = (null != resources);
+    	
+    	//find if the element already exists
+    	if (!exists) {
+    		for(String resource:resources) {
+    			if (newValue.equals(resource)) {
+    				exists = true;
+    				break;
+    			}
+    		}
+    	}
+    	
+    	//true because the item is in the resources, at the end
+    	if (exists) return true;
+
+    	//add the new resource
+    	String allResources = mSettings.getString(PROP_RESOURCE_TO_REMOVE, "");
+    	if (TextUtils.isEmpty(allResources))
+    		allResources = newValue;
+    	else
+    		allResources += RESOURCES_SEPARATOR + newValue;
+    	
+    	//persists resources
+    	mEditor.putString(PROP_RESOURCE_TO_REMOVE, allResources);
+    	return save();
+	}
+    /**
+     * Remove all resource to remove
+     */
+    public boolean cleanResourcesToRemove() {
+    	mEditor.putString(PROP_RESOURCE_TO_REMOVE, "");
+    	return save();
+    }
+
+
 	
 	
 	//---------- Public methods
