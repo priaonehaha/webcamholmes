@@ -103,6 +103,44 @@ public class WebcamHolmes {
          * <P>Type: BOOLEAN</P>
          */
         public static final String CREATED_BY_USER = "userCreated";
+        
+        /**
+         * Address of the site where the webcam is present
+         * <P>Type: TEXT</P>
+         */
+        public static final String SITE_URL = "siteUrl"; 
+        
+        /**
+         * Username used to access to the webcam
+         * <P>Type: TEXT</P>
+         */
+        public static final String USERNAME = "username"; 
+        
+        /**
+         * Password used to access to the webcam
+         * <P>Type: TEXT</P>
+         */
+        public static final String PASSWORD = "password"; 
+        
+        /**
+         * Free data used based on type of webcam - first field
+         * <P>Type: TEXT</P>
+         */
+        public static final String FREEDATA1 = "freeData1"; 
+        
+        /**
+         * Free data used based on type of webcam - second field
+         * <P>Type: TEXT</P>
+         */
+        public static final String FREEDATA2 = "freeData2"; 
+        
+        /**
+         * Free data used based on type of webcam - third field
+         * <P>Type: TEXT</P>
+         */
+        public static final String FREEDATA3 = "freeData3"; 
+        
+        
 
         /**
          * The default sort order for this table

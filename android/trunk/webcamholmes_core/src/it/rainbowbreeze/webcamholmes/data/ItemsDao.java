@@ -47,7 +47,7 @@ public class ItemsDao
 {
 	//---------- Private fields
     private static final String DATABASE_NAME = "webcamholmes.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private final BaseLogFacility mLogFacility;
 
     /**
@@ -101,11 +101,17 @@ public class ItemsDao
                     + WebcamHolmes.Webcam._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + WebcamHolmes.Webcam.PARENT_CATEGORY_ID + " INTEGER NOT NULL,"
                     + WebcamHolmes.Webcam.NAME + " TEXT NOT NULL,"
-                    + WebcamHolmes.Webcam.TYPE + " INTEGER NOT NULL,"
-                    + WebcamHolmes.Webcam.IMAGEURL + " TEXT,"
+                    + WebcamHolmes.Webcam.TYPE + " SMALL NOT NULL,"
+                    + WebcamHolmes.Webcam.IMAGEURL + " TEXT NOT NULL,"
                     + WebcamHolmes.Webcam.RELOAD_INTERVAL + " SMALL,"
                     + WebcamHolmes.Webcam.PREFERRED + " BOOLEAN,"
-                    + WebcamHolmes.Webcam.CREATED_BY_USER + " BOOLEAN"
+                    + WebcamHolmes.Webcam.CREATED_BY_USER + " BOOLEAN, "
+                    + WebcamHolmes.Webcam.SITE_URL + " TEXT,"
+                    + WebcamHolmes.Webcam.USERNAME + " TEXT,"
+                    + WebcamHolmes.Webcam.PASSWORD + " TEXT,"
+                    + WebcamHolmes.Webcam.FREEDATA1 + " TEXT,"
+                    + WebcamHolmes.Webcam.FREEDATA2 + " TEXT,"
+                    + WebcamHolmes.Webcam.FREEDATA3 + " TEXT"
                     + ");");
             db.execSQL("CREATE TABLE " + WebcamHolmes.Category.TABLE_NAME + " ("
                     + WebcamHolmes.Category._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
