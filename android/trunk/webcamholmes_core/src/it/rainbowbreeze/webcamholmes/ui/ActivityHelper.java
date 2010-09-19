@@ -58,8 +58,9 @@ public class ActivityHelper
 	
 	
 	//---------- Public properties
-	public final static String INTENTKEY_SENDLOGREPORT = "SendLogReport";
-	public final static String INTENTKEY_WEBCAMID = "WebcamId";
+	public static final String INTENTKEY_SENDLOGREPORT = "SendLogReport";
+	public static final String INTENTKEY_WEBCAMID = "WebcamId";
+	public static final String INTENTKEY_IMAGETODISPLAY_PATH = "imageToDisplay";
 	
 	private static final int MSG_INDEX_ERROR_IMPORT_FROM_RESOURCE = 10;
 
@@ -119,7 +120,10 @@ public class ActivityHelper
 	 * @param imageFile 
 	 */
 	public void openFullscreenImageActivity(Activity callerActivity, String imageFile){
-		openActivity(callerActivity, ActImageFullscreen.class, null, false, REQUESTCODE_NONE);
+		Bundle extras = new Bundle();
+		extras.putString(INTENTKEY_IMAGETODISPLAY_PATH, imageFile);
+
+		openActivity(callerActivity, ActImageFullscreen.class, extras, false, REQUESTCODE_NONE);
 	}
 	
 
@@ -151,7 +155,7 @@ public class ActivityHelper
 	 */
 	public void launchAndroidMarketForMoreWebcams(Activity callerActivity) {
 		launchAndroidMarket(callerActivity,
-				"pname:it.rainbowbreeze.webcamholmes");
+				"pub:\"Alfredo Morresi\"");
 	}
 
 

@@ -23,12 +23,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import it.rainbowbreeze.libs.common.ServiceLocator;
+import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.ui.ZoomableImageView;
 import it.rainbowbreeze.webcamholmes.R;
-import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -55,11 +56,13 @@ public class ActImageFullscreen extends Activity {
 	private ZoomableImageView mImage;
 	private ActivityHelper mActivityHelper;
 	private ZoomControls mZoomControls;
+	private String mImageToDisplayPath;
 	
+	private BaseLogFacility mLogFacility;
+
 	private final static float ZOOM_INCREMENT = 0.1f;
 	private static final int DIALOG_PROGRESS = 10;
 	private static final int OPTIONMENU_SHOWHIDE_ZOOM = 10;
-	private static final int OPTIONMENU_SHARE = 11;
 	
 
 	//---------- Public properties
@@ -80,15 +83,18 @@ public class ActImageFullscreen extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.actimagefullscreen);
     
+        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
         mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
         
+        getDataFromIntent(getIntent());
+
         mImage = (ZoomableImageView) findViewById(R.id.actimagefullscreen_imgMain);
         mImage.setBackgroundColor(Color.BLACK);
         mZoomControls = (ZoomControls) findViewById(R.id.actimagefullscreen_zoomcontrols);
         mZoomControls.setOnZoomInClickListener(mOnZoomInClickListener);
         mZoomControls.setOnZoomOutClickListener(mOnZoomOutClickListener);
         
-        assignImageToView();
+        assignImageToView(mImageToDisplayPath);
 	}
 
 	/* (non-Javadoc)
@@ -182,29 +188,35 @@ public class ActImageFullscreen extends Activity {
 	//---------- Private methods
 
 	/**
+	 * Get data from intent and configured internal fields
+	 * @param intent
+	 */
+	private void getDataFromIntent(Intent intent) {
+		Bundle extras = intent.getExtras();
+		//checks if current editing is for a provider or a subservice
+		if(extras != null) {
+			mImageToDisplayPath = checkNotNull(extras.getString(ActivityHelper.INTENTKEY_IMAGETODISPLAY_PATH), "ImageToDisplay");
+			mLogFacility.v("Showing image" + mImageToDisplayPath);
+		} else {
+			checkNotNull(null, "ImageToDisplay");
+		}
+	}
+	
+	/**
 	 * Assign dumped webcam image to view
 	 */
-	private void assignImageToView() {
-		
-		//show open dialog
-		showDialog(DIALOG_PROGRESS);
-		
-		//and launch the thread that load the image
-		runOnUiThread(new Runnable() {
-			public void run() {
-				FileInputStream fis = null;
-				try {
-					fis = openFileInput(App.WEBCAM_IMAGE_DUMP_FILE);
-					Bitmap bitmap = BitmapFactory.decodeStream(fis);
-			        mImage.assignImage(getResources(), bitmap);
-			        //dismiss progress dialog
-					removeDialog(DIALOG_PROGRESS);			        
-				} catch (FileNotFoundException e) {
-					//TODO change error return code
-					mActivityHelper.reportError(ActImageFullscreen.this, e, ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
-				}
-			}
-		});
+	private void assignImageToView(String imageToDisplayPath) {
+		//TODO call in an external thread
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(imageToDisplayPath);
+			//fis = openFileInput(App.WEBCAM_IMAGE_DUMP_FILE);
+			Bitmap bitmap = BitmapFactory.decodeStream(fis);
+	        mImage.assignImage(getResources(), bitmap);
+		} catch (FileNotFoundException e) {
+			//TODO change error return code
+			mActivityHelper.reportError(ActImageFullscreen.this, e, ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
+		}
 	}
 	
 }

@@ -40,7 +40,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
@@ -444,10 +443,12 @@ public class ActWebcam
 		} else {
 			//remove the dialog
 			removeDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
+			//in the result there is the file path
+			String fileFullPath = res.getResult();
 			//add the file to the resources to delete when the activity is closed
-			mAppPreferencesDao.addResourceToRemove(res.getResult());
+			mAppPreferencesDao.addResourceToRemove(fileFullPath);
 			//open fullscreen activity
-			mActivityHelper.openFullscreenImageActivity(this, App.WEBCAM_IMAGE_DUMP_FILE);
+			mActivityHelper.openFullscreenImageActivity(this, fileFullPath);
 		}
 	};
 

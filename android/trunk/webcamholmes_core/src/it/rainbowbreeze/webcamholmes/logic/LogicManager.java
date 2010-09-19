@@ -63,16 +63,31 @@ public class LogicManager extends BaseLogicManager {
 		mItemsDao = checkNotNull(itemsDao);
 		mAppPreferencesDao = appPreferencesDao;
 	}
-	
-	
-	
+
+
+
+
 	//---------- Public properties
+
+
+
+
+	//---------- Public methods
 	/* (non-Javadoc)
 	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeBeginTask(android.content.Context)
 	 */
 	@Override
 	public BaseResultOperation<Void> executeBeginTask(Context context) {
-		super.executeBeginTask(context);
+		BaseResultOperation<Void> res;
+
+		res = super.executeBeginTask(context);
+
+		if (res.hasErrors()) {
+			//TODO
+		}
+
+		//remove temporary resources not removed by previous application shutdown
+		res = deleteTempResources(context);
 		
 		//TODO remove when tests finish
 		if (mItemsDao.isDatabaseEmpty()) {
@@ -80,7 +95,7 @@ public class LogicManager extends BaseLogicManager {
 			createSystemWebcam(context);
 		}
 		
-		return new ResultOperation<Void>();
+		return res;
 	}
 
 
@@ -96,9 +111,25 @@ public class LogicManager extends BaseLogicManager {
 			//TODO
 		}
 		
-		//remove temp resources
+		res = deleteTempResources(context);
+		
+		return res;
+	}
+
+
+	/**
+	 * Remove temp resources
+	 * 
+	 * @param context
+	 * @param res
+	 * @return
+	 */
+	public BaseResultOperation<Void> deleteTempResources(Context context) {
+		BaseResultOperation<Void> res = new ResultOperation<Void>();
+		
 		int resourcesRemoved = 0;
 		String[] resourcesToRemove = mAppPreferencesDao.getResourcesToRemove();
+		
 		for (int i=0; i<resourcesToRemove.length; i++) {
 			boolean deleted = false;
 			String resource = resourcesToRemove[i];
@@ -128,14 +159,8 @@ public class LogicManager extends BaseLogicManager {
 			mAppPreferencesDao.setResourcesToRemove(newResources);
 		}
 		
-		mAppPreferencesDao.save();
 		return res;
 	}
-
-
-
-
-	//---------- Public methods
 
 	
 	
