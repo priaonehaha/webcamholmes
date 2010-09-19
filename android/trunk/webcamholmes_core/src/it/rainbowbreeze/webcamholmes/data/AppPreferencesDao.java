@@ -63,17 +63,19 @@ public class AppPreferencesDao
 			return allResources.split(RESOURCES_SEPARATOR);
 		
 	}
-    public void setResourcesToRemove(String[] newValue){
+    public boolean setResourcesToRemove(String[] newValue){
     	mEditor.putString(PROP_RESOURCE_TO_REMOVE, RainbowStringHelper.join(newValue, RESOURCES_SEPARATOR));
+    	return save();
 	}
-    public void addResourceToRemove(String newValue){
-    	if (TextUtils.isEmpty(newValue)) return;
+    public boolean addResourceToRemove(String newValue){
+    	if (TextUtils.isEmpty(newValue)) return false;
     	
     	String[] resources = getResourcesToRemove();
     	boolean exists = (null != resources);
     	
     	//find if the element already exists
-    	if (!exists) {
+    	if (exists) {
+    		exists = false;
     		for(String resource:resources) {
     			if (newValue.equals(resource)) {
     				exists = true;
@@ -83,7 +85,7 @@ public class AppPreferencesDao
     	}
     	
     	//true because the item is in the resources, at the end
-    	if (exists) return;
+    	if (exists) return true;
 
     	//add the new resource
     	String allResources = mSettings.getString(PROP_RESOURCE_TO_REMOVE, "");
@@ -94,12 +96,14 @@ public class AppPreferencesDao
     	
     	//persists resources
     	mEditor.putString(PROP_RESOURCE_TO_REMOVE, allResources);
+    	return save();
 	}
     /**
      * Remove all resource to remove
      */
-    public void cleanResourcesToRemove() {
+    public boolean cleanResourcesToRemove() {
     	mEditor.putString(PROP_RESOURCE_TO_REMOVE, "");
+    	return save();
     }
 
 

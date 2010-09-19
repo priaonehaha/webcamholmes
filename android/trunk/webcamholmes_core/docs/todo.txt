@@ -12,7 +12,7 @@ TODO
 -cambiare stringa su dialog per preparare i log
  retDialog = mBaseActivityHelper.createAndShowProgressDialog(this, R.string.common_msg_executingCommand);
 -test per addresources nell'AppPreferenceDao
-
+-move temporary files into cache directory
 
 
 Keyword

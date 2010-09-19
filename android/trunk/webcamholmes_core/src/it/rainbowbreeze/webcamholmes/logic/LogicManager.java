@@ -18,6 +18,8 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
+import java.io.File;
+
 import it.rainbowbreeze.libs.R;
 import it.rainbowbreeze.libs.common.AppGlobalBag;
 import it.rainbowbreeze.libs.common.BaseResultOperation;
@@ -46,6 +48,7 @@ public class LogicManager extends BaseLogicManager {
 	/**
 	 * @param logFacility
 	 * @param appPreferencesDao
+	 * @param globalBag
 	 * @param currentAppVersion
 	 * @param itemsDao
 	 */
@@ -97,8 +100,16 @@ public class LogicManager extends BaseLogicManager {
 		int resourcesRemoved = 0;
 		String[] resourcesToRemove = mAppPreferencesDao.getResourcesToRemove();
 		for (int i=0; i<resourcesToRemove.length; i++) {
+			boolean deleted = false;
 			String resource = resourcesToRemove[i];
-			if (context.deleteFile(resource)) {
+			//find if the file is an absolute path or if a file inside app private storage folder
+			if (resource.contains(File.separator)) {
+				File file = new File(resource);
+				deleted = file.delete();
+			} else {
+				deleted = context.deleteFile(resource);
+			}
+			if (deleted) {
 				resourcesToRemove[i] = "";
 				resourcesRemoved++;
 			}

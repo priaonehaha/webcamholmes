@@ -18,6 +18,8 @@
  */
 package it.rainbowbreeze.webcamholmes.ui;
 
+import java.io.File;
+
 import it.rainbowbreeze.libs.common.BaseResultOperation;
 import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
@@ -38,6 +40,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
@@ -384,6 +387,7 @@ public class ActWebcam
 		//show a progress dialog
 		showDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
 		
+		//file is places inside application private data directory
 		mSaveWebcamImageThread = new SaveWebcamImageThread(
 				mLogFacility,
 				mImageMediaHelper,
@@ -399,13 +403,17 @@ public class ActWebcam
 		//show a progress dialog
 		showDialog(DIALOG_PREPARE_FOR_SHARING);
 		
+		//Due to a GMail issue, i must save the file inside the external storage directory
+		//to allow a correct attachment, because if i put in in the private data app directory,
+		//GMail doesn't attach it :(
+		//http://stackoverflow.com/questions/587917/trying-to-attach-a-file-from-sd-card-to-email/3290101#3290101
 		mSaveWebcamImageThread = new SaveWebcamImageThread(
 				mLogFacility,
 				mImageMediaHelper,
 				ActWebcam.this,
 				mActivityHandler,
 				mImgWebcam,
-				parseWebcamName(mWebcam.getName()),
+				getFileNameFromWebcamName(mWebcam.getName()),
 				SaveWebcamImageThread.AT_THE_END_SHARE);
 		mSaveWebcamImageThread.run();
 	}
@@ -416,13 +424,13 @@ public class ActWebcam
 	 * used in the share function
 	 * 
 	 */
-	private String parseWebcamName(String webcamName) {
+	private String getFileNameFromWebcamName(String webcamName) {
 		String finalName = webcamName
 			.replace(" ", "_")
 			.replace("'", "_")
 			+ ".jpg";
-		
-		return finalName;
+		File file = new File(getExternalCacheDir(), finalName);
+		return file.getAbsolutePath();
 	}
 
 
@@ -438,7 +446,6 @@ public class ActWebcam
 			removeDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
 			//add the file to the resources to delete when the activity is closed
 			mAppPreferencesDao.addResourceToRemove(res.getResult());
-			mAppPreferencesDao.save();
 			//open fullscreen activity
 			mActivityHelper.openFullscreenImageActivity(this, App.WEBCAM_IMAGE_DUMP_FILE);
 		}
@@ -458,7 +465,6 @@ public class ActWebcam
 			String fileFullPath = res.getResult();
 			//add the file to the resources to delete when the activity is closed
 			mAppPreferencesDao.addResourceToRemove(fileFullPath);
-			mAppPreferencesDao.save();
 			//launch share intent
 			mActivityHelper.sendEmail(this,
 					"", 

@@ -33,6 +33,7 @@ import it.rainbowbreeze.webcamholmes.logic.LogicManager;
 import it.rainbowbreeze.webcamholmes.ui.ActivityHelper;
 
 import android.app.Application;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -115,35 +116,8 @@ public class App
 	@Override
 	public void onCreate() {
 		super.onCreate();
-
-		//initialize (and automatically register) crash reporter
-		BaseCrashReporter crashReport = new BaseCrashReporter(getApplicationContext());
-		ServiceLocator.put(crashReport);
 		
-		//set the log tag
-		mLogFacility = new BaseLogFacility(LOG_TAG);
-		ServiceLocator.put(mLogFacility);
-		
-		//calculate application name
-		APP_DISPLAY_NAME = getString(R.string.common_appName);
-
-		//log the begin of the application
-		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
-		
-		//create services and helper respecting IoC dependencies
-		ItemsDao itemsDao = new ItemsDao(getApplicationContext(), mLogFacility);
-		ServiceLocator.put(itemsDao);
-		ActivityHelper activityHelper = new ActivityHelper(mLogFacility, getApplicationContext());
-		ServiceLocator.put(activityHelper);
-		AppPreferencesDao appPreferencesDao = new AppPreferencesDao(getApplicationContext(), APP_PREFERENCES_KEY);
-		ServiceLocator.put(appPreferencesDao);
-		BaseImageMediaHelper imageMediaHelper = new BaseImageMediaHelper(mLogFacility);
-		ServiceLocator.put(imageMediaHelper);
-		LogicManager logicManager = new LogicManager(mLogFacility, appPreferencesDao, this, APP_INTERNAL_VERSION, itemsDao);
-		ServiceLocator.put(logicManager);
-		
-		mImageUrlProvider = ImageUrlProvider.class;
-
+		setupEnvironment(getApplicationContext());
 	}
 
 	@Override
@@ -163,7 +137,6 @@ public class App
     
     
 	//---------- Public methods
-
 	
 	/**
 	 * Set a new {@link IImageUrlProvider} class to return
@@ -200,10 +173,42 @@ public class App
 			mFailBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.no_connection);
 		return mFailBitmap;
 	}
-	
     
     
 
 
 	//---------- Private methods
+	/**
+	 * Setup the application environment.
+	 */
+	private void setupEnvironment(Context context) {
+
+		//initialize (and automatically register) crash reporter
+		BaseCrashReporter crashReport = new BaseCrashReporter(context);
+		ServiceLocator.put(crashReport);
+		
+		//set the log tag
+		mLogFacility = new BaseLogFacility(LOG_TAG);
+		ServiceLocator.put(mLogFacility);
+		
+		//calculate application name
+		APP_DISPLAY_NAME = getString(R.string.common_appName);
+
+		//log the begin of the application
+		mLogFacility.i("App started: " + App.APP_INTERNAL_NAME);
+		
+		//create services and helper respecting IoC dependencies
+		ItemsDao itemsDao = new ItemsDao(context, mLogFacility);
+		ServiceLocator.put(itemsDao);
+		ActivityHelper activityHelper = new ActivityHelper(mLogFacility, context);
+		ServiceLocator.put(activityHelper);
+		AppPreferencesDao appPreferencesDao = new AppPreferencesDao(context, APP_PREFERENCES_KEY);
+		ServiceLocator.put(appPreferencesDao);
+		BaseImageMediaHelper imageMediaHelper = new BaseImageMediaHelper(mLogFacility);
+		ServiceLocator.put(imageMediaHelper);
+		LogicManager logicManager = new LogicManager(mLogFacility, appPreferencesDao, this, APP_INTERNAL_VERSION, itemsDao);
+		ServiceLocator.put(logicManager);
+		
+		mImageUrlProvider = ImageUrlProvider.class;
+	}
 }

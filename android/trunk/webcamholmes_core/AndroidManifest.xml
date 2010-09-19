@@ -70,17 +70,19 @@
 
     </application>
     
-	<!-- API support: min 1.6, target 2.0 -->
+    <!-- API support: min 1.6, target 2.0 -->
     <uses-sdk
-    	android:minSdkVersion="4"
-    	android:targetSdkVersion="5"
-	/>     
+        android:minSdkVersion="4"
+        android:targetSdkVersion="5"
+    />     
     
-	<!-- Internet access -->
-	<uses-permission android:name="android.permission.INTERNET" />
-	<!-- Checks for connectivity -->
+    <!-- Internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Checks for connectivity -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<!-- AdMob SDK permissions -->
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- AdMob SDK permissions -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Write webcam shootes on storage card (in order to share them) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest> 
