@@ -17,14 +17,10 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * 
- */
-
 package it.rainbowbreeze.webcamholmes.logic;
 
-import it.rainbowbreeze.libs.common.ServiceLocator;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
+import it.rainbowbreeze.webcamholmes.utils.TestHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,8 +28,6 @@ import java.io.IOException;
 
 import android.content.Context;
 import android.test.AndroidTestCase;
-
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
@@ -44,7 +38,6 @@ public class LogicManagerTest extends AndroidTestCase {
 
 	
 	
-	
 	//---------- Private fields
 	private LogicManager mLogicManager;
 
@@ -52,25 +45,29 @@ public class LogicManagerTest extends AndroidTestCase {
 	
 	
 	//---------- Test initialization
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
 
+		mLogicManager = TestHelper.Factory.getLogicManager(getContext());
+	}
 
 	
 	
 	//---------- Test cases	
 	public void testExecuteEndTasks() throws IOException {
-		AppPreferencesDao appDao;
+		AppPreferencesDao mAppPreferencesDao;
 		FileOutputStream fos;
 		String[] fileFullNames;
 		
-		appDao = checkNotNull(ServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
-		
+		mAppPreferencesDao = TestHelper.Factory.getAppPreferencesDao(getContext());
 		fileFullNames = new String[]{
 				getContext().getFilesDir().getAbsolutePath() + File.separator + "Test1",
 				getContext().getFilesDir().getAbsolutePath() + File.separator + "Test2"
 		};
 		
 		//add test files
-		appDao.cleanResourcesToRemove();
+		mAppPreferencesDao.cleanResourcesToRemove();
 		for (String fileName:fileFullNames) {
 			//load some file that must be removed when the application ends
 			File file = new File(fileName);
@@ -78,9 +75,9 @@ public class LogicManagerTest extends AndroidTestCase {
 			fos.write(("test file " + fileName).getBytes());
 			fos.close();
 			fos = null;
-			appDao.addResourceToRemove(fileName);
+			mAppPreferencesDao.addResourceToRemove(fileName);
 		}
-		appDao.save();
+		mAppPreferencesDao.save();
 		
 		mLogicManager.executeEndTast(getContext());
 		
