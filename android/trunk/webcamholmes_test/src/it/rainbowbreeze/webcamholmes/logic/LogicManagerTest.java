@@ -75,9 +75,8 @@ public class LogicManagerTest extends AndroidTestCase {
 			fos.write(("test file " + fileName).getBytes());
 			fos.close();
 			fos = null;
-			mAppPreferencesDao.addResourceToRemove(fileName);
+			assertTrue("Cannot add resource", mAppPreferencesDao.addResourceToRemove(fileName));
 		}
-		mAppPreferencesDao.save();
 		
 		mLogicManager.executeEndTast(getContext());
 		

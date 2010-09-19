@@ -19,6 +19,8 @@
 
 package it.rainbowbreeze.webcamholmes.data;
 
+import java.io.File;
+
 import it.rainbowbreeze.webcamholmes.utils.TestHelper;
 import android.test.AndroidTestCase;
 
@@ -43,43 +45,55 @@ public class AppPreferencesDaoTest extends AndroidTestCase {
 	//---------- Test cases	
 	public void testCleanResourcesToRemove() {
 		//test clean method
-		mAppPreferencesDao.cleanResourcesToRemove();
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot clean resources", mAppPreferencesDao.cleanResourcesToRemove());
 		assertEquals("Wrong number of resources", 0, mAppPreferencesDao.getResourcesToRemove().length);
 		
 		String[] resources = new String[] {"Res1", "res2"};
-		mAppPreferencesDao.setResourcesToRemove(resources);
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot set resources", mAppPreferencesDao.setResourcesToRemove(resources));
 		assertEquals("Wrong number of resources", 2, mAppPreferencesDao.getResourcesToRemove().length);
 		
-		mAppPreferencesDao.cleanResourcesToRemove();
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot clean resources", mAppPreferencesDao.cleanResourcesToRemove());
 		assertEquals("Wrong number of resources", 0, mAppPreferencesDao.getResourcesToRemove().length);
 	}
 	
 	
 	public void testAddResourceToRemove() {
-		mAppPreferencesDao.cleanResourcesToRemove();
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot clean resources", mAppPreferencesDao.cleanResourcesToRemove());
 		assertEquals("Wrong number of resources", 0, mAppPreferencesDao.getResourcesToRemove().length);
 
-		mAppPreferencesDao.addResourceToRemove("Res1");
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot add resource", mAppPreferencesDao.addResourceToRemove("Res1"));
 		assertEquals("Wrong number of resources", 1, mAppPreferencesDao.getResourcesToRemove().length);
 		
-		mAppPreferencesDao.addResourceToRemove("Res2");
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot add resource", mAppPreferencesDao.addResourceToRemove("Res2"));
 		assertEquals("Wrong number of resources", 2, mAppPreferencesDao.getResourcesToRemove().length);
 
 		//a duplicated resources isn't inserted
-		mAppPreferencesDao.addResourceToRemove("Res2");
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Added resource", mAppPreferencesDao.addResourceToRemove("Res2"));
 		assertEquals("Wrong number of resources", 2, mAppPreferencesDao.getResourcesToRemove().length);
 
-		mAppPreferencesDao.addResourceToRemove("Res3");
-		assertTrue("Cannot save resources", mAppPreferencesDao.save());
+		assertTrue("Cannot add resource", mAppPreferencesDao.addResourceToRemove("Res3"));
 		assertEquals("Wrong number of resources", 3, mAppPreferencesDao.getResourcesToRemove().length);
 	}
+	
+	
+	public void testSetResourcesToRemove() {
+		assertTrue("Cannot clean resources", mAppPreferencesDao.cleanResourcesToRemove());
+		assertEquals("Wrong number of resources", 0, mAppPreferencesDao.getResourcesToRemove().length);
 
+		String[] exptectedResources = new String[]{
+				getContext().getFilesDir().getAbsolutePath() + File.separator + "Test1",
+				getContext().getFilesDir().getAbsolutePath() + File.separator + "Test2"
+		};
+		
+		assertTrue("Cannot set resources", mAppPreferencesDao.setResourcesToRemove(exptectedResources));
+		String[] currentResources = mAppPreferencesDao.getResourcesToRemove();
+		assertEquals("Wrong number of resources", exptectedResources.length, currentResources.length);
+		for (int i=0; i<exptectedResources.length; i++)
+			assertEquals("Resource doesn't match", exptectedResources[i], currentResources[i]);
+	}
+
+	
+	
+	
 	//---------- Private methods
 }

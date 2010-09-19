@@ -31,6 +31,8 @@ import it.rainbowbreeze.webcamholmes.logic.LogicManager;
  */
 public class TestHelper {
 	//---------- Private fields
+	private static final String LOG_TAG = "WebcamHolmes-Test";
+
 	private static BaseLogFacility mLogFacility;
 	private static App mApp;
 	
@@ -38,7 +40,7 @@ public class TestHelper {
 	
 	//---------- Constructor
 	static {
-		mLogFacility = new BaseLogFacility(Def.LOG_TAG);
+		mLogFacility = new BaseLogFacility(LOG_TAG);
 		mApp = new App();
 	}
 
