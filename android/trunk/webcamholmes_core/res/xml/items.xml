@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Items>
+<!--  
+ Copyright (C) 2010 Alfredo Morresi
+ This file is part of WebcamHolmes project.
+   
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 3 of the License, or (at your option) any later
+ version.
+   
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ details.
+ 
+ You should have received a copy of the GNU General Public License along with
+ this program; If not, see <http://www.gnu.org/licenses/>.
+ -->
+ 
+ <Items>
 
+
+<!-- Categories -->
+<!-- Italy -->
 <Category>
     <AliasId>1</AliasId>
     <ParentAliasId>0</ParentAliasId>
     <Name>Italy</Name>
 </Category>
-
+<!-- Rome -->
 <Category>
     <AliasId>2</AliasId>
     <ParentAliasId>1</ParentAliasId>
     <Name>Rome</Name>
 </Category>
+<Category>
+    <AliasId>3</AliasId>
+    <ParentAliasId>2</ParentAliasId>
+    <Name>Traffic</Name>
+</Category>
 
+<!-- France -->
+<Category>
+    <AliasId>4</AliasId>
+    <ParentAliasId>0</ParentAliasId>
+    <Name>France</Name>
+</Category>
+<!-- Paris -->
+<Category>
+    <AliasId>5</AliasId>
+    <ParentAliasId>4</ParentAliasId>
+    <Name>Paris</Name>
+</Category>
+
+
+
+<!--  Rome Misc -->
 <Webcam>
     <Name>Saint Peter's square</Name>
     <ParentAliasId>2</ParentAliasId>
@@ -78,7 +120,7 @@
     <SiteUrl></SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>Rome's Panorama</Name>
+    <Name>Rome's panorama</Name>
     <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
@@ -93,6 +135,202 @@
     <ImageUrl>http://cam.hoteledenview.com/view_live1.jpg</ImageUrl>
     <SiteUrl>http://www.hoteledenview.com/</SiteUrl>
 </Webcam>
+<Webcam>
+    <Name>Saint Peter and skyline</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>900</ReloadInterval>
+    <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+    <SiteUrl>http://www.mycampage.com/barcellocam</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Rome's panorama with Saint Peters</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+    <SiteUrl>http://www.barcello.it/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Appia Antica's Park</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://www.naturamediterraneo.com/roma/ispy.jpg</ImageUrl>
+    <SiteUrl>http://www.naturamediterraneo.com/roma/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Roman's Castles</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
+    <SiteUrl>http://www.naturamediterraneo.com/castelli/</SiteUrl>
+</Webcam>
+<!--
+<Webcam>
+    <Name>Largo Argentina 1</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9000/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487444321</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 2</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487534421</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+-->
+<Webcam>
+    <Name>Piazza Vittorio</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=10</ImageUrl>
+    <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=10</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Venosta</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=33</ImageUrl>
+    <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=33</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Tiburtina</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=42</ImageUrl>
+    <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=42</SiteUrl>
+</Webcam>
+
+
+
+<!--  Rome Traffic -->
+<Webcam>
+    <Name>GRA - Fiumicino entrata Eur</Name>
+    <ParentAliasId>3</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://get.edidomus.it/vp/cam29/image.jpg</ImageUrl>
+    <SiteUrl>http://www.quattroruote.it/telecamere/ViewPoint.cfm?ZonaVp=3&#x26;Camera=29</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>GRA - Appia Tuscolana</Name>
+    <ParentAliasId>3</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://get.edidomus.it/vp/cam27/image.jpg</ImageUrl>
+    <SiteUrl>http://www.quattroruote.it/telecamere/ViewPoint.cfm?ZonaVp=3&#x26;Camera=27</SiteUrl>
+</Webcam>
+
+
+
+<!-- Paris Misc -->
+<Webcam>
+    <Name>Tour Eiffel 1</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.parislive.net/eiffelwebcam3.jpg</ImageUrl>
+    <SiteUrl>http://www.paris-live.com/paris_webcam/eiffel_tower_cam3.htm</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Tour Eiffel 2</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>900</ReloadInterval>
+    <ImageUrl>http://www.parisapartment7eme.com/image_r.jpg</ImageUrl>
+    <SiteUrl>http://www.parisapartment7eme.com/eiffelcam/index.html</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Tour Eiffel 3</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.parisrama.com/webcam1.jpg</ImageUrl>
+    <SiteUrl>http://www.cite-sciences.fr/francais/web_cite/voir/webcam/droit_fs.htm</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Centre de Danse du Marais</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>600</ReloadInterval>
+    <ImageUrl>http://www.paris-danse.com/webcam/cam.jpeg</ImageUrl>
+    <SiteUrl>http://www.paris-danse.com/webcam.asp</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Eiffel Tower from The Westin Paris</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.thewestinparisview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl>http://www.thewestinparisview.com/?EM=WEBCAMSTRAVEL_WEBCAM_1729_WI_PAR_NWE_EAME</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Paris big panorama</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://membres.multimania.fr/parispanoramic/image.jpg</ImageUrl>
+    <SiteUrl>http://membres.multimania.fr/parispanoramic/image.htm</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Paris panorama 1</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://copyrighted.serveftp.com/axis-cgi/jpg/image.cgi</ImageUrl>
+    <SiteUrl>http://www.pariswebcamlive.com/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Paris panorama 2</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.parisrama.com/camera2/webcam2.jpg</ImageUrl>
+    <SiteUrl>http://www.parisrama.com/webcam.html</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Centre Pompidou forum</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.centrepompidou.fr/webcam/images/img_forum_00001.jpg</ImageUrl>
+    <SiteUrl>http://www.centrepompidou.fr/webcam/popup3.html</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Centre Pompidou root</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.centrepompidou.fr/webcam/images/cam1_toit_00001.jpg</ImageUrl>
+    <SiteUrl>http://www.centrepompidou.fr/webcam/popup3.html</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Centre Pompidou Metz</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg?</ImageUrl>
+    <SiteUrl>http://www.centrepompidou.fr/webcam/popup4.html</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>La Piazza, Hôtel-de-Ville</Name>
+    <ParentAliasId>5</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.centrepompidou.fr/webcam/images/piazza_00001.jpg</ImageUrl>
+    <SiteUrl>http://www.centrepompidou.fr/webcam/popup.html</SiteUrl>
+</Webcam>
+
+
 
 
 

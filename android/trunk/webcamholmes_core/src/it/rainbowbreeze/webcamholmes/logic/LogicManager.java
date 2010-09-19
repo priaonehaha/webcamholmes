@@ -208,10 +208,6 @@ public class LogicManager extends BaseLogicManager {
 //		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Firenze - via Senese", "http://get.edidomus.it/vp/cam16/image.jpg", 5));
 //		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Firenze - via Baccio", "http://get.edidomus.it/vp/cam15/image.jpg", 5));
 //		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Firenze - via Rosselli", "http://get.edidomus.it/vp/cam13/image.jpg", 5));
-//		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "GRA uscita Aurelia", "http://get.edidomus.it/vp/cam22/image.jpg", 5));
-//		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "GRA via Flaminia", "http://get.edidomus.it/vp/cam28/image.jpg", 5));
-//		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "GRA via Appia e Tuscolana", "http://get.edidomus.it/vp/cam27/image.jpg", 5));
-//		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "Roma Fiumicino entrata EUR", "http://get.edidomus.it/vp/cam29/image.jpg", 5));
 //
 //		categoryId = mItemsDao.insertCategory(ItemCategory.Factory.getSystemCategory(0, "Italy places"));
 //		mItemsDao.insertWebcam(ItemWebcam.Factory.getSystemWebcam(categoryId, "(AN) Riviera del Conero", "http://www.damablu.it/video.jpg", 10));

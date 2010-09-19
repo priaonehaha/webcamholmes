@@ -17,11 +17,34 @@
  this program; If not, see <http://www.gnu.org/licenses/>.
  -->
  
-<Items>
+ <Items>
+ 
 
+<!-- Categories -->
+<Category>
+    <AliasId>1</AliasId>
+    <ParentAliasId>0</ParentAliasId>
+    <Name>Italy</Name>
+</Category>
+
+<Category>
+    <AliasId>2</AliasId>
+    <ParentAliasId>1</ParentAliasId>
+    <Name>Rome</Name>
+</Category>
+
+<Category>
+    <AliasId>3</AliasId>
+    <ParentAliasId>2</ParentAliasId>
+    <Name>Traffic</Name>
+</Category>
+
+
+
+<!--  Rome Misc -->
 <Webcam>
     <Name>Saint Peter's square</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.vaticanstate.va/images/webcam/conciliazione.jpg</ImageUrl>
@@ -29,7 +52,7 @@
 </Webcam>
 <Webcam>
     <Name>Dome of Saint Peter's</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.vaticanstate.va/images/webcam/radiovaticana.jpg</ImageUrl>
@@ -37,7 +60,7 @@
 </Webcam>
 <Webcam>
     <Name>Tomb of Pope John Paul II</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.vaticanstate.va/images/webcam/sepolcroGP2.jpg</ImageUrl>
@@ -45,7 +68,7 @@
 </Webcam>
 <Webcam>
     <Name>Saint Peter's Basilica</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.vaticanstate.va/images/webcam/bracciocarlo.jpg</ImageUrl>
@@ -53,7 +76,7 @@
 </Webcam>
 <Webcam>
     <Name>Castel Gandolfo</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.vaticanstate.va/images/webcam/castello.jpg</ImageUrl>
@@ -61,7 +84,7 @@
 </Webcam>
 <Webcam>
     <Name>Vatican Governorate</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.vaticanstate.va/images/webcam/governatorato.jpg</ImageUrl>
@@ -69,7 +92,7 @@
 </Webcam>
 <Webcam>
     <Name>Via Veneto from The Westin Excelsior</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://cam.westinexcelsiorromeview.com/view_live1.jpg</ImageUrl>
@@ -77,15 +100,15 @@
 </Webcam>
 <Webcam>
     <Name>The Square Colosseum from the Sheraton</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://cam.sheratonromeview.com/view_live1.jpg</ImageUrl>
     <SiteUrl></SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>Rome's Panorama</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <Name>Rome's panorama</Name>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.ramsat.191.it/public_html/roma_italy_resize_zoom_e1200.jpg</ImageUrl>
@@ -93,7 +116,7 @@
 </Webcam>
 <Webcam>
     <Name>Rome's Skyline from Hotel Eden</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://cam.hoteledenview.com/view_live1.jpg</ImageUrl>
@@ -101,16 +124,40 @@
 </Webcam>
 <Webcam>
     <Name>Saint Peter and skyline</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>900</ReloadInterval>
     <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
     <SiteUrl>http://www.mycampage.com/barcellocam</SiteUrl>
 </Webcam>
-<!-- 
+<Webcam>
+    <Name>Rome's panorama with Saint Peters</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+    <SiteUrl>http://www.barcello.it/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Appia Antica's Park</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://www.naturamediterraneo.com/roma/ispy.jpg</ImageUrl>
+    <SiteUrl>http://www.naturamediterraneo.com/roma/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Roman's Castles</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
+    <SiteUrl>http://www.naturamediterraneo.com/castelli/</SiteUrl>
+</Webcam>
+<!--
 <Webcam>
     <Name>Largo Argentina 1</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>10</ReloadInterval>
     <ImageUrl>http://95.240.226.64:9000/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487444321</ImageUrl>
@@ -118,12 +165,57 @@
 </Webcam>
 <Webcam>
     <Name>Largo Argentina 2</Name>
-    <ParentAliasId>0</ParentAliasId>
+    <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>10</ReloadInterval>
-    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x60&#x26;dummy=1284487534421</ImageUrl>
+    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487534421</ImageUrl>
     <SiteUrl>http://www.largoargentina.com/</SiteUrl>
 </Webcam>
- -->
+-->
+<Webcam>
+    <Name>Piazza Vittorio</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=10</ImageUrl>
+    <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=10</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Venosta</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=33</ImageUrl>
+    <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=33</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Tiburtina</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=42</ImageUrl>
+    <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=42</SiteUrl>
+</Webcam>
+
+
+
+<!--  Rome Traffic -->
+<Webcam>
+    <Name>GRA - Fiumicino entrata Eur</Name>
+    <ParentAliasId>3</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://get.edidomus.it/vp/cam29/image.jpg</ImageUrl>
+    <SiteUrl>http://www.quattroruote.it/telecamere/ViewPoint.cfm?ZonaVp=3&#x26;Camera=29</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>GRA - Appia Tuscolana</Name>
+    <ParentAliasId>3</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://get.edidomus.it/vp/cam27/image.jpg</ImageUrl>
+    <SiteUrl>http://www.quattroruote.it/telecamere/ViewPoint.cfm?ZonaVp=3&#x26;Camera=27</SiteUrl>
+</Webcam>
+
 
 </Items>

@@ -108,7 +108,7 @@ public class LoadImageTask
 			//checks for connection errors or other problems
 			
 			//start animation
-			publishProgress(null);
+			publishProgress(new Bitmap[]{});
 			
 			//load bitmap
 			Bitmap newBitmap = loadBitmapFromUrl(imagePath);
@@ -139,7 +139,7 @@ public class LoadImageTask
 	protected void onProgressUpdate(Bitmap... values)
 	{
 		//different behavior for different situations
-		if (null == values) {
+		if (null == values || 0 == values.length) {
 			//start the progress animation
 			startWindowProgressAnimation();
 		} else {

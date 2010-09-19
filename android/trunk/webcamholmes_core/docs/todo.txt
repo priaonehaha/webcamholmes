@@ -26,3 +26,13 @@ http://www.webcams.travel/developers/
 
 per creare nuovo tag
  svn copy https://webcamholmes.googlecode.com/svn/android/trunk https://webcamholmes.googlecode.com/svn/android/tags/v_0006b -m "Creating a v_0006b release" --username alfredo.morresi
+ 
+ fonti webcam
+ http://www.barcello.it/index.php/webcam-italiane.html
+ http://www.naturamediterraneo.com
+ 
+ parigi
+ http://paris.webcam.en-ville.orange.fr/ville/paris/champs-elysees-r9.html
+ 
+ 
+ http://www.el-viking.com/
