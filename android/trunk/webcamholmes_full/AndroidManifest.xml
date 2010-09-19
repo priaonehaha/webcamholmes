@@ -42,17 +42,17 @@
         </activity>
         
         <activity
-            android:name=".ui.ActMain"
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActMain"
             android:label="@string/common_appName"
         />
         
         <activity
-        	android:name=".ui.ActWebcam"
+        	android:name="it.rainbowbreeze.webcamholmes.ui.ActWebcam"
 			android:label="@string/common_appName"
 		/>
 
         <activity
-        	android:name="it.rainbowbreeze.libs.ui.BaseAboutActivity"
+        	android:name="it.rainbowbreeze.webcamholmes.ui.ActAbout"
 			android:label="@string/common_appName"
 		/>
 
@@ -62,7 +62,7 @@
         />
 
         <activity
-            android:name=".ui.ActImageFullscreen"
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActImageFullscreen"
             android:label="@string/common_appName"
         />
 

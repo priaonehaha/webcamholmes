@@ -25,6 +25,7 @@ import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
+import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
@@ -72,6 +73,7 @@ public class ActWebcam
 
 	private BaseLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
+	private AppPreferencesDao mAppPreferencesDao;
 	private ItemWebcam mWebcam;
 	private ImageView mImgWebcam;
 	private LoadImageTask mLoadWebcamTask;
@@ -95,6 +97,7 @@ public class ActWebcam
 
         mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
         mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+        mAppPreferencesDao = checkNotNull(ServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
         mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
         mImageMediaHelper = checkNotNull(ServiceLocator.get(BaseImageMediaHelper.class), "ImageMediaHelper");
         
@@ -433,6 +436,9 @@ public class ActWebcam
 		} else {
 			//remove the dialog
 			removeDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
+			//add the file to the resources to delete when the activity is closed
+			mAppPreferencesDao.addResourceToRemove(res.getResult());
+			mAppPreferencesDao.save();
 			//open fullscreen activity
 			mActivityHelper.openFullscreenImageActivity(this, App.WEBCAM_IMAGE_DUMP_FILE);
 		}
@@ -450,6 +456,9 @@ public class ActWebcam
 			removeDialog(DIALOG_PREPARE_FOR_SHARING);
 			//in the result there is the file path
 			String fileFullPath = res.getResult();
+			//add the file to the resources to delete when the activity is closed
+			mAppPreferencesDao.addResourceToRemove(fileFullPath);
+			mAppPreferencesDao.save();
 			//launch share intent
 			mActivityHelper.sendEmail(this,
 					"", 

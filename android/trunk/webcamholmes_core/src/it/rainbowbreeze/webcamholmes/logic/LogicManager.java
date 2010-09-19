@@ -21,13 +21,13 @@ package it.rainbowbreeze.webcamholmes.logic;
 import it.rainbowbreeze.libs.R;
 import it.rainbowbreeze.libs.common.AppGlobalBag;
 import it.rainbowbreeze.libs.common.BaseResultOperation;
-import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
 import it.rainbowbreeze.libs.log.BaseLogFacility;
 import it.rainbowbreeze.libs.logic.BaseLogicManager;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import android.content.Context;
+import android.text.TextUtils;
 
 import static it.rainbowbreeze.libs.common.ContractHelper.*;
 
@@ -86,16 +86,44 @@ public class LogicManager extends BaseLogicManager {
 	 */
 	@Override
 	public BaseResultOperation<Void> executeEndTast(Context context) {
-		return super.executeEndTast(context);
+		BaseResultOperation<Void> res;
+		
+		res = super.executeEndTast(context);
+		if (res.hasErrors()) {
+			//TODO
+		}
 		
 		//remove temp resources
-		String[] resourceToRemove = mAppPreferencesDao.getResourcesToRemove();
+		int resourcesRemoved = 0;
+		String[] resourcesToRemove = mAppPreferencesDao.getResourcesToRemove();
+		for (int i=0; i<resourcesToRemove.length; i++) {
+			String resource = resourcesToRemove[i];
+			if (context.deleteFile(resource)) {
+				resourcesToRemove[i] = "";
+				resourcesRemoved++;
+			}
+		}
 		
+		//compact resources not removed
+		int resourcesToRemoveNewLength = resourcesToRemove.length - resourcesRemoved;
+		if (0 == resourcesToRemoveNewLength) {
+			mAppPreferencesDao.cleanResourcesToRemove();
+		} else {
+			String[] newResources = new String[resourcesToRemoveNewLength];
+			int index = 0;
+			for (String resource:resourcesToRemove) {
+				if (!TextUtils.isEmpty(resource)) newResources[index++] = resource;
+			}
+			mAppPreferencesDao.setResourcesToRemove(newResources);
+		}
 		
+		mAppPreferencesDao.save();
+		return res;
 	}
-	
-	
-	
+
+
+
+
 	//---------- Public methods
 
 	
