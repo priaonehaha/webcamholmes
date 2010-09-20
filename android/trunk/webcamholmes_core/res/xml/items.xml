@@ -21,13 +21,11 @@
 
 
 <!-- Categories -->
-<!-- Italy -->
 <Category>
     <AliasId>1</AliasId>
     <ParentAliasId>0</ParentAliasId>
     <Name>Italy</Name>
 </Category>
-<!-- Rome -->
 <Category>
     <AliasId>2</AliasId>
     <ParentAliasId>1</ParentAliasId>
@@ -38,19 +36,27 @@
     <ParentAliasId>2</ParentAliasId>
     <Name>Traffic</Name>
 </Category>
-
-<!-- France -->
 <Category>
-    <AliasId>4</AliasId>
+    <AliasId>6</AliasId>
     <ParentAliasId>0</ParentAliasId>
-    <Name>France</Name>
+    <Name>World cities</Name>
 </Category>
-<!-- Paris -->
 <Category>
     <AliasId>5</AliasId>
-    <ParentAliasId>4</ParentAliasId>
+    <ParentAliasId>6</ParentAliasId>
     <Name>Paris</Name>
 </Category>
+<Category>
+    <AliasId>7</AliasId>
+    <ParentAliasId>0</ParentAliasId>
+    <Name>Beautiful places</Name>
+</Category>
+<Category>
+    <AliasId>8</AliasId>
+    <ParentAliasId>6</ParentAliasId>
+    <Name>Sidney</Name>
+</Category>
+
 
 
 
@@ -330,9 +336,353 @@
     <SiteUrl>http://www.centrepompidou.fr/webcam/popup.html</SiteUrl>
 </Webcam>
 
+<Webcam>
+    <Name>Athens - panorama</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://nifada.com/webcam/current.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>London - Covent Garden</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://londonwebcam.virtual-london.com/cam.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Bangkok skyline</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://webcam.ose-software.com/video.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Detroit skyline</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://images.ibsys.com/det/images/weather/auto/windsorcam_640x480.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Ottawa - Parliament Hill</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.parliamenthill.gc.ca/text/newhillcam.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Vancouver - The lake</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.katkam.ca/pix/pic.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Sapporo panorama</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.hbc.co.jp/videont2/sappo_l.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Tallin panorama</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.ilm.ee/tallinn/image.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Hong Kong - Victoria Park</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.discoverhongkong.com/eng/interactive/webcam/images/ig_webc_vict1.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Hong Kong - Causeway Bay</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.discoverhongkong.com/eng/interactive/webcam/images/ig_webc_caus1.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Helsinki - South Harbour</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.ek.fi/kamera/palace00.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Manhattan skyline</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://abclocal.go.com/three/wabc/webcam/skycpk.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>San Francisco - Golden Gate</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://static.cbslocal.com/cbs/kpix/webcams/ggb_nu.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Indiana - Notre Dame Dome And Basilica</Name>
+    <ParentAliasId>6</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.nd.edu/~webcam/domecam.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+
+
+<!-- Beautiful places -->
+<Webcam>
+    <Name>Egypt - Giza plain</Name>
+    <ParentAliasId>7</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.pyramidcam.com/netcam.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Australia - Parkers Radio Telescope</Name>
+    <ParentAliasId>7</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://outreach.atnf.csiro.au/visiting/parkes/webcam/parkes.full.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Florida - Palm Beach Jupiter Inlet</Name>
+    <ParentAliasId>7</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://evsjupiter.netfirms.com/zoo001t.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Colorado River - Red Cliffs Lodge</Name>
+    <ParentAliasId>7</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.cnha.org/webcam/image.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Grand Canyon - Yavapai Point</Name>
+    <ParentAliasId>7</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www2.nature.nps.gov/air/webcams/parks/grcacam/grca.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
 
 
 
+<!-- Sidney -->
+<Webcam>
+    <Name>Anzac Bridge</Name>
+    <ParentAliasId>8</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/anzacbr.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>William Street</Name>
+    <ParentAliasId>8</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/williamst.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Harbour Bridge</Name>
+    <ParentAliasId>8</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/harbourbridge.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>George Street</Name>
+    <ParentAliasId>8</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/georgest.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+
+
+
+<!-- Italy misc -->
+<Webcam>
+    <Name>(AN) Riviera del Conero</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.damablu.it/video.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(BO) Bologna panoramica Est</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.bolognameteo.it/broadcast.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(BS) Brescia - Castello panorama</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.starrylink.it/webcam/brescia/brescia.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(BZ) Valle Aurina</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://speikboden.it-wms.com/panorama1.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(CT) Etna Sud</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.etnatech.com/camupload/etnasud.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(GE) Genova panoramica</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.stefanome.it/current.jpg</ImageUrl>
+    <SiteUrl>http://www.stefanome.it/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(FI) Firenze - Duomo</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.italywebcams.it/kraft/florence.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(MI) Milano - piazza San Babila</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.imb.it/fullsize2.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(MI) Milano - Corso Buenos Aires</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.fashionschool.com/fashion_school.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(RN) Riccione - Spiaggia 61 della Rosa</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.dellarosae.191.it/spiaggia61.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(SA) Positano - la spiaggia</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.campaniameteo.it/webcampositano/pos002.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(SA) Positano - zona alta</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.campaniameteo.it/webcampositano/zoo001.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(TO) Torino - Duomo Cappella della Sacra Sindone e Mole Antonelliana</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.comune.torino.it/telecamera/duomo/duomof.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(TO) Torino - Palazzo Civico Piazza Palazzo di Citta</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.comune.torino.it/telecamera/pcivico/civicof.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(TO) Torino - Panoramica 1</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.comune.torino.it/telecamera/meucci/meucci1f.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(TO) Torino - Panoramica 2</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.comune.torino.it/telecamera/meucci/meucci2f.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(TO) Torino - Mole Antonelliana</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.torinometeo.it/webcam.jpg</ImageUrl>
+    <SiteUrl>http://www.torinometeo.org/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(VE) Venezia - piazza San Marco</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www2.comune.venezia.it/webCamPsm/imgpsm_00001.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(VE) Venezia - Ponte di Rialto</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.camsturion.com/sturion.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
 
 
 </Items>
