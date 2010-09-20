@@ -32,7 +32,7 @@
     	android:name="it.rainbowbreeze.webcamholmes.common.App"
 	>
         <activity
-        	android:name=".ui.ActSplashScreen"
+        	android:name="it.rainbowbreeze.webcamholmes.ui.ActSplashScreen"
 			android:label="@string/common_appName"
 		>
             <intent-filter>

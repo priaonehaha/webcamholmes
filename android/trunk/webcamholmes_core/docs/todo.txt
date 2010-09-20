@@ -12,7 +12,8 @@ TODO
 -cambiare stringa su dialog per preparare i log
  retDialog = mBaseActivityHelper.createAndShowProgressDialog(this, R.string.common_msg_executingCommand);
 -test per addresources nell'AppPreferenceDao
--move temporary files into cache directory
+-mettere nell'about invito a tradurre programma o a segnalare altre webcam
+-aumentare il tempo di caricamento delle immagini prima di andare in timeout
 
 
 Keyword
@@ -31,7 +32,18 @@ fonti webcam
  http://www.barcello.it/index.php/webcam-italiane.html
  http://www.naturamediterraneo.com
  http://www.el-viking.com/
+ http://www.playawebcams.com
 parigi
  http://paris.webcam.en-ville.orange.fr/ville/paris/champs-elysees-r9.html
 torino
  http://www.torinometeo.org/index.php?evt[realtime-map]&webcam=1
+london traffic
+ http://www.bbc.co.uk/travelnews/webcams/
+ http://londonwebcams.webs.com/thelondoncams.htm
+ http://www.london2012.com/webcams/
+ http://www.abbeyroad.com/visit/ - con scatti strani della strada
+parsare la pagina per il traffico londra
+ http://www.bbc.co.uk/london/travel/jam_cams/full_list/
+natura webcam
+ http://www.alltravelcams.com/grand_canyon/yavapai_point.php
+
