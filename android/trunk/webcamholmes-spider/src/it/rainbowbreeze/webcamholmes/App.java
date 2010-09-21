@@ -19,6 +19,8 @@
 
 package it.rainbowbreeze.webcamholmes;
 
+import java.io.File;
+
 /**
  * @author rainbowbreeze
  *
@@ -30,6 +32,9 @@ public class App {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		File file = new File("res/bbclondontraffic.html");
+		System.out.println(file.getAbsolutePath());
 
 	}
 
