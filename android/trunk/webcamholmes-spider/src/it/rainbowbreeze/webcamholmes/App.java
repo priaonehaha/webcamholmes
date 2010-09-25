@@ -19,23 +19,46 @@
 
 package it.rainbowbreeze.webcamholmes;
 
-import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 /**
  * @author rainbowbreeze
  *
  */
 public class App {
+	
+	/*
+	 * The file with all the webcams (from core project)
+	 */
+	private static final String itemsFile = "../webcamholmes_core/res/xml/items.xml";
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		File file = new File("res/bbclondontraffic.html");
-		System.out.println(file.getAbsolutePath());
 
+		System.out.println("Generating resource files...");
+		ItemsSplitter splitter = new ItemsSplitter();
+		try {
+			splitter.splitResource(itemsFile, "res");
+			System.out.println("Done!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		}
+		System.out.println("");
+
+		
+//		ItemsXmlParser parser = new ItemsXmlParser();
+//		List<ItemWrapper> items = parser.parseDocument("res/items.xml");
+//		System.out.println(items.size());
 	}
 
 }

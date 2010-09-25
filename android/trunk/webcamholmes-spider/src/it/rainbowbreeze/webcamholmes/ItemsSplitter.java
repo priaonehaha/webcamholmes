@@ -19,6 +19,7 @@
 
 package it.rainbowbreeze.webcamholmes;
 
+import it.rainbowbreeze.webcamholmes.data.ItemsXmlParser;
 import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
 
 import java.io.File;
@@ -27,6 +28,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+/**
+ * This class parses the file with all webcams and categories
+ * and splits it in the different file needed for each personalized package
+ *
+ * @author Alfredo "Rainbowbreeze" Morresi
+ *
+ */
 public class ItemsSplitter {
 
 	//---------- Private fields
@@ -34,17 +46,13 @@ public class ItemsSplitter {
 
 	private final List<PackageDescriptor> mPackageDescriptors;
 
-	private final String mBasePath;
-
 
 
 	//---------- Constructor
 	/**
 	 * Initialize the combinator
 	 */
-	public ItemsSplitter(String basePath) {
-		
-		mBasePath = basePath;
+	public ItemsSplitter() {
 		
 		mPackageDescriptors = new ArrayList<PackageDescriptor>();
 		
@@ -55,11 +63,11 @@ public class ItemsSplitter {
 		//Rome
 		mPackageDescriptors.add(new PackageDescriptor
 				("rome" + FILENAME,
-				 "5"));
+				 "2"));
 		//Paris
 		mPackageDescriptors.add(new PackageDescriptor
 				("paris" + FILENAME,
-				 "2"));
+				 "5"));
 	}
 
 	
@@ -78,11 +86,13 @@ public class ItemsSplitter {
 	 * @param sourceFilePath
 	 * @param destDirectory
 	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws ParserConfigurationException 
 	 */
 	public void splitResource(
 			String sourceFilePath,
 			String destDirectory)
-	throws IOException
+	throws IOException, ParserConfigurationException, SAXException
 	{
 		boolean include;
 		//items to add to the package items file
@@ -97,17 +107,18 @@ public class ItemsSplitter {
 			itemsToAdd.clear();
 			
 			for (ItemWrapper item:items) {
-				boolean includeFirstLevel = currentPackage.parentAliasIdsToInclude.contains(item.getParentAliasId());
+				boolean includeFirstLevel = currentPackage.parentAliasIdsToInclude.contains(
+						String.valueOf(item.getParentAliasId()));
 				//if the item is in one of the categories allowed for the package
 				//(fixed categories or child categories of fixed categories)
 				include = includeFirstLevel
-						|| childParentAliasIdToInclude.contains(item.getParentAliasId());
+						|| childParentAliasIdToInclude.contains(String.valueOf(item.getParentAliasId()));
 				
 				if (include) {
 					//check if the item is a category, in this case, add it
 					//to the child categories to include
 					if (item.isCategory()) {
-						childParentAliasIdToInclude.add(item.getAliasId());
+						childParentAliasIdToInclude.add(String.valueOf(item.getAliasId()));
 					}
 					
 					//check if the item is a first-level item
@@ -121,7 +132,7 @@ public class ItemsSplitter {
 			}
 			
 			//write the output file
-			writePackageFile(currentPackage.pathToSave, itemsToAdd);	
+			writePackageFile(destDirectory, currentPackage.pathToSave, itemsToAdd);	
 		}
 	}
 
@@ -132,36 +143,38 @@ public class ItemsSplitter {
 
 	/**
 	 * @param sourceFilePath
+	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws ParserConfigurationException 
 	 */
-	private List<ItemWrapper> getItemsFromFile(String sourceFilePath) {
-		// TODO Auto-generated method stub
-		return null;
+	private List<ItemWrapper> getItemsFromFile(String sourceFilePath)
+	throws ParserConfigurationException, SAXException, IOException {
+		ItemsXmlParser parser = new ItemsXmlParser();
+		return parser.parseDocument(sourceFilePath);
 	}
 
 	
 	/**
 	 * Write items in the package file
-	 * 
-	 * @param pathToSave
-	 * @param itemsToAdd
+	 *
+	 * @param basePath base path where the directories with splitted resources are created
+	 * @param filePathToSave path (can countain path separator) of the file where resorces are saved
+	 * @param itemsToAdd list of item to save
 	 * @throws IOException 
 	 */
-	private void writePackageFile(String pathToSave, List<ItemWrapper> itemsToAdd)
+	private void writePackageFile(String basePath, String filePathToSave, List<ItemWrapper> itemsToAdd)
 	throws IOException
 	{
-		File file = new File(mBasePath, pathToSave);
+		File file = new File(basePath, filePathToSave);
+		createTree(file.getParent());
 		FileOutputStream fos = new FileOutputStream(file);
 		
 		//build the string
-		StringBuilder sb = new StringBuilder();
-		sb.append(XmlDictionary.OPENING_TAGS);
-		for (ItemWrapper item:itemsToAdd) {
-			sb.append(item.getXmlRepresentation());
-		}
-		sb.append(XmlDictionary.CLOSING_TAGS);
+		ItemsXmlParser parser = new ItemsXmlParser();
+		String finalFileContent = parser.getXmlRepresentation(itemsToAdd);
 
 		//write the final file
-		fos.write(sb.toString().getBytes());
+		fos.write(finalFileContent.getBytes());
 		
 		//and close all
 		fos.close();
@@ -169,6 +182,20 @@ public class ItemsSplitter {
 
 
 	
+	/**
+	 * Recursively creates the tree specified
+	 * @param finalPath
+	 */
+	private boolean createTree(String finalPath) {
+		if (null == finalPath) return false;
+		
+		File file = new File(finalPath);
+		if (file.exists()) return true;
+		return file.mkdirs();
+	}
+
+
+
 
 	//---------- Private classes
 	

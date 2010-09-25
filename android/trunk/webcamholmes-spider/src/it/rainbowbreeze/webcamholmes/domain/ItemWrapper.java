@@ -20,6 +20,10 @@
 package it.rainbowbreeze.webcamholmes.domain;
 
 /**
+ * This class it's a wrapper around domain model objects of
+ * WebcamHolmes domain. If they changes, only changes to this
+ * wrapper are needed, and no other classes of the project
+ * must be modified.
  * 
  * @author Alfredo "Rainbowbreeze" Morresi
  *
@@ -28,46 +32,53 @@ public class ItemWrapper {
 
 	//---------- Private fields
 
+	
+	
+	
 	//---------- Constructor
-
-	//---------- Public properties
-	public boolean isWebcam() {
-		// TODO Auto-generated method stub
-		return false;
+	public ItemWrapper(ItemToDisplay item) {
+		mItem = item;
 	}
 
-	public String getParentAliasId() {
-		// TODO Auto-generated method stub
-		return "";
+	
+	
+	
+	//---------- Public properties
+	private final ItemToDisplay mItem;
+	public ItemToDisplay getItem()
+	{ return mItem; }
+	
+	public boolean isWebcam() {
+		return mItem instanceof ItemWebcam;
 	}
 
 	public boolean isCategory() {
-		// TODO Auto-generated method stub
-		return false;
+		return mItem instanceof ItemCategory;
 	}
 
-	public String getAliasId() {
-		// TODO Auto-generated method stub
-		return null;
+	public long getParentAliasId() {
+		return mItem.getParentAliasId();
 	}
 
-	public ItemWrapper copy() {
-		// TODO Auto-generated method stub
-		return null;
+	public long getAliasId() {
+		if (isWebcam()) return 0;
+		return ((ItemCategory) mItem).getAliasId();
 	}
 
-	public void setParentAliasId(int i) {
-		// TODO Auto-generated method stub
+	public void setParentAliasId(long newValue) {
+		mItem.setParentAliasId(newValue);
+	}
+	
+	
+
+
 		
-	}
-
-	public Object getXmlRepresentation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	//---------- Public methods
 
+	
+	
+	
 	//---------- Private methods
 
 }
