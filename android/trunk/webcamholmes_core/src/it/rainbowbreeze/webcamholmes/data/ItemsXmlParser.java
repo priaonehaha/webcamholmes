@@ -44,24 +44,8 @@ import android.content.res.Resources.NotFoundException;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class ItemsXmlParser {
+public class ItemsXmlParser implements ItemsXmlDictionary {
 	//---------- Private fields
-	private final static String XMLNODE_ITEMS = "Items";
-
-	private final static String XMLNODE_CATEGORY = "Category";
-	private final static String XMLNODE_CATEGORY_ALIAS_ID = "AliasId";
-	private final static String XMLNODE_CATEGORY_PARENT_ALIAS_ID = "ParentAliasId";
-	private final static String XMLNODE_CATEGORY_NAME = "Name";
-	private final static String XMLNODE_CATEGORY_CREATED_BY_USER = "UserCreated";
-
-	private final static String XMLNODE_WEBCAM = "Webcam";
-	private final static String XMLNODE_WEBCAM_PARENT_ALIAS_ID = "ParentAliasId";
-	private final static String XMLNODE_WEBCAM_NAME = "Name";
-	private final static String XMLNODE_WEBCAM_WEBCAM_TYPE = "Type";
-	private final static String XMLNODE_WEBCAM_RELOAD_INTERVAL = "ReloadInterval";
-	private final static String XMLNODE_WEBCAM_IMAGE_URL = "ImageUrl";
-	private final static String XMLNODE_WEBCAM_PREFFERED = "Preferred";
-	private final static String XMLNODE_WEBCAM_CREATED_BY_USER = "UserCreated";
 
 
 
@@ -90,15 +74,13 @@ public class ItemsXmlParser {
 	 * @param resourceId Resource Id of the xml file to import
 	 */
 	public ResultOperation<List<ItemToDisplay>> parseResource(Context context, int resourceId) {
-		ItemCategory category;
 		long cat_aliasId = 0;
 		long cat_parentAliasId = 0;
 		String cat_name = null;
 		boolean cat_isCreatedByUser = false;
 
-		ItemWebcam webcam;
 		long web_parentAliasId = 0;
-		int web_webcatType = 0;
+		int web_type = 0;
 		String web_name = null;
 		String web_imageUrl = null;
 		int web_reloadInterval = 0;
@@ -133,6 +115,8 @@ public class ItemsXmlParser {
 					tagName = parser.getName();
 	
 					if (tagName.equalsIgnoreCase(XMLNODE_ITEMS)) {
+						processingCategory = false;
+						processingWebcam = false;
 						
 					} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY)) {
 						//reset data
@@ -145,16 +129,15 @@ public class ItemsXmlParser {
 					} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
 						//reset data
 						web_parentAliasId = 0;
-						web_webcatType = 1;
+						web_type = 1;
 						web_name = "";
 						web_imageUrl = "";
 						web_reloadInterval = 0;
 						web_isPreferred = false;
 						web_isCreatedByUser = false;
 						processingWebcam = true;
-					}
 
-					if (processingCategory) {
+					} else if (processingCategory) {
 						//category tags
 						if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_ALIAS_ID)) {
 							cat_aliasId = Long.valueOf(parser.nextText());
@@ -162,26 +145,25 @@ public class ItemsXmlParser {
 							cat_parentAliasId = Long.valueOf(parser.nextText());
 						} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_NAME)) {
 							cat_name = parser.nextText();
-						} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_CREATED_BY_USER)) {
+						} else if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY_USER_CREATED)) {
 							cat_isCreatedByUser = Boolean.parseBoolean(parser.nextText());
 						}
-					}
-					
-					if (processingWebcam) {
+
+					} else if (processingWebcam) {
 						//webcam tags
 						if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_PARENT_ALIAS_ID)) {
 							web_parentAliasId = Long.valueOf(parser.nextText());
 						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_NAME)) {
 							web_name = parser.nextText();
-						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_WEBCAM_TYPE)) {
-							web_webcatType = Integer.valueOf(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_TYPE)) {
+							web_type = Integer.valueOf(parser.nextText());
 						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_IMAGE_URL)) {
 							web_imageUrl = parser.nextText();
 						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_RELOAD_INTERVAL)) {
 							web_reloadInterval = Integer.valueOf(parser.nextText());
 						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_PREFFERED)) {
 							web_isPreferred = Boolean.parseBoolean(parser.nextText());
-						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_CREATED_BY_USER)) {
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_USER_CREATED)) {
 							web_isCreatedByUser = Boolean.parseBoolean(parser.nextText());
 						}
 					}
@@ -191,20 +173,22 @@ public class ItemsXmlParser {
 					tagName = parser.getName();
 					if (tagName.equalsIgnoreCase(XMLNODE_CATEGORY)) {
 						//create new category with gathered data
-						category = new ItemCategory(0, cat_aliasId, 0, cat_name, cat_isCreatedByUser);
+						ItemCategory category = new ItemCategory(0, cat_aliasId, 0, cat_name, cat_isCreatedByUser);
 						category.setParentAliasId(cat_parentAliasId);
 						elements.add(category);
+						//reset all values
+						category = null;
 						processingCategory = false;
-					}
 
-					if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
+					} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
 						//create new category with gathered data
-						webcam = new ItemWebcam(0, 0, web_name, web_webcatType, web_imageUrl, web_reloadInterval, web_isPreferred, web_isCreatedByUser);
+						ItemWebcam webcam = new ItemWebcam(0, 0, web_name, web_type, web_imageUrl, web_reloadInterval, web_isPreferred, web_isCreatedByUser);
 						webcam.setParentAliasId(web_parentAliasId);
 						elements.add(webcam);
+						//reset all values
+						webcam = null;
 						processingWebcam = false;
 					}
-					
 					break;
 				}
 				

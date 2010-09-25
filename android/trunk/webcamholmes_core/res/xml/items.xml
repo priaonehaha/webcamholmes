@@ -744,14 +744,6 @@
     <SiteUrl>http://www.radissonedwardian.co.uk/leicester-sq-webcam-large.html</SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>Big Ben</Name>
-    <ParentAliasId>9</ParentAliasId>
-    <Type>1</Type>
-    <ReloadInterval>60</ReloadInterval>
-    <ImageUrl>http://www.bbc.co.uk/london/webcams/images/bigben.jpg</ImageUrl>
-    <SiteUrl>http://maps.unomaha.edu/peterson/funda/WebCamPage/Page.html</SiteUrl>
-</Webcam>
-<Webcam>
     <Name>Hyde Park from Sheraton Park Tower</Name>
     <ParentAliasId>9</ParentAliasId>
     <Type>1</Type>

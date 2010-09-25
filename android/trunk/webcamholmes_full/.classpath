@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="src" path="RainbowLibs"/>
-	<classpathentry kind="src" path="WebcamHolmesCore"/>
 	<classpathentry kind="lib" path="/WebcamHolmesCore/libs/admob-sdk-android.jar"/>
+	<classpathentry kind="src" path="WebcamHolmesCore"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
