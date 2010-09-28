@@ -19,11 +19,16 @@
 
 package it.rainbowbreeze.webcamholmes;
 
+import it.rainbowbreeze.webcamholmes.data.ItemsXmlParser;
+import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
+import it.rainbowbreeze.webcamholmes.spiders.BBCLondonTrafficSpider;
+import it.rainbowbreeze.webcamholmes.spiders.BaseSpider;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
 
 /**
  * @author rainbowbreeze
@@ -34,31 +39,41 @@ public class App {
 	/*
 	 * The file with all the webcams (from core project)
 	 */
-	private static final String itemsFile = "../webcamholmes_core/res/xml/items.xml";
-
+	//private static final String itemsFile = "../webcamholmes_core/res/xml/items.xml";
+	private static final String itemsFile = "res/items.xml";
 	/**
 	 * @param args
+	 * @throws Exception 
+	 * @throws ParserConfigurationException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
-
-		System.out.println("Generating resource files...");
-		ItemsSplitter splitter = new ItemsSplitter();
-		try {
-			splitter.splitResource(itemsFile, "res");
-			System.out.println("Done!");
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-		System.out.println("");
+	public static void main(String[] args) throws Exception {
 
 		
-//		ItemsXmlParser parser = new ItemsXmlParser();
-//		List<ItemWrapper> items = parser.parseDocument("res/items.xml");
-//		System.out.println(items.size());
+		//create the spiders list
+		List<BaseSpider> spiders = new ArrayList<BaseSpider>();
+		//London AliasId is 9
+		spiders.add(new BBCLondonTrafficSpider("London traffic", 9, 20, 25));
+
+		//read existing and manually created webcams
+		System.out.println("Reading manually created items...");
+		ItemsXmlParser parser = new ItemsXmlParser();
+		List<ItemWrapper> items = parser.parseDocument(itemsFile);
+		System.out.println("Total items: " + items.size());
+		
+		//grabbing new webcams
+		System.out.println("Spidering for new webcams...");
+		for(BaseSpider spider:spiders) {
+			spider.parseResource(items);
+			System.out.println("Total items after " + spider.getName() + ": " + items.size());
+		}
+		
+		//build the final list
+		System.out.println("Splitting items...");
+		ItemsSplitter splitter = new ItemsSplitter();
+		splitter.splitResource(items, "res");
+		System.out.println("Done!");
+		
 	}
 
 }

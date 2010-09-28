@@ -56,6 +56,10 @@ public class ItemsSplitter {
 		
 		mPackageDescriptors = new ArrayList<PackageDescriptor>();
 		
+		//All
+		mPackageDescriptors.add(new PackageDescriptor
+				("full" + FILENAME,
+				 "0"));
 		//London
 		mPackageDescriptors.add(new PackageDescriptor
 				("london" + FILENAME,
@@ -79,6 +83,7 @@ public class ItemsSplitter {
 
 	//---------- Public methods
 	
+	
 	/**
 	 * Split the source file with all items to different files
 	 * for each application package
@@ -94,13 +99,35 @@ public class ItemsSplitter {
 			String destDirectory)
 	throws IOException, ParserConfigurationException, SAXException
 	{
+		//read the items from file
+		List<ItemWrapper> items = getItemsFromFile(sourceFilePath);
+		
+		//and call the true split method
+		splitResource(items, destDirectory);
+	}
+
+	
+	/**
+	 * Split the source file with all items to different files
+	 * for each application package
+	 * 
+	 * @param items
+	 * @param destDirectory
+	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws ParserConfigurationException 
+	 */
+	public void splitResource(
+			List<ItemWrapper> items,
+			String destDirectory)
+	throws IOException, ParserConfigurationException, SAXException
+	{
 		boolean include;
 		//items to add to the package items file
 		List<ItemWrapper> itemsToAdd = new ArrayList<ItemWrapper>();
 		List<String> childParentAliasIdToInclude = new ArrayList<String>();
 		
 		for (PackageDescriptor currentPackage : mPackageDescriptors) {
-			List<ItemWrapper> items = getItemsFromFile(sourceFilePath);
 
 			//reset child categories to include and items to add to package items file
 			childParentAliasIdToInclude.clear();

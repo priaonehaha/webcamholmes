@@ -19,13 +19,47 @@
 
 package it.rainbowbreeze.webcamholmes.spiders;
 
+import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
+
+import java.util.List;
+
 
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
  */
 
 public abstract class BaseSpider {
+	//---------- Private fields
+	protected final long mRootParentAliasId;
+	protected final long mReservedAliasIdStart;
+	protected final long mReservedAliasIdStop;
 	
-	public abstract String parseResource();
+	
+	
+	//---------- Constructor
+	public BaseSpider(String spiderName, long rootParentAliasId, long reservedAliasIdStart, long reservedAliasIdStop) {
+		mName = spiderName;
+		mRootParentAliasId = rootParentAliasId;
+		mReservedAliasIdStart = reservedAliasIdStart;
+		mReservedAliasIdStop = reservedAliasIdStop;
+	}
+	
+	
+
+	//---------- Public properties
+	protected final String mName;
+	public String getName()
+	{ return mName; }
+
+
+	//---------- Events
+
+	//---------- Public methods
+	
+	//---------- Private methods
+	
+	public abstract void parseResource(List<ItemWrapper> items);
+
+
 
 }

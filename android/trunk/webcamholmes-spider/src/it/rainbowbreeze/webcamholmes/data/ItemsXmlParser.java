@@ -174,8 +174,9 @@ public class ItemsXmlParser extends DefaultHandler implements ItemsXmlDictionary
 	 */
 	public String getXmlRepresentation(List<ItemWrapper> itemsToAdd) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(ItemsXmlDictionary.XML_OPENING);
 		
+		sb.append(ItemsXmlDictionary.XML_OPENING);
+	
 		sb.append("\n");
 		openNode(sb, XMLNODE_ITEMS);
 
@@ -186,11 +187,12 @@ public class ItemsXmlParser extends DefaultHandler implements ItemsXmlDictionary
 				appendWebcamXmlRepresentation(sb, ItemWebcam.class.cast(item.getItem()));
 			}
 		}
-		
+
 		sb.append("\n");
 		closeNode(sb, XMLNODE_ITEMS);
 
 		sb.append(ItemsXmlDictionary.XML_CLOSING);
+
 		return sb.toString();
 	}
 

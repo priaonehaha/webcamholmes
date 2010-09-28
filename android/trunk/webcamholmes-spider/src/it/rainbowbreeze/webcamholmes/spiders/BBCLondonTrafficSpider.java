@@ -19,6 +19,17 @@
 
 package it.rainbowbreeze.webcamholmes.spiders;
 
+import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
+import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
+import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
 /**
  * Create webcam from BBC London traffic webcams
  *  http://www.bbc.co.uk/london/travel/jam_cams/full_list/
@@ -26,14 +37,128 @@ package it.rainbowbreeze.webcamholmes.spiders;
  * @author Alfredo "Rainbowbreeze" Morresi
  */
 public class BBCLondonTrafficSpider extends BaseSpider {
+	//---------- Private fields
+	private static final String PAGE_URL = "http://www.bbc.co.uk/london/travel/jam_cams/full_list/";
+	private static final String ADDRESS_TOKEN_START = "<a href=\"/london/content/webcams/";
+	private static final String ADDRESS_TOKEN_END = ".shtml\"";
+	private static final String NAME_TOKEN_START_1 = "title=\"\">";
+	private static final String NAME_TOKEN_START_2 = ".shtml\">";
+	private static final String NAME_TOKEN_END = "</a></li>";
+	private static final String WEBCAM_START_ADDRESS = "http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&h=mcs&l=london/webcams/london/";
+	private static final String WEBCAM_END_ADDRESS = ".jpg";
+	
+	
+	
+	//---------- Constructor
+	public BBCLondonTrafficSpider(String spiderName, long rootParentAliasId, long reservedAliasIdStart, long reservedAliasIdStop) {
+		super(spiderName, rootParentAliasId, reservedAliasIdStart, reservedAliasIdStop);
+	}
 
+
+	
+	
+	//---------- Public properties
+	//---------- Public methods
 	/* (non-Javadoc)
 	 * @see it.rainbowbreeze.webcamholmes.spiders.BaseSpider#parseResource()
 	 */
 	@Override
-	public String parseResource() {
-		// TODO Auto-generated method stub
-		return null;
+	public void parseResource(List<ItemWrapper> items)
+	{
+		//current alias id to use
+		long currentAliasId = mReservedAliasIdStart;
+	
+		//get the page
+		String sourcePage = getPage();
+		
+		//create category for the traffic webcams
+		ItemCategory cat = new ItemCategory(0, currentAliasId, 0, "Traffic", false);
+		cat.setParentAliasId(mRootParentAliasId);
+		items.add(new ItemWrapper(cat));
+
+		//java way to pass parameters by reference :(
+		String[] sourceArray = new String[1];
+		sourceArray[0] = sourcePage;
+		
+		//parse webcams
+		while(true) {
+			String webcamAddress = getStringBetween(sourceArray, ADDRESS_TOKEN_START, ADDRESS_TOKEN_END);
+			String webcamName = getStringBetween(sourceArray, NAME_TOKEN_START_1, NAME_TOKEN_END);
+			if (null == webcamName || "".equals(webcamName)) webcamName = getStringBetween(sourceArray, NAME_TOKEN_START_2, NAME_TOKEN_END);
+			
+			if (null == webcamAddress || "".equals(webcamAddress))
+				break;
+			
+			//add new webcam
+			webcamAddress = WEBCAM_START_ADDRESS + webcamAddress + WEBCAM_END_ADDRESS;
+			ItemWebcam webcam = ItemWebcam.Factory.getSystemWebcam(0, webcamName, webcamAddress, 30);
+			webcam.setParentAliasId(currentAliasId);
+			items.add(new ItemWrapper(webcam));
+		}
 	}
+	
+	
+	
+	//---------- Private methods
+    private String getPage() {
+    	StringBuilder sb = new StringBuilder();
+    	
+		try { 
+		    URL pageUrl = new URL(PAGE_URL);
+		    BufferedReader in = new BufferedReader(
+		    		new InputStreamReader(pageUrl.openStream())); 
+			String inputLine; 
+			
+			while ((inputLine = in.readLine()) != null) {
+				sb.append(inputLine);
+		    } 
+		    in.close(); 
+		
+		} catch (MalformedURLException me) { 
+		    System.out.println(me); 
+		
+		} catch (IOException ioe) { 
+		    System.out.println(ioe); 
+		}
+		
+		return sb.toString();
+    }
+    
+    
+    /**
+     * Get the string between the two token.
+     * Source string, at the end of the method, is modified and starts
+     * at the second token
+     * 
+     * @param source
+     * @param tokenBefore
+     * @param tokenAfter
+     * @return
+     */
+	public static String getStringBetween(String[] sourceArray, String tokenBefore, String tokenAfter)
+	{
+		String result = "";
+		String source = sourceArray[0];
+		
+		if (null == source || "".equals(source))
+			return result;
+		
+		int posInit = source.indexOf(tokenBefore);
+		if (-1 == posInit) return result;
+		posInit = posInit += tokenBefore.length();
+		
+		int posEnd = source.indexOf(tokenAfter, posInit);
+		if (-1 == posEnd) posEnd = source.length(); 
+		
+		result = source.substring(posInit, posEnd);
+		
+		//modify source string
+		if (posEnd == source.length())
+			sourceArray[0] = "";
+		else
+			sourceArray[0] = source.substring(posEnd);
+		
+		return result;
+	}    
 
 }
