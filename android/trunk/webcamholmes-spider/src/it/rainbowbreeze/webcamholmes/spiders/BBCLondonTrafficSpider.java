@@ -58,6 +58,10 @@ public class BBCLondonTrafficSpider extends BaseSpider {
 	
 	
 	//---------- Public properties
+	
+	
+	
+	
 	//---------- Public methods
 	/* (non-Javadoc)
 	 * @see it.rainbowbreeze.webcamholmes.spiders.BaseSpider#parseResource()
@@ -96,6 +100,7 @@ public class BBCLondonTrafficSpider extends BaseSpider {
 			items.add(new ItemWrapper(webcam));
 		}
 	}
+	
 	
 	
 	

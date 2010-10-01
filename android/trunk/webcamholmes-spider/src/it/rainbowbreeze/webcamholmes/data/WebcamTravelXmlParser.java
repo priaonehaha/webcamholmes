@@ -40,26 +40,25 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class ItemsXmlParser
+public class WebcamTravelXmlParser
 	extends DefaultHandler
-	implements ItemsXmlDictionary
 {
 	//---------- Private fields
-	private String mTempVal;
-	private boolean mProcessingCategory;
-	private long mCatAliasId;
-	private long mCatParentAliasId;
-	private String mCatName;
-	private boolean mCatIsCreatedByUser;
+	private final static String XMLNODE_USER = "user";
+	private final static String XMLNODE_USER_URL = "user_url";
+	private final static String XMLNODE_TITLE = "title";
+	private final static String XMLNODE_URL = "url";
+	private final static String XMLNODE_THUMBNAIL_URL = "thumbnail_url";
 
-	private boolean mProcessingWebcam;
-	private long mWebParentAliasId;
-	private int mWebType;
-	private String mWebName;
-	private String mWebImageUrl;
-	private int mWebReloadInterval;
-	private boolean mWebIsPreferred;
-	private boolean mWebIsCreatedByUser;
+	private final static String XML_OPENING_REPLY = "wct_response";
+	private final static String XML_WEBCAMS = "webcams";
+	private final static String XML_WEBCAM = "webcam";
+
+	private String mUser;
+	private String mUserUrl;
+	private String mTitle;
+	private String mUrl;
+	private String mThumbnailUrl;
 
 	private List<ItemWrapper> mItems;
 
