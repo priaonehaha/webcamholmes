@@ -14,6 +14,10 @@ TODO
 -test per addresources nell'AppPreferenceDao
 -mettere nell'about invito a tradurre programma o a segnalare altre webcam
 -aumentare il tempo di caricamento delle immagini prima di andare in timeout
+-velocizzare init di applicazione, magari non aprendo e chiudendo il db ma tutto assieme
+
+-migliorare il passaggio dati tra activity come fa camera
+ Bitmap bm = (Bitmap) data.getExtras().get("data");
 
 
 Keyword

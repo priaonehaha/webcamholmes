@@ -22,13 +22,13 @@
  */
 package it.rainbowbreeze.webcamholmes.logic;
 
-import it.rainbowbreeze.libs.logic.BaseGlobalHelper;
+import it.rainbowbreeze.libs.helper.RainbowGlobalHelper;
 
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class GlobalHelper extends BaseGlobalHelper {
+public class GlobalHelper extends RainbowGlobalHelper {
 	//---------- Constructor
 
 	//---------- Private fields

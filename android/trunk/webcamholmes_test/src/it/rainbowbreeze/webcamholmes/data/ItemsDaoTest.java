@@ -20,7 +20,7 @@ package it.rainbowbreeze.webcamholmes.data;
 
 import java.util.List;
 
-import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
@@ -43,7 +43,7 @@ public class ItemsDaoTest extends AndroidTestCase {
 	
 	//---------- Private fields
     private ItemsDao mDao;
-	private BaseLogFacility logFacility = new BaseLogFacility("WEBCAMHOLMES_TEST");
+	private RainbowLogFacility logFacility = new RainbowLogFacility("WEBCAMHOLMES_TEST");
 
 	
 	

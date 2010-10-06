@@ -22,7 +22,7 @@
     style="@style/common_layoutBackground"
 >
 
-    <it.rainbowbreeze.libs.ui.ZoomableImageView
+    <it.rainbowbreeze.libs.ui.RainbowZoomableImageView
 		android:id="@+id/actimagefullscreen_imgMain"
 		android:layout_width="fill_parent" 
 		android:layout_height="fill_parent"

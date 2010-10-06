@@ -236,7 +236,7 @@ public class ItemsXmlParser
 	private void wrapValue(StringBuilder sb, String nodeDesc, String nodeValue) {  
 		sb.append("\n\t");
 		openNode(sb, nodeDesc);
-		sb.append(nodeValue);
+		sb.append(nodeValue.replace("&", "&amp;"));
 		closeNode(sb, nodeDesc);
 	}
 	private void wrapValue(StringBuilder sb, String nodeDesc, boolean nodeValue)

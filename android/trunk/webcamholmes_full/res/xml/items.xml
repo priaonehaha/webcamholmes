@@ -20,16 +20,739 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 
 <Items>
 <Category>
+	<AliasId>1</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Italy</Name>
+	<ParentAliasId>0</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>2</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Rome</Name>
+	<ParentAliasId>1</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>3</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Traffic</Name>
+	<ParentAliasId>2</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>6</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>World cities</Name>
+	<ParentAliasId>0</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>5</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Paris</Name>
+	<ParentAliasId>6</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>7</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Beautiful places</Name>
+	<ParentAliasId>0</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>8</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Sidney</Name>
+	<ParentAliasId>6</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>9</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>London</Name>
+	<ParentAliasId>6</ParentAliasId>
+</Category>
+<Category>
 	<AliasId>10</AliasId>
 	<UserCreated>false</UserCreated>
 	<Name>London 2012</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 </Category>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/conciliazione.jpg</ImageUrl>
+	<Name>Saint Peter's square</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/radiovaticana.jpg</ImageUrl>
+	<Name>Dome of Saint Peter's</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/sepolcroGP2.jpg</ImageUrl>
+	<Name>Tomb of Pope John Paul II</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/bracciocarlo.jpg</ImageUrl>
+	<Name>Saint Peter's Basilica</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/castello.jpg</ImageUrl>
+	<Name>Castel Gandolfo</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/governatorato.jpg</ImageUrl>
+	<Name>Vatican Governorate</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.westinexcelsiorromeview.com/view_live1.jpg</ImageUrl>
+	<Name>Via Veneto from The Westin Excelsior</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.sheratonromeview.com/view_live1.jpg</ImageUrl>
+	<Name>The Square Colosseum from the Sheraton</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.ramsat.191.it/public_html/roma_italy_resize_zoom_e1200.jpg</ImageUrl>
+	<Name>Rome's panorama</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.hoteledenview.com/view_live1.jpg</ImageUrl>
+	<Name>Rome's Skyline from Hotel Eden</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+	<Name>Saint Peter and skyline</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>900</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+	<Name>Rome's panorama with Saint Peters</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.naturamediterraneo.com/roma/ispy.jpg</ImageUrl>
+	<Name>Appia Antica's Park</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
+	<Name>Roman's Castles</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>id=10</ImageUrl>
+	<Name>Piazza Vittorio</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>id=33</ImageUrl>
+	<Name>Largo Venosta</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>id=42</ImageUrl>
+	<Name>Tiburtina</Name>
+	<ParentAliasId>2</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://get.edidomus.it/vp/cam29/image.jpg</ImageUrl>
+	<Name>GRA - Fiumicino entrata Eur</Name>
+	<ParentAliasId>3</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://get.edidomus.it/vp/cam27/image.jpg</ImageUrl>
+	<Name>GRA - Appia Tuscolana</Name>
+	<ParentAliasId>3</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parislive.net/eiffelwebcam3.jpg</ImageUrl>
+	<Name>Tour Eiffel 1</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parisapartment7eme.com/image_r.jpg</ImageUrl>
+	<Name>Tour Eiffel 2</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>900</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parisrama.com/webcam1.jpg</ImageUrl>
+	<Name>Tour Eiffel 3</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.paris-danse.com/webcam/cam.jpeg</ImageUrl>
+	<Name>Centre de Danse du Marais</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>600</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.thewestinparisview.com/view_live1.jpg</ImageUrl>
+	<Name>Eiffel Tower from The Westin Paris</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://membres.multimania.fr/parispanoramic/image.jpg</ImageUrl>
+	<Name>Paris big panorama</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://copyrighted.serveftp.com/axis-cgi/jpg/image.cgi</ImageUrl>
+	<Name>Paris panorama 1</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parisrama.com/camera2/webcam2.jpg</ImageUrl>
+	<Name>Paris panorama 2</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.centrepompidou.fr/webcam/images/img_forum_00001.jpg</ImageUrl>
+	<Name>Centre Pompidou forum</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.centrepompidou.fr/webcam/images/cam1_toit_00001.jpg</ImageUrl>
+	<Name>Centre Pompidou root</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg?</ImageUrl>
+	<Name>Centre Pompidou Metz</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.centrepompidou.fr/webcam/images/piazza_00001.jpg</ImageUrl>
+	<Name>La Piazza, Hôtel-de-Ville</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://nifada.com/webcam/current.jpg</ImageUrl>
+	<Name>Athens - panorama</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://webcam.ose-software.com/video.jpg</ImageUrl>
+	<Name>Bangkok skyline</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.ibsys.com/det/images/weather/auto/windsorcam_640x480.jpg</ImageUrl>
+	<Name>Detroit skyline</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parliamenthill.gc.ca/text/newhillcam.jpg</ImageUrl>
+	<Name>Ottawa - Parliament Hill</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.katkam.ca/pix/pic.jpg</ImageUrl>
+	<Name>Vancouver - The lake</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.hbc.co.jp/videont2/sappo_l.jpg</ImageUrl>
+	<Name>Sapporo panorama</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.ilm.ee/tallinn/image.jpg</ImageUrl>
+	<Name>Tallin panorama</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.discoverhongkong.com/eng/interactive/webcam/images/ig_webc_vict1.jpg</ImageUrl>
+	<Name>Hong Kong - Victoria Park</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.discoverhongkong.com/eng/interactive/webcam/images/ig_webc_caus1.jpg</ImageUrl>
+	<Name>Hong Kong - Causeway Bay</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.ek.fi/kamera/palace00.jpg</ImageUrl>
+	<Name>Helsinki - South Harbour</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/skycpk.jpg</ImageUrl>
+	<Name>Manhattan skyline</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://static.cbslocal.com/cbs/kpix/webcams/ggb_nu.jpg</ImageUrl>
+	<Name>San Francisco - Golden Gate</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.nd.edu/~webcam/domecam.jpg</ImageUrl>
+	<Name>Indiana - Notre Dame Dome And Basilica</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://webcam-picture.notari.tv/</ImageUrl>
+	<Name>Monaco - dock area</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.montecarloresort.com/images/common/fullsize_montecarlo.jpg</ImageUrl>
+	<Name>Monaco - Casino Square</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.lovemonaco.com/~webcam/test1.jpg</ImageUrl>
+	<Name>Monaco - World Trade Center</Name>
+	<ParentAliasId>6</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.pyramidcam.com/netcam.jpg</ImageUrl>
+	<Name>Egypt - Giza plain</Name>
+	<ParentAliasId>7</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://outreach.atnf.csiro.au/visiting/parkes/webcam/parkes.full.jpg</ImageUrl>
+	<Name>Australia - Parkers Radio Telescope</Name>
+	<ParentAliasId>7</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://evsjupiter.netfirms.com/zoo001t.jpg</ImageUrl>
+	<Name>Florida - Palm Beach Jupiter Inlet</Name>
+	<ParentAliasId>7</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.cnha.org/webcam/image.jpg</ImageUrl>
+	<Name>Colorado River - Red Cliffs Lodge</Name>
+	<ParentAliasId>7</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www2.nature.nps.gov/air/webcams/parks/grcacam/grca.jpg</ImageUrl>
+	<Name>Grand Canyon - Yavapai Point</Name>
+	<ParentAliasId>7</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>600</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/anzacbr.jpg</ImageUrl>
+	<Name>Anzac Bridge</Name>
+	<ParentAliasId>8</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/williamst.jpg</ImageUrl>
+	<Name>William Street</Name>
+	<ParentAliasId>8</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/harbourbridge.jpg</ImageUrl>
+	<Name>Harbour Bridge</Name>
+	<ParentAliasId>8</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.rta.nsw.gov.au/trafficreports/cameras/camera_images/georgest.jpg</ImageUrl>
+	<Name>George Street</Name>
+	<ParentAliasId>8</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.damablu.it/video.jpg</ImageUrl>
+	<Name>(AN) Riviera del Conero</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.bolognameteo.it/broadcast.jpg</ImageUrl>
+	<Name>(BO) Bologna panoramica Est</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.starrylink.it/webcam/brescia/brescia.jpg</ImageUrl>
+	<Name>(BS) Brescia - Castello panorama</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://speikboden.it-wms.com/panorama1.jpg</ImageUrl>
+	<Name>(BZ) Valle Aurina</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.etnatech.com/camupload/etnasud.jpg</ImageUrl>
+	<Name>(CT) Etna Sud</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.stefanome.it/current.jpg</ImageUrl>
+	<Name>(GE) Genova panoramica</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.italywebcams.it/kraft/florence.jpg</ImageUrl>
+	<Name>(FI) Firenze - Duomo</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.imb.it/fullsize2.jpg</ImageUrl>
+	<Name>(MI) Milano - piazza San Babila</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.fashionschool.com/fashion_school.jpg</ImageUrl>
+	<Name>(MI) Milano - Corso Buenos Aires</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.dellarosae.191.it/spiaggia61.jpg</ImageUrl>
+	<Name>(RN) Riccione - Spiaggia 61 della Rosa</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.campaniameteo.it/webcampositano/pos002.jpg</ImageUrl>
+	<Name>(SA) Positano - la spiaggia</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.campaniameteo.it/webcampositano/zoo001.jpg</ImageUrl>
+	<Name>(SA) Positano - zona alta</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.comune.torino.it/telecamera/duomo/duomof.jpg</ImageUrl>
+	<Name>(TO) Torino - Duomo Cappella della Sacra Sindone e Mole Antonelliana</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.comune.torino.it/telecamera/pcivico/civicof.jpg</ImageUrl>
+	<Name>(TO) Torino - Palazzo Civico Piazza Palazzo di Citta</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.comune.torino.it/telecamera/meucci/meucci1f.jpg</ImageUrl>
+	<Name>(TO) Torino - Panoramica 1</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.comune.torino.it/telecamera/meucci/meucci2f.jpg</ImageUrl>
+	<Name>(TO) Torino - Panoramica 2</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.torinometeo.it/webcam.jpg</ImageUrl>
+	<Name>(TO) Torino - Mole Antonelliana</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www2.comune.venezia.it/webCamPsm/imgpsm_00001.jpg</ImageUrl>
+	<Name>(VE) Venezia - piazza San Marco</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.camsturion.com/sturion.jpg</ImageUrl>
+	<Name>(VE) Venezia - Ponte di Rialto</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+</Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://londonwebcam.virtual-london.com/cam.jpg</ImageUrl>
 	<Name>London - Covent Garden</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
@@ -38,7 +761,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://wlc-oxfordstreet.remotemanager.co.uk/zoom.php?cam=f4ec6f8b3b31076f858525962b67ae4a</ImageUrl>
 	<Name>Oxford Street</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>20</ReloadInterval>
 	<Type>1</Type>
@@ -47,7 +770,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://radissonedwardianhotels-leicestersq.remotemanager.co.uk/zoom.php?cam=20353e3bc708871e6ee37dac843acaf2</ImageUrl>
 	<Name>Leicester Square from Radisson Edwardian Hotels</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
@@ -56,7 +779,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://cam.theparktowerview.com/view_live2.jpg</ImageUrl>
 	<Name>Hyde Park from Sheraton Park Tower</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
@@ -65,7 +788,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://cam.theparktowerview.com/view_live1.jpg</ImageUrl>
 	<Name>London's Skyline from Sheraton Park Tower</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
@@ -74,7 +797,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.themonumentview.net/dynamicImages/panorama-latest.jpg</ImageUrl>
 	<Name>360° London's skyline</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
@@ -83,7 +806,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.eyerevolution.net/webcam/webcam.jpg</ImageUrl>
 	<Name>Alexandra Palace and Muswell Hill</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
@@ -92,7 +815,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://interpub-shepherdsbush.remotemanager.co.uk/zoom.php?cam=9acc36cdc493e4c0b25b8f9023eb3460</ImageUrl>
 	<Name>Belushi's Bar, Shepherds Bush</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
@@ -101,7 +824,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.weather-forecast.com/webcams/LondonHeathrow-1196.jpg</ImageUrl>
 	<Name>London Heathrow</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
@@ -110,7 +833,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://assets3.musicradio.com/static/root/lsq_webcam/roof/still.jpg</ImageUrl>
 	<Name>LBC's Weather Webcam</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
@@ -119,7 +842,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/webcams/london/trafalgar_square.jpg</ImageUrl>
 	<Name>Trafalgar Square</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
@@ -290,7 +1013,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<AliasId>20</AliasId>
 	<UserCreated>false</UserCreated>
 	<Name>Traffic</Name>
-	<ParentAliasId>0</ParentAliasId>
+	<ParentAliasId>9</ParentAliasId>
 </Category>
 <Webcam>
 	<UserCreated>false</UserCreated>

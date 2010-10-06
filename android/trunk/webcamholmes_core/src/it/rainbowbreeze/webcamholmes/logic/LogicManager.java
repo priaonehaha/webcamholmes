@@ -21,22 +21,22 @@ package it.rainbowbreeze.webcamholmes.logic;
 import java.io.File;
 
 import it.rainbowbreeze.libs.R;
-import it.rainbowbreeze.libs.common.AppGlobalBag;
-import it.rainbowbreeze.libs.common.BaseResultOperation;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.logic.BaseLogicManager;
+import it.rainbowbreeze.libs.common.RainbowAppGlobalBag;
+import it.rainbowbreeze.libs.common.RainbowResultOperation;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.logic.RainbowLogicManager;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import android.content.Context;
 import android.text.TextUtils;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
 /**
  * @author Alfredo "Rainbowbreeze" Morresi
  */
-public class LogicManager extends BaseLogicManager {
+public class LogicManager extends RainbowLogicManager {
 
 	//---------- Private fields
 	private ItemsDao mItemsDao;
@@ -53,9 +53,9 @@ public class LogicManager extends BaseLogicManager {
 	 * @param itemsDao
 	 */
 	public LogicManager(
-			BaseLogFacility logFacility,
+			RainbowLogFacility logFacility,
 			AppPreferencesDao appPreferencesDao,
-			AppGlobalBag globalBag,
+			RainbowAppGlobalBag globalBag,
 			String currentAppVersion,
 			ItemsDao itemsDao)
 	{
@@ -77,10 +77,10 @@ public class LogicManager extends BaseLogicManager {
 	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeBeginTask(android.content.Context)
 	 */
 	@Override
-	public BaseResultOperation<Void> executeBeginTask(Context context) {
-		BaseResultOperation<Void> res;
+	public RainbowResultOperation<Void> executeBeginTasks(Context context) {
+		RainbowResultOperation<Void> res;
 
-		res = super.executeBeginTask(context);
+		res = super.executeBeginTasks(context);
 
 		if (res.hasErrors()) {
 			//TODO
@@ -103,10 +103,10 @@ public class LogicManager extends BaseLogicManager {
 	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeEndTast(android.content.Context)
 	 */
 	@Override
-	public BaseResultOperation<Void> executeEndTast(Context context) {
-		BaseResultOperation<Void> res;
+	public RainbowResultOperation<Void> executeEndTasks(Context context) {
+		RainbowResultOperation<Void> res;
 		
-		res = super.executeEndTast(context);
+		res = super.executeEndTasks(context);
 		if (res.hasErrors()) {
 			//TODO
 		}
@@ -124,8 +124,8 @@ public class LogicManager extends BaseLogicManager {
 	 * @param res
 	 * @return
 	 */
-	public BaseResultOperation<Void> deleteTempResources(Context context) {
-		BaseResultOperation<Void> res = new ResultOperation<Void>();
+	public RainbowResultOperation<Void> deleteTempResources(Context context) {
+		RainbowResultOperation<Void> res = new ResultOperation<Void>();
 		
 		int resourcesRemoved = 0;
 		String[] resourcesToRemove = mAppPreferencesDao.getResourcesToRemove();
@@ -170,9 +170,9 @@ public class LogicManager extends BaseLogicManager {
 	 * @see it.rainbowbreeze.libs.logic.BaseLogicManager#executeUpgradeTasks(java.lang.String)
 	 */
 	@Override
-	protected BaseResultOperation<Void> executeUpgradeTasks(Context context, String startingAppVersion) {
+	protected RainbowResultOperation<Void> executeUpgradeTasks(Context context, String startingAppVersion) {
 		
-		BaseResultOperation<Void> res = createSystemWebcam(context);
+		RainbowResultOperation<Void> res = createSystemWebcam(context);
 		return res;
 	}
 	
@@ -180,7 +180,7 @@ public class LogicManager extends BaseLogicManager {
 	/**
 	 * Creates webcam for version 01.00.00 of the app
 	 */
-	private BaseResultOperation<Void> createSystemWebcam(Context context) {
+	private RainbowResultOperation<Void> createSystemWebcam(Context context) {
 //		ItemCategory category;
 //		long categoryId;
 
@@ -193,10 +193,14 @@ public class LogicManager extends BaseLogicManager {
 		ResultOperation<Integer> res = mItemsDao.importFromResource(context, R.xml.items);
 		
 		if (res.hasErrors()) {
-			return new BaseResultOperation<Void>();
+			return new RainbowResultOperation<Void>();
 		}
 		
-		return new BaseResultOperation<Void>();
+		//update current selected category
+		mAppPreferencesDao.setLatestCategory(0);
+		mAppPreferencesDao.save();
+		
+		return new RainbowResultOperation<Void>();
 
 //		
 //		categoryId = mItemsDao.insertCategory(ItemCategory.Factory.getSystemCategory(0, "Traffic - Italy"));

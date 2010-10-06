@@ -1,9 +1,9 @@
 package it.rainbowbreeze.webcamholmes.common;
 
-import it.rainbowbreeze.libs.common.BaseResultOperation;
+import it.rainbowbreeze.libs.common.RainbowResultOperation;
 
 public class ResultOperation<T> 
-	extends BaseResultOperation<T>
+	extends RainbowResultOperation<T>
 {
 	//---------- Constructor
 	public ResultOperation()

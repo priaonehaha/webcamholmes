@@ -23,11 +23,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
-import it.rainbowbreeze.libs.data.BaseAppPreferencesDao;
+import it.rainbowbreeze.libs.data.RainbowAppPreferencesDao;
 import it.rainbowbreeze.libs.helper.RainbowStringHelper;
 
 public class AppPreferencesDao
-	extends BaseAppPreferencesDao
+	extends RainbowAppPreferencesDao
 {
 	//---------- Private fields
 	protected static final String PROP_LATEST_CATEGORY = "latestCategory";

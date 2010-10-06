@@ -20,8 +20,8 @@
  <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.rainbowbreeze.webcamholmes.london" 
-    android:versionName="1.1"
-    android:versionCode="7"
+    android:versionName="1.2"
+    android:versionCode="8"
     android:installLocation="auto"
 >
 <!--    android:installLocation="auto"-->
@@ -57,7 +57,7 @@
         />
 
         <activity
-            android:name="it.rainbowbreeze.libs.ui.BaseSettingsMainActivity"
+            android:name="it.rainbowbreeze.libs.ui.RainbowSettingsMainActivity"
             android:label="@string/common_appName"
         />
 

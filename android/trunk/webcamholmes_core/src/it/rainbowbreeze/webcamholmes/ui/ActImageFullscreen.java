@@ -22,9 +22,9 @@ package it.rainbowbreeze.webcamholmes.ui;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-import it.rainbowbreeze.libs.common.ServiceLocator;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.ui.ZoomableImageView;
+import it.rainbowbreeze.libs.common.RainbowServiceLocator;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.ui.RainbowZoomableImageView;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import android.app.Activity;
@@ -42,7 +42,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.ZoomControls;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
 /**
  * Display an image in a fullscreen view, with scroll support
@@ -53,12 +53,12 @@ import static it.rainbowbreeze.libs.common.ContractHelper.*;
 public class ActImageFullscreen extends Activity {
 
 	//---------- Private fields
-	private ZoomableImageView mImage;
+	private RainbowZoomableImageView mImage;
 	private ActivityHelper mActivityHelper;
 	private ZoomControls mZoomControls;
 	private String mImageToDisplayPath;
 	
-	private BaseLogFacility mLogFacility;
+	private RainbowLogFacility mLogFacility;
 
 	private final static float ZOOM_INCREMENT = 0.1f;
 	private static final int DIALOG_PROGRESS = 10;
@@ -83,12 +83,12 @@ public class ActImageFullscreen extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.actimagefullscreen);
     
-        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
-        mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
+        mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
         
         getDataFromIntent(getIntent());
 
-        mImage = (ZoomableImageView) findViewById(R.id.actimagefullscreen_imgMain);
+        mImage = (RainbowZoomableImageView) findViewById(R.id.actimagefullscreen_imgMain);
         mImage.setBackgroundColor(Color.BLACK);
         mZoomControls = (ZoomControls) findViewById(R.id.actimagefullscreen_zoomcontrols);
         mZoomControls.setOnZoomInClickListener(mOnZoomInClickListener);

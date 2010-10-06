@@ -18,7 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.data;
 
-import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
@@ -36,7 +36,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
 /**
  * Provider for categories and webcams
@@ -48,7 +48,7 @@ public class ItemsDao
 	//---------- Private fields
     private static final String DATABASE_NAME = "webcamholmes.db";
     private static final int DATABASE_VERSION = 6;
-    private final BaseLogFacility mLogFacility;
+    private final RainbowLogFacility mLogFacility;
 
     /**
      * Standard projection for the interesting columns of a webcam.
@@ -76,7 +76,7 @@ public class ItemsDao
     
     
 	//---------- Constructor    
-    public ItemsDao(Context context, BaseLogFacility logFacility) {
+    public ItemsDao(Context context, RainbowLogFacility logFacility) {
     	mLogFacility = checkNotNull(logFacility, "Log Facility");
     	mOpenHelper = new DatabaseHelper(context, mLogFacility);
 	}
@@ -88,9 +88,9 @@ public class ItemsDao
      * This class helps open, create, and upgrade the database file.
      */
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        private final BaseLogFacility mLogFacility;
+        private final RainbowLogFacility mLogFacility;
 
-        DatabaseHelper(Context context, BaseLogFacility logFacility) {
+        DatabaseHelper(Context context, RainbowLogFacility logFacility) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
             mLogFacility = logFacility;
         }

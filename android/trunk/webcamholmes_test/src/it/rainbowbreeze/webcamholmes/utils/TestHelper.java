@@ -19,7 +19,7 @@
 package it.rainbowbreeze.webcamholmes.utils;
 
 import android.content.Context;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
@@ -33,14 +33,14 @@ public class TestHelper {
 	//---------- Private fields
 	private static final String LOG_TAG = "WebcamHolmes-Test";
 
-	private static BaseLogFacility mLogFacility;
+	private static RainbowLogFacility mLogFacility;
 	private static App mApp;
 	
 	
 	
 	//---------- Constructor
 	static {
-		mLogFacility = new BaseLogFacility(LOG_TAG);
+		mLogFacility = new RainbowLogFacility(LOG_TAG);
 		mApp = new App();
 	}
 
@@ -50,7 +50,7 @@ public class TestHelper {
 	public static class Factory{
 		private Factory(){}
 		
-		public static BaseLogFacility getLogFacility()
+		public static RainbowLogFacility getLogFacility()
 		{ return mLogFacility; }
 		
 		public static AppPreferencesDao getAppPreferencesDao(Context context)

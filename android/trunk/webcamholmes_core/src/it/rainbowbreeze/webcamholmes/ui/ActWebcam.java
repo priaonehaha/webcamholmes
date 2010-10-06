@@ -20,10 +20,10 @@ package it.rainbowbreeze.webcamholmes.ui;
 
 import java.io.File;
 
-import it.rainbowbreeze.libs.common.BaseResultOperation;
-import it.rainbowbreeze.libs.common.ServiceLocator;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
+import it.rainbowbreeze.libs.common.RainbowResultOperation;
+import it.rainbowbreeze.libs.common.RainbowServiceLocator;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.media.RainbowImageMediaHelper;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
@@ -49,7 +49,7 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
 /**
  * Display webcam image and reload it
@@ -73,13 +73,13 @@ public class ActWebcam
 
 	private final static String BUNDLEKEY_USERRELOADPAUSED = "UserReloadPaused";
 
-	private BaseLogFacility mLogFacility;
+	private RainbowLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
 	private AppPreferencesDao mAppPreferencesDao;
 	private ItemWebcam mWebcam;
 	private ImageView mImgWebcam;
 	private LoadImageTask mLoadWebcamTask;
-	private BaseImageMediaHelper mImageMediaHelper;
+	private RainbowImageMediaHelper mImageMediaHelper;
 	private boolean mReloadPaused;
 	private boolean mUserReloadPaused;
 	private ItemsDao mItemsDao;
@@ -97,11 +97,11 @@ public class ActWebcam
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
-        mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        mAppPreferencesDao = checkNotNull(ServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
-        mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
-        mImageMediaHelper = checkNotNull(ServiceLocator.get(BaseImageMediaHelper.class), "ImageMediaHelper");
+        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
+        mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+        mAppPreferencesDao = checkNotNull(RainbowServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
+        mItemsDao = checkNotNull(RainbowServiceLocator.get(ItemsDao.class), "ItemsDao");
+        mImageMediaHelper = checkNotNull(RainbowServiceLocator.get(RainbowImageMediaHelper.class), "ImageMediaHelper");
         
         getDataFromIntent(getIntent());
 
@@ -134,7 +134,7 @@ public class ActWebcam
 
 		Drawable drawable = (Drawable) objects[0];
     	if (null != drawable) mImgWebcam.setImageDrawable(drawable);
-    	//retrieve backgroud thread object
+    	//retrieve background thread object
 		mSaveWebcamImageThread = (SaveWebcamImageThread) objects[1];
 		if (null != mSaveWebcamImageThread) {
 			mSaveWebcamImageThread.registerCallerHandler(mActivityHandler);
@@ -279,7 +279,7 @@ public class ActWebcam
 	};
 
 	/**
-	 * Hander to call when a message is sent or a captcha code is inserted
+	 * Hander to call for background tasks
 	 */
 	private Handler mActivityHandler = new Handler() {
 		public void handleMessage(Message msg)
@@ -290,9 +290,11 @@ public class ActWebcam
 				&& msg.what != SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE)
 				return;
 			
-			BaseResultOperation<String> res;
+			RainbowResultOperation<String> res;
 			switch (msg.what) {
 			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN:
+				//remove the dialog
+				removeDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
 				//may happens that the thread is null (rotation and a call to handler in the same moment?)
 				if (null != mSaveWebcamImageThread) {
 					//get result from method
@@ -303,6 +305,8 @@ public class ActWebcam
 				break;
 				
 			case SaveWebcamImageThread.WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE:
+				//remove the dialog
+				removeDialog(DIALOG_PREPARE_FOR_SHARING);
 				//may happens that the thread is null (rotation and a call to handler in the same moment?)
 				if (null != mSaveWebcamImageThread) {
 					//get result from method
@@ -395,7 +399,7 @@ public class ActWebcam
 				mImgWebcam,
 				App.WEBCAM_IMAGE_DUMP_FILE,
 				SaveWebcamImageThread.AT_THE_END_FULLSCREEN);
-		mSaveWebcamImageThread.run();
+		mSaveWebcamImageThread.start();
 	}
 	
 	private void shareWebcamImage() {
@@ -414,7 +418,7 @@ public class ActWebcam
 				mImgWebcam,
 				getFileNameFromWebcamName(mWebcam.getName()),
 				SaveWebcamImageThread.AT_THE_END_SHARE);
-		mSaveWebcamImageThread.run();
+		mSaveWebcamImageThread.start();
 	}
 
 
@@ -437,12 +441,10 @@ public class ActWebcam
 	 * Called when dump of webcam image is completed
 	 * @param res
 	 */
-	private void prepareForFullscreenComplete(BaseResultOperation<String> res) {
+	private void prepareForFullscreenComplete(RainbowResultOperation<String> res) {
 		if (res.hasErrors()) {
 			mActivityHelper.reportError(this, res.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
 		} else {
-			//remove the dialog
-			removeDialog(DIALOG_PREPARE_FOR_FULLSCREEN);
 			//in the result there is the file path
 			String fileFullPath = res.getResult();
 			//add the file to the resources to delete when the activity is closed
@@ -456,12 +458,10 @@ public class ActWebcam
 	 * Called when dump of webcam image is completed
 	 * @param res
 	 */
-	private void prepareForSharingComplete(BaseResultOperation<String> res) {
+	private void prepareForSharingComplete(RainbowResultOperation<String> res) {
 		if (res.hasErrors()) {
 			mActivityHelper.reportError(this, res.getException(), ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE);
 		} else {
-			//remove the dialog
-			removeDialog(DIALOG_PREPARE_FOR_SHARING);
 			//in the result there is the file path
 			String fileFullPath = res.getResult();
 			//add the file to the resources to delete when the activity is closed

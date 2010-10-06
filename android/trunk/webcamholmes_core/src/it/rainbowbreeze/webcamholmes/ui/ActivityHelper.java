@@ -19,8 +19,8 @@
 
 package it.rainbowbreeze.webcamholmes.ui;
 
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.ui.BaseActivityHelper;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.ui.RainbowActivityHelper;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
@@ -38,7 +38,7 @@ import android.text.TextUtils;
  * @author Alfredo "Rainbowbreeze" Morresi
  */
 public class ActivityHelper
-	extends BaseActivityHelper
+	extends RainbowActivityHelper
 {
 	//---------- Private fields
 
@@ -50,7 +50,7 @@ public class ActivityHelper
 	 * @param logFacility
 	 * @param context
 	 */
-	public ActivityHelper(BaseLogFacility logFacility, Context context) {
+	public ActivityHelper(RainbowLogFacility logFacility, Context context) {
 		super(logFacility, context);
 	}
 

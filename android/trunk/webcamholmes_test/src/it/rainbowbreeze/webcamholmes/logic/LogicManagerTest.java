@@ -19,7 +19,7 @@
 
 package it.rainbowbreeze.webcamholmes.logic;
 
-import it.rainbowbreeze.libs.common.BaseResultOperation;
+import it.rainbowbreeze.libs.common.RainbowResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.utils.TestHelper;
 
@@ -79,7 +79,7 @@ public class LogicManagerTest extends AndroidTestCase {
 			assertTrue("Cannot add resource", mAppPreferencesDao.addResourceToRemove(fileName));
 		}
 		
-		BaseResultOperation<Void> res = mLogicManager.deleteTempResources(getContext());
+		RainbowResultOperation<Void> res = mLogicManager.deleteTempResources(getContext());
 		
 		assertFalse("Error in operation", res.hasErrors());
 		//checks if files were deleted

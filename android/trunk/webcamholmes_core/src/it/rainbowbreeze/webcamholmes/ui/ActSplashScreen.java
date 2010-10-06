@@ -22,13 +22,13 @@
  */
 package it.rainbowbreeze.webcamholmes.ui;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.checkNotNull;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.checkNotNull;
 import android.content.Intent;
 import android.os.Bundle;
-import it.rainbowbreeze.libs.common.BaseResultOperation;
-import it.rainbowbreeze.libs.common.ServiceLocator;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.ui.BaseSplashScreenActivity;
+import it.rainbowbreeze.libs.common.RainbowResultOperation;
+import it.rainbowbreeze.libs.common.RainbowServiceLocator;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.ui.RainbowSplashScreenActivity;
 import it.rainbowbreeze.webcamholmes.common.App;
 
 
@@ -37,11 +37,11 @@ import it.rainbowbreeze.webcamholmes.common.App;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class ActSplashScreen extends BaseSplashScreenActivity {
+public class ActSplashScreen extends RainbowSplashScreenActivity {
 
 	//---------- Private fields
 	private ActivityHelper mActivityHelper;
-	protected BaseLogFacility mLogFacility;
+	protected RainbowLogFacility mLogFacility;
 
 	
 	
@@ -60,8 +60,8 @@ public class ActSplashScreen extends BaseSplashScreenActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-        mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
+        mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
 		
 	}
 	
@@ -79,7 +79,7 @@ public class ActSplashScreen extends BaseSplashScreenActivity {
 	/* (non-Javadoc)
 	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#beginTaskFailed(it.rainbowbreeze.libs.common.BaseResultOperation)
 	 */
-	protected void beginTaskFailed(BaseResultOperation<Void> result) {
+	protected void beginTaskFailed(RainbowResultOperation<Void> result) {
 		App.i().setCorrectlyInitialized(false);
 		//some errors
 		mBaseActivityHelper.reportError(this, result);
@@ -89,7 +89,7 @@ public class ActSplashScreen extends BaseSplashScreenActivity {
 	/* (non-Javadoc)
 	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#beginTasksCompleted(it.rainbowbreeze.libs.common.BaseResultOperation)
 	 */
-	protected void beginTasksCompleted(BaseResultOperation<Void> result) {
+	protected void beginTasksCompleted(RainbowResultOperation<Void> result) {
 		App.i().setCorrectlyInitialized(true);
 
 		//and call main activity

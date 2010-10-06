@@ -21,10 +21,10 @@ package it.rainbowbreeze.webcamholmes.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.rainbowbreeze.libs.common.ServiceLocator;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.logic.BaseCrashReporter;
-import it.rainbowbreeze.libs.logic.SendStatisticsTask;
+import it.rainbowbreeze.libs.common.RainbowServiceLocator;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.logic.RainbowCrashReporter;
+import it.rainbowbreeze.libs.logic.RainbowSendStatisticsTask;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
@@ -47,7 +47,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
 /**
  * Application main activity, display a list
@@ -70,7 +70,7 @@ public class ActMain
 	private static final int OPTIONMENU_DISCOVER_NEW_WEBCAM = 4;
 
 	private long mCurrentCategoryId = 0;
-	private BaseLogFacility mLogFacility;
+	private RainbowLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
 	private AppPreferencesDao mAppPreferencesDao;
 	private ItemsDao mItemsDao;
@@ -99,10 +99,10 @@ public class ActMain
     		return;
     	}
     	
-        mLogFacility = checkNotNull(ServiceLocator.get(BaseLogFacility.class), "LogFacility");
-        mItemsDao = checkNotNull(ServiceLocator.get(ItemsDao.class), "ItemsDao");
-        mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        mAppPreferencesDao = checkNotNull(ServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
+        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
+        mItemsDao = checkNotNull(RainbowServiceLocator.get(ItemsDao.class), "ItemsDao");
+        mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+        mAppPreferencesDao = checkNotNull(RainbowServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
         
         setContentView(R.layout.actmain);
         setTitle(String.format(getString(R.string.actmain_lblTitle), App.APP_DISPLAY_NAME));
@@ -119,7 +119,7 @@ public class ActMain
     	//executed when the application first runs
         if (null == savedInstanceState) {
         	//send statistics data first time the app runs
-	        SendStatisticsTask statsTask = new SendStatisticsTask(
+        	RainbowSendStatisticsTask statsTask = new RainbowSendStatisticsTask(
 	        		mLogFacility,
 	        		mActivityHelper,
 	        		this,
@@ -138,7 +138,7 @@ public class ActMain
 	    		showDialog(DIALOG_STARTUP_INFOBOX);
 	    	
 	    	//checks for previous crash reports
-			BaseCrashReporter crashReporter = checkNotNull(ServiceLocator.get(BaseCrashReporter.class), "CrashReporter");
+	    	RainbowCrashReporter crashReporter = checkNotNull(RainbowServiceLocator.get(RainbowCrashReporter.class), "CrashReporter");
 	    	if (crashReporter.isCrashReportPresent(this)) {
 	    		showDialog(DIALOG_SEND_CRASH_REPORTS);
 	    	}
@@ -260,7 +260,7 @@ public class ActMain
     	
     	case DIALOG_SEND_CRASH_REPORTS:
     		retDialog = mActivityHelper.createSendCrashReportRequestDialog(
-    				ServiceLocator.get(BaseCrashReporter.class),
+    				RainbowServiceLocator.get(RainbowCrashReporter.class),
     				this,
     				App.APP_DISPLAY_NAME,
     				App.APP_INTERNAL_VERSION,

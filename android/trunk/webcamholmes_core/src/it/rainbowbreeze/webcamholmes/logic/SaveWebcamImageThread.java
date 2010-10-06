@@ -30,13 +30,13 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.widget.ImageView;
-import it.rainbowbreeze.libs.common.BaseResultOperation;
-import it.rainbowbreeze.libs.log.BaseLogFacility;
-import it.rainbowbreeze.libs.logic.BaseBackgroundThread;
-import it.rainbowbreeze.libs.media.BaseImageMediaHelper;
+import it.rainbowbreeze.libs.common.RainbowResultOperation;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
+import it.rainbowbreeze.libs.logic.RainbowBaseBackgroundThread;
+import it.rainbowbreeze.libs.media.RainbowImageMediaHelper;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.*;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
 /**
  * Dump a bitmap to a file
@@ -44,11 +44,11 @@ import static it.rainbowbreeze.libs.common.ContractHelper.*;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
+public class SaveWebcamImageThread extends RainbowBaseBackgroundThread<String> {
 
 	//---------- Private fields
-	private final BaseLogFacility mLogFacility;
-	private final BaseImageMediaHelper mMediaHelper;
+	private final RainbowLogFacility mLogFacility;
+	private final RainbowImageMediaHelper mMediaHelper;
 	private WeakReference<Bitmap> mBitmapToDump;
 	private WeakReference<ImageView> mImageViewWithBitmapToDump;
 	private final String mDumpFileName;
@@ -61,8 +61,8 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 	 * 
 	 */
 	public SaveWebcamImageThread(
-			BaseLogFacility logFacility,
-			BaseImageMediaHelper imageMediaHelper,
+			RainbowLogFacility logFacility,
+			RainbowImageMediaHelper imageMediaHelper,
 			Context context,
 			Handler handler,
 			Bitmap bitmapToSave,
@@ -78,8 +78,8 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 	 * 
 	 */
 	public SaveWebcamImageThread(
-			BaseLogFacility logFacility,
-			BaseImageMediaHelper imageMediaHelper,
+			RainbowLogFacility logFacility,
+			RainbowImageMediaHelper imageMediaHelper,
 			Context context,
 			Handler handler,
 			ImageView imageViewWithBitmapToSave,
@@ -92,8 +92,8 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 	}
 	
 	protected SaveWebcamImageThread(
-			BaseLogFacility logFacility,
-			BaseImageMediaHelper imageMediaHelper,
+			RainbowLogFacility logFacility,
+			RainbowImageMediaHelper imageMediaHelper,
 			Context context,
 			Handler handler,
 			String fileName,
@@ -136,7 +136,7 @@ public class SaveWebcamImageThread extends BaseBackgroundThread<String> {
 		
 		if (null == bitmap) {
 			mLogFacility.v("Cannot obtain a bitmap from the ImageView");
-			mResultOperation = new BaseResultOperation<String>(ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE, "Cannot obtain a bitmap from the ImageView");
+			mResultOperation = new RainbowResultOperation<String>(ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE, "Cannot obtain a bitmap from the ImageView");
 		} else {
 			//save the image
 			if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd) {

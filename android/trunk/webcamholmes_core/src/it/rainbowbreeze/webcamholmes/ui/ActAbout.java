@@ -22,11 +22,11 @@ package it.rainbowbreeze.webcamholmes.ui;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import it.rainbowbreeze.libs.common.ServiceLocator;
-import it.rainbowbreeze.libs.ui.BaseAboutActivity;
+import it.rainbowbreeze.libs.common.RainbowServiceLocator;
+import it.rainbowbreeze.libs.ui.RainbowAboutActivity;
 import it.rainbowbreeze.webcamholmes.R;
 
-import static it.rainbowbreeze.libs.common.ContractHelper.checkNotNull;
+import static it.rainbowbreeze.libs.common.RainbowContractHelper.checkNotNull;
 
 /**
  * Improuved About activity
@@ -34,7 +34,7 @@ import static it.rainbowbreeze.libs.common.ContractHelper.checkNotNull;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class ActAbout extends BaseAboutActivity {
+public class ActAbout extends RainbowAboutActivity {
 	//---------- Private fields
 	private static final int OPTIONMENU_DISCOVER_NEW_WEBCAM = 4;
 	
@@ -51,7 +51,7 @@ public class ActAbout extends BaseAboutActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		mActivityHelper = checkNotNull(ServiceLocator.get(ActivityHelper.class), "ActivityHelper");
+		mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
 	}
 	
 	@Override
