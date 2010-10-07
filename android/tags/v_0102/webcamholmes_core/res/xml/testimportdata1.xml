@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+
+<Webcam>
+    <Name>Root Element 1</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>0</ReloadInterval>
+    <ImageUrl>http://www.sitewebcam.org/imageroot1.jpg</ImageUrl>
+    <Preferred>False</Preferred>
+    <UserCreated>False</UserCreated>
+</Webcam>
+<Webcam>
+    <Name>Root Element 2</Name>
+    <ParentAliasId>0</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.sitewebcam.org/imageroot2.jpg</ImageUrl>
+    <Preferred>True</Preferred>
+    <UserCreated>False</UserCreated>
+</Webcam>
+
+<Category>
+    <AliasId>100</AliasId>
+    <ParentAliasId>0</ParentAliasId>
+    <Name>Traffic</Name>
+    <UserCreated>False</UserCreated>
+</Category>
+<Webcam>
+    <Name>Traffic Element 1</Name>
+    <ParentAliasId>100</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.autostrade.it/imagetraffic1.jpg</ImageUrl>
+    <Preferred>False</Preferred>
+    <UserCreated>True</UserCreated>
+</Webcam>
+
+<Category>
+    <AliasId>200</AliasId>
+    <ParentAliasId>100</ParentAliasId>
+    <Name>Major road</Name>
+    <UserCreated>True</UserCreated>
+</Category>
+
+</Items>

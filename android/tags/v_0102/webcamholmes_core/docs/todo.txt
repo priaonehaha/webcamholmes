@@ -1,0 +1,53 @@
+TODO
+
+-solve the link between imageDao and App in ActWebcam class
+-reset salvataggio categoria padre se non esiste piu'
+-aggiungere i campi tipo login e pwd sulla webcam per futuri utilizzi, vedere i programmi che gia' ne hanno
+-progress dialog per la creazione di nuove webcam all'avvio
+-invio per email dell'immagine della webcam
+-non spegnere il dispositivo quando si guarda la webcam (nelle opzioni)
+-posto nella schermata della webcam per loghi e altre cose (2 orientamenti)
+-togliere il runOnUiThread del fullscreen oppure gestirlo in modo diverso
+-controllare gestione del dialog nei settings
+-cambiare stringa su dialog per preparare i log
+ retDialog = mBaseActivityHelper.createAndShowProgressDialog(this, R.string.common_msg_executingCommand);
+-test per addresources nell'AppPreferenceDao
+-mettere nell'about invito a tradurre programma o a segnalare altre webcam
+-aumentare il tempo di caricamento delle immagini prima di andare in timeout
+-velocizzare init di applicazione, magari non aprendo e chiudendo il db ma tutto assieme
+
+-migliorare il passaggio dati tra activity come fa camera
+ Bitmap bm = (Bitmap) data.getExtras().get("data");
+
+
+Keyword
+CCTV webcam
+Ip webcam
+
+webcams.travel
+
+http://www.webcams.travel/developers/
+
+
+per creare nuovo tag
+ svn copy https://webcamholmes.googlecode.com/svn/android/trunk https://webcamholmes.googlecode.com/svn/android/tags/v_0006b -m "Creating a v_0006b release" --username alfredo.morresi
+ 
+fonti webcam
+ http://www.barcello.it/index.php/webcam-italiane.html
+ http://www.naturamediterraneo.com
+ http://www.el-viking.com/
+ http://www.playawebcams.com
+parigi
+ http://paris.webcam.en-ville.orange.fr/ville/paris/champs-elysees-r9.html
+torino
+ http://www.torinometeo.org/index.php?evt[realtime-map]&webcam=1
+london traffic
+ http://www.bbc.co.uk/travelnews/webcams/
+ http://londonwebcams.webs.com/thelondoncams.htm
+ http://www.london2012.com/webcams/
+ http://www.abbeyroad.com/visit/ - con scatti strani della strada
+parsare la pagina per il traffico londra
+ http://www.bbc.co.uk/london/travel/jam_cams/full_list/
+natura webcam
+ http://www.alltravelcams.com/grand_canyon/yavapai_point.php
+

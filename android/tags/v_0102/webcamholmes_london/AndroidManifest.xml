@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+ Copyright (C) 2010 Alfredo Morresi
+ This file is part of WebcamHolmes project.
+   
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 3 of the License, or (at your option) any later
+ version.
+   
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ details.
+ 
+ You should have received a copy of the GNU General Public License along with
+ this program; If not, see <http://www.gnu.org/licenses/>.
+ -->
+ 
+ <manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.rainbowbreeze.webcamholmes.london" 
+    android:versionName="1.2"
+    android:versionCode="8"
+    android:installLocation="auto"
+>
+<!--    android:installLocation="auto"-->
+
+    <application
+        android:icon="@drawable/ic_launcher_webcamholmes"
+        android:label="@string/common_appName"
+        android:name="it.rainbowbreeze.webcamholmes.common.App"
+    >
+        <activity
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActSplashScreen"
+            android:label="@string/common_appName"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActMain"
+            android:label="@string/common_appName"
+        />
+        
+        <activity
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActWebcam"
+            android:label="@string/common_appName"
+        />
+
+        <activity
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActAbout"
+            android:label="@string/common_appName"
+        />
+
+        <activity
+            android:name="it.rainbowbreeze.libs.ui.RainbowSettingsMainActivity"
+            android:label="@string/common_appName"
+        />
+
+        <activity
+            android:name="it.rainbowbreeze.webcamholmes.ui.ActImageFullscreen"
+            android:label="@string/common_appName"
+        />
+
+        <!-- The application's publisher ID assigned by AdMob -->
+        <meta-data android:value="a14c589701dde59" android:name="ADMOB_PUBLISHER_ID" />
+
+    </application>
+    
+    <!-- API support: min 1.6, target 2.0 -->
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="5"
+    />
+    
+    <!-- Internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Checks for connectivity -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- AdMob SDK permissions -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Write webcam shootes on storage card (in order to share them) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />    
+
+</manifest> 
