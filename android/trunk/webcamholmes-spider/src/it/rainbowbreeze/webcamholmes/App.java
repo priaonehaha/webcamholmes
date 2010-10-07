@@ -23,6 +23,7 @@ import it.rainbowbreeze.webcamholmes.data.ItemsXmlParser;
 import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
 import it.rainbowbreeze.webcamholmes.spiders.BBCLondonTrafficSpider;
 import it.rainbowbreeze.webcamholmes.spiders.BaseSpider;
+import it.rainbowbreeze.webcamholmes.spiders.WebcamsTravelSpider;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,8 +54,11 @@ public class App {
 		//create the spiders list
 		List<BaseSpider> spiders = new ArrayList<BaseSpider>();
 		//London AliasId is 9
-		spiders.add(new BBCLondonTrafficSpider("London traffic", 9, 20, 25));
-
+		spiders.add(new BBCLondonTrafficSpider("London traffic", 9, 101, 105));
+		spiders.add(new WebcamsTravelSpider("London", "Webcas.Travel London", 9, 106, 110));
+		spiders.add(new WebcamsTravelSpider("Paris", "Webcas.Travel Paris", 5, 111, 115));
+		spiders.add(new WebcamsTravelSpider("Rome", "Webcas.Travel Rome", 2, 116, 120));
+		
 		//read existing and manually created webcams
 		System.out.println("Reading manually created items...");
 		ItemsXmlParser parser = new ItemsXmlParser();

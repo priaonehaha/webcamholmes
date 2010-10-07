@@ -23,11 +23,6 @@ import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 /**
@@ -50,6 +45,14 @@ public class BBCLondonTrafficSpider extends BaseSpider {
 	
 	
 	//---------- Constructor
+	
+	/**
+	 * @param placeToSearch
+	 * @param spiderName
+	 * @param rootParentAliasId
+	 * @param reservedAliasIdStart
+	 * 
+	 */
 	public BBCLondonTrafficSpider(String spiderName, long rootParentAliasId, long reservedAliasIdStart, long reservedAliasIdStop) {
 		super(spiderName, rootParentAliasId, reservedAliasIdStart, reservedAliasIdStop);
 	}
@@ -106,27 +109,7 @@ public class BBCLondonTrafficSpider extends BaseSpider {
 	
 	//---------- Private methods
     private String getPage() {
-    	StringBuilder sb = new StringBuilder();
-    	
-		try { 
-		    URL pageUrl = new URL(PAGE_URL);
-		    BufferedReader in = new BufferedReader(
-		    		new InputStreamReader(pageUrl.openStream())); 
-			String inputLine; 
-			
-			while ((inputLine = in.readLine()) != null) {
-				sb.append(inputLine);
-		    } 
-		    in.close(); 
-		
-		} catch (MalformedURLException me) { 
-		    System.out.println(me); 
-		
-		} catch (IOException ioe) { 
-		    System.out.println(ioe); 
-		}
-		
-		return sb.toString();
+    	return getPageContent(PAGE_URL);
     }
     
     

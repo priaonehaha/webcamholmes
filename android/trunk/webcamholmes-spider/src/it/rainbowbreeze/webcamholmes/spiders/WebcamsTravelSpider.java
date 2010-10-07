@@ -19,9 +19,15 @@
 
 package it.rainbowbreeze.webcamholmes.spiders;
 
+import it.rainbowbreeze.webcamholmes.data.WebcamsTravelXmlParser;
 import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 /**
  * Aggregate webcams from webcam.travel site
@@ -29,22 +35,35 @@ import java.util.List;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class WebcamTravelSpider
+public class WebcamsTravelSpider
 	extends BaseSpider
 {
 	//---------- Private fields
+	private static final String WEBSERVICE_BASE_ADDRESS = "http://api.webcams.travel/rest?method=wct.search.webcams&devid=d0c0a0d5cfa782ed9dd9605425e829cd&per_page=50&query=%s";
+	
+	private final String mPlaceToSearch;
 
 	
 	
 	
 	//---------- Constructor
-	public WebcamTravelSpider(
+	/**
+	 * @param placeToSearch
+	 * @param spiderName
+	 * @param rootParentAliasId
+	 * @param reservedAliasIdStart
+	 * @param reservedAliasIdStop
+	 * 
+	 */
+	public WebcamsTravelSpider(
+			String placeToSearch, 
 			String spiderName,
 			long rootParentAliasId,
 			long reservedAliasIdStart,
 			long reservedAliasIdStop)
 	{
 		super(spiderName, rootParentAliasId, reservedAliasIdStart, reservedAliasIdStop);
+		mPlaceToSearch = placeToSearch;
 	}
 
 
@@ -60,7 +79,28 @@ public class WebcamTravelSpider
 
 	@Override
 	public void parseResource(List<ItemWrapper> items) {
-		// TODO Auto-generated method stub
+		//get webservice reply
+		String webserviceRequestAddress = String.format(WEBSERVICE_BASE_ADDRESS, mPlaceToSearch);
+		String webserviceReply = getPageContent(webserviceRequestAddress);
+		
+		//parse webcams
+		WebcamsTravelXmlParser parser = new WebcamsTravelXmlParser(mRootParentAliasId);
+		List<ItemWrapper> newWebcams = null;
+		try {
+			newWebcams = parser.parseDocument(webserviceReply);
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (null != newWebcams && newWebcams.size() > 0)
+			items.addAll(newWebcams);
 		
 	}
 

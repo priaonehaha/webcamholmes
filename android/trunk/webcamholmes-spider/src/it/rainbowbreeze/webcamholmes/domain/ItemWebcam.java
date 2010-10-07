@@ -34,12 +34,30 @@ public class ItemWebcam
 	
 	//---------- Constructor
 	public ItemWebcam(long id, long parentId, String name, int webcamType, String imageUrl, int reloadInterval, boolean preferred, boolean userCreated) {
+		this(id, parentId, name, webcamType, imageUrl, reloadInterval, preferred, userCreated, "", "", "");
+	}
+	
+	public ItemWebcam(
+			long id,
+			long parentId,
+			String name,
+			int webcamType,
+			String imageUrl,
+			int reloadInterval,
+			boolean preferred,
+			boolean userCreated,
+			String freeData1,
+			String freeData2,
+			String freeData3) {
 		super(id, parentId, name);
-		mWebcamType = webcamType;
+		mType = webcamType;
 		mImageUrl = imageUrl;
 		mReloadInterval = reloadInterval;
 		mPreferred = preferred;
 		mUserCreated = userCreated;
+		mFreeData1 = freeData1;
+		mFreeData2 = freeData2;
+		mFreeData3 = freeData3;
 	}
 	
 	
@@ -51,9 +69,14 @@ public class ItemWebcam
 	public boolean hasChildren()
 	{ return false; }
 
-	protected final int mWebcamType;
+	/**
+	 * Type of webcam
+	 * 1 - normal, display the image in the url
+	 * 2 - webcam.traverl webcam, display additional credits
+	 */
+	protected final int mType;
 	public int getType()
-	{ return mWebcamType; }
+	{ return mType; }
 
 	protected final String mImageUrl;
 	public String getImageUrl()
@@ -72,6 +95,18 @@ public class ItemWebcam
 	protected final boolean mUserCreated;
 	public boolean isUserCreated()
 	{ return mUserCreated; }
+
+	protected final String mFreeData1;
+	public String getFreeData1()
+	{ return mFreeData1; }
+
+	protected final String mFreeData2;
+	public String getFreeData2()
+	{ return mFreeData2; }
+
+	protected final String mFreeData3;
+	public String getFreeData3()
+	{ return mFreeData3; }
 
 
 
@@ -101,6 +136,19 @@ public class ItemWebcam
 		 */
 		public static ItemWebcam getUserWebcam(long parentId, String name, String imageUrl, int reloadInterval) {
 			return new ItemWebcam(0, parentId, name, 1, imageUrl, reloadInterval, false, true);
+		}
+		
+		
+		/**
+		 * Create a webcam.travel webcam
+		 * @param parentId
+		 * @param name
+		 * @param imageUrl
+		 * @param reloadInterval
+		 * @return
+		 */
+		public static ItemWebcam getWebcamTravelWebcam(long parentId, String name, String imageUrl, String userName, String userAreaUrl, String webcamOnWebcamTravelUrl) {
+			return new ItemWebcam(0, parentId, name, 2, imageUrl, 30, false, true, userName, userAreaUrl, webcamOnWebcamTravelUrl);
 		}
 	}
 
