@@ -352,10 +352,9 @@ public class ActWebcam
 			IImageUrlProvider imageUrlProvider;
 			try {
 				imageUrlProvider = App.i().getImageUrlProvider();
-				LoadImageTask task = new LoadImageTask(
+				mLoadWebcamTask = new LoadImageTask(
 						imageUrlProvider, mWebcam, getWindow(), mImgWebcam, App.i().getFailWebcamBitmap());
-				task.execute();
-				mLoadWebcamTask = task;
+				mLoadWebcamTask.execute();
 				mReloadPaused = false;
 				return;
 			} catch (Exception e) {
