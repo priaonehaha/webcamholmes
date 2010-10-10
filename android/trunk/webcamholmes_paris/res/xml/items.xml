@@ -103,7 +103,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.centrepompidou.fr/webcam/images/cam1_toit_00001.jpg</ImageUrl>
-	<Name>Centre Pompidou root</Name>
+	<Name>Centre Pompidou, roof</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
@@ -121,7 +121,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.centrepompidou.fr/webcam/images/piazza_00001.jpg</ImageUrl>
-	<Name>La Piazza, Hôtel-de-Ville</Name>
+	<Name>Centre Pompidou, piazza</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>

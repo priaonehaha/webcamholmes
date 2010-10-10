@@ -196,7 +196,7 @@ public class ActImageFullscreen extends Activity {
 		//checks if current editing is for a provider or a subservice
 		if(extras != null) {
 			mImageToDisplayPath = checkNotNull(extras.getString(ActivityHelper.INTENTKEY_IMAGETODISPLAY_PATH), "ImageToDisplay");
-			mLogFacility.v("Showing image" + mImageToDisplayPath);
+			mLogFacility.v("Showing image " + mImageToDisplayPath);
 		} else {
 			checkNotNull(null, "ImageToDisplay");
 		}

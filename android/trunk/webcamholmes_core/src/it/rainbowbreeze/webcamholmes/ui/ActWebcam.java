@@ -71,7 +71,8 @@ public class ActWebcam
 	private final static int DIALOG_PREPARE_FOR_FULLSCREEN = 10;
 	private final static int DIALOG_PREPARE_FOR_SHARING = 11;
 
-	private final static String BUNDLEKEY_USERRELOADPAUSED = "UserReloadPaused";
+	private final static String BUNDLEKEY_RELOAD_PAUSED_BY_USER = "UserReloadPaused";
+	private final static String BUNDLEKEY_CAN_FULLSCREEN_WEBCAM = "CanFullscreenWebcam";
 
 	private RainbowLogFacility mLogFacility;
 	private ActivityHelper mActivityHelper;
@@ -81,9 +82,10 @@ public class ActWebcam
 	private LoadImageTask mLoadWebcamTask;
 	private RainbowImageMediaHelper mImageMediaHelper;
 	private boolean mReloadPaused;
-	private boolean mUserReloadPaused;
+	private boolean mReloadPausedByUser;
 	private ItemsDao mItemsDao;
 	private SaveWebcamImageThread mSaveWebcamImageThread;
+	private boolean mCanFullscreenWebcam;
 
 
 
@@ -116,7 +118,8 @@ public class ActWebcam
         if (null == savedInstanceState) {
         	//first start of the activity
 	        mReloadPaused = false;
-	        mUserReloadPaused = false;
+	        mReloadPausedByUser = false;
+	        mCanFullscreenWebcam = false;
         }
 	}
 	
@@ -158,15 +161,17 @@ public class ActWebcam
 	 */
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-		outState.putBoolean(BUNDLEKEY_USERRELOADPAUSED, mUserReloadPaused);
+		outState.putBoolean(BUNDLEKEY_RELOAD_PAUSED_BY_USER, mReloadPausedByUser);
+		outState.putBoolean(BUNDLEKEY_CAN_FULLSCREEN_WEBCAM, mCanFullscreenWebcam);
 		super.onSaveInstanceState(outState);
 	}
 
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
-		mUserReloadPaused = savedInstanceState.getBoolean(BUNDLEKEY_USERRELOADPAUSED);
-		mReloadPaused = mUserReloadPaused;
+		mReloadPausedByUser = savedInstanceState.getBoolean(BUNDLEKEY_RELOAD_PAUSED_BY_USER);
+		mCanFullscreenWebcam = savedInstanceState.getBoolean(BUNDLEKEY_CAN_FULLSCREEN_WEBCAM);
+		mReloadPaused = mReloadPausedByUser;
 	}
 	
 	/* (non-Javadoc)
@@ -185,7 +190,7 @@ public class ActWebcam
 	
 	@Override
 	protected void onResume() {
-		if (!mUserReloadPaused) startWebcamLoadTask();
+		if (!mReloadPausedByUser) startWebcamLoadTask();
 		super.onRestart();
 	}
 	
@@ -227,12 +232,12 @@ public class ActWebcam
 			break;
 			
 		case OPTIONMENU_PAUSE_RELOAD:
-			mUserReloadPaused = true;
+			mReloadPausedByUser = true;
 			stopWebcamLoadTask();
 			break;
 
 		case OPTIONMENU_START_RELOAD:
-			mUserReloadPaused = false;
+			mReloadPausedByUser = false;
 			startWebcamLoadTask();
 			break;
 
@@ -275,8 +280,11 @@ public class ActWebcam
 	
 	private OnClickListener mWebcamImageOnClickListener = new OnClickListener() {
 		public void onClick(View v) {
-			if (mLoadWebcamTask.getImagedLoadedAtLeastOneTime()){
+			if (mCanFullscreenWebcam || mLoadWebcamTask.getImagedLoadedAtLeastOneTime()){
 				showWebcamFullscreen();
+				//first time the thread decides if the image could be loaded or not,
+				//from the second time, the local field decides
+				mCanFullscreenWebcam = true;
 			}
 		}
 	};

@@ -300,14 +300,14 @@ public class ActMain
 	 * 
 	 */
 	private void restoreLastRunViewValues() {
+		mCurrentCategoryId = mAppPreferencesDao.getLatestCategory();
 		//TODO sometimes this methods create an error, i don't know under
 		//what circumstances... :(
-		//mCurrentCategoryId = mAppPreferencesDao.getLatestCategory();
-		if (null != mAppPreferencesDao) {
-			mCurrentCategoryId = mAppPreferencesDao.getLatestCategory();
-		} else {
-			mCurrentCategoryId = 0;
-		}
+//		if (null != mAppPreferencesDao) {
+//			mCurrentCategoryId = mAppPreferencesDao.getLatestCategory();
+//		} else {
+//			mCurrentCategoryId = 0;
+//		}
 	}
 
 	

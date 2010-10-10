@@ -78,7 +78,7 @@ public class LoadImageTask
 		mWebcam = webcam;
 		mInterruptReload = false;
 		mFailBitmap = failBitmap;
-		mImagedLoadedAtLeastOneTime = true;
+		mImagedLoadedAtLeastOneTime = false;
 	}
 
 

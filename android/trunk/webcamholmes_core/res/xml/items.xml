@@ -322,7 +322,7 @@
     <SiteUrl>http://www.centrepompidou.fr/webcam/popup3.html</SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>Centre Pompidou root</Name>
+    <Name>Centre Pompidou, roof</Name>
     <ParentAliasId>5</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>30</ReloadInterval>
@@ -338,7 +338,7 @@
     <SiteUrl>http://www.centrepompidou.fr/webcam/popup4.html</SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>La Piazza, Hôtel-de-Ville</Name>
+    <Name>Centre Pompidou, piazza</Name>
     <ParentAliasId>5</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>30</ReloadInterval>

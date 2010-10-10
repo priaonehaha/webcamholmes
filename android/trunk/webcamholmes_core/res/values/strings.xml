@@ -70,7 +70,7 @@
     
     
     
-    <!-- BaseSplashscreenActivity -->
-    <string name="actsplashscreen_msgExecutingBeginTasks">Checking webcams and initializing application...</string>
+    <!-- ActSplashscreenActivity -->
+    <string name="actsplashscreen_msgExecutingBeginTasks">Checking webcams and initializing application.\n\nPlease wait, some minutes could be needed on the first load...</string>
 
 </resources>
