@@ -18,6 +18,7 @@
  */
 package it.rainbowbreeze.webcamholmes.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.rainbowbreeze.libs.common.RainbowLogFacility;
@@ -61,37 +62,32 @@ public class ItemsDaoTest extends AndroidTestCase {
 	//---------- Test cases	
     public void testInsertWebcam() {
         ItemWebcam webcam;
-        ItemWebcam loadedWebcam;
 
         //insert first webcam
-        webcam = ItemWebcam.Factory.getSystemWebcam(43, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+        webcam = createWebcam1();
         long webcamId1 = mDao.insertWebcam(webcam);
-        
-        loadedWebcam = mDao.getWebcamById(webcamId1);
-        assertEquals("Wrong id", webcamId1, loadedWebcam.getId());
-        assertEquals("Wrong parentId", 43, loadedWebcam.getParentId());
-        assertEquals("Wrong name", "Paris - Tour Eiffel", loadedWebcam.getName());
-        assertEquals("Wrong url", "http://www.parislive.net/eiffelwebcam01.jpg", loadedWebcam.getImageUrl());
-        assertEquals("Wrong interval", 5, loadedWebcam.getReloadInterval());
-        assertFalse("Wrong preferred", loadedWebcam.isPreferred());
-        assertFalse("Wrong user created", loadedWebcam.isUserCreated());
+        compareWithWebcam1(webcamId1);
         
         //insert second webcam
-        webcam = ItemWebcam.Factory.getUserWebcam(52, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
-        webcam.setPreferred(true);
+        webcam = createWebcam2();
         long webcamId2 = mDao.insertWebcam(webcam);
-        
-        loadedWebcam = mDao.getWebcamById(webcamId2);
-        assertEquals("Wrong id", webcamId2, loadedWebcam.getId());
-        assertEquals("Wrong parentId", 52, loadedWebcam.getParentId());
-        assertEquals("Wrong name", "Webcam 2", loadedWebcam.getName());
-        assertEquals("Wrong url", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", loadedWebcam.getImageUrl());
-        assertEquals("Wrong interval", 0, loadedWebcam.getReloadInterval());
-        assertTrue("Wrong preferred", loadedWebcam.isPreferred());
-        assertTrue("Wrong user created", loadedWebcam.isUserCreated());
+        compareWithWebcam2(webcamId2);
     }
-    
-    public void testDeleteWebcam() {
+        
+    public void testInsertWebcams(){
+    	List<ItemWebcam> webcams = new ArrayList<ItemWebcam>();
+    	webcams.add(createWebcam1());
+    	webcams.add(createWebcam2());
+    	
+    	int added = mDao.insertWebcams(webcams);
+    	assertEquals("Wrong numbers of added webcams", 2, added);
+    	long webcamId1 = webcams.get(0).getId();
+    	compareWithWebcam1(webcamId1);
+    	long webcamId2 = webcams.get(1).getId();
+    	compareWithWebcam2(webcamId2);
+    }
+
+	public void testDeleteWebcam() {
         ItemWebcam webcam;
         ItemWebcam loadedWebcam1;
         ItemWebcam loadedWebcam2;
@@ -155,33 +151,31 @@ public class ItemsDaoTest extends AndroidTestCase {
 
     public void testInsertCategory() {
         ItemCategory category;
-        ItemCategory loadedCategory;
 
         //insert first category
-        category = ItemCategory.Factory.getSystemCategory(100, 200, "Testcategory 1");
+        category = createCategory1();
         long categoryId1 = mDao.insertCategory(category);
-        
-        loadedCategory = mDao.getCategoryById(categoryId1);
-        assertNotNull(loadedCategory);
-        assertEquals("Wrong id", categoryId1, loadedCategory.getId());
-        assertEquals("Wrong aliasId", 100, loadedCategory.getAliasId());
-        assertEquals("Wrong parentId", 200, loadedCategory.getParentId());
-        assertEquals("Wrong name", "Testcategory 1", loadedCategory.getName());
-        assertFalse("Wrong user created", loadedCategory.isUserCreated());
+        compareWithCategory1(categoryId1);
         
         //insert second category
-        category = ItemCategory.Factory.getUserCategory(123, 456, "Testcategory 2");
+        category = createCategory2();
         long categoryId2 = mDao.insertCategory(category);
-        
-        loadedCategory = mDao.getCategoryById(categoryId2);
-        assertNotNull(loadedCategory);
-        assertEquals("Wrong id", categoryId2, loadedCategory.getId());
-        assertEquals("Wrong aliasId", 123, loadedCategory.getAliasId());
-        assertEquals("Wrong parentId", 456, loadedCategory.getParentId());
-        assertEquals("Wrong name", "Testcategory 2", loadedCategory.getName());
-        assertTrue("Wrong user created", loadedCategory.isUserCreated());
+        compareWithCategory2(categoryId2);
     }
     
+    public void testInsertCategories(){
+    	List<ItemCategory> categories = new ArrayList<ItemCategory>();
+    	categories.add(createCategory1());
+    	categories.add(createCategory2());
+    	
+    	int added = mDao.insertCategories(categories);
+    	assertEquals("Wrong numbers of added categories", 2, added);
+    	long categoryId1 = categories.get(0).getId();
+    	compareWithCategory1(categoryId1);
+    	long categoryId2 = categories.get(1).getId();
+    	compareWithCategory2(categoryId2);
+    }
+
     public void testDeleteCategory() {
         ItemCategory category;
         ItemCategory loadedCategory1;
@@ -421,4 +415,73 @@ public class ItemsDaoTest extends AndroidTestCase {
 		assertNull("Webcam 2 still exists", mDao.getWebcamById(webcamId2));
 		assertNull("Webcam 3 still exists", mDao.getWebcamById(webcamId3));
     }
+    
+    
+
+    
+	//---------- Private methods
+	private ItemWebcam createWebcam1() {
+		return ItemWebcam.Factory.getSystemWebcam(43, "Paris - Tour Eiffel", "http://www.parislive.net/eiffelwebcam01.jpg", 5);
+	}
+
+	/**
+	 * @param webcamId
+	 */
+	private void compareWithWebcam1(long webcamId) {
+		ItemWebcam loadedWebcam;
+		loadedWebcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong id", webcamId, loadedWebcam.getId());
+        assertEquals("Wrong parentId", 43, loadedWebcam.getParentId());
+        assertEquals("Wrong name", "Paris - Tour Eiffel", loadedWebcam.getName());
+        assertEquals("Wrong url", "http://www.parislive.net/eiffelwebcam01.jpg", loadedWebcam.getImageUrl());
+        assertEquals("Wrong interval", 5, loadedWebcam.getReloadInterval());
+        assertFalse("Wrong preferred", loadedWebcam.isPreferred());
+        assertFalse("Wrong user created", loadedWebcam.isUserCreated());
+	}
+    
+    private ItemWebcam createWebcam2() {
+    	ItemWebcam webcam;
+		webcam = ItemWebcam.Factory.getUserWebcam(52, "Webcam 2", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", 0);
+        webcam.setPreferred(true);
+        return webcam;
+	}
+
+    private void compareWithWebcam2(long webcamId) {
+		ItemWebcam loadedWebcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong id", webcamId, loadedWebcam.getId());
+        assertEquals("Wrong parentId", 52, loadedWebcam.getParentId());
+        assertEquals("Wrong name", "Webcam 2", loadedWebcam.getName());
+        assertEquals("Wrong url", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", loadedWebcam.getImageUrl());
+        assertEquals("Wrong interval", 0, loadedWebcam.getReloadInterval());
+        assertTrue("Wrong preferred", loadedWebcam.isPreferred());
+        assertTrue("Wrong user created", loadedWebcam.isUserCreated());
+	}
+
+    private ItemCategory createCategory1() {
+		return ItemCategory.Factory.getSystemCategory(100, 200, "Testcategory 1");
+	}
+
+    private ItemCategory createCategory2() {
+		return ItemCategory.Factory.getUserCategory(123, 456, "Testcategory 2");
+	}
+
+	private void compareWithCategory1(long categoryId) {
+        ItemCategory loadedCategory = mDao.getCategoryById(categoryId);
+        assertNotNull(loadedCategory);
+        assertEquals("Wrong id", categoryId, loadedCategory.getId());
+        assertEquals("Wrong aliasId", 100, loadedCategory.getAliasId());
+        assertEquals("Wrong parentId", 200, loadedCategory.getParentId());
+        assertEquals("Wrong name", "Testcategory 1", loadedCategory.getName());
+        assertFalse("Wrong user created", loadedCategory.isUserCreated());
+	}
+
+    private void compareWithCategory2(long categoryId2) {
+        ItemCategory loadedCategory = mDao.getCategoryById(categoryId2);
+        assertNotNull(loadedCategory);
+        assertEquals("Wrong id", categoryId2, loadedCategory.getId());
+        assertEquals("Wrong aliasId", 123, loadedCategory.getAliasId());
+        assertEquals("Wrong parentId", 456, loadedCategory.getParentId());
+        assertEquals("Wrong name", "Testcategory 2", loadedCategory.getName());
+        assertTrue("Wrong user created", loadedCategory.isUserCreated());
+	}
 }

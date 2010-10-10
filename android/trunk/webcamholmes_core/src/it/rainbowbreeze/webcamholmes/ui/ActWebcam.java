@@ -85,8 +85,9 @@ public class ActWebcam
 	private ItemsDao mItemsDao;
 	private SaveWebcamImageThread mSaveWebcamImageThread;
 
-	
-	
+
+
+
 	//---------- Public properties
 
 	
@@ -160,7 +161,7 @@ public class ActWebcam
 		outState.putBoolean(BUNDLEKEY_USERRELOADPAUSED, mUserReloadPaused);
 		super.onSaveInstanceState(outState);
 	}
-	
+
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
@@ -274,7 +275,9 @@ public class ActWebcam
 	
 	private OnClickListener mWebcamImageOnClickListener = new OnClickListener() {
 		public void onClick(View v) {
-			showWebcamFullscreen();
+			if (mLoadWebcamTask.getImagedLoadedAtLeastOneTime()){
+				showWebcamFullscreen();
+			}
 		}
 	};
 

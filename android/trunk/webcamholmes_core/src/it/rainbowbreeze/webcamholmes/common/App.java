@@ -94,13 +94,6 @@ public class App
 	public final static String WEBCAM_IMAGE_DUMP_FILE = "webcamDump.png";
 	
 
-	/** the application was correctly initialized */
-    private boolean mIsCorrectlyInitialized;
-	public boolean isCorrectlyInitialized()
-	{ return mIsCorrectlyInitialized; }
-	public void setCorrectlyInitialized(boolean newValue)
-	{ mIsCorrectlyInitialized = newValue; }
-
 	/** First run after an update of the application */
 	protected boolean mFirstRunAfterUpdate;
 	public void setFirstRunAfterUpdate(boolean newValue)

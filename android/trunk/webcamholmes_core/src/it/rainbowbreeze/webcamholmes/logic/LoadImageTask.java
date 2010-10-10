@@ -44,7 +44,7 @@ public class LoadImageTask
 	private boolean mInterruptReload;
 	private final IImageUrlProvider mImageUrlProvider;
 	private final Bitmap mFailBitmap;
-
+	private boolean mImagedLoadedAtLeastOneTime;
 	
 	
 	
@@ -78,7 +78,15 @@ public class LoadImageTask
 		mWebcam = webcam;
 		mInterruptReload = false;
 		mFailBitmap = failBitmap;
+		mImagedLoadedAtLeastOneTime = true;
 	}
+
+
+
+
+	//---------- Public methods
+	public boolean getImagedLoadedAtLeastOneTime()
+	{ return mImagedLoadedAtLeastOneTime; }
 
 
 
@@ -146,6 +154,7 @@ public class LoadImageTask
 			//display the bitmap and stop the progress animation
 			assignBitmap(values[0]);
 			stopWindowProgressAnimation();
+			mImagedLoadedAtLeastOneTime = true;
 		}
 	}
 

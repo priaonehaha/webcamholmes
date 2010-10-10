@@ -23,7 +23,6 @@ import java.util.List;
 
 import it.rainbowbreeze.libs.common.RainbowServiceLocator;
 import it.rainbowbreeze.libs.common.RainbowLogFacility;
-import it.rainbowbreeze.libs.logic.RainbowCrashReporter;
 import it.rainbowbreeze.libs.logic.RainbowSendStatisticsTask;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
@@ -60,7 +59,6 @@ public class ActMain
 	extends ListActivity
 {
 	//---------- Private fields
-	private static final int DIALOG_SEND_CRASH_REPORTS = 10;
 	private static final int DIALOG_STARTUP_INFOBOX = 11;
 	private static final int DIALOG_ADD_NEW_ITEM = 12;
 	
@@ -90,15 +88,6 @@ public class ActMain
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    	//checks for app was correctly initialized
-    	if (!App.i().isCorrectlyInitialized()) {
-    		//application is expired
-            setContentView(R.layout.actinitializationerror);
-            setTitle(String.format(
-            		getString(R.string.actinitialization_title), App.APP_DISPLAY_NAME));
-    		return;
-    	}
-    	
         mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
         mItemsDao = checkNotNull(RainbowServiceLocator.get(ItemsDao.class), "ItemsDao");
         mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
@@ -136,12 +125,6 @@ public class ActMain
 	    	//show info dialog, if needed
 	    	if (App.i().isFirstRunAfterUpdate())
 	    		showDialog(DIALOG_STARTUP_INFOBOX);
-	    	
-	    	//checks for previous crash reports
-	    	RainbowCrashReporter crashReporter = checkNotNull(RainbowServiceLocator.get(RainbowCrashReporter.class), "CrashReporter");
-	    	if (crashReporter.isCrashReportPresent(this)) {
-	    		showDialog(DIALOG_SEND_CRASH_REPORTS);
-	    	}
     	}
     }
     
@@ -163,7 +146,6 @@ public class ActMain
 		} else {
 			//it's a webcam
 			mActivityHelper.openShowWebcam(this, item.getId());
-//			mActivityHelper.openFullscreenImageActivity(this, App.WEBCAM_IMAGE_DUMP_FILE);
 		}
 	}
 
@@ -210,9 +192,6 @@ public class ActMain
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	//errors on initialization
-    	if (!App.i().isCorrectlyInitialized()) return true;
-
 		menu.add(0, OPTIONMENU_SETTINGS, 1, R.string.actmain_mnuSettings)
 			.setIcon(android.R.drawable.ic_menu_preferences);
     	menu.add(0, OPTIONMENU_ABOUT, 2, R.string.actmain_mnuAbout)
@@ -258,16 +237,6 @@ public class ActMain
     		retDialog = mActivityHelper.createStartupInformativeDialog(this);
     		break;
     	
-    	case DIALOG_SEND_CRASH_REPORTS:
-    		retDialog = mActivityHelper.createSendCrashReportRequestDialog(
-    				RainbowServiceLocator.get(RainbowCrashReporter.class),
-    				this,
-    				App.APP_DISPLAY_NAME,
-    				App.APP_INTERNAL_VERSION,
-    				App.EMAIL_FOR_LOG,
-    				App.LOG_TAG);
-    		break;
-    		
     	case DIALOG_ADD_NEW_ITEM:
     		retDialog = createAddItemDialog();
     		break;

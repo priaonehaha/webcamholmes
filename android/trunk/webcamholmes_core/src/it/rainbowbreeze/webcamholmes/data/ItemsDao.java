@@ -198,48 +198,75 @@ public class ItemsDao
 	 * @return the id of the new webcam
 	 */
 	public long insertWebcam(ItemWebcam webcam) {
-		
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
-        
-        ContentValues values = new ContentValues();
-        values.put(WebcamHolmes.Webcam.PARENT_CATEGORY_ID, webcam.getParentId());
-        values.put(WebcamHolmes.Webcam.NAME, webcam.getName());
-        values.put(WebcamHolmes.Webcam.TYPE, webcam.getType());
-        values.put(WebcamHolmes.Webcam.IMAGEURL, webcam.getImageUrl());
-        values.put(WebcamHolmes.Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
-        values.put(WebcamHolmes.Webcam.PREFERRED, webcam.isPreferred());
-        values.put(WebcamHolmes.Webcam.CREATED_BY_USER, webcam.isUserCreated());
-
-        long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
-        webcam.setId(webcamId);
-
+        long webcamId = insertWebcamCore(db, webcam);
         return webcamId;
 	}
-	
+
 	/**
-	 * Add a new webcam to the database
+	 * Add new webcams to the database
 	 * @param webcam
+	 * @return the numbers of added webcams
+	 */
+	public int insertWebcams(List<ItemWebcam> webcams) {
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        int insertedItem = 0;
+        for (ItemWebcam webcam:webcams) {
+        	insertWebcamCore(db, webcam);
+        	insertedItem++;
+        }
+        db.close();
+        return insertedItem;
+	}
+
+	/**
+	 * Add a new category to the database
+	 * @param category
 	 * @return the id of the new category
 	 */
 	public long insertCategory(ItemCategory category) {
-		
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
-        
-        ContentValues values = new ContentValues();
-        values.put(WebcamHolmes.Category.ALIAS_ID, category.getAliasId());
-        values.put(WebcamHolmes.Category.PARENT_CATEGORY_ID, category.getParentId());
-        values.put(WebcamHolmes.Category.NAME, category.getName());
-        values.put(WebcamHolmes.Category.CREATED_BY_USER, category.isUserCreated());
-
-        long categoryId = db.insert(WebcamHolmes.Category.TABLE_NAME, WebcamHolmes.Category.NAME, values);
+        long categoryId = insertCategoryCore(db, category);
         db.close();
-        category.setId(categoryId);
-
         return categoryId;
 	}
 	
 	/**
-	 * Remove a webcam
+	 * Add new categories to the database
+	 * @param categories
+	 * @return the number of categories added
+	 */
+	public int insertCategories(List<ItemCategory> categories) {
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        int insertedItem = 0;
+        for (ItemCategory category:categories) {
+        	insertCategoryCore(db, category);
+        	insertedItem++;
+        }
+        db.close();
+        return insertedItem;
+	}
+	
+	/**
+	 * Add an entire list of {@link ItemToDisplay} to the database,
+	 * opening the db connection only one time
+	 * 
+	 * @param items
+	 */
+	public void insertItem(List<ItemToDisplay> items) {
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        
+        for (ItemToDisplay item:items) {
+        	if (item instanceof ItemCategory)
+        		insertCategoryCore(db, ItemCategory.class.cast(item));
+        	if (item instanceof ItemWebcam)
+        		insertWebcamCore(db, ItemWebcam.class.cast(item));
+        }
+        db.close();
+	}
+
+	/**
+	 * Remov]e a webcam
 	 * @param webcamId the id of the webcam to delete
 	 * @return the deleted webcam (1 if success, 0 if no webcams were found)
 	 */
@@ -329,7 +356,11 @@ public class ItemsDao
 	
 	
 	/**
-	 * Import webcam and categories from a xml resource file
+	 * Import webcam and categories from a xml resource file</p>
+	 * </p>
+	 * Performance optimization: add all the categories in a single
+	 * step, not one db open/insert/db close operation for each
+	 * category. Same with webcams
 	 * 
 	 * @param context
 	 * @param resourceId
@@ -338,7 +369,7 @@ public class ItemsDao
 	public ResultOperation<Integer> importFromResource(
 			Context context, int resourceId){
 		int totalAddedItems = 0;
-		long addedKey;
+		int addedItems;
 		int processedItem;
 
 		//obtains the list of elements from file
@@ -356,17 +387,20 @@ public class ItemsDao
 			return new ResultOperation<Integer>(0);
 		}
 		
-		//first round, add all categories
+		//creates categories list
+		List<ItemCategory> categoriesToAdd = new ArrayList<ItemCategory>();
 		for (ItemToDisplay item : elements) {
-			if (item instanceof ItemCategory) {
-				addedKey = insertCategory((ItemCategory)item);
-				//after the insert, the id is updated
-				if (0 == addedKey) {
-					//TODO ohoh, problems :(
-				}
-				totalAddedItems++;
-			}
+			if (item instanceof ItemCategory)
+				categoriesToAdd.add(ItemCategory.class.cast(item));
 		}
+		//add all categories (with wrong parendId set)
+		addedItems = insertCategories(categoriesToAdd);
+		if (addedItems != categoriesToAdd.size()) {
+			return new ResultOperation<Integer>(
+					new Exception("Error while adding new categories. Expected " + categoriesToAdd.size() + ", added " + addedItems),
+					ResultOperation.RETURNCODE_ERROR_GENERIC);
+		}
+		totalAddedItems+= addedItems;
 		
 		//second round, now that categories was added,
 		//for each item, recalculate the true parentId
@@ -390,26 +424,33 @@ public class ItemsDao
 		}
 		
 		//update parentId of categories
-		for (ItemToDisplay item : elements) {
-			if (item instanceof ItemCategory) {
-				processedItem = setCategoryParentId(item.getId(), item.getParentId());
-				//after the insert, the id is updated
-				if (0 == processedItem) {
-					//TODO ohoh, problems :(
-				}
+		for (ItemCategory category : categoriesToAdd) {
+			processedItem = setCategoryParentId(category.getId(), category.getParentId());
+			if (0 == processedItem) {
+				return new ResultOperation<Integer>(
+						new Exception("Error while updating id of category " + category.getAliasId() + " " + category.getName()),
+						ResultOperation.RETURNCODE_ERROR_GENERIC);
 			}
 		}
+		//free memory
+		categoriesToAdd.clear();
 		
-		//add webcams (with right parendId set)
+		//create webcams list
+		List<ItemWebcam> webcamsToAdd = new ArrayList<ItemWebcam>();
 		for (ItemToDisplay item : elements) {
 			if (item instanceof ItemWebcam) {
-				addedKey = insertWebcam((ItemWebcam)item);
-				if (0 == addedKey) {
-					//TODO ohoh, problems :(
-				}
-				totalAddedItems++;
+				webcamsToAdd.add(ItemWebcam.class.cast(item));
 			}
 		}
+		//add webcams (with right parendId set)
+		addedItems = insertWebcams(webcamsToAdd);
+		if (addedItems != webcamsToAdd.size()) {
+			return new ResultOperation<Integer>(
+					new Exception("Error while adding new webcams. Expected " + webcamsToAdd.size() + ", added " + addedItems),
+					ResultOperation.RETURNCODE_ERROR_GENERIC);
+		}
+		totalAddedItems+= addedItems;
+
 		
 		return new ResultOperation<Integer>(totalAddedItems);
 	}
@@ -581,6 +622,45 @@ public class ItemsDao
 				null);
 		db.close();
 		return count;
+	}
+	
+	/**
+	 * @param db
+	 * @param webcam
+	 * @return
+	 */
+	private long insertWebcamCore(SQLiteDatabase db, ItemWebcam webcam) {
+		ContentValues values = new ContentValues();
+        values.put(WebcamHolmes.Webcam.PARENT_CATEGORY_ID, webcam.getParentId());
+        values.put(WebcamHolmes.Webcam.NAME, webcam.getName());
+        values.put(WebcamHolmes.Webcam.TYPE, webcam.getType());
+        values.put(WebcamHolmes.Webcam.IMAGEURL, webcam.getImageUrl());
+        values.put(WebcamHolmes.Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
+        values.put(WebcamHolmes.Webcam.PREFERRED, webcam.isPreferred());
+        values.put(WebcamHolmes.Webcam.CREATED_BY_USER, webcam.isUserCreated());
+
+        long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
+        webcam.setId(webcamId);
+
+        return webcamId;
+	}
+	
+	/**
+	 * @param db
+	 * @param category
+	 * @return
+	 */
+	protected long insertCategoryCore(SQLiteDatabase db, ItemCategory category) {
+		ContentValues values = new ContentValues();
+        values.put(WebcamHolmes.Category.ALIAS_ID, category.getAliasId());
+        values.put(WebcamHolmes.Category.PARENT_CATEGORY_ID, category.getParentId());
+        values.put(WebcamHolmes.Category.NAME, category.getName());
+        values.put(WebcamHolmes.Category.CREATED_BY_USER, category.isUserCreated());
+
+        long categoryId = db.insert(WebcamHolmes.Category.TABLE_NAME, WebcamHolmes.Category.NAME, values);
+        category.setId(categoryId);
+
+        return categoryId;
 	}
 	
 }

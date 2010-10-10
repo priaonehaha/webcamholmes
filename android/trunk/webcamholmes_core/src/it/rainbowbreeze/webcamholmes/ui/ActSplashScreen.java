@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import it.rainbowbreeze.libs.common.RainbowResultOperation;
 import it.rainbowbreeze.libs.common.RainbowServiceLocator;
-import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.libs.ui.RainbowSplashScreenActivity;
 import it.rainbowbreeze.webcamholmes.common.App;
 
@@ -41,7 +40,6 @@ public class ActSplashScreen extends RainbowSplashScreenActivity {
 
 	//---------- Private fields
 	private ActivityHelper mActivityHelper;
-	protected RainbowLogFacility mLogFacility;
 
 	
 	
@@ -57,12 +55,8 @@ public class ActSplashScreen extends RainbowSplashScreenActivity {
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		
         mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
-		
+		super.onCreate(savedInstanceState);
 	}
 	
     
@@ -80,8 +74,8 @@ public class ActSplashScreen extends RainbowSplashScreenActivity {
 	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#beginTaskFailed(it.rainbowbreeze.libs.common.BaseResultOperation)
 	 */
 	protected void beginTaskFailed(RainbowResultOperation<Void> result) {
-		App.i().setCorrectlyInitialized(false);
-		//some errors
+		mBaseLogFacility.e("Cannot launch the application, error during initialization");
+		//report the errors
 		mBaseActivityHelper.reportError(this, result);
 	}
 
@@ -90,11 +84,25 @@ public class ActSplashScreen extends RainbowSplashScreenActivity {
 	 * @see it.rainbowbreeze.libs.ui.BaseSplashScreenActivity#beginTasksCompleted(it.rainbowbreeze.libs.common.BaseResultOperation)
 	 */
 	protected void beginTasksCompleted(RainbowResultOperation<Void> result) {
-		App.i().setCorrectlyInitialized(true);
-
-		//and call main activity
+		//call main activity
 		Intent i = getIntent();
 		Bundle extras = null != i ? i.getExtras() : null;
 		mActivityHelper.openMain(this, extras);
+	}
+
+	protected String getApplicationInternalName() {
+		return App.APP_INTERNAL_NAME;
+	}
+
+	protected String getApplicationInternalVersion() {
+		return App.APP_INTERNAL_VERSION;
+	}
+
+	protected String getEmailForLog() {
+		return App.EMAIL_FOR_LOG;
+	}
+
+	protected String getLogTag() {
+		return App.LOG_TAG;
 	}
 }
