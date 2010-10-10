@@ -1,0 +1,41 @@
+webcamtravel
+
+<wct_response status="ok">
+    <webcams>
+        <count>21</count>
+        <page>1</page>
+        <per_page>10</per_page>
+        <webcam>
+            <user>user_189</user>
+            <userid>3643</userid>
+            <user_url>http://www.webcams.travel/user/3643</user_url>
+            <webcamid>1010218306</webcamid>
+            <title>Zermatt Gornergrat, Matterhorn</title>
+            <view_count>282</view_count>
+            <comment_count>0</comment_count>
+            <url>http://www.webcams.travel/webcam/1010218306</url>
+            <thumbnail_url>http://images.webcams.travel/thumbnail/1010218306.jpg</thumbnail_url>
+            <icon_url>http://images.webcams.travel/icon/1010218306.png</icon_url>
+            <daylight_thumbnail_url>
+                http://archive.webcams.travel/daylight/thumbnail/1010218306.jpg
+            </daylight_thumbnail_url>
+            <daylight_icon_url>
+                http://archive.webcams.travel/daylight/icon/1010218306.png
+            </daylight_icon_url>
+            <latitude>45.983365</latitude>
+            <longitude>7.783728</longitude>
+            <continent>EU</continent>
+            <country>CH</country>
+            <city>Zermatt</city>
+            <last_update>1214753604</last_update>
+            <rating_avg>5.00</rating_avg>
+            <rating_count>2</rating_count>
+        </webcam>
+        ...
+    </webcams>
+</wct_response>
+
+
+Requirements
+Every webcam displayed on your site must include a link to the webcam at webcams.travel. The name of the owner should be displayed in the context of the webcam and should link to the user area of the user. You must provide a link to webcams.travel with the text "Webcams provided by webcams.travel" in the context of the displayed webcams.
+
