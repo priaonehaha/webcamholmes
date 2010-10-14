@@ -62,6 +62,9 @@ public class ItemsDao
     	WebcamHolmes.Webcam.RELOAD_INTERVAL, // 5
     	WebcamHolmes.Webcam.PREFERRED, // 6
     	WebcamHolmes.Webcam.CREATED_BY_USER, // 7
+    	WebcamHolmes.Webcam.FREEDATA1, // 8
+    	WebcamHolmes.Webcam.FREEDATA2, // 9
+    	WebcamHolmes.Webcam.FREEDATA3, // 10
     };
 
     private static final String[] CATEGORY_FULL_PROJECTION = new String[] {
@@ -521,11 +524,15 @@ public class ItemsDao
 	        	int reloadInterval = cur.getInt(5);
 	        	boolean preferred = cur.getInt(6) == 1;
 	        	boolean userCreated = cur.getInt(7) == 1;
+	        	String freeData1 = cur.getString(8);
+	        	String freeData2 = cur.getString(9);
+	        	String freeData3 = cur.getString(10);
 	        	ItemWebcam webcam = new ItemWebcam(
 	        			id, parentCategoryId,
 	        			name, type,
 	        			imageUrl, reloadInterval,
-	        			preferred, userCreated);
+	        			preferred, userCreated,
+	        			freeData1, freeData2, freeData3);
 	        	list.add(webcam);
 	        } while (cur.moveToNext());
         }
@@ -638,6 +645,9 @@ public class ItemsDao
         values.put(WebcamHolmes.Webcam.RELOAD_INTERVAL, webcam.getReloadInterval());
         values.put(WebcamHolmes.Webcam.PREFERRED, webcam.isPreferred());
         values.put(WebcamHolmes.Webcam.CREATED_BY_USER, webcam.isUserCreated());
+        values.put(WebcamHolmes.Webcam.FREEDATA1, webcam.getFreeData1());
+        values.put(WebcamHolmes.Webcam.FREEDATA2, webcam.getFreeData2());
+        values.put(WebcamHolmes.Webcam.FREEDATA3, webcam.getFreeData3());
 
         long webcamId = db.insert(WebcamHolmes.Webcam.TABLE_NAME, WebcamHolmes.Webcam.NAME, values);
         webcam.setId(webcamId);

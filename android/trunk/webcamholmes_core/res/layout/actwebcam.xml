@@ -22,16 +22,31 @@
 	style="@style/common_layoutBackground"
 >
 	<com.admob.android.ads.AdView
-		android:id="@+id/actsendsms_adview"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
+		android:id="@+id/actwebcam_adview"
+        style="@style/common_adview"
 	/>
 
+    <LinearLayout
+        android:id="@+id/actwebcam_webcamtravelLayout"
+        style="@style/actwebcam_webcamtravelLayout"
+    >
+        <TextView
+            android:id="@+id/actwebcam_webcamtravelLogo"
+            style="@style/common_TextView"
+        />
+        <TextView
+            android:id="@+id/actwebcam_webcamtravelUserText"
+            style="@style/common_TextView"
+        />
+    </LinearLayout>
+    
 	<ImageView
 		android:id="@+id/actwebcam_imgWebcam"
 		style="@style/actwebcam_imgWebcam"
-		android:layout_above="@id/actsendsms_adview"
+        android:layout_below="@id/actwebcam_webcamtravelLayout"
+		android:layout_above="@id/actwebcam_adview"
 	/>
+	
+	
 
 </RelativeLayout>

@@ -23,6 +23,7 @@
 
 package it.rainbowbreeze.webcamholmes.domain;
 
+import android.text.TextUtils;
 import junit.framework.TestCase;
 
 /**
@@ -49,6 +50,9 @@ public class ItemWebcamTest extends TestCase {
 		assertEquals("Wrong refresh interval", 60, webcam.getReloadInterval());
 		assertFalse("Wrong preferred status", webcam.isPreferred());
 		assertFalse("Wrong user created", webcam.isUserCreated());
+		assertTrue("Wrong freeData1", TextUtils.isEmpty(webcam.getFreeData1()));
+		assertTrue("Wrong freeData2", TextUtils.isEmpty(webcam.getFreeData2()));
+		assertTrue("Wrong freeData3", TextUtils.isEmpty(webcam.getFreeData3()));
 
 		webcam = ItemWebcam.Factory.getUserWebcam(93, "Webcam di prova 1", "www.url2.com/car.jpg", 20);
 		assertEquals("Wrong id", 0, webcam.getId());
@@ -59,6 +63,22 @@ public class ItemWebcamTest extends TestCase {
 		assertEquals("Wrong refresh interval", 20, webcam.getReloadInterval());
 		assertFalse("Wrong preferred status", webcam.isPreferred());
 		assertTrue("Wrong user created", webcam.isUserCreated());
+		assertTrue("Wrong freeData1", TextUtils.isEmpty(webcam.getFreeData1()));
+		assertTrue("Wrong freeData2", TextUtils.isEmpty(webcam.getFreeData2()));
+		assertTrue("Wrong freeData3", TextUtils.isEmpty(webcam.getFreeData3()));
+		
+		webcam = ItemWebcam.Factory.getWebcamTravelWebcam(42, "WebcamTravel Webcam", "http://webcam.travel/webcam10.png", "User1", "http://forum.user1.it", "http://webcam.travel/webcam10");
+		assertEquals("Wrong id", 0, webcam.getId());
+		assertEquals("Wrong parent id", 42, webcam.getParentId());
+		assertEquals("Wrong name", "WebcamTravel Webcam", webcam.getName());
+		assertEquals("Wrong type", 2, webcam.getType());
+		assertEquals("Wrong imageUrl", "http://webcam.travel/webcam10.png", webcam.getImageUrl());
+		assertEquals("Wrong refresh interval", 30, webcam.getReloadInterval());
+		assertFalse("Wrong preferred status", webcam.isPreferred());
+		assertFalse("Wrong user created", webcam.isUserCreated());
+		assertEquals("Wrong freeData1", "User1", webcam.getFreeData1());
+		assertEquals("Wrong freeData2", "http://forum.user1.it", webcam.getFreeData2());
+		assertEquals("Wrong freeData3", "http://webcam.travel/webcam10", webcam.getFreeData3());
 	}
 	
 

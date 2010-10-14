@@ -19,6 +19,11 @@
 
 <resources>
 	<!-- Common -->
+    <style name="common_adview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
 
 
 	
@@ -37,5 +42,11 @@
 		<item name="android:layout_height">fill_parent</item>
 		<item name="android:scaleType">fitCenter</item>
 	</style>
+    <style name="actwebcam_webcamtravelLayout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:visibility">gone</item>
+    </style>
 
 </resources>

@@ -22,16 +22,14 @@
 	style="@style/common_layoutBackground"
 >
 	<com.admob.android.ads.AdView
-		android:id="@+id/actsendsms_adview"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
+		android:id="@+id/actmain_adview"
+        style="@style/common_adview"
 	/>
 
 	<ListView
 		android:id="@android:id/list"
 		style="@style/actmain_lstSubservices"
-		android:layout_above="@id/actsendsms_adview"
+		android:layout_above="@id/actmain_adview"
 	/>
 
 </RelativeLayout>

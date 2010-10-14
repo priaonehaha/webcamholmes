@@ -42,12 +42,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
 
@@ -111,6 +115,8 @@ public class ActWebcam
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     	setContentView(R.layout.actwebcam);
         setTitle(String.format(getString(R.string.actwebcam_lblTitle), App.APP_DISPLAY_NAME, mWebcam.getName()));
+
+        configureLayoutForWebcamType();
         
         mImgWebcam = (ImageView) findViewById(R.id.actwebcam_imgWebcam);
         mImgWebcam.setOnClickListener(mWebcamImageOnClickListener);
@@ -123,8 +129,7 @@ public class ActWebcam
         }
 	}
 	
-	
-	/* (non-Javadoc)
+		/* (non-Javadoc)
 	 * @see android.app.Activity#onStart()
 	 */
 	@Override
@@ -462,7 +467,7 @@ public class ActWebcam
 			//open fullscreen activity
 			mActivityHelper.openFullscreenImageActivity(this, fileFullPath);
 		}
-	};
+	}
 
 	/**
 	 * Called when dump of webcam image is completed
@@ -483,7 +488,36 @@ public class ActWebcam
 					getString(R.string.actwebcam_msgShareBody),
 					fileFullPath);
 		}
-	};
+	}
+	
+	/**
+	 * Based on webcam type, configure the activity layout
+	 */
+	private void configureLayoutForWebcamType() {
+		//the view is already configured for webcam type 1, normal webcam
+		
+		switch (mWebcam.getType()) {
+		case ItemWebcam.TYPE_WEBCAMTRAVEL:
+			ViewGroup layout = (ViewGroup) findViewById(R.id.actwebcam_webcamtravelLayout);
+			layout.setVisibility(View.VISIBLE);
+			//logo
+			TextView lblLogo = (TextView) findViewById(R.id.actwebcam_webcamtravelLogo);
+			lblLogo.setText(Html.fromHtml(getString(R.string.actwebcam_lblWebcamtravelLogo)));
+			//needed to enable click on the link
+			lblLogo.setMovementMethod(LinkMovementMethod.getInstance());
+			//text
+			TextView lblUser = (TextView) findViewById(R.id.actwebcam_webcamtravelUserText);
+			String htmlText = String.format(getString(R.string.actwebcam_lblWebcamtravelUserText),
+					mWebcam.getFreeData3(), mWebcam.getFreeData2(), mWebcam.getFreeData1());
+			lblUser.setText(Html.fromHtml(htmlText));
+			//needed to enable click on the link
+			lblUser.setMovementMethod(LinkMovementMethod.getInstance());
+			break;
+
+		default:
+			break;
+		}
+	}
 
 }
 

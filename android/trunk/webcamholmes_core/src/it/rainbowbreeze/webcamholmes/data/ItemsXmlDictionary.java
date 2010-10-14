@@ -70,6 +70,9 @@ public interface ItemsXmlDictionary {
 	final static String XMLNODE_WEBCAM_IMAGE_URL = "ImageUrl";
 	final static String XMLNODE_WEBCAM_PREFFERED = "Preferred";
 	final static String XMLNODE_WEBCAM_USER_CREATED = "UserCreated";
+	final static String XMLNODE_WEBCAM_FREE_DATA_1 = "FreeData1";
+	final static String XMLNODE_WEBCAM_FREE_DATA_2 = "FreeData2";
+	final static String XMLNODE_WEBCAM_FREE_DATA_3 = "FreeData3";
 
 
 

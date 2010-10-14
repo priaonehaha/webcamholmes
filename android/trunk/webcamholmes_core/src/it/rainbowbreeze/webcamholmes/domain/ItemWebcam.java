@@ -62,6 +62,11 @@ public class ItemWebcam
 	
 	
 	//---------- Public properties
+	public static final int TYPE_NORMAL = 1;
+	public static final int TYPE_WEBCAMTRAVEL = 2;
+	
+	
+	
 	public void setId(long newValue)
 	{ mId = newValue; }
 	
@@ -148,7 +153,7 @@ public class ItemWebcam
 		 * @return
 		 */
 		public static ItemWebcam getWebcamTravelWebcam(long parentId, String name, String imageUrl, String userName, String userAreaUrl, String webcamOnWebcamTravelUrl) {
-			return new ItemWebcam(0, parentId, name, 2, imageUrl, 30, false, true, userName, userAreaUrl, webcamOnWebcamTravelUrl);
+			return new ItemWebcam(0, parentId, name, 2, imageUrl, 30, false, false, userName, userAreaUrl, webcamOnWebcamTravelUrl);
 		}
 	}
 

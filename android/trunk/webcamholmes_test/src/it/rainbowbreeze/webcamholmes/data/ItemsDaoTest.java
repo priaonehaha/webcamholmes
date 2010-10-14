@@ -28,6 +28,7 @@ import it.rainbowbreeze.webcamholmes.domain.ItemCategory;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
 import android.test.AndroidTestCase;
+import android.text.TextUtils;
 import android.util.Log;
 
 /**
@@ -78,13 +79,16 @@ public class ItemsDaoTest extends AndroidTestCase {
     	List<ItemWebcam> webcams = new ArrayList<ItemWebcam>();
     	webcams.add(createWebcam1());
     	webcams.add(createWebcam2());
+    	webcams.add(createWebcam3());
     	
     	int added = mDao.insertWebcams(webcams);
-    	assertEquals("Wrong numbers of added webcams", 2, added);
+    	assertEquals("Wrong numbers of added webcams", 3, added);
     	long webcamId1 = webcams.get(0).getId();
     	compareWithWebcam1(webcamId1);
     	long webcamId2 = webcams.get(1).getId();
     	compareWithWebcam2(webcamId2);
+    	long webcamId3 = webcams.get(2).getId();
+    	compareWithWebcam3(webcamId3);
     }
 
 	public void testDeleteWebcam() {
@@ -377,20 +381,22 @@ public class ItemsDaoTest extends AndroidTestCase {
         	if (item instanceof ItemCategory) {
         		categoryId = item.getId();
         		assertEquals("Wrong category name", "Traffic", item.getName());
+        		assertTrue("Wrong user created", ((ItemCategory) item).isUserCreated());
         	}
         }
         
     	//check for children of first category
         items = mDao.getChildrenOfParentItem(categoryId);
         assertNotNull("List of items retrieved cannot be null", items);
-        assertEquals("Wrong number of items retrieved", 2, items.size());
+        assertEquals("Wrong number of items retrieved", 3, items.size());
     	
         //checks elements and their values
         for (ItemToDisplay item : items) {
-        	if (item instanceof ItemCategory) {
-        		assertEquals("Wrong category name", "Major road", item.getName());
-        	} else if (item instanceof ItemWebcam) {
-        		assertEquals("Wrong webcam name", "Traffic Element 1", item.getName());
+        	if (item instanceof ItemCategory && item.getName().equals("Major road")) {
+        	} else if (item instanceof ItemWebcam && item.getName().equals("Paris - Tour Eiffel")) {
+    		} else if (item instanceof ItemWebcam && item.getName().equals("Paris from webcam.travel")) {
+        	} else {
+        		assertFalse("Not expected item", true);
         	}
         }
     }
@@ -428,15 +434,19 @@ public class ItemsDaoTest extends AndroidTestCase {
 	 * @param webcamId
 	 */
 	private void compareWithWebcam1(long webcamId) {
-		ItemWebcam loadedWebcam;
-		loadedWebcam = mDao.getWebcamById(webcamId);
-        assertEquals("Wrong id", webcamId, loadedWebcam.getId());
-        assertEquals("Wrong parentId", 43, loadedWebcam.getParentId());
-        assertEquals("Wrong name", "Paris - Tour Eiffel", loadedWebcam.getName());
-        assertEquals("Wrong url", "http://www.parislive.net/eiffelwebcam01.jpg", loadedWebcam.getImageUrl());
-        assertEquals("Wrong interval", 5, loadedWebcam.getReloadInterval());
-        assertFalse("Wrong preferred", loadedWebcam.isPreferred());
-        assertFalse("Wrong user created", loadedWebcam.isUserCreated());
+		ItemWebcam webcam;
+		webcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong id", webcamId, webcam.getId());
+        assertEquals("Wrong parentId", 43, webcam.getParentId());
+        assertEquals("Wrong name", "Paris - Tour Eiffel", webcam.getName());
+        assertEquals("Wrong webcam type", 1, webcam.getType());
+        assertEquals("Wrong url", "http://www.parislive.net/eiffelwebcam01.jpg", webcam.getImageUrl());
+        assertEquals("Wrong interval", 5, webcam.getReloadInterval());
+        assertFalse("Wrong preferred", webcam.isPreferred());
+        assertFalse("Wrong user created", webcam.isUserCreated());
+		assertTrue("Wrong freeData1", TextUtils.isEmpty(webcam.getFreeData1()));
+		assertTrue("Wrong freeData2", TextUtils.isEmpty(webcam.getFreeData2()));
+		assertTrue("Wrong freeData3", TextUtils.isEmpty(webcam.getFreeData3()));
 	}
     
     private ItemWebcam createWebcam2() {
@@ -447,22 +457,49 @@ public class ItemsDaoTest extends AndroidTestCase {
 	}
 
     private void compareWithWebcam2(long webcamId) {
-		ItemWebcam loadedWebcam = mDao.getWebcamById(webcamId);
-        assertEquals("Wrong id", webcamId, loadedWebcam.getId());
-        assertEquals("Wrong parentId", 52, loadedWebcam.getParentId());
-        assertEquals("Wrong name", "Webcam 2", loadedWebcam.getName());
-        assertEquals("Wrong url", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", loadedWebcam.getImageUrl());
-        assertEquals("Wrong interval", 0, loadedWebcam.getReloadInterval());
-        assertTrue("Wrong preferred", loadedWebcam.isPreferred());
-        assertTrue("Wrong user created", loadedWebcam.isUserCreated());
+		ItemWebcam webcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong id", webcamId, webcam.getId());
+        assertEquals("Wrong parentId", 52, webcam.getParentId());
+        assertEquals("Wrong name", "Webcam 2", webcam.getName());
+        assertEquals("Wrong webcam type", 1, webcam.getType());
+        assertEquals("Wrong url", "http://amrc.ssec.wisc.edu/~amrc/webcam/b15k/20050216_02.jpg", webcam.getImageUrl());
+        assertEquals("Wrong interval", 0, webcam.getReloadInterval());
+        assertTrue("Wrong preferred", webcam.isPreferred());
+        assertTrue("Wrong user created", webcam.isUserCreated());
+		assertTrue("Wrong freeData1", TextUtils.isEmpty(webcam.getFreeData1()));
+		assertTrue("Wrong freeData2", TextUtils.isEmpty(webcam.getFreeData2()));
+		assertTrue("Wrong freeData3", TextUtils.isEmpty(webcam.getFreeData3()));
 	}
 
+	private ItemWebcam createWebcam3() {
+		return ItemWebcam.Factory.getWebcamTravelWebcam(59, "Paris from webcam.travel", "http://webcam.travel/2323523.jpg", "User2", "http://forum.webcam.travel/user2", "http://webcam.travel/13243432");
+	}
+
+	/**
+	 * @param webcamId
+	 */
+	private void compareWithWebcam3(long webcamId) {
+		ItemWebcam webcam;
+		webcam = mDao.getWebcamById(webcamId);
+        assertEquals("Wrong id", webcamId, webcam.getId());
+        assertEquals("Wrong parentId", 59, webcam.getParentId());
+        assertEquals("Wrong name", "Paris from webcam.travel", webcam.getName());
+        assertEquals("Wrong webcam type", 2, webcam.getType());
+        assertEquals("Wrong url", "http://webcam.travel/2323523.jpg", webcam.getImageUrl());
+        assertEquals("Wrong interval", 30, webcam.getReloadInterval());
+        assertFalse("Wrong preferred", webcam.isPreferred());
+        assertFalse("Wrong user created", webcam.isUserCreated());
+		assertEquals("Wrong freeData1", "User2", webcam.getFreeData1());
+		assertEquals("Wrong freeData2", "http://forum.webcam.travel/user2", webcam.getFreeData2());
+		assertEquals("Wrong freeData3", "http://webcam.travel/13243432", webcam.getFreeData3());
+	}
+    
     private ItemCategory createCategory1() {
-		return ItemCategory.Factory.getSystemCategory(100, 200, "Testcategory 1");
+		return ItemCategory.Factory.getUserCategory(100, 200, "Testcategory 1");
 	}
 
     private ItemCategory createCategory2() {
-		return ItemCategory.Factory.getUserCategory(123, 456, "Testcategory 2");
+		return ItemCategory.Factory.getSystemCategory(123, 456, "Testcategory 2");
 	}
 
 	private void compareWithCategory1(long categoryId) {
@@ -472,7 +509,7 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertEquals("Wrong aliasId", 100, loadedCategory.getAliasId());
         assertEquals("Wrong parentId", 200, loadedCategory.getParentId());
         assertEquals("Wrong name", "Testcategory 1", loadedCategory.getName());
-        assertFalse("Wrong user created", loadedCategory.isUserCreated());
+        assertTrue("Wrong user created", loadedCategory.isUserCreated());
 	}
 
     private void compareWithCategory2(long categoryId2) {
@@ -482,6 +519,6 @@ public class ItemsDaoTest extends AndroidTestCase {
         assertEquals("Wrong aliasId", 123, loadedCategory.getAliasId());
         assertEquals("Wrong parentId", 456, loadedCategory.getParentId());
         assertEquals("Wrong name", "Testcategory 2", loadedCategory.getName());
-        assertTrue("Wrong user created", loadedCategory.isUserCreated());
+        assertFalse("Wrong user created", loadedCategory.isUserCreated());
 	}
 }

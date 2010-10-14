@@ -24,16 +24,28 @@
     <AliasId>100</AliasId>
     <ParentAliasId>0</ParentAliasId>
     <Name>Traffic</Name>
-    <UserCreated>False</UserCreated>
+    <UserCreated>True</UserCreated>
 </Category>
 <Webcam>
-    <Name>Traffic Element 1</Name>
+    <Name>Paris - Tour Eiffel</Name>
     <ParentAliasId>100</ParentAliasId>
     <Type>1</Type>
-    <ReloadInterval>30</ReloadInterval>
-    <ImageUrl>http://www.autostrade.it/imagetraffic1.jpg</ImageUrl>
+    <ReloadInterval>5</ReloadInterval>
+    <ImageUrl>http://www.parislive.net/eiffelwebcam01.jpg</ImageUrl>
     <Preferred>False</Preferred>
-    <UserCreated>True</UserCreated>
+    <UserCreated>False</UserCreated>
+</Webcam>
+<Webcam>
+    <Name>Paris from webcam.travel</Name>
+    <ParentAliasId>100</ParentAliasId>
+    <Type>2</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://webcam.travel/2323523.jpg</ImageUrl>
+    <Preferred>False</Preferred>
+    <UserCreated>False</UserCreated>
+    <FreeData1>User2</FreeData1>
+    <FreeData2>http://forum.webcam.travel/user2</FreeData2>
+    <FreeData3>http://webcam.travel/13243432</FreeData3>
 </Webcam>
 
 <Category>

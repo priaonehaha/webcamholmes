@@ -86,6 +86,10 @@ public class ItemsXmlParser implements ItemsXmlDictionary {
 		int web_reloadInterval = 0;
 		boolean web_isPreferred = false;
 		boolean web_isCreatedByUser = false;
+		String web_freedata1 = null;
+		String web_freedata2 = null;
+		String web_freedata3 = null;
+		
 		
 		boolean processingCategory = false;
 		boolean processingWebcam = false;
@@ -135,6 +139,9 @@ public class ItemsXmlParser implements ItemsXmlDictionary {
 						web_reloadInterval = 0;
 						web_isPreferred = false;
 						web_isCreatedByUser = false;
+						web_freedata1 = "";
+						web_freedata2 = "";
+						web_freedata3 = "";
 						processingWebcam = true;
 
 					} else if (processingCategory) {
@@ -165,6 +172,12 @@ public class ItemsXmlParser implements ItemsXmlDictionary {
 							web_isPreferred = Boolean.parseBoolean(parser.nextText());
 						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_USER_CREATED)) {
 							web_isCreatedByUser = Boolean.parseBoolean(parser.nextText());
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_FREE_DATA_1)) {
+							web_freedata1 = parser.nextText();
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_FREE_DATA_2)) {
+							web_freedata2 = parser.nextText();
+						} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM_FREE_DATA_3)) {
+							web_freedata3 = parser.nextText();
 						}
 					}
 					break;
@@ -182,7 +195,7 @@ public class ItemsXmlParser implements ItemsXmlDictionary {
 
 					} else if (tagName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
 						//create new category with gathered data
-						ItemWebcam webcam = new ItemWebcam(0, 0, web_name, web_type, web_imageUrl, web_reloadInterval, web_isPreferred, web_isCreatedByUser);
+						ItemWebcam webcam = new ItemWebcam(0, 0, web_name, web_type, web_imageUrl, web_reloadInterval, web_isPreferred, web_isCreatedByUser, web_freedata1, web_freedata2, web_freedata3);
 						webcam.setParentAliasId(web_parentAliasId);
 						elements.add(webcam);
 						//reset all values
