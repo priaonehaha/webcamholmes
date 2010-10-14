@@ -60,6 +60,9 @@ public class ItemsXmlParser
 	private int mWebReloadInterval;
 	private boolean mWebIsPreferred;
 	private boolean mWebIsCreatedByUser;
+	private String mWebFreeData1;
+	private String mWebFreeData2;
+	private String mWebFreeData3;
 
 	private List<ItemWrapper> mItems;
 
@@ -131,6 +134,9 @@ public class ItemsXmlParser
 			mWebReloadInterval = 0;
 			mWebIsPreferred = false;
 			mWebIsCreatedByUser = false;
+			mWebFreeData1 = "";
+			mWebFreeData2 = "";
+			mWebFreeData3 = "";
 
 		}
 	}
@@ -156,7 +162,7 @@ public class ItemsXmlParser
 
 		//webcam data was processed
 		} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
-			ItemWebcam webcam = new ItemWebcam(0, 0, mWebName, mWebType, mWebImageUrl, mWebReloadInterval, mWebIsPreferred, mWebIsCreatedByUser);
+			ItemWebcam webcam = new ItemWebcam(0, 0, mWebName, mWebType, mWebImageUrl, mWebReloadInterval, mWebIsPreferred, mWebIsCreatedByUser, mWebFreeData1, mWebFreeData2, mWebFreeData3);
 			webcam.setParentAliasId(mWebParentAliasId);
 			//add webcam to the list
 			mItems.add(new ItemWrapper(webcam));
@@ -177,7 +183,7 @@ public class ItemsXmlParser
 			
 		//webcam data is in progress
 		} else if (mProcessingWebcam) {
-			if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_CREATED_BY_USER)) {
+			if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_USER_CREATED)) {
 				mWebIsCreatedByUser = Boolean.parseBoolean(mTempVal);
 			} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_IMAGE_URL)) {
 				mWebImageUrl = mTempVal;
@@ -191,6 +197,12 @@ public class ItemsXmlParser
 				mWebReloadInterval = Integer.parseInt(mTempVal);
 			} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_TYPE)) {
 				mWebType = Integer.parseInt(mTempVal);
+			} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_FREE_DATA_1)) {
+				mWebFreeData1 = mTempVal;
+			} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_FREE_DATA_2)) {
+				mWebFreeData2 = mTempVal;
+			} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_FREE_DATA_3)) {
+				mWebFreeData3 = mTempVal;
 			}
 		}
 	}
@@ -270,13 +282,16 @@ public class ItemsXmlParser
 	private void appendWebcamXmlRepresentation(StringBuilder sb, ItemWebcam webcam){
 		sb.append("\n");
 		openNode(sb, XMLNODE_WEBCAM);
-		wrapValue(sb, XMLNODE_WEBCAM_CREATED_BY_USER, webcam.isUserCreated());
+		wrapValue(sb, XMLNODE_WEBCAM_USER_CREATED, webcam.isUserCreated());
 		wrapValue(sb, XMLNODE_WEBCAM_IMAGE_URL, webcam.getImageUrl());
 		wrapValue(sb, XMLNODE_WEBCAM_NAME, webcam.getName());
 		wrapValue(sb, XMLNODE_WEBCAM_PARENT_ALIAS_ID, webcam.getParentAliasId());
 		wrapValue(sb, XMLNODE_WEBCAM_PREFFERED, webcam.isPreferred());
 		wrapValue(sb, XMLNODE_WEBCAM_RELOAD_INTERVAL, webcam.getReloadInterval());
 		wrapValue(sb, XMLNODE_WEBCAM_TYPE, webcam.getType());
+		wrapValue(sb, XMLNODE_WEBCAM_FREE_DATA_1, webcam.getFreeData1());
+		wrapValue(sb, XMLNODE_WEBCAM_FREE_DATA_2, webcam.getFreeData2());
+		wrapValue(sb, XMLNODE_WEBCAM_FREE_DATA_3, webcam.getFreeData3());
 		sb.append("\n");
 		closeNode(sb, XMLNODE_WEBCAM);
 	}

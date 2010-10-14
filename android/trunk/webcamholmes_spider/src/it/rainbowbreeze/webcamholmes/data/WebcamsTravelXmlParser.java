@@ -46,14 +46,14 @@ public class WebcamsTravelXmlParser
 {
 	//---------- Private fields
 	private final static String XMLNODE_WEBCAM = "webcam";
-	private final static String XMLNODE_USER_ID = "userid";
+	private final static String XMLNODE_USER = "user";
 	private final static String XMLNODE_USER_URL = "user_url";
 	private final static String XMLNODE_TITLE = "title";
 	private final static String XMLNODE_WEBCAM_ID = "webcamid";
 	private final static String XMLNODE_URL = "url";
 	private static final String BASE_WEBCAM_IMAGE_URL = "http://images.webcams.travel/webcam/";
 
-	private String mUserId;
+	private String mUser;
 	private String mUserUrl;
 	private String mTitle;
 	private String mWebcamSiteUrl;
@@ -121,7 +121,7 @@ public class WebcamsTravelXmlParser
 			mTitle = "";
 			mUserUrl = "";
 			mWebcamId = "";
-			mUserId = "";
+			mUser = "";
 			mWebcamSiteUrl = "";
 
 		}
@@ -141,7 +141,7 @@ public class WebcamsTravelXmlParser
 		if (qName.equalsIgnoreCase(XMLNODE_WEBCAM)) {
 			String imageUrl = BASE_WEBCAM_IMAGE_URL + mWebcamId + ".jpg";
 			ItemWebcam webcam = ItemWebcam.Factory.getWebcamTravelWebcam(
-					0, mTitle, imageUrl, mUserId, mUserUrl, mWebcamSiteUrl);
+					0, mTitle, imageUrl, mUser, mUserUrl, mWebcamSiteUrl);
 			webcam.setParentAliasId(mParentAliasId);
 			//add webcam to the list
 			mItems.add(new ItemWrapper(webcam));
@@ -152,8 +152,8 @@ public class WebcamsTravelXmlParser
 				mWebcamSiteUrl = mTempVal;
 			} else if (qName.equalsIgnoreCase(XMLNODE_TITLE)) {
 				mTitle = mTempVal;
-			} else if (qName.equalsIgnoreCase(XMLNODE_USER_ID)) {
-				mUserId = mTempVal;
+			} else if (qName.equalsIgnoreCase(XMLNODE_USER)) {
+				mUser = mTempVal;
 			} else if (qName.equalsIgnoreCase(XMLNODE_USER_URL)) {
 				mUserUrl = mTempVal;
 			} else if (qName.equalsIgnoreCase(XMLNODE_WEBCAM_ID)) {
