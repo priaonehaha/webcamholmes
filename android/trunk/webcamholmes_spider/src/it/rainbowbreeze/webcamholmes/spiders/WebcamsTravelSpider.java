@@ -39,9 +39,17 @@ public class WebcamsTravelSpider
 	extends BaseSpider
 {
 	//---------- Private fields
-	private static final String WEBSERVICE_BASE_ADDRESS = "http://api.webcams.travel/rest?method=wct.search.webcams&devid=d0c0a0d5cfa782ed9dd9605425e829cd&per_page=50&query=%s";
+	//query based on webcam 6km around the given location
+	private static final String WEBSERVICE_BASE_ADDRESS = 
+		"http://api.webcams.travel/rest?method=wct.webcams.list_nearby&devid=970e04b9d5005171dbb59c0aafe1bd27&radius=5&unit=km&per_page=60&lat=%s&lng=%s";
+
+	//query bases on place name
+	//"http://api.webcams.travel/rest?method=wct.search.webcams&devid=d0c0a0d5cfa782ed9dd9605425e829cd&per_page=50&query=%s";
 	
-	private final String mPlaceToSearch;
+	
+//	private final String mPlaceToSearch;
+	private final String mLongitude;
+	private final String mLatitude;
 
 	
 	
@@ -56,14 +64,16 @@ public class WebcamsTravelSpider
 	 * 
 	 */
 	public WebcamsTravelSpider(
-			String placeToSearch, 
+			String latitude, 
+			String longitude, 
 			String spiderName,
 			long rootParentAliasId,
 			long reservedAliasIdStart,
 			long reservedAliasIdStop)
 	{
 		super(spiderName, rootParentAliasId, reservedAliasIdStart, reservedAliasIdStop);
-		mPlaceToSearch = placeToSearch;
+		mLatitude = latitude;
+		mLongitude = longitude;
 	}
 
 
@@ -80,7 +90,7 @@ public class WebcamsTravelSpider
 	@Override
 	public void parseResource(List<ItemWrapper> items) {
 		//get webservice reply
-		String webserviceRequestAddress = String.format(WEBSERVICE_BASE_ADDRESS, mPlaceToSearch);
+		String webserviceRequestAddress = String.format(WEBSERVICE_BASE_ADDRESS, mLatitude, mLongitude);
 		String webserviceReply = getPageContent(webserviceRequestAddress);
 		
 		//parse webcams

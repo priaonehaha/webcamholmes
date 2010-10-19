@@ -50,14 +50,22 @@ public class App {
 	 */
 	public static void main(String[] args) throws Exception {
 
+		/*
+		 * Obtain latitude and longitude of a place:
+		 * 
+		 * -Go to Google Maps and search for the city. Result should show a tip in the center of the city
+		 * -Write on address bar this string:
+		 *   javascript:void(prompt('',gApplication.getMap().getCenter()));
+		 * -Voila', latitude and longitude appear ;)
+		 */
 		
 		//create the spiders list
 		List<BaseSpider> spiders = new ArrayList<BaseSpider>();
 		//London AliasId is 9
 		spiders.add(new BBCLondonTrafficSpider("London traffic", 9, 101, 105));
-		spiders.add(new WebcamsTravelSpider("London", "Webcams.Travel London", 9, 106, 110));
-		spiders.add(new WebcamsTravelSpider("Paris", "Webcams.Travel Paris", 5, 111, 115));
-		spiders.add(new WebcamsTravelSpider("Rome", "Webcams.Travel Rome", 2, 116, 120));
+		spiders.add(new WebcamsTravelSpider("51.500152", "-0.126236", "Webcams.Travel London", 9, 106, 110));
+		spiders.add(new WebcamsTravelSpider("48.856667", "2.350987", "Webcams.Travel Paris", 5, 111, 115));
+		spiders.add(new WebcamsTravelSpider("41.895466", "12.482324", "Webcams.Travel Rome", 2, 116, 120));
 		
 		//read existing and manually created webcams
 		System.out.println("Reading manually created items...");
