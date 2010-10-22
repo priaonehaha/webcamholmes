@@ -1,0 +1,58 @@
+#Duplicated webcams
+
+#Rome
+#Saint Peter and skyline
+http://images.webcams.travel/webcam/1229966886.jpg
+#Rome's Skyline from Hotel Eden
+http://images.webcams.travel/webcam/1244041256.jpg
+#Osservatorio dei Castelli Romani - Non pertinente
+http://images.webcams.travel/webcam/1202493540.jpg
+#Via Veneto from The Westin Excelsior
+http://images.webcams.travel/webcam/1267635323.jpg
+#Saint Peter's Basilica
+http://images.webcams.travel/webcam/1230041254.jpg
+#Saint Peter's square
+http://images.webcams.travel/webcam/1230041267.jpg
+#Tomb of Pope John Paul II
+http://images.webcams.travel/webcam/1254415698.jpg
+#Rome's panorama RAMSAT
+http://images.webcams.travel/webcam/1200416292.jpg
+#The Square Colosseum from the Sheraton
+http://images.webcams.travel/webcam/1267194991.jpg
+#Rome's Skyline from St. Regis Grand Hotel
+http://images.webcams.travel/webcam/1267635675.jpg
+
+
+
+
+--------- OLD ---------
+
+<Webcam>
+    <UserCreated>false</UserCreated>
+    <ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
+    <Name>Roman's Castles</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Preferred>false</Preferred>
+    <ReloadInterval>10</ReloadInterval>
+    <Type>1</Type>
+    <FreeData1></FreeData1>
+    <FreeData2></FreeData2>
+    <FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 1</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9000/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487444321</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 2</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487534421</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+

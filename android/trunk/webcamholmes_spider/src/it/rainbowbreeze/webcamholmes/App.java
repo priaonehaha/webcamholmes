@@ -41,7 +41,7 @@ public class App {
 	 * The file with all the webcams (from core project)
 	 */
 	//private static final String itemsFile = "../webcamholmes_core/res/xml/items.xml";
-	private static final String itemsFile = "res/items.xml";
+	private static final String itemsFile = "res/source_items.xml";
 	/**
 	 * @param args
 	 * @throws Exception 
@@ -65,7 +65,7 @@ public class App {
 		spiders.add(new BBCLondonTrafficSpider("London traffic", 9, 101, 105));
 		spiders.add(new WebcamsTravelSpider("51.500152", "-0.126236", "Webcams.Travel London", 9, 106, 110));
 		spiders.add(new WebcamsTravelSpider("48.856667", "2.350987", "Webcams.Travel Paris", 5, 111, 115));
-		spiders.add(new WebcamsTravelSpider("41.895466", "12.482324", "Webcams.Travel Rome", 2, 116, 120));
+		//spiders.add(new WebcamsTravelSpider("41.895466", "12.482324", "Webcams.Travel Rome", 2, 116, 120));
 		
 		//read existing and manually created webcams
 		System.out.println("Reading manually created items...");

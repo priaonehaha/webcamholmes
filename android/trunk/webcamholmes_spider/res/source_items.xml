@@ -152,18 +152,18 @@
     <SiteUrl>http://www.hoteledenview.com/</SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>Saint Peter and skyline</Name>
+    <Name>Rome's Skyline from St. Regis Grand Hotel</Name>
     <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
-    <ReloadInterval>900</ReloadInterval>
-    <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
-    <SiteUrl>http://www.mycampage.com/barcellocam</SiteUrl>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.stregisgrandromeview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl>http://www.stregisgrandromeview.com/</SiteUrl>
 </Webcam>
 <Webcam>
     <Name>Rome's panorama with Saint Peters</Name>
     <ParentAliasId>2</ParentAliasId>
     <Type>1</Type>
-    <ReloadInterval>10</ReloadInterval>
+    <ReloadInterval>900</ReloadInterval>
     <ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
     <SiteUrl>http://www.barcello.it/</SiteUrl>
 </Webcam>
@@ -175,32 +175,7 @@
     <ImageUrl>http://www.naturamediterraneo.com/roma/ispy.jpg</ImageUrl>
     <SiteUrl>http://www.naturamediterraneo.com/roma/</SiteUrl>
 </Webcam>
-<Webcam>
-    <Name>Roman's Castles</Name>
-    <ParentAliasId>2</ParentAliasId>
-    <Type>1</Type>
-    <ReloadInterval>10</ReloadInterval>
-    <ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
-    <SiteUrl>http://www.naturamediterraneo.com/castelli/</SiteUrl>
-</Webcam>
-<!--
-<Webcam>
-    <Name>Largo Argentina 1</Name>
-    <ParentAliasId>2</ParentAliasId>
-    <Type>1</Type>
-    <ReloadInterval>10</ReloadInterval>
-    <ImageUrl>http://95.240.226.64:9000/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487444321</ImageUrl>
-    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
-</Webcam>
-<Webcam>
-    <Name>Largo Argentina 2</Name>
-    <ParentAliasId>2</ParentAliasId>
-    <Type>1</Type>
-    <ReloadInterval>10</ReloadInterval>
-    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487534421</ImageUrl>
-    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
-</Webcam>
--->
+<!-- Must solve & problem
 <Webcam>
     <Name>Piazza Vittorio</Name>
     <ParentAliasId>2</ParentAliasId>
@@ -225,7 +200,55 @@
     <ImageUrl>http://atacmobile.it/atacmobile.php?service=telecamere&#x26;action=image&#x26;sc=1&#x26;id=42</ImageUrl>
     <SiteUrl>http://atacmobile.it/atacmobile.php?nav=2&#x26;service=telecamere&#x26;action=detail&#x26;id=42</SiteUrl>
 </Webcam>
-
+ -->
+<Webcam>
+    <UserCreated>false</UserCreated>
+    <ImageUrl>http://images.webcams.travel/webcam/1278494738.jpg</ImageUrl>
+    <Name>Rome, Italy, inc. Roman Forum</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Preferred>false</Preferred>
+    <ReloadInterval>30</ReloadInterval>
+    <Type>2</Type>
+    <FreeData1>Network Webcams</FreeData1>
+    <FreeData2>http://www.webcams.travel/user/34609</FreeData2>
+    <FreeData3>http://www.webcams.travel/webcam/1278494738</FreeData3>
+</Webcam>
+<Webcam>
+    <UserCreated>false</UserCreated>
+    <ImageUrl>http://images.webcams.travel/webcam/1284449903.jpg</ImageUrl>
+    <Name>Roma, Phantheon</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Preferred>false</Preferred>
+    <ReloadInterval>30</ReloadInterval>
+    <Type>2</Type>
+    <FreeData1>Azzurro</FreeData1>
+    <FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+    <FreeData3>http://www.webcams.travel/webcam/1284449903</FreeData3>
+</Webcam>
+<Webcam>
+    <UserCreated>false</UserCreated>
+    <ImageUrl>http://images.webcams.travel/webcam/1200416228.jpg</ImageUrl>
+    <Name>Rome, Roma</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Preferred>false</Preferred>
+    <ReloadInterval>30</ReloadInterval>
+    <Type>2</Type>
+    <FreeData1>Alexs</FreeData1>
+    <FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+    <FreeData3>http://www.webcams.travel/webcam/1200416228</FreeData3>
+</Webcam>
+<Webcam>
+    <UserCreated>false</UserCreated>
+    <ImageUrl>http://images.webcams.travel/webcam/1262442918.jpg</ImageUrl>
+    <Name>Roma, panorama</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Preferred>false</Preferred>
+    <ReloadInterval>30</ReloadInterval>
+    <Type>2</Type>
+    <FreeData1>Azzurro</FreeData1>
+    <FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+    <FreeData3>http://www.webcams.travel/webcam/1262442918</FreeData3>
+</Webcam>
 
 
 <!--  Rome Traffic -->
@@ -617,6 +640,14 @@
     <Type>1</Type>
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.italywebcams.it/kraft/florence.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(FI) Firenze - Ponte Vecchio</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.grandhotelflorenceview.com/view_live1.jpg</ImageUrl>
     <SiteUrl></SiteUrl>
 </Webcam>
 <Webcam>
