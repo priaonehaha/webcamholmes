@@ -34,7 +34,7 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 <Category>
 	<AliasId>3</AliasId>
 	<UserCreated>false</UserCreated>
-	<Name>Traffic</Name>
+	<Name>Rome traffic</Name>
 	<ParentAliasId>2</ParentAliasId>
 </Category>
 <Category>
@@ -73,6 +73,18 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Name>London 2012</Name>
 	<ParentAliasId>9</ParentAliasId>
 </Category>
+<Category>
+	<AliasId>11</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>New York</Name>
+	<ParentAliasId>6</ParentAliasId>
+</Category>
+<Category>
+	<AliasId>12</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>New York traffic</Name>
+	<ParentAliasId>11</ParentAliasId>
+</Category>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.vaticanstate.va/images/webcam/conciliazione.jpg</ImageUrl>
@@ -81,6 +93,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -90,6 +105,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -99,6 +117,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -108,6 +129,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -117,6 +141,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -126,6 +153,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -135,6 +165,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -144,6 +177,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -153,6 +189,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -162,15 +201,21 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
-	<Name>Saint Peter and skyline</Name>
+	<ImageUrl>http://cam.stregisgrandromeview.com/view_live1.jpg</ImageUrl>
+	<Name>Rome's Skyline from St. Regis Grand Hotel</Name>
 	<ParentAliasId>2</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>900</ReloadInterval>
+	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -178,8 +223,11 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Name>Rome's panorama with Saint Peters</Name>
 	<ParentAliasId>2</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>10</ReloadInterval>
+	<ReloadInterval>900</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -189,42 +237,57 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
-	<Name>Roman's Castles</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1278494738.jpg</ImageUrl>
+	<Name>Rome, Italy, inc. Roman Forum</Name>
 	<ParentAliasId>2</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>10</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Network Webcams</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/34609</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1278494738</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>id=10</ImageUrl>
-	<Name>Piazza Vittorio</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1284449903.jpg</ImageUrl>
+	<Name>Roma, Phantheon</Name>
 	<ParentAliasId>2</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>20</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azzurro</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1284449903</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>id=33</ImageUrl>
-	<Name>Largo Venosta</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1200416228.jpg</ImageUrl>
+	<Name>Rome, Roma</Name>
 	<ParentAliasId>2</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>20</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1200416228</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>id=42</ImageUrl>
-	<Name>Tiburtina</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1262442918.jpg</ImageUrl>
+	<Name>Roma, panorama</Name>
 	<ParentAliasId>2</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>20</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azzurro</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1262442918</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -234,6 +297,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -243,6 +309,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -252,6 +321,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -261,6 +333,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>900</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -270,6 +345,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -279,6 +357,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -288,6 +369,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -297,6 +381,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -306,6 +393,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -315,6 +405,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -324,6 +417,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -333,15 +429,21 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg?</ImageUrl>
+	<ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg</ImageUrl>
 	<Name>Centre Pompidou Metz</Name>
 	<ParentAliasId>5</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -351,6 +453,81 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1204994331.jpg</ImageUrl>
+	<Name>Paris - Centre Pompidou</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1204994331</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1222262383.jpg</ImageUrl>
+	<Name>Paris panorama</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1222262383</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1247612995.jpg</ImageUrl>
+	<Name>Weather Paris</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>meteo-paris.com</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/51701</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1247612995</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1242904883.jpg</ImageUrl>
+	<Name>Paris - 20ème arrondissement</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jean Neutre</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/45219</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1242904883</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1170680540.jpg</ImageUrl>
+	<Name>Paris la Tour Eiffel</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Verena764</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/4559</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1170680540</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1275917471.jpg</ImageUrl>
+	<Name>Tour Eiffel - Zoom View</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>NRockhouse</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/76131</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1275917471</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -360,6 +537,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -369,6 +549,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -378,6 +561,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -387,6 +573,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -396,6 +585,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -405,6 +597,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -414,6 +609,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -423,6 +621,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -432,6 +633,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -441,6 +645,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -450,6 +657,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -459,6 +669,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -468,6 +681,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -477,6 +693,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -486,6 +705,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -495,6 +717,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -504,6 +729,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -513,6 +741,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -522,6 +753,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -531,6 +765,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -540,6 +777,21 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://webcams.pancanal.com/webcam/hd-miraflores.jpg</ImageUrl>
+	<Name>The Panama Canal - Miraflores Locks</Name>
+	<ParentAliasId>7</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>600</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -549,6 +801,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>20</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -558,6 +813,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>20</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -567,6 +825,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>20</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -576,6 +837,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>20</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -585,6 +849,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -594,6 +861,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -603,6 +873,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -612,6 +885,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -621,6 +897,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -630,6 +909,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -639,6 +921,21 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.grandhotelflorenceview.com/view_live1.jpg</ImageUrl>
+	<Name>(FI) Firenze - Ponte Vecchio</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -648,6 +945,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -657,6 +957,21 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.westinpalacemilanview.com/view_live1.jpg</ImageUrl>
+	<Name>(MI) Milano - Duomo from Westin Palace</Name>
+	<ParentAliasId>1</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -666,6 +981,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -675,6 +993,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -684,6 +1005,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -693,6 +1017,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -702,6 +1029,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -711,6 +1041,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -720,6 +1053,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -729,6 +1065,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -738,6 +1077,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -747,6 +1089,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -756,6 +1101,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -765,6 +1113,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>20</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -774,6 +1125,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -783,6 +1137,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -792,6 +1149,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -801,15 +1161,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
-</Webcam>
-<Webcam>
-	<UserCreated>false</UserCreated>
-	<ImageUrl>http://www.eyerevolution.net/webcam/webcam.jpg</ImageUrl>
-	<Name>Alexandra Palace and Muswell Hill</Name>
-	<ParentAliasId>9</ParentAliasId>
-	<Preferred>false</Preferred>
-	<ReloadInterval>60</ReloadInterval>
-	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -819,6 +1173,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -828,6 +1185,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -837,6 +1197,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -846,6 +1209,81 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1211538463.jpg</ImageUrl>
+	<Name>London Leicester Square Film Premiere camera</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexscot48</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/11140</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1211538463</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1211536355.jpg</ImageUrl>
+	<Name>Piccadilly Circus webcam in London</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexscot48</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/11140</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1211536355</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1211537450.jpg</ImageUrl>
+	<Name>Statute of Eros webcam in London</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexscot48</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/11140</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1211537450</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1284454812.jpg</ImageUrl>
+	<Name>London, Leicester Square</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>starcam</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/60319</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1284454812</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1206867125.jpg</ImageUrl>
+	<Name>London - Oxford Street</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Network Webcams</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/34609</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1206867125</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1263118191.jpg</ImageUrl>
+	<Name>London, Tower Bridge</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>starcam</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/60319</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1263118191</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -855,6 +1293,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -864,6 +1305,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -873,6 +1317,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -882,6 +1329,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -891,6 +1341,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -900,6 +1353,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -909,6 +1365,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -918,6 +1377,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -927,6 +1389,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -936,6 +1401,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -945,6 +1413,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -954,6 +1425,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -963,6 +1437,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -972,6 +1449,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -981,6 +1461,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -990,6 +1473,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -999,6 +1485,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -1008,9 +1497,432 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>600</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/webcam/new-york-live.jpg</ImageUrl>
+	<Name>New York West side skyline </Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam2.jpg</ImageUrl>
+	<Name>New York skyline 2</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam3.jpg</ImageUrl>
+	<Name>New York skyline 3</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam4.jpg</ImageUrl>
+	<Name>New York skyline 4</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.cafe52.com:8081/bigstream</ImageUrl>
+	<Name>Woodside</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/skygwb.jpg</ImageUrl>
+	<Name>George Washington Bridge</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.earthcam.com/ec_metros/newyork/newyork/millenium.jpg</ImageUrl>
+	<Name>Ground Zero</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.earthcam.com/ec_metros/newyork/newyork/liberty.jpg</ImageUrl>
+	<Name>Statue of Liberty</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.hazecam.net/images/photos-main/newark.jpg</ImageUrl>
+	<Name>New York panorama from Newark</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/brooklyn.jpg</ImageUrl>
+	<Name>Lower Manhattan and Brooklyn bridge</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/skycpk.jpg</ImageUrl>
+	<Name>Central Park</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.erikthered.com/cam/reshcam_current.jpg</ImageUrl>
+	<Name>Pier "A" park</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.westinnewyorktimessquareview.com/view_live1.jpg</ImageUrl>
+	<Name>Empire State Building from The Westin New York At Times Square</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://about.brooklyn.ru/webcam/new-brooklyn.jpg</ImageUrl>
+	<Name>Street in Brooklyn</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248986308.jpg</ImageUrl>
+	<Name>Brooklyn Bridge @ Centre Street</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248986308</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256910012.jpg</ImageUrl>
+	<Name>Baxter @ Canal Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256910012</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1187115779.jpg</ImageUrl>
+	<Name>New York</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Mike77</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/5970</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1187115779</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987059.jpg</ImageUrl>
+	<Name>Bowery @ Canal Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987059</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256909910.jpg</ImageUrl>
+	<Name>Manhattan Bridge - Manhattan Side</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256909910</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248986709.jpg</ImageUrl>
+	<Name>FDR Drive @ Catherine Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248986709</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256913948.jpg</ImageUrl>
+	<Name>Holland Tunnel</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256913948</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987758.jpg</ImageUrl>
+	<Name>Trinity @ Brooklyn Battery Tunnel</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987758</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987367.jpg</ImageUrl>
+	<Name>FDR Drive @ Old Slip</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987367</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1195836542.jpg</ImageUrl>
+	<Name>Manhattan Live! A New York City Live-Cam in the heart of Greenwich Village!</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>cnyc</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/8302</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1195836542</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1254040512.jpg</ImageUrl>
+	<Name>WBB Manhattan Entrance</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1254040512</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1285780579.jpg</ImageUrl>
+	<Name>14th St, NYC</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>joemaller</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/91542</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1285780579</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1253371660.jpg</ImageUrl>
+	<Name>BQE @ Brooklyn Navy Yard</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1253371660</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1257594409.jpg</ImageUrl>
+	<Name>6 Avenue @ 34 Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1257594409</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795367.jpg</ImageUrl>
+	<Name>8th Avenue @ 34th Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795367</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795552.jpg</ImageUrl>
+	<Name>9th Avenue @ 34th Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795552</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256909784.jpg</ImageUrl>
+	<Name>Queens Midtown Tunnel @ Manhattan Bound</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256909784</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795439.jpg</ImageUrl>
+	<Name>8th Avenue @ 42nd Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795439</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1249127639.jpg</ImageUrl>
+	<Name>Broadway and 46 Street - Times Square New York, New York</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azz3879</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/64574</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1249127639</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248985924.jpg</ImageUrl>
+	<Name>8th Avenue @ 59th Street/Columbus Circle</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248985924</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1251810612.jpg</ImageUrl>
+	<Name>New York</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>ASTRA.H2M.RU</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/12707</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1251810612</FreeData3>
 </Webcam>
 <Category>
-	<AliasId>20</AliasId>
+	<AliasId>101</AliasId>
 	<UserCreated>false</UserCreated>
 	<Name>Traffic</Name>
 	<ParentAliasId>9</ParentAliasId>
@@ -1019,1026 +1931,1368 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440816.jpg</ImageUrl>
 	<Name>A102 (M) East Cross Route</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440348.jpg</ImageUrl>
 	<Name>A102 Blackwall Lane</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440323.jpg</ImageUrl>
 	<Name>A102 Blackwall Tunnel</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440813.jpg</ImageUrl>
 	<Name>A12 Blackwall Tunnel</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440814.jpg</ImageUrl>
 	<Name>A12 Bow Flyover</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440815.jpg</ImageUrl>
 	<Name>A12 East Cross Route</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440329.jpg</ImageUrl>
 	<Name>A13 East India Dock Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440324.jpg</ImageUrl>
 	<Name>A13 East India Dock Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440617.jpg</ImageUrl>
 	<Name>A13 - East India Dock Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/549702.jpg</ImageUrl>
 	<Name>A1 Angel Islington</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/549711.jpg</ImageUrl>
 	<Name>A1 Holloway Rd/Seven Sisters</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546710.jpg</ImageUrl>
 	<Name>A205 Kew Bridge northside</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440333.jpg</ImageUrl>
 	<Name>A2 Arbuthnot Lane</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440332.jpg</ImageUrl>
 	<Name>A2 Black Prince</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440334.jpg</ImageUrl>
 	<Name>A2 Danson Underpass</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440335.jpg</ImageUrl>
 	<Name>A2 Falconwood</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440343.jpg</ImageUrl>
 	<Name>A2 Kidbrooke Junction</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440336.jpg</ImageUrl>
 	<Name>A2 Rochester Way Relief Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440342.jpg</ImageUrl>
 	<Name>A2 Westhorne Avenue</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546620.jpg</ImageUrl>
 	<Name>A316 by A205 Chalkers Corner</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546622.jpg</ImageUrl>
 	<Name>A316Twickenham Rd/Heathcote Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546621.jpg</ImageUrl>
 	<Name>A316 Twickenham Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547311.jpg</ImageUrl>
 	<Name>A40 / Hanger Lane</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547302.jpg</ImageUrl>
 	<Name>A40(M) Eastern End (John Aird </Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547303.jpg</ImageUrl>
 	<Name>A40 (M) Paddington Slip</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/117305.jpg</ImageUrl>
 	<Name>A40 Westway - A40 Wood Lane</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548956.jpg</ImageUrl>
 	<Name>A41 / Finchley Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548960.jpg</ImageUrl>
 	<Name>A41 Finchley Rd/Hendon Way</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548955.jpg</ImageUrl>
 	<Name>A41 Swiss Cottage</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546600.jpg</ImageUrl>
 	<Name>A4 Cromwell Road/Earls Court</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546600.jpg</ImageUrl>
 	<Name>A4 Cromwell Road/Earls Court</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/116604.jpg</ImageUrl>
 	<Name>A4 Great West Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546594.jpg</ImageUrl>
 	<Name>A4 Knightsbridge/Scotch Corner</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544506.jpg</ImageUrl>
 	<Name>Acre Lane/Coldharbour Lane</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546560.jpg</ImageUrl>
 	<Name>Albert Bridge Southside</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546551.jpg</ImageUrl>
 	<Name>Battersea Bridge/Cheyne Walk</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546510.jpg</ImageUrl>
 	<Name>Baylis Rd/Westminster Bridge R</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546660.jpg</ImageUrl>
 	<Name>Bayswater Rd/Westbourne St</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/543601.jpg</ImageUrl>
 	<Name>Blackfriars Bridge</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440450.jpg</ImageUrl>
 	<Name>Blackwall Tunnel</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440349.jpg</ImageUrl>
 	<Name>Blackwall Tunnel House</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544601.jpg</ImageUrl>
 	<Name>Borough High St/Southwark St</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544503.jpg</ImageUrl>
 	<Name>Camberwell New Rd/Brixton Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/549551.jpg</ImageUrl>
 	<Name>Camden High St/Kentish Town Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/543752.jpg</ImageUrl>
 	<Name>Catford One Way/Rushey Green</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547550.jpg</ImageUrl>
 	<Name>Charing Cross/Cranbourne St</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547551.jpg</ImageUrl>
 	<Name>Charing Cross Rd/Cambridge Cir</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546530.jpg</ImageUrl>
 	<Name>Chelsea Bridge</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544622.jpg</ImageUrl>
 	<Name>Clapham Common Northside</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544651.jpg</ImageUrl>
 	<Name>Clapham Common Southside</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440421.jpg</ImageUrl>
 	<Name>Commercial Road by Branch Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546598.jpg</ImageUrl>
 	<Name>Cromwell Rd/Collingham Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546597.jpg</ImageUrl>
 	<Name>Cromwell Road/Exhibition Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546520.jpg</ImageUrl>
 	<Name>Ecclestone Bridge/ Buckingham </Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548854.jpg</ImageUrl>
 	<Name>Edgware Rd/Marylebone Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/543603.jpg</ImageUrl>
 	<Name>Elephant &amp;amp; Castle - North</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/543604.jpg</ImageUrl>
 	<Name>Elephant &amp;amp; Castle - South</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547359.jpg</ImageUrl>
 	<Name>Euston Rd/Eversholt Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547364.jpg</ImageUrl>
 	<Name>Euston Road/Great Portland St</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547356.jpg</ImageUrl>
 	<Name>Euston Road/York Way</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547361.jpg</ImageUrl>
 	<Name>Euston Underpass/Tott Ct Rd </Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/115827.jpg</ImageUrl>
 	<Name>Fulham Palace Rd/Coroners Ct</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/115826.jpg</ImageUrl>
 	<Name>Fulham Palace Rd/Lysia Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547400.jpg</ImageUrl>
 	<Name>Great Portland St/Mortimer St</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/116570.jpg</ImageUrl>
 	<Name>Hammersmith Bridge Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/116643.jpg</ImageUrl>
 	<Name>Hammersmith Broadway</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546512.jpg</ImageUrl>
 	<Name>Hobart Place/Grosvenor Place</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546515.jpg</ImageUrl>
 	<Name>Hyde Park Corner</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546641.jpg</ImageUrl>
 	<Name>Kensington High Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546640.jpg</ImageUrl>
 	<Name>Kensington Rd/Exhibition Rd </Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/541411.jpg</ImageUrl>
 	<Name>Kingsland Rd/Balls Pond Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547600.jpg</ImageUrl>
 	<Name>Kingsway/High Holborn</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440420.jpg</ImageUrl>
 	<Name>Limehouse Link</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440403.jpg</ImageUrl>
 	<Name>Limehouse Link</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440361.jpg</ImageUrl>
 	<Name>Limehouse Tunnel</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440390.jpg</ImageUrl>
 	<Name>Limehouse Tunnel by Aspen Way</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440378.jpg</ImageUrl>
 	<Name>Limehouse Tunnel Westferry Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/117251.jpg</ImageUrl>
 	<Name>M41/West Cross Route</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547304.jpg</ImageUrl>
 	<Name>M41 Northern Roundabout</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/117250.jpg</ImageUrl>
 	<Name>M41 Southern Roundabout</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548850.jpg</ImageUrl>
 	<Name>Marble Arch</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547369.jpg</ImageUrl>
 	<Name>Marylebone Road/Baker Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/116602.jpg</ImageUrl>
 	<Name>North End Road/Talgarth Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546581.jpg</ImageUrl>
 	<Name>Old Brompton Rd/Finborough Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/543653.jpg</ImageUrl>
 	<Name>Old Kent Rd/Albany Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547301.jpg</ImageUrl>
 	<Name>Oxford St/Centrepoint</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547452.jpg</ImageUrl>
 	<Name>Oxford Street/Regent Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548750.jpg</ImageUrl>
 	<Name>Park Lane/Hyde Park Corner</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546592.jpg</ImageUrl>
 	<Name>Piccadilly/St James Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547450.jpg</ImageUrl>
 	<Name>Piccadilly Circus</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/548950.jpg</ImageUrl>
 	<Name>Portman Square/Orchard Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547300.jpg</ImageUrl>
 	<Name>Princes Circus/High Holborn</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547451.jpg</ImageUrl>
 	<Name>Regent St/Conduit St</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440344.jpg</ImageUrl>
 	<Name>Rochester Way /Shooters Hill</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440434.jpg</ImageUrl>
 	<Name>Rotherhithe Tunnel</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/549610.jpg</ImageUrl>
 	<Name>Seven Sisters Road/Manor House</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/115828.jpg</ImageUrl>
 	<Name>Shepherds Bush Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/541400.jpg</ImageUrl>
 	<Name>Shoreditch High Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544514.jpg</ImageUrl>
 	<Name>Streatham High Rd/Mitcham Lane</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544628.jpg</ImageUrl>
 	<Name>Sudbury House (Wandsworth)</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/116603.jpg</ImageUrl>
 	<Name>Talgarth Rd by Butterwick Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546590.jpg</ImageUrl>
 	<Name>The Strand</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546502.jpg</ImageUrl>
 	<Name>Trafalgar Square</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/116680.jpg</ImageUrl>
 	<Name>Uxbridge Road by Askew Road</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544327.jpg</ImageUrl>
 	<Name>Vauxhall Bridge Rd/Millbank</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/544256.jpg</ImageUrl>
 	<Name>Vauxhall Cross/Albert Embankme</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547500.jpg</ImageUrl>
 	<Name>Victoria Embankment </Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546511.jpg</ImageUrl>
 	<Name>Victoria St/Wilton Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/545750.jpg</ImageUrl>
 	<Name>Wandsworth Br/York Rd</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/542100.jpg</ImageUrl>
 	<Name>Whitechapel High Street</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546501.jpg</ImageUrl>
 	<Name>Whitehall/Parliament Square</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440347.jpg</ImageUrl>
 	<Name>Woolwich Flyover Northside</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/440345.jpg</ImageUrl>
 	<Name>Woolwich Flyover Southside</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
 	<ImageUrl>http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/547301.jpg</ImageUrl>
 	<Name>Oxford St/Centrepoint</Name>
-	<ParentAliasId>20</ParentAliasId>
+	<ParentAliasId>101</ParentAliasId>
 	<Preferred>false</Preferred>
 	<ReloadInterval>30</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 </Items>

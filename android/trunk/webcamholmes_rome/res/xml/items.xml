@@ -33,6 +33,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -42,6 +45,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -51,6 +57,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -60,6 +69,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -69,6 +81,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -78,6 +93,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -87,6 +105,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -96,6 +117,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -105,6 +129,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -114,15 +141,21 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
-	<Name>Saint Peter and skyline</Name>
+	<ImageUrl>http://cam.stregisgrandromeview.com/view_live1.jpg</ImageUrl>
+	<Name>Rome's Skyline from St. Regis Grand Hotel</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>900</ReloadInterval>
+	<ReloadInterval>60</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -130,8 +163,11 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Name>Rome's panorama with Saint Peters</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>10</ReloadInterval>
+	<ReloadInterval>900</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -141,42 +177,57 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
-	<Name>Roman's Castles</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1278494738.jpg</ImageUrl>
+	<Name>Rome, Italy, inc. Roman Forum</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>10</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Network Webcams</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/34609</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1278494738</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>id=10</ImageUrl>
-	<Name>Piazza Vittorio</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1284449903.jpg</ImageUrl>
+	<Name>Roma, Phantheon</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>20</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azzurro</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1284449903</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>id=33</ImageUrl>
-	<Name>Largo Venosta</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1200416228.jpg</ImageUrl>
+	<Name>Rome, Roma</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>20</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1200416228</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
-	<ImageUrl>id=42</ImageUrl>
-	<Name>Tiburtina</Name>
+	<ImageUrl>http://images.webcams.travel/webcam/1262442918.jpg</ImageUrl>
+	<Name>Roma, panorama</Name>
 	<ParentAliasId>0</ParentAliasId>
 	<Preferred>false</Preferred>
-	<ReloadInterval>20</ReloadInterval>
-	<Type>1</Type>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azzurro</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1262442918</FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -186,6 +237,9 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 <Webcam>
 	<UserCreated>false</UserCreated>
@@ -195,5 +249,8 @@ this program; If not, see <http://www.gnu.org/licenses/>.
 	<Preferred>false</Preferred>
 	<ReloadInterval>10</ReloadInterval>
 	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
 </Webcam>
 </Items>

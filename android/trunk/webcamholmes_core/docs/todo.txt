@@ -14,6 +14,7 @@ TODO
 -aumentare il tempo di caricamento delle immagini prima di andare in timeout
 -test per freeData1..freeData3
 -share non solo su email, ma su tutti i programmi vari
+-go to url su webcam che hanno indirizzo
 
 -migliorare il passaggio dati tra activity come fa camera
  Bitmap bm = (Bitmap) data.getExtras().get("data");
