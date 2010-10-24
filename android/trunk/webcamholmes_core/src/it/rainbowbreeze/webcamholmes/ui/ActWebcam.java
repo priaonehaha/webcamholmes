@@ -447,7 +447,7 @@ public class ActWebcam
 			.replace(" ", "_")
 			.replace("'", "_")
 			+ ".jpg";
-		File file = new File(getExternalCacheDir(), finalName);
+		File file = new File(getCacheDir(), finalName);
 		return file.getAbsolutePath();
 	}
 
