@@ -63,9 +63,10 @@ public class App {
 		List<BaseSpider> spiders = new ArrayList<BaseSpider>();
 		//London AliasId is 9
 		spiders.add(new BBCLondonTrafficSpider("London traffic", 9, 101, 105));
-		spiders.add(new WebcamsTravelSpider("51.500152", "-0.126236", "Webcams.Travel London", 9, 106, 110));
-		spiders.add(new WebcamsTravelSpider("48.856667", "2.350987", "Webcams.Travel Paris", 5, 111, 115));
+		//spiders.add(new WebcamsTravelSpider("51.500152", "-0.126236", "Webcams.Travel London", 9, 106, 110));
+		//spiders.add(new WebcamsTravelSpider("48.856667", "2.350987", "Webcams.Travel Paris", 5, 111, 115));
 		//spiders.add(new WebcamsTravelSpider("41.895466", "12.482324", "Webcams.Travel Rome", 2, 116, 120));
+		//spiders.add(new WebcamsTravelSpider("40.714353", "-74.005973", "Webcams.Travel New York", 11, 121, 125));
 		
 		//read existing and manually created webcams
 		System.out.println("Reading manually created items...");

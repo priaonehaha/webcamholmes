@@ -72,6 +72,10 @@ public class ItemsSplitter {
 		mPackageDescriptors.add(new PackageDescriptor
 				("paris" + FILENAME,
 				 "5"));
+		//New York
+		mPackageDescriptors.add(new PackageDescriptor
+				("newyork" + FILENAME,
+				 "11"));
 	}
 
 	

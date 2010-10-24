@@ -34,7 +34,7 @@
 <Category>
     <AliasId>3</AliasId>
     <ParentAliasId>2</ParentAliasId>
-    <Name>Traffic</Name>
+    <Name>Rome traffic</Name>
 </Category>
 <Category>
     <AliasId>6</AliasId>
@@ -65,6 +65,16 @@
     <AliasId>10</AliasId>
     <ParentAliasId>9</ParentAliasId>
     <Name>London 2012</Name>
+</Category>
+<Category>
+    <AliasId>11</AliasId>
+    <ParentAliasId>6</ParentAliasId>
+    <Name>New York</Name>
+</Category>
+<Category>
+    <AliasId>12</AliasId>
+    <ParentAliasId>11</ParentAliasId>
+    <Name>New York traffic</Name>
 </Category>
 
 
@@ -357,7 +367,7 @@
     <ParentAliasId>5</ParentAliasId>
     <Type>1</Type>
     <ReloadInterval>30</ReloadInterval>
-    <ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg?</ImageUrl>
+    <ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg</ImageUrl>
     <SiteUrl>http://www.centrepompidou.fr/webcam/popup4.html</SiteUrl>
 </Webcam>
 <Webcam>
@@ -368,7 +378,78 @@
     <ImageUrl>http://www.centrepompidou.fr/webcam/images/piazza_00001.jpg</ImageUrl>
     <SiteUrl>http://www.centrepompidou.fr/webcam/popup.html</SiteUrl>
 </Webcam>
-
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1204994331.jpg</ImageUrl>
+	<Name>Paris - Centre Pompidou</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1204994331</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1222262383.jpg</ImageUrl>
+	<Name>Paris panorama</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1222262383</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1247612995.jpg</ImageUrl>
+	<Name>Weather Paris</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>meteo-paris.com</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/51701</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1247612995</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1242904883.jpg</ImageUrl>
+	<Name>Paris - 20ème arrondissement</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jean Neutre</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/45219</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1242904883</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1170680540.jpg</ImageUrl>
+	<Name>Paris la Tour Eiffel</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Verena764</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/4559</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1170680540</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1275917471.jpg</ImageUrl>
+	<Name>Tour Eiffel - Zoom View</Name>
+	<ParentAliasId>5</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>NRockhouse</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/76131</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1275917471</FreeData3>
+</Webcam>
 
 
 <!-- World cities misc -->
@@ -504,7 +585,6 @@
 
 
 
-
 <!-- Beautiful places -->
 <Webcam>
     <Name>Egypt - Giza plain</Name>
@@ -546,6 +626,16 @@
     <ImageUrl>http://www2.nature.nps.gov/air/webcams/parks/grcacam/grca.jpg</ImageUrl>
     <SiteUrl>http://www.nature.nps.gov/air/webcams/parks/grcacam/grcacam.cfm</SiteUrl>
 </Webcam>
+<Webcam>
+    <Name>The Panama Canal - Miraflores Locks</Name>
+    <ParentAliasId>7</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>600</ReloadInterval>
+    <ImageUrl>http://webcams.pancanal.com/webcam/hd-miraflores.jpg</ImageUrl>
+    <SiteUrl>http://www.pancanal.com/eng/photo/camera-java.html?cam=Miraflores</SiteUrl>
+</Webcam>
+
+
 
 
 
@@ -665,6 +755,14 @@
     <ReloadInterval>60</ReloadInterval>
     <ImageUrl>http://www.fashionschool.com/fashion_school.jpg</ImageUrl>
     <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>(MI) Milano - Duomo from Westin Palace</Name>
+    <ParentAliasId>1</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.westinpalacemilanview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl>http://www.westinpalacemilanview.com/</SiteUrl>
 </Webcam>
 <Webcam>
     <Name>(RN) Riccione - Spiaggia 61 della Rosa</Name>
@@ -799,14 +897,6 @@
     <SiteUrl>http://www.themonumentview.net/panorama.php</SiteUrl>
 </Webcam>
 <Webcam>
-    <Name>Alexandra Palace and Muswell Hill</Name>
-    <ParentAliasId>9</ParentAliasId>
-    <Type>1</Type>
-    <ReloadInterval>60</ReloadInterval>
-    <ImageUrl>http://www.eyerevolution.net/webcam/webcam.jpg</ImageUrl>
-    <SiteUrl>http://www.eyerevolution.co.uk/webcam.php</SiteUrl>
-</Webcam>
-<Webcam>
     <Name>Belushi's Bar, Shepherds Bush</Name>
     <ParentAliasId>9</ParentAliasId>
     <Type>1</Type>
@@ -838,7 +928,78 @@
     <ImageUrl>http://www.bbc.co.uk/webcams/london/trafalgar_square.jpg</ImageUrl>
     <SiteUrl>http://news.bbc.co.uk/local/london/hi/people_and_places/newsid_8721000/8721277.stm</SiteUrl>
 </Webcam>
-
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1211538463.jpg</ImageUrl>
+	<Name>London Leicester Square Film Premiere camera</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexscot48</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/11140</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1211538463</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1211536355.jpg</ImageUrl>
+	<Name>Piccadilly Circus webcam in London</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexscot48</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/11140</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1211536355</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1211537450.jpg</ImageUrl>
+	<Name>Statute of Eros webcam in London</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexscot48</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/11140</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1211537450</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1284454812.jpg</ImageUrl>
+	<Name>London, Leicester Square</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>starcam</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/60319</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1284454812</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1206867125.jpg</ImageUrl>
+	<Name>London - Oxford Street</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Network Webcams</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/34609</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1206867125</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1263118191.jpg</ImageUrl>
+	<Name>London, Tower Bridge</Name>
+	<ParentAliasId>9</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>starcam</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/60319</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1263118191</FreeData3>
+</Webcam>
 
 
 
@@ -851,7 +1012,6 @@
     <ImageUrl>http://www.bbc.co.uk/webcams/london/2012_110.jpg</ImageUrl>
     <SiteUrl>http://news.bbc.co.uk/local/london/hi/people_and_places/2012/newsid_8721000/8721192.stm</SiteUrl>
 </Webcam>
-
 <Webcam>
     <Name>London 2012 Velodrome Internal</Name>
     <ParentAliasId>10</ParentAliasId>
@@ -988,6 +1148,379 @@
     <ImageUrl>http://www.london2012.com/transform/2834345/m700x/aquatics-internal.jpg</ImageUrl>
     <SiteUrl>http://www.london2012.com/webcams/aquatics-centre-internal.php</SiteUrl>
 </Webcam>
+
+
+
+<!-- New York -->
+<Webcam>
+    <Name>New York West side skyline </Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://wirednewyork.com/webcam/new-york-live.jpg</ImageUrl>
+    <SiteUrl>http://wirednewyork.com/webcams/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>New York skyline 2</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam2.jpg</ImageUrl>
+    <SiteUrl>http://wirednewyork.com/webcams/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>New York skyline 3</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam3.jpg</ImageUrl>
+    <SiteUrl>http://wirednewyork.com/webcams/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>New York skyline 4</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam4.jpg</ImageUrl>
+    <SiteUrl>http://wirednewyork.com/webcams/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Woodside</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>30</ReloadInterval>
+    <ImageUrl>http://www.cafe52.com:8081/bigstream</ImageUrl>
+    <SiteUrl>http://www.cafe52.com/node/3</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>George Washington Bridge</Name>
+    <ParentAliasId>12</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://abclocal.go.com/three/wabc/webcam/skygwb.jpg</ImageUrl>
+    <SiteUrl>http://abclocal.go.com/wabc/feature?section=resources/traffic#x26;id=5780718</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Ground Zero</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://images.earthcam.com/ec_metros/newyork/newyork/millenium.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Statue of Liberty</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>20</ReloadInterval>
+    <ImageUrl>http://images.earthcam.com/ec_metros/newyork/newyork/liberty.jpg</ImageUrl>
+    <SiteUrl></SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>New York panorama from Newark</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.hazecam.net/images/photos-main/newark.jpg</ImageUrl>
+    <SiteUrl>http://www.hazecam.net/newark.html</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Lower Manhattan and Brooklyn bridge</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://abclocal.go.com/three/wabc/webcam/brooklyn.jpg</ImageUrl>
+    <SiteUrl>http://abclocal.go.com/wabc/feature?section=resources/traffic#x26;id=5780747</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Central Park</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://abclocal.go.com/three/wabc/webcam/skycpk.jpg</ImageUrl>
+    <SiteUrl>http://abclocal.go.com/wabc/feature?section=resources/traffic#x26;id=5780743</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Pier "A" park</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://www.erikthered.com/cam/reshcam_current.jpg</ImageUrl>
+    <SiteUrl>http://www.erikthered.com/cam/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Empire State Building from The Westin New York At Times Square</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://cam.westinnewyorktimessquareview.com/view_live1.jpg</ImageUrl>
+    <SiteUrl>http://www.westinnewyorktimessquareview.com</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Street in Brooklyn</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://about.brooklyn.ru/webcam/new-brooklyn.jpg</ImageUrl>
+    <SiteUrl>http://www.brooklyn-webcam.com/</SiteUrl>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248986308.jpg</ImageUrl>
+	<Name>Brooklyn Bridge @ Centre Street</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248986308</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256910012.jpg</ImageUrl>
+	<Name>Baxter @ Canal Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256910012</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1187115779.jpg</ImageUrl>
+	<Name>New York</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Mike77</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/5970</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1187115779</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987059.jpg</ImageUrl>
+	<Name>Bowery @ Canal Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987059</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256909910.jpg</ImageUrl>
+	<Name>Manhattan Bridge - Manhattan Side</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256909910</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248986709.jpg</ImageUrl>
+	<Name>FDR Drive @ Catherine Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248986709</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256913948.jpg</ImageUrl>
+	<Name>Holland Tunnel</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256913948</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987758.jpg</ImageUrl>
+	<Name>Trinity @ Brooklyn Battery Tunnel</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987758</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987367.jpg</ImageUrl>
+	<Name>FDR Drive @ Old Slip</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987367</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1195836542.jpg</ImageUrl>
+	<Name>Manhattan Live! A New York City Live-Cam in the heart of Greenwich Village!</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>cnyc</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/8302</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1195836542</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1254040512.jpg</ImageUrl>
+	<Name>WBB Manhattan Entrance</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1254040512</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1285780579.jpg</ImageUrl>
+	<Name>14th St, NYC</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>joemaller</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/91542</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1285780579</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1253371660.jpg</ImageUrl>
+	<Name>BQE @ Brooklyn Navy Yard</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1253371660</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1257594409.jpg</ImageUrl>
+	<Name>6 Avenue @ 34 Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1257594409</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795367.jpg</ImageUrl>
+	<Name>8th Avenue @ 34th Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795367</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795552.jpg</ImageUrl>
+	<Name>9th Avenue @ 34th Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795552</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256909784.jpg</ImageUrl>
+	<Name>Queens Midtown Tunnel @ Manhattan Bound</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256909784</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795439.jpg</ImageUrl>
+	<Name>8th Avenue @ 42nd Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795439</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1249127639.jpg</ImageUrl>
+	<Name>Broadway and 46 Street - Times Square New York, New York</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azz3879</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/64574</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1249127639</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248985924.jpg</ImageUrl>
+	<Name>8th Avenue @ 59th Street/Columbus Circle</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248985924</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1251810612.jpg</ImageUrl>
+	<Name>New York</Name>
+	<ParentAliasId>11</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>ASTRA.H2M.RU</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/12707</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1251810612</FreeData3>
+</Webcam>
+
+ 
+
+
+
 
 
 
