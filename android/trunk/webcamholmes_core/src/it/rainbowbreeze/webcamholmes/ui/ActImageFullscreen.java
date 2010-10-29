@@ -105,7 +105,7 @@ public class ActImageFullscreen extends Activity {
     	
     	switch (id) {
     	case DIALOG_PROGRESS:
-    		retDialog = mActivityHelper.createProgressDialog(this, R.string.actimagefullscreen_msgLoadImage);
+    		retDialog = mActivityHelper.createProgressDialog(this, 0, R.string.actimagefullscreen_msgLoadImage);
     		break;
     		
 		default:

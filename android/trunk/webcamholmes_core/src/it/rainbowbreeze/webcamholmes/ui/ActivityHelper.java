@@ -162,17 +162,18 @@ public class ActivityHelper
 	
 	
 	//---------- Protected methods
-	protected Map<Integer, String> loadMessagesStrings(Context context) {
-		Map<Integer, String> messages = super.loadMessagesStrings(context);
-		messages.put(MSG_INDEX_ERROR_IMPORT_FROM_RESOURCE, context.getString(R.string.common_msg_errorImportingFromResource));
-		return messages;
-	}
 
+	@Override
+	protected void loadCustomMessageStrings(Context context, Map<Integer, String> messages) {
+		super.loadCustomMessageStrings(context, messages);
+		messages.put(MSG_INDEX_ERROR_IMPORT_FROM_RESOURCE, context.getString(R.string.common_msg_errorImportingFromResource));
+	}
 	
-	protected String getErrorDescription(int returnCode, Exception exception) {
+	@Override
+	public String getErrorMessage(int returnCode, Exception exception) {
 		//First of all, examines return code for standard errors
 		String userMessage = null;
-		String exceptionMessage = null != exception ?  exception.getMessage() : getMessage(MSG_INDEX_NO_ERROR_MESSAGE);
+		String exceptionMessage = null != exception ? exception.getMessage() : getMessage(MSG_INDEX_NO_ERROR_MESSAGE);
 
 		switch (returnCode) {
 			case ResultOperation.RETURNCODE_ERROR_IMPORT_FROM_RESOURCE:
@@ -181,7 +182,7 @@ public class ActivityHelper
 			break;
 
 			default:
-				userMessage = super.getErrorDescription(returnCode, exception);
+				userMessage = super.getErrorMessage(returnCode, exception);
 				break;
 					
 		}

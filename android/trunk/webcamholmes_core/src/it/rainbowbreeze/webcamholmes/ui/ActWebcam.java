@@ -269,10 +269,10 @@ public class ActWebcam
 		
 		switch(id) {
 		case(DIALOG_PREPARE_FOR_FULLSCREEN):
-			retDialog = mActivityHelper.createProgressDialog(this, R.string.actwebcam_msgPrepareForFullscreen);
+			retDialog = mActivityHelper.createProgressDialog(this, 0, R.string.actwebcam_msgPrepareForFullscreen);
 			break;
 		case(DIALOG_PREPARE_FOR_SHARING):
-			retDialog = mActivityHelper.createProgressDialog(this, R.string.actwebcam_msgPrepareForSharing);
+			retDialog = mActivityHelper.createProgressDialog(this, 0, R.string.actwebcam_msgPrepareForSharing);
 			break;
 		default:
 			retDialog = super.onCreateDialog(id);
