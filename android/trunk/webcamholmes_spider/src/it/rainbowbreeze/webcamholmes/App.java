@@ -23,7 +23,6 @@ import it.rainbowbreeze.webcamholmes.data.ItemsXmlParser;
 import it.rainbowbreeze.webcamholmes.domain.ItemWrapper;
 import it.rainbowbreeze.webcamholmes.spiders.BBCLondonTrafficSpider;
 import it.rainbowbreeze.webcamholmes.spiders.BaseSpider;
-import it.rainbowbreeze.webcamholmes.spiders.WebcamsTravelSpider;
 
 import java.io.IOException;
 import java.util.ArrayList;

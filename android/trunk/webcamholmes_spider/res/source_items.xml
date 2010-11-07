@@ -76,6 +76,21 @@
     <ParentAliasId>11</ParentAliasId>
     <Name>New York traffic</Name>
 </Category>
+<Category>
+    <AliasId>13</AliasId>
+    <ParentAliasId>0</ParentAliasId>
+    <Name>Ski and Snow</Name>
+</Category>
+<Category>
+    <AliasId>14</AliasId>
+    <ParentAliasId>13</ParentAliasId>
+    <Name>Cervinia</Name>
+</Category>
+<Category>
+    <AliasId>15</AliasId>
+    <ParentAliasId>13</ParentAliasId>
+    <Name>Zermatt</Name>
+</Category>
 
 
 
@@ -1517,12 +1532,256 @@
 	<FreeData3>http://www.webcams.travel/webcam/1251810612</FreeData3>
 </Webcam>
 
- 
 
-
-
-
-
+<!--  Cervinia -->
+<Webcam>
+    <Name>Breuil-Cervinia: Cervino</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=253</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Cretaz</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=251</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Plan Maison: Ski Area</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=254</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Colle Cime Bianche</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=256</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Cime Bianche Laghi: Ski Area</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=255</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Plateau Rosà</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=257</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Bardoney: Ski Area</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=250</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Cervino Panorama</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=247</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Cielo Alto 1</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=248</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Cielo Alto 2</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=249</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Golf Club</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=242</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Maison des Sports</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=241</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name></Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=254</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Paese Panoramica</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=244</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil Cervinia: Piazza della Chiesa</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=240</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Plan Maison</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=246</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil Cervinia: Rifugio L'Orionde'</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=245</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Breuil-Cervinia: Cervino Plan Maison</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=258</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Valtournenche: Salette</Name>
+    <ParentAliasId>14</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=259</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Aroleid</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=269</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Cervino</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=265</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Trockener Steg</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=271</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Chiesa</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=261</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Riffelberg</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=267</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Matterhorn Glacier Paradise</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=272</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Piazza della Chiesa</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=262</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Piazza della Stazione</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=263</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Gornergrat</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=268</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Rothorn</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=266</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Schwarzee</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.cervinia.it/showImage?ixImageId=270</ImageUrl>
+    <SiteUrl>http://www.cervinia.it/pages/WEBCAM_i_en/453?#ixMainSection</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Zermatt: Cervino Panoramica (3089 m)</Name>
+    <ParentAliasId>15</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>120</ReloadInterval>
+    <ImageUrl>http://www.topin.ch/scripts/big_img.php?bild=zer.jpg</ImageUrl>
+    <SiteUrl>http://www.zermatt.ch/de/page.cfm/webcam_gornergrat</SiteUrl>
+</Webcam>
 
 
 </Items>

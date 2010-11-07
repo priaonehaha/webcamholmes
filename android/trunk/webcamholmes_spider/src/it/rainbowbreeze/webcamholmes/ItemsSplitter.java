@@ -76,6 +76,10 @@ public class ItemsSplitter {
 		mPackageDescriptors.add(new PackageDescriptor
 				("newyork" + FILENAME,
 				 "11"));
+		//Cervinia
+		mPackageDescriptors.add(new PackageDescriptor
+				("skysnow" + FILENAME,
+				 "13"));
 	}
 
 	
