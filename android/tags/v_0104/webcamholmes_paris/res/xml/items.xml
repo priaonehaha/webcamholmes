@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2010 Alfredo Morresi
+This file is part of WebcamHolmes project.
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+this program; If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<Items>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parislive.net/eiffelwebcam3.jpg</ImageUrl>
+	<Name>Tour Eiffel 1</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parisapartment7eme.com/image_r.jpg</ImageUrl>
+	<Name>Tour Eiffel 2</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>900</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parisrama.com/webcam1.jpg</ImageUrl>
+	<Name>Tour Eiffel 3</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.paris-danse.com/webcam/cam.jpeg</ImageUrl>
+	<Name>Centre de Danse du Marais</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>600</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.thewestinparisview.com/view_live1.jpg</ImageUrl>
+	<Name>Eiffel Tower from The Westin Paris</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://membres.multimania.fr/parispanoramic/image.jpg</ImageUrl>
+	<Name>Paris big panorama</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://copyrighted.serveftp.com/axis-cgi/jpg/image.cgi</ImageUrl>
+	<Name>Paris panorama 1</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.parisrama.com/camera2/webcam2.jpg</ImageUrl>
+	<Name>Paris panorama 2</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.centrepompidou.fr/webcam/images/img_forum_00001.jpg</ImageUrl>
+	<Name>Centre Pompidou forum</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.centrepompidou.fr/webcam/images/cam1_toit_00001.jpg</ImageUrl>
+	<Name>Centre Pompidou root</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.mairie-metz.fr/pompidou_webcam/image.jpg</ImageUrl>
+	<Name>Centre Pompidou Metz</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.centrepompidou.fr/webcam/images/piazza_00001.jpg</ImageUrl>
+	<Name>La Piazza, Hôtel-de-Ville</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1204994331.jpg</ImageUrl>
+	<Name>Paris - Centre Pompidou</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1204994331</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1222262383.jpg</ImageUrl>
+	<Name>Paris panorama</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1222262383</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1247612995.jpg</ImageUrl>
+	<Name>Weather Paris</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>meteo-paris.com</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/51701</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1247612995</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1242904883.jpg</ImageUrl>
+	<Name>Paris - 20ème arrondissement</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jean Neutre</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/45219</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1242904883</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1170680540.jpg</ImageUrl>
+	<Name>Paris la Tour Eiffel</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Verena764</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/4559</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1170680540</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1275917471.jpg</ImageUrl>
+	<Name>Tour Eiffel - Zoom View</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>NRockhouse</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/76131</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1275917471</FreeData3>
+</Webcam>
+</Items>

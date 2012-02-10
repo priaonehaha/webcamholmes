@@ -1,0 +1,136 @@
+#Duplicated webcams
+
+#Rome
+#Saint Peter and skyline
+http://images.webcams.travel/webcam/1229966886.jpg
+#Rome's Skyline from Hotel Eden
+http://images.webcams.travel/webcam/1244041256.jpg
+#Osservatorio dei Castelli Romani - Non pertinente
+http://images.webcams.travel/webcam/1202493540.jpg
+#Via Veneto from The Westin Excelsior
+http://images.webcams.travel/webcam/1267635323.jpg
+#Saint Peter's Basilica
+http://images.webcams.travel/webcam/1230041254.jpg
+#Saint Peter's square
+http://images.webcams.travel/webcam/1230041267.jpg
+#Tomb of Pope John Paul II
+http://images.webcams.travel/webcam/1254415698.jpg
+#Rome's panorama RAMSAT
+http://images.webcams.travel/webcam/1200416292.jpg
+#The Square Colosseum from the Sheraton
+http://images.webcams.travel/webcam/1267194991.jpg
+#Rome's Skyline from St. Regis Grand Hotel
+http://images.webcams.travel/webcam/1267635675.jpg
+
+
+#Paris
+#http://www.centrepompidou.fr/webcam/images/piazza_00001.jpg
+http://images.webcams.travel/webcam/1251128595.jpg
+#http://www.paris-danse.com/webcam/cam.jpeg
+http://images.webcams.travel/webcam/1230040244.jpg
+#http://www.parisapartment7eme.com/image_r.jpg
+http://images.webcams.travel/webcam/1230040255.jpg
+#http://www.parisrama.com/webcam1.jpg
+http://images.webcams.travel/webcam/1284829999.jpg
+#http://www.parislive.net/eiffelwebcam3.jpg
+http://images.webcams.travel/webcam/1207757616.jpg
+
+
+#London
+#http://www.bbc.co.uk/webcams/london/2012_110.jpg
+http://images.webcams.travel/webcam/1230042204.jpg
+#http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546501.jpg
+http://images.webcams.travel/webcam/1229966910.jpg
+#http://www.bbc.co.uk/cgi-perl/webcams/camcache.pl?r=60&amp;h=mcs&amp;l=london/webcams/london/546502.jpg
+http://images.webcams.travel/webcam/1247686973.jpg
+#http://londonwebcam.virtual-london.com/cam.jpg
+http://images.webcams.travel/webcam/1209294651.jpg
+#bbc traffic
+http://images.webcams.travel/webcam/1249485551.jpg
+#bbc traffic
+http://images.webcams.travel/webcam/1255202156.jpg
+#bbc traffic
+http://images.webcams.travel/webcam/1279567720.jpg
+
+
+#New York
+http://wirednewyork.com/webcam/new-york-live.jpg
+http://images.webcams.travel/webcam/1207341560.jpg
+#http://wirednewyork.com/images/webcams/wired-new-york-webcam3.jpg
+http://images.webcams.travel/webcam/1229966704.jpg
+#http://wirednewyork.com/images/webcams/wired-new-york-webcam2.jpg
+http://images.webcams.travel/webcam/1177496734.jpg
+#http://abclocal.go.com/three/wabc/webcam/brooklyn.jpg
+http://images.webcams.travel/webcam/1203448423.jpg
+#http://www.erikthered.com/cam/reshcam_current.jpg
+http://images.webcams.travel/webcam/1183482661.jpg
+#http://cam.westinnewyorktimessquareview.com/view_live1.jpg
+http://images.webcams.travel/webcam/1258380815.jpgù
+#http://abclocal.go.com/three/wabc/webcam/skycpk.jpg
+http://images.webcams.travel/webcam/1203446105
+
+
+
+
+
+
+--------- CONTROLLARE ---------
+
+<Webcam>
+    <Name>Wall Street</Name>
+    <ParentAliasId>11</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>60</ReloadInterval>
+    <ImageUrl>http://images.earthcam.com/ec_metros/ourcams/wallst.jpg</ImageUrl>
+    <SiteUrl>http://www.earthcam.com/usa/newyork/nyse/</SiteUrl>
+</Webcam>
+
+
+
+
+--------- OLD ---------
+
+#ROME
+<Webcam>
+    <UserCreated>false</UserCreated>
+    <ImageUrl>http://www.naturamediterraneo.com/castelli/ispy.jpg</ImageUrl>
+    <Name>Roman's Castles</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Preferred>false</Preferred>
+    <ReloadInterval>10</ReloadInterval>
+    <Type>1</Type>
+    <FreeData1></FreeData1>
+    <FreeData2></FreeData2>
+    <FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 1</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9000/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487444321</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+<Webcam>
+    <Name>Largo Argentina 2</Name>
+    <ParentAliasId>2</ParentAliasId>
+    <Type>1</Type>
+    <ReloadInterval>10</ReloadInterval>
+    <ImageUrl>http://95.240.226.64:9002/axis-cgi/mjpg/video.cgi?resolution=800x600&#x26;dummy=1284487534421</ImageUrl>
+    <SiteUrl>http://www.largoargentina.com/</SiteUrl>
+</Webcam>
+
+
+
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.eyerevolution.net/webcam/webcam.jpg</ImageUrl>
+	<Name>London - Alexandra Palace and Muswell Hill</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2010 Alfredo Morresi
+This file is part of WebcamHolmes project.
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+this program; If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<Items>
+<Category>
+	<AliasId>12</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>New York traffic</Name>
+	<ParentAliasId>0</ParentAliasId>
+</Category>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/webcam/new-york-live.jpg</ImageUrl>
+	<Name>New York West side skyline </Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam2.jpg</ImageUrl>
+	<Name>New York skyline 2</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam3.jpg</ImageUrl>
+	<Name>New York skyline 3</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://wirednewyork.com/images/webcams/wired-new-york-webcam4.jpg</ImageUrl>
+	<Name>New York skyline 4</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.cafe52.com:8081/bigstream</ImageUrl>
+	<Name>Woodside</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/skygwb.jpg</ImageUrl>
+	<Name>George Washington Bridge</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.earthcam.com/ec_metros/newyork/newyork/millenium.jpg</ImageUrl>
+	<Name>Ground Zero</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.earthcam.com/ec_metros/newyork/newyork/liberty.jpg</ImageUrl>
+	<Name>Statue of Liberty</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>20</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.hazecam.net/images/photos-main/newark.jpg</ImageUrl>
+	<Name>New York panorama from Newark</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/brooklyn.jpg</ImageUrl>
+	<Name>Lower Manhattan and Brooklyn bridge</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://abclocal.go.com/three/wabc/webcam/skycpk.jpg</ImageUrl>
+	<Name>Central Park</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.erikthered.com/cam/reshcam_current.jpg</ImageUrl>
+	<Name>Pier "A" park</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.westinnewyorktimessquareview.com/view_live1.jpg</ImageUrl>
+	<Name>Empire State Building from The Westin New York At Times Square</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://about.brooklyn.ru/webcam/new-brooklyn.jpg</ImageUrl>
+	<Name>Street in Brooklyn</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248986308.jpg</ImageUrl>
+	<Name>Brooklyn Bridge @ Centre Street</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248986308</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256910012.jpg</ImageUrl>
+	<Name>Baxter @ Canal Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256910012</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1187115779.jpg</ImageUrl>
+	<Name>New York</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Mike77</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/5970</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1187115779</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987059.jpg</ImageUrl>
+	<Name>Bowery @ Canal Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987059</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256909910.jpg</ImageUrl>
+	<Name>Manhattan Bridge - Manhattan Side</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256909910</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248986709.jpg</ImageUrl>
+	<Name>FDR Drive @ Catherine Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248986709</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256913948.jpg</ImageUrl>
+	<Name>Holland Tunnel</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256913948</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987758.jpg</ImageUrl>
+	<Name>Trinity @ Brooklyn Battery Tunnel</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987758</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248987367.jpg</ImageUrl>
+	<Name>FDR Drive @ Old Slip</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248987367</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1195836542.jpg</ImageUrl>
+	<Name>Manhattan Live! A New York City Live-Cam in the heart of Greenwich Village!</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>cnyc</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/8302</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1195836542</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1254040512.jpg</ImageUrl>
+	<Name>WBB Manhattan Entrance</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1254040512</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1285780579.jpg</ImageUrl>
+	<Name>14th St, NYC</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>joemaller</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/91542</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1285780579</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1253371660.jpg</ImageUrl>
+	<Name>BQE @ Brooklyn Navy Yard</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1253371660</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1257594409.jpg</ImageUrl>
+	<Name>6 Avenue @ 34 Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1257594409</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795367.jpg</ImageUrl>
+	<Name>8th Avenue @ 34th Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795367</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795552.jpg</ImageUrl>
+	<Name>9th Avenue @ 34th Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795552</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1256909784.jpg</ImageUrl>
+	<Name>Queens Midtown Tunnel @ Manhattan Bound</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Jamie Le Cornu mario</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/55310</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1256909784</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248795439.jpg</ImageUrl>
+	<Name>8th Avenue @ 42nd Street</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248795439</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1249127639.jpg</ImageUrl>
+	<Name>Broadway and 46 Street - Times Square New York, New York</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azz3879</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/64574</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1249127639</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1248985924.jpg</ImageUrl>
+	<Name>8th Avenue @ 59th Street/Columbus Circle</Name>
+	<ParentAliasId>12</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Flying Saucer</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/52158</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1248985924</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1251810612.jpg</ImageUrl>
+	<Name>New York</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>ASTRA.H2M.RU</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/12707</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1251810612</FreeData3>
+</Webcam>
+</Items>

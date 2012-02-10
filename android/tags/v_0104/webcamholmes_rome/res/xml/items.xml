@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2010 Alfredo Morresi
+This file is part of WebcamHolmes project.
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+this program; If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<Items>
+<Category>
+	<AliasId>3</AliasId>
+	<UserCreated>false</UserCreated>
+	<Name>Traffic</Name>
+	<ParentAliasId>0</ParentAliasId>
+</Category>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/conciliazione.jpg</ImageUrl>
+	<Name>Saint Peter's square</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/radiovaticana.jpg</ImageUrl>
+	<Name>Dome of Saint Peter's</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/sepolcroGP2.jpg</ImageUrl>
+	<Name>Tomb of Pope John Paul II</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/bracciocarlo.jpg</ImageUrl>
+	<Name>Saint Peter's Basilica</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/castello.jpg</ImageUrl>
+	<Name>Castel Gandolfo</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.vaticanstate.va/images/webcam/governatorato.jpg</ImageUrl>
+	<Name>Vatican Governorate</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.westinexcelsiorromeview.com/view_live1.jpg</ImageUrl>
+	<Name>Via Veneto from The Westin Excelsior</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.sheratonromeview.com/view_live1.jpg</ImageUrl>
+	<Name>The Square Colosseum from the Sheraton</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.ramsat.191.it/public_html/roma_italy_resize_zoom_e1200.jpg</ImageUrl>
+	<Name>Rome's panorama</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.hoteledenview.com/view_live1.jpg</ImageUrl>
+	<Name>Rome's Skyline from Hotel Eden</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://cam.stregisgrandromeview.com/view_live1.jpg</ImageUrl>
+	<Name>Rome's Skyline from St. Regis Grand Hotel</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>60</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.barcello.it/images/meteo/axis.jpg</ImageUrl>
+	<Name>Rome's panorama with Saint Peters</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>900</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://www.naturamediterraneo.com/roma/ispy.jpg</ImageUrl>
+	<Name>Appia Antica's Park</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1278494738.jpg</ImageUrl>
+	<Name>Rome, Italy, inc. Roman Forum</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Network Webcams</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/34609</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1278494738</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1284449903.jpg</ImageUrl>
+	<Name>Roma, Phantheon</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azzurro</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1284449903</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1200416228.jpg</ImageUrl>
+	<Name>Rome, Roma</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Alexs</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/9308</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1200416228</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://images.webcams.travel/webcam/1262442918.jpg</ImageUrl>
+	<Name>Roma, panorama</Name>
+	<ParentAliasId>0</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>30</ReloadInterval>
+	<Type>2</Type>
+	<FreeData1>Azzurro</FreeData1>
+	<FreeData2>http://www.webcams.travel/user/39311</FreeData2>
+	<FreeData3>http://www.webcams.travel/webcam/1262442918</FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://get.edidomus.it/vp/cam29/image.jpg</ImageUrl>
+	<Name>GRA - Fiumicino entrata Eur</Name>
+	<ParentAliasId>3</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+<Webcam>
+	<UserCreated>false</UserCreated>
+	<ImageUrl>http://get.edidomus.it/vp/cam27/image.jpg</ImageUrl>
+	<Name>GRA - Appia Tuscolana</Name>
+	<ParentAliasId>3</ParentAliasId>
+	<Preferred>false</Preferred>
+	<ReloadInterval>10</ReloadInterval>
+	<Type>1</Type>
+	<FreeData1></FreeData1>
+	<FreeData2></FreeData2>
+	<FreeData3></FreeData3>
+</Webcam>
+</Items>
