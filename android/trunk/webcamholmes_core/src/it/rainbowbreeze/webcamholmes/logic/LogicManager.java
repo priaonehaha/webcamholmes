@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -21,10 +21,9 @@ package it.rainbowbreeze.webcamholmes.logic;
 import java.io.File;
 
 import it.rainbowbreeze.libs.R;
-import it.rainbowbreeze.libs.common.RainbowAppGlobalBag;
 import it.rainbowbreeze.libs.common.RainbowResultOperation;
-import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.libs.logic.RainbowLogicManager;
+import it.rainbowbreeze.webcamholmes.common.LogFacility;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
@@ -53,13 +52,12 @@ public class LogicManager extends RainbowLogicManager {
 	 * @param itemsDao
 	 */
 	public LogicManager(
-			RainbowLogFacility logFacility,
+			LogFacility logFacility,
 			AppPreferencesDao appPreferencesDao,
-			RainbowAppGlobalBag globalBag,
-			String currentAppVersion,
+            String currentAppVersion,
 			ItemsDao itemsDao)
 	{
-		super(logFacility, appPreferencesDao, globalBag, currentAppVersion);
+		super(logFacility, appPreferencesDao, currentAppVersion);
 		mItemsDao = checkNotNull(itemsDao);
 		mAppPreferencesDao = appPreferencesDao;
 	}

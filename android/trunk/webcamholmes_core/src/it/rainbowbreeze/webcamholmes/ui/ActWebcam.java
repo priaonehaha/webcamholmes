@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -21,17 +21,14 @@ package it.rainbowbreeze.webcamholmes.ui;
 import java.io.File;
 
 import it.rainbowbreeze.libs.common.RainbowResultOperation;
-import it.rainbowbreeze.libs.common.RainbowServiceLocator;
 import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.libs.media.RainbowImageMediaHelper;
 import it.rainbowbreeze.webcamholmes.R;
-import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.common.AppEnv;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
-import it.rainbowbreeze.webcamholmes.data.IImageUrlProvider;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemWebcam;
-import it.rainbowbreeze.webcamholmes.logic.GlobalHelper;
 import it.rainbowbreeze.webcamholmes.logic.LoadImageTask;
 import it.rainbowbreeze.webcamholmes.logic.SaveWebcamImageThread;
 import android.app.Activity;
@@ -104,17 +101,19 @@ public class ActWebcam
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
-        mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        mAppPreferencesDao = checkNotNull(RainbowServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
-        mItemsDao = checkNotNull(RainbowServiceLocator.get(ItemsDao.class), "ItemsDao");
-        mImageMediaHelper = checkNotNull(RainbowServiceLocator.get(RainbowImageMediaHelper.class), "ImageMediaHelper");
+        AppEnv appEnv = AppEnv.i(getApplicationContext());
+        mLogFacility = appEnv.getLogFacility();
+        mItemsDao = appEnv.getItemsDao();
+        mActivityHelper = appEnv.getActivityHelper();
+        mAppPreferencesDao = appEnv.geAppPreferencesDao();
+        mImageMediaHelper = appEnv.getImageMediaHelper();
         
+        mLogFacility.logStartOfActivity(getClass(), savedInstanceState);
         getDataFromIntent(getIntent());
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     	setContentView(R.layout.actwebcam);
-        setTitle(String.format(getString(R.string.actwebcam_lblTitle), App.APP_DISPLAY_NAME, mWebcam.getName()));
+        setTitle(String.format(getString(R.string.actwebcam_lblTitle), appEnv.APP_DISPLAY_NAME, mWebcam.getName()));
 
         configureLayoutForWebcamType();
         
@@ -364,24 +363,24 @@ public class ActWebcam
 	 * Starts the ASyncTask that loads webcam image
 	 */
 	private void startWebcamLoadTask() {
-		if (GlobalHelper.isOnline(this)) {
-			IImageUrlProvider imageUrlProvider;
-			try {
-				imageUrlProvider = App.i().getImageUrlProvider();
-				mLoadWebcamTask = new LoadImageTask(
-						imageUrlProvider, mWebcam, getWindow(), mImgWebcam, App.i().getFailWebcamBitmap());
-				mLoadWebcamTask.execute();
-				mReloadPaused = false;
-				return;
-			} catch (Exception e) {
-				mActivityHelper.reportError(this, e, ResultOperation.RETURNCODE_ERROR_GENERIC);
-			}
-		} else {
-			mActivityHelper.reportError(this, new Exception(), ResultOperation.RETURNCODE_ERROR_COMMUNICATION);
-		}
-		mImgWebcam.setImageResource(R.drawable.no_connection);
-		mLoadWebcamTask = null;
-		mReloadPaused = true;
+//		if (GlobalHelper.isOnline(this)) {
+//			IImageUrlProvider imageUrlProvider;
+//			try {
+//				imageUrlProvider = App.i().getImageUrlProvider();
+//				mLoadWebcamTask = new LoadImageTask(
+//						imageUrlProvider, mWebcam, getWindow(), mImgWebcam, App.i().getFailWebcamBitmap());
+//				mLoadWebcamTask.execute();
+//				mReloadPaused = false;
+//				return;
+//			} catch (Exception e) {
+//				mActivityHelper.reportError(this, e, ResultOperation.RETURNCODE_ERROR_GENERIC);
+//			}
+//		} else {
+//			mActivityHelper.reportError(this, new Exception(), ResultOperation.RETURNCODE_ERROR_COMMUNICATION);
+//		}
+//		mImgWebcam.setImageResource(R.drawable.no_connection);
+//		mLoadWebcamTask = null;
+//		mReloadPaused = true;
 	}
 	
 
@@ -412,7 +411,7 @@ public class ActWebcam
 				ActWebcam.this,
 				mActivityHandler,
 				mImgWebcam,
-				App.WEBCAM_IMAGE_DUMP_FILE,
+				AppEnv.WEBCAM_IMAGE_DUMP_FILE,
 				SaveWebcamImageThread.AT_THE_END_FULLSCREEN);
 		mSaveWebcamImageThread.start();
 	}

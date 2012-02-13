@@ -1,5 +1,6 @@
 TODO
 
+-mettere urlConnection.disconnect()
 -solve the link between imageDao and App in ActWebcam class
 -reset salvataggio categoria padre se non esiste piu'
 -aggiungere i campi tipo login e pwd sulla webcam per futuri utilizzi, vedere i programmi che gia' ne hanno

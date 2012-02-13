@@ -20,8 +20,8 @@
  <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="it.rainbowbreeze.webcamholmes" 
-	android:versionName="1.4"
-	android:versionCode="12"
+	android:versionName="2.0"
+	android:versionCode="14"
 >
 <!--	android:installLocation="auto"-->
 
@@ -31,7 +31,7 @@
     	android:name="it.rainbowbreeze.webcamholmes.common.App"
 	>
         <activity
-        	android:name=".ui.ActSplashScreen"
+        	android:name=".ui.SplashscreenActivity"
 			android:label="@string/common_appName"
 		>
             <intent-filter>

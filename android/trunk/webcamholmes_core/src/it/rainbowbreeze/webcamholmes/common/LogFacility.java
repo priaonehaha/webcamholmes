@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Alfredo Morresi
+ * Copyright (C) 2012 Alfredo Morresi
  * 
  * This file is part of WebcamHolmes project.
  * 
@@ -16,24 +16,29 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
-package it.rainbowbreeze.webcamholmes.data;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
+package it.rainbowbreeze.webcamholmes.common;
 
-import android.graphics.Bitmap;
+import it.rainbowbreeze.libs.common.RainbowLogFacility;
 
-public interface IImageUrlProvider {
+/**
+ * @author rainbowbreeze
+ *
+ */
+public class LogFacility extends RainbowLogFacility {
+    //---------- Private fields
 
-	//---------- Public methods
-	/**
-	 * Load an image from an URL and put it in a Bitmap
-	 * 
-	 * @param imagePath
-	 * @return the bitmap with the image or null if some errors happened
-	 * @throws MalformedURLException 
-	 * @throws IOException 
-	 */
-	public abstract Bitmap loadBitmap(final String imagePath) throws MalformedURLException, IOException;
+    //---------- Constructor
+    public LogFacility(String tag) {
+        super(tag);
+        // TODO Auto-generated constructor stub
+    }
 
+    //---------- Public properties
+
+    //---------- Events
+
+    //---------- Public methods
+
+    //---------- Private methods
 }

@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of SmsForFree project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -22,7 +22,7 @@ package it.rainbowbreeze.webcamholmes.ui;
 import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.libs.ui.RainbowActivityHelper;
 import it.rainbowbreeze.webcamholmes.R;
-import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.common.AppEnv;
 import it.rainbowbreeze.webcamholmes.common.ResultOperation;
 
 import java.util.Map;
@@ -94,10 +94,10 @@ public class ActivityHelper
 		openSettingsMain(
 				callerActivity,
 				mustSendLogReport,
-				App.APP_DISPLAY_NAME,
-				App.APP_INTERNAL_VERSION,
-				App.EMAIL_FOR_LOG,
-				App.LOG_TAG);
+				AppEnv.i(callerActivity).APP_DISPLAY_NAME,
+				AppEnv.APP_INTERNAL_VERSION,
+				AppEnv.EMAIL_FOR_ERROR_LOG,
+				AppEnv.LOG_TAG);
 	}
 	
 	/**

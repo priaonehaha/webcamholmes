@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2010 Alfredo Morresi
  * 
- * This file is part of Webcam project.
+ * This file is part of WebcamHolmes project.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -24,7 +24,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
 import it.rainbowbreeze.libs.data.RainbowAppPreferencesDao;
-import it.rainbowbreeze.libs.helper.RainbowStringHelper;
+import it.rainbowbreeze.libs.helper.RainbowArrayHelper;
 
 public class AppPreferencesDao
 	extends RainbowAppPreferencesDao
@@ -64,7 +64,7 @@ public class AppPreferencesDao
 		
 	}
     public boolean setResourcesToRemove(String[] newValue){
-    	mEditor.putString(PROP_RESOURCE_TO_REMOVE, RainbowStringHelper.join(newValue, RESOURCES_SEPARATOR));
+    	mEditor.putString(PROP_RESOURCE_TO_REMOVE, RainbowArrayHelper.join(newValue, RESOURCES_SEPARATOR));
     	return save();
 	}
     public boolean addResourceToRemove(String newValue){

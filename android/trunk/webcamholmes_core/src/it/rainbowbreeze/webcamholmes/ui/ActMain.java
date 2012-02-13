@@ -26,6 +26,7 @@ import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.libs.logic.RainbowSendStatisticsTask;
 import it.rainbowbreeze.webcamholmes.R;
 import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.common.AppEnv;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.domain.ItemToDisplay;
@@ -88,13 +89,15 @@ public class ActMain
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mLogFacility = checkNotNull(RainbowServiceLocator.get(RainbowLogFacility.class), "LogFacility");
-        mItemsDao = checkNotNull(RainbowServiceLocator.get(ItemsDao.class), "ItemsDao");
-        mActivityHelper = checkNotNull(RainbowServiceLocator.get(ActivityHelper.class), "ActivityHelper");
-        mAppPreferencesDao = checkNotNull(RainbowServiceLocator.get(AppPreferencesDao.class), "AppPreferencesDao");
+        AppEnv appEnv = AppEnv.i(getApplicationContext());
+        mLogFacility = appEnv.getLogFacility();
+        mItemsDao = appEnv.getItemsDao();
+        mActivityHelper = appEnv.getActivityHelper();
+        mAppPreferencesDao = appEnv.geAppPreferencesDao();
         
+        mLogFacility.logStartOfActivity(getClass(), savedInstanceState);
         setContentView(R.layout.actmain);
-        setTitle(String.format(getString(R.string.actmain_lblTitle), App.APP_DISPLAY_NAME));
+        setTitle(String.format(getString(R.string.actmain_lblTitle), appEnv.APP_DISPLAY_NAME));
         
         mItemsToDisplay = new ArrayList<ItemToDisplay>();
         this.mItemsAdapter = new ItemToDisplayAdapter(this, R.layout.lstitemtodisplay, mItemsToDisplay);
@@ -112,9 +115,9 @@ public class ActMain
 	        		mLogFacility,
 	        		mActivityHelper,
 	        		this,
-	        		App.STATISTICS_WEBSERVER_URL,
-	        		App.APP_INTERNAL_NAME,
-	        		App.APP_INTERNAL_VERSION,
+	        		AppEnv.STATISTICS_WEBSERVER_URL,
+	        		AppEnv.APP_INTERNAL_NAME,
+	        		AppEnv.APP_INTERNAL_VERSION,
 	        		String.valueOf(mAppPreferencesDao.getUniqueId()));
 	        Thread t = new Thread(statsTask);
 	        t.start();
@@ -123,7 +126,7 @@ public class ActMain
 	    	restoreLastRunViewValues();
 	    	
 	    	//show info dialog, if needed
-	    	if (App.i().isFirstRunAfterUpdate())
+	    	if (appEnv.isFirstRunAfterUpdate())
 	    		showDialog(DIALOG_STARTUP_INFOBOX);
     	}
     }
@@ -212,7 +215,7 @@ public class ActMain
 			break;
 			
 		case OPTIONMENU_ABOUT:
-			mActivityHelper.openAbout(this, App.APP_DISPLAY_NAME, App.APP_DISPLAY_VERSION, App.EMAIL_FOR_LOG);
+			mActivityHelper.openAbout(this, AppEnv.i(getApplicationContext()).APP_DISPLAY_NAME, AppEnv.APP_DISPLAY_VERSION, AppEnv.EMAIL_FOR_ERROR_LOG);
 			break;
 			
 		case OPTIONMENU_DISCOVER_NEW_WEBCAM:

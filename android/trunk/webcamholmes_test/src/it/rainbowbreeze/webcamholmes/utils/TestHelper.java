@@ -21,6 +21,8 @@ package it.rainbowbreeze.webcamholmes.utils;
 import android.content.Context;
 import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.webcamholmes.common.App;
+import it.rainbowbreeze.webcamholmes.common.AppEnv;
+import it.rainbowbreeze.webcamholmes.common.LogFacility;
 import it.rainbowbreeze.webcamholmes.data.AppPreferencesDao;
 import it.rainbowbreeze.webcamholmes.data.ItemsDao;
 import it.rainbowbreeze.webcamholmes.logic.LogicManager;
@@ -33,8 +35,8 @@ public class TestHelper {
 	//---------- Private fields
 	private static final String LOG_TAG = "WebcamHolmes-Test";
 
-	private static RainbowLogFacility mLogFacility;
-	private static App mApp;
+	private static LogFacility mLogFacility;
+	private static AppEnv mApp;
 	
 	
 	
@@ -54,13 +56,13 @@ public class TestHelper {
 		{ return mLogFacility; }
 		
 		public static AppPreferencesDao getAppPreferencesDao(Context context)
-		{ return new AppPreferencesDao(context, App.APP_PREFERENCES_KEY); }
+		{ return new AppPreferencesDao(context, AppEnv.APP_PREFERENCES_KEY); }
 		
 		public static ItemsDao getItemsDao(Context context)
 		{ return new ItemsDao(context, mLogFacility); }
 		
 		public static LogicManager getLogicManager(Context context)
-		{ return new LogicManager(mLogFacility, getAppPreferencesDao(context), mApp, App.APP_INTERNAL_VERSION, getItemsDao(context)); }
+		{ return new LogicManager(mLogFacility, getAppPreferencesDao(context), AppEnv.APP_INTERNAL_VERSION, getItemsDao(context)); }
 
 
 	}

@@ -26,11 +26,9 @@ import java.lang.ref.WeakReference;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.widget.ImageView;
-import it.rainbowbreeze.libs.common.RainbowResultOperation;
 import it.rainbowbreeze.libs.common.RainbowLogFacility;
 import it.rainbowbreeze.libs.logic.RainbowBaseBackgroundThread;
 import it.rainbowbreeze.libs.media.RainbowImageMediaHelper;
@@ -44,7 +42,7 @@ import static it.rainbowbreeze.libs.common.RainbowContractHelper.*;
  * @author Alfredo "Rainbowbreeze" Morresi
  *
  */
-public class SaveWebcamImageThread extends RainbowBaseBackgroundThread<String> {
+public class SaveWebcamImageThread extends RainbowBaseBackgroundThread<ResultOperation<String>, String> {
 
 	//---------- Private fields
 	private final RainbowLogFacility mLogFacility;
@@ -98,7 +96,8 @@ public class SaveWebcamImageThread extends RainbowBaseBackgroundThread<String> {
 			Handler handler,
 			String fileName,
 			int actionToPerformAtTheEnd) {
-		super(context, handler);
+	    //TODO fix with right parameter
+		super(context, handler, 333);
 		mLogFacility = checkNotNull(logFacility, "BaseLogFacility");
 		mMediaHelper = checkNotNull(imageMediaHelper, "BaseImageMediaHelper");
 		mDumpFileName = checkNotNullOrEmpty(fileName, "Dump file name");
@@ -118,42 +117,45 @@ public class SaveWebcamImageThread extends RainbowBaseBackgroundThread<String> {
 	
 	
 	//---------- Public methods
-	/* (non-Javadoc)
-	 * @see it.rainbowbreeze.libs.logic.BaseBackgroundThread#run()
-	 */
-	@Override
-	public void run() {
-		Bitmap bitmap = null;
+    /* (non-Javadoc)
+     * @see it.rainbowbreeze.libs.logic.RainbowBaseBackgroundThread#executeTask()
+     */
+    @Override
+    public ResultOperation<String> executeTask() {
+        Bitmap bitmap = null;
 
-		//extract bitmap
-		if (null == mBitmapToDump && null != mImageViewWithBitmapToDump.get()) {
-			BitmapDrawable drawableBitmap = (BitmapDrawable) mImageViewWithBitmapToDump.get().getDrawable();
-			if (null != drawableBitmap)
-				bitmap = drawableBitmap.getBitmap();
-		} else if (null != mBitmapToDump) {
-			bitmap = mBitmapToDump.get();
-		}
-		
-		if (null == bitmap) {
-			mLogFacility.v("Cannot obtain a bitmap from the ImageView");
-			mResultOperation = new RainbowResultOperation<String>(ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE, "Cannot obtain a bitmap from the ImageView");
-		} else {
-			//save the image
-			if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd) {
-				mLogFacility.v("Dump bitmap to PNG file " + mDumpFileName);
-				mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.PNG, 9);
-			} else {
-				mLogFacility.v("Dump bitmap to JPG file " + mDumpFileName);
-				mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.JPEG, 85);
-			}
-		}
-		
-		//and call the caller activity handler when the execution is terminated
-		if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd)
-			callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN);
-		else 
-			callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE);
-	}
+        //extract bitmap
+        if (null == mBitmapToDump && null != mImageViewWithBitmapToDump.get()) {
+            BitmapDrawable drawableBitmap = (BitmapDrawable) mImageViewWithBitmapToDump.get().getDrawable();
+            if (null != drawableBitmap)
+                bitmap = drawableBitmap.getBitmap();
+        } else if (null != mBitmapToDump) {
+            bitmap = mBitmapToDump.get();
+        }
+        
+//        if (null == bitmap) {
+            mLogFacility.v("Cannot obtain a bitmap from the ImageView");
+            mResultOperation = new ResultOperation<String>(ResultOperation.RETURNCODE_ERROR_APPLICATION_ARCHITECTURE, "Cannot obtain a bitmap from the ImageView");
+//        } else {
+//            //save the image
+//            if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd) {
+//                mLogFacility.v("Dump bitmap to PNG file " + mDumpFileName);
+//                mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.PNG, 9);
+//            } else {
+//                mLogFacility.v("Dump bitmap to JPG file " + mDumpFileName);
+//                mResultOperation = mMediaHelper.saveImage(getContext(), bitmap, mDumpFileName, CompressFormat.JPEG, 85);
+//            }
+//        }
+        
+        //and call the caller activity handler when the execution is terminated
+        if (AT_THE_END_FULLSCREEN == mActionToPerformAtTheEnd)
+            callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE_FOR_FULLSCREEN);
+        else 
+            callHandlerAndRetry(WHAT_DUMP_WEBCAM_IMAGE_FOR_SHARE);
+        
+        //NEW
+        return mResultOperation;
+    }
 
 	
 	

@@ -47,9 +47,9 @@
 
 
 	<!-- ActWebcam -->
-    <string name="actwebcam_lblTitle">%s - %s</string>
+    <string name="actwebcam_lblTitle">%1$s - %2$s</string>
     <string name="actwebcam_lblWebcamtravelLogo">Webcams provided by &lt;A HREF="http://webcams.travel"&gt;webcams.travel&lt;/A&gt;</string>
-    <string name="actwebcam_lblWebcamtravelUserText">&lt;A HREF="%s"&gt;Webcam&lt;/A&gt; owned by &lt;A HREF="%s"&gt;%s&lt;/A&gt;</string>
+    <string name="actwebcam_lblWebcamtravelUserText">&lt;A HREF="%1$s"&gt;Webcam&lt;/A&gt; owned by &lt;A HREF="%2$s"&gt;%3$s&lt;/A&gt;</string>
     <string name="actwebcam_mnuReload">Force reload</string>
     <string name="actwebcam_mnuStartReload">Restart autoreload</string>
     <string name="actwebcam_mnuStopReload">Pause autoreload</string>

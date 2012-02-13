@@ -5,5 +5,8 @@
 	<classpathentry kind="src" path="RainbowLibs"/>
 	<classpathentry kind="src" path="WebcamHolmesCore"/>
 	<classpathentry kind="lib" path="/WebcamHolmesCore/libs/admob-sdk-android.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="RainbowLibs_src"/>
+	<classpathentry kind="src" path="WebcamHolmesCore_src"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
