@@ -96,8 +96,8 @@ public class App
 
 	/** First run after an update of the application */
 	protected boolean mFirstRunAfterUpdate;
-	public void setFirstRunAfterUpdate(boolean newValue)
-	{ mFirstRunAfterUpdate = newValue; }
+	public RainbowAppGlobalBag setFirstRunAfterUpdate(boolean newValue)
+	{ mFirstRunAfterUpdate = newValue; return this; }
 	public boolean isFirstRunAfterUpdate()
 	{ return mFirstRunAfterUpdate; }
 
