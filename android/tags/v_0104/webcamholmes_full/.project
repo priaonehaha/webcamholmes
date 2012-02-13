@@ -31,15 +31,5 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 	<linkedResources>
-		<link>
-			<name>RainbowLibs</name>
-			<type>2</type>
-			<locationURI>_android_RainbowLibs/src</locationURI>
-		</link>
-		<link>
-			<name>WebcamHolmesCore</name>
-			<type>2</type>
-			<locationURI>_android_WebcamHolmesCore/src</locationURI>
-		</link>
 	</linkedResources>
 </projectDescription>
